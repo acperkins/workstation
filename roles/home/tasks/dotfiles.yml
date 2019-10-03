@@ -23,3 +23,7 @@
   copy:
     src: tmux.conf
     dest: "{{ ansible_env.HOME }}/.tmux.conf"
+- name: Copy redshift.con
+  copy:
+    src: redshift.conf
+    dest: "{{ ansible_env.HOME }}/.config/redshift.conf"
