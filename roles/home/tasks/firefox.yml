@@ -1,0 +1,10 @@
+---
+- name: Check for profiles.ini
+  stat:
+    path: "{{ ansible_env.HOME }}/.mozilla/firefox/profiles.ini"
+  register: profile_ini
+- name: Get Firefox profile name
+  copy:
+    src: user.js
+    dest: "{{ ansible_env.HOME }}/.mozilla/firefox/{{ lookup('ini', 'Path section=Profile0 file={{ ansible_env.HOME }}/.mozilla/firefox/profiles.ini') }}/user.js"
+  when: profile_ini.stat.exists
