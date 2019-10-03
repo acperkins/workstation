@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ -r /etc/profile ]; then
+    . /etc/profile
+fi
+
+export BASH_ENV="$HOME/.bashrc"
+export BLOCKSIZE="K"
+export EDITOR="vi"
+export ENV="$HOME/.shrc"
+export LANG="en_GB.UTF-8"
+export PAGER="less"
+
+if [ -r $HOME/.profile.$(hostname -s) ]; then
+    . $HOME/.profile.$(hostname -s)
+fi

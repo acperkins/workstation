@@ -1,0 +1,5 @@
+---
+- name: Clone vim settings
+  git:
+    repo: https://git.acperkins.com/acp/vimfiles.git
+    dest: "{{ ansible_env.HOME }}/.vim"

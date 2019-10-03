@@ -1,0 +1,8 @@
+---
+- name: Setup
+  hosts: localhost
+  tasks:
+    - include_role:
+        name: distro
+    - include_role:
+        name: home

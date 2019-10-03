@@ -1,0 +1,21 @@
+---
+- name: Copy .bashrc
+  copy:
+    src: bashrc
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+- name: Copy .bash_profile
+  copy:
+    src: bash_profile
+    dest: "{{ ansible_env.HOME }}/.bash_profile"
+- name: Copy .profile
+  copy:
+    src: profile
+    dest: "{{ ansible_env.HOME }}/.profile"
+- name: Copy .shrc
+  copy:
+    src: shrc
+    dest: "{{ ansible_env.HOME }}/.shrc"
+- name: Copy .zshrc
+  copy:
+    src: zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"

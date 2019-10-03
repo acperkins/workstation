@@ -1,0 +1,25 @@
+---
+- name: Copy .Xresources
+  copy:
+    src: Xresources
+    dest: "{{ ansible_env.HOME }}/.Xresources"
+- name: Copy .fonts.conf
+  copy:
+    src: fonts.conf
+    dest: "{{ ansible_env.HOME }}/.fonts.conf"
+- name: Copy .gitconfig
+  copy:
+    src: gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+- name: Copy .inputrc
+  copy:
+    src: inputrc
+    dest: "{{ ansible_env.HOME }}/.inputrc"
+- name: Copy .tmux.conf
+  copy:
+    src: tmux.conf
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+- name: Copy .hushlogin
+  copy:
+    src: hushlogin
+    dest: "{{ ansible_env.HOME }}/.hushlogin"

@@ -1,0 +1,228 @@
+#!/bin/sh
+
+umask 0022
+
+set -o emacs
+set -o noclobber
+
+# Locale and language.
+export LC_ALL=
+export LANG="en_GB.UTF-8"
+export LANGUAGE="en_GB:en"
+export LC_ADDRESS="en_GB.UTF-8"
+export LC_COLLATE="en_GB.UTF-8"
+export LC_CTYPE="en_GB.UTF-8"
+export LC_IDENTIFICATION="en_GB.UTF-8"
+export LC_MEASUREMENT="en_GB.UTF-8"
+export LC_MESSAGES="en_GB.UTF-8"
+export LC_MONETARY="en_GB.UTF-8"
+export LC_NAME="en_GB.UTF-8"
+export LC_NUMERIC="en_GB.UTF-8"
+export LC_PAPER="en_GB.UTF-8"
+export LC_TELEPHONE="en_GB.UTF-8"
+export LC_TIME="en_GB.UTF-8"
+export PAPERSIZE="a4"
+export TIME_STYLE="long-iso"
+
+# Other exports.
+export EDITOR=vi
+export PYTHONWARNINGS="ignore::UserWarning"
+
+if [ "$SHELL" = "/bin/sh" ]; then
+    export PS1='\$ '
+else
+    export PS1='${SSH_TTY:+[$(id -un)@$(hostname -s)]}\$ '
+fi
+
+if [ "$BASH" ]; then
+    shopt -s histappend
+    bind '"\e[1;5C": forward-word'
+    bind '"\e[1;5D": backward-word'
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
+
+if [ "$ZSH_VERSION" ]; then
+    # Command history.
+    autoload -U history-search-end
+    zle -N history-beginning-search-backward-end history-search-end
+    zle -N history-beginning-search-forward-end history-search-end
+    bindkey "^[[A" history-beginning-search-backward-end
+    bindkey "^[[B" history-beginning-search-forward-end
+    bindkey "^[OA" history-beginning-search-backward-end
+    bindkey "^[OB" history-beginning-search-forward-end
+
+    bindkey "^[[1;5C" forward-word  # Ctrl-Right
+    bindkey "^[[1;5D" backward-word  # Ctrl-Left
+    bindkey "^[[3;5~" delete-char  # Ctrl-Del
+    bindkey "^[[3~" delete-char  # Del
+    export HISTFILE=$HOME/.zsh_history
+    export HISTSIZE=1000000
+    export SAVEHIST=1000000
+    setopt EXTENDED_HISTORY
+    setopt HIST_IGNORE_ALL_DUPS
+    setopt HIST_IGNORE_SPACE
+    setopt PROMPT_SUBST
+    setopt SHARE_HISTORY
+fi
+
+LSOPTIONS="-F"
+if ls --color=auto /dev/null 2>/dev/null 1>/dev/null; then
+    LSOPTIONS="$LSOPTIONS --color=auto"
+fi
+if [ "$(uname -s)" = "FreeBSD" ]; then
+    LSOPTIONS="$LSOPTIONS -G"
+fi
+
+alias adoc="asciidoctor -a stylesheet=$HOME/.asciidoctor.css"
+alias cal="ncal -w"
+alias df="df -x squashfs"
+alias ec="emacsclient -c"
+alias en="emacsclient -nw"
+alias f="fossil"
+alias ll="/bin/ls -l"
+alias ls="/bin/ls $LSOPTIONS"
+alias now="date +%Y%m%dT%H%M%S%z"
+alias nowu="date -u +%Y%m%dT%H%M%SZ"
+alias ta="$HOME/opt/textadept/textadept"
+alias tm="tmux -2 attach-session || tmux -2 new-session"
+alias wg="wordgrinder"
+alias ytmp3="youtube-dl -q -x --audio-format=mp3"
+
+if [ ! -d "$HOME/.local/bin" ]; then
+    /bin/mkdir -p "$HOME/.local/bin"
+fi
+
+# Alias vi to vim if it is installed
+if [ -x /usr/bin/vim ] || [ -x /usr/local/bin/vim ]; then
+    alias vi="vim"
+fi
+
+# Set up GOPATH
+export GOPATH="$HOME/data/go"
+if [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]; then
+    if [ ! -d "$GOPATH" ]; then
+        /bin/mkdir -p "$GOPATH/bin"
+        /bin/mkdir -p "$GOPATH/pkg"
+        /bin/mkdir -p "$GOPATH/src"
+    fi
+fi
+
+# Useful aliases for Podman and Docker
+alias prun="podman run --rm -it"
+alias prunx="podman run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
+alias drun="sudo docker run --rm -it"
+alias drunx="sudo docker run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
+
+PATH="/usr/bin:/bin"
+for dir in  $HOME/.local/bin \
+            $HOME/bin \
+            /app/bin \
+            /snap/bin \
+            /sbin \
+            /usr/sbin \
+            /usr/X11R6/bin \
+            /usr/X11R7/bin \
+            /usr/local/bin \
+            /usr/local/sbin \
+            /usr/pkg/bin \
+            /usr/pkg/sbin \
+            /usr/games \
+            /usr/local/heirloom-doctools/bin \
+            /var/lib/snapd/snap/bin \
+            $GOPATH/bin \
+            $HOME/.cargo/bin \
+    ; do
+    if [ -d "$dir" ]; then
+        PATH="$PATH:$dir"
+    fi
+done
+export PATH
+
+MANPATH="/usr/share/man"
+for dir in  $HOME/.local/share/man \
+            /usr/X11R6/man \
+            /usr/X11R7/man \
+            /usr/local/man \
+            /usr/pkg/man \
+            /usr/local/share/man \
+            /usr/local/heirloom-doctools/man \
+    ; do
+    if [ -d "$dir" ]; then
+        MANPATH="$MANPATH:$dir"
+    fi
+done
+export MANPATH
+
+mkcd () {
+    if [ $# -ne 1 ]; then
+        echo "mkcd: incorrect arguments (one directory required)." >&2
+        return 1
+    else
+        mkdir -p "$1"
+        cd "$1"
+    fi
+}
+
+termtitle () {
+    echo -en "\033]0;$1\007"
+}
+
+linapm () {
+    cat /sys/class/power_supply/BAT0/{status,capacity}
+}
+
+cman () {
+    # md: start bold
+    # us: start underline
+    # ue: end underline
+    # me: end bold, blink, and underline
+    env MANPAGER=less \
+        LESS_TERMCAP_md=$'\e[1;36m' \
+        LESS_TERMCAP_me=$'\e[0m' \
+        LESS_TERMCAP_us=$'\e[4;32m' \
+        LESS_TERMCAP_ue=$'\e[0m' \
+        /usr/bin/man "$1"
+}
+
+xa () {
+    OUT=$(xrandr --listactivemonitors | awk 'NR!=1{print " "$NF" "}')
+    for monitor in "${OUT}"; do
+        m=$(echo $monitor | sed 's/ //g')
+        xrandr --output $m --auto
+    done
+}
+
+if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]; then
+    alias dnf='yum'
+fi
+
+if [ -x /usr/bin/svnlite ] && [ ! -x /usr/local/bin/svn ]; then
+    alias svn='svnlite'
+    alias svnadmin='svnliteadmin'
+    alias svndumpfilter='svnlitedumpfilter'
+    alias svnlook='svnlitelook'
+    alias svnmucc='svnlitemucc'
+    alias svnrdump='svnliterdump'
+    alias svnserve='svnliteserve'
+    alias svnsync='svnlitesync'
+    alias svnversion='svnliteversion'
+fi
+
+case $- in
+    *i*)
+        # Shell is interactive
+        printf "\033[7m"
+        uname -sr
+        printf "\033[0m"
+        if [ -r /etc/os-release ]; then
+            echo "    $(. /etc/os-release; echo $PRETTY_NAME)"
+        fi
+        ;;
+    *)
+        ;;
+esac
+
+if [ -r $HOME/.shrc.$(hostname -s) ]; then
+    . $HOME/.shrc.$(hostname -s)
+fi

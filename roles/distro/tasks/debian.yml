@@ -1,0 +1,42 @@
+---
+- name: Install packages
+  become: true
+  apt:
+    name: '{{ packages }}'
+    state: present
+    force_apt_get: yes
+  vars:
+    packages:
+      - apt-file
+      - asciidoctor
+      - caja-open-terminal
+      - dc
+      - desktop-base
+      - dnsutils
+      - emacs
+      - evolution
+      - galculator
+      - git
+      - git-gui
+      - mc
+      - mpv
+      - nextcloud-desktop
+      - nmap
+      - packagekit
+      - python3
+      - realmd
+      - redshift-gtk
+      - remmina
+      - rxvt-unicode
+      - seahorse
+      - sqlite3
+      - sssd
+      - sudo
+      - task-british-desktop
+      - task-mate-desktop
+      - tlp
+      - tmux
+      - vim-gtk
+      - xinput
+      - xterm
+      - zsh

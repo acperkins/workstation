@@ -1,0 +1,38 @@
+---
+- name: Clone emacs settings
+  git:
+    repo: https://git.acperkins.com/acp/emacs.d.git
+    dest: "{{ ansible_env.HOME }}/.emacs.d"
+- name: Find emacs service definition
+  find:
+    paths: /usr/share/emacs
+    patterns: 'emacs.service'
+    recurse: yes
+    depth: 3
+  register: emacs_service_files
+- name: Create systemd user directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/systemd/user"
+    state: directory
+- name: Create emacs user service
+  copy:
+    src: '{{ item.path }}'
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/emacs.service"
+    remote_src: yes
+  loop: '{{ emacs_service_files.files }}'
+- name: Start emacs user service
+  systemd:
+    name: emacs.service
+    scope: user
+    daemon_reload: yes
+    enabled: yes
+    state: started
+- name: Create user applications directory
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share/applications"
+    state: directory
+- name: Create emacs client launcher
+  copy:
+    src: "{{ ansible_env.HOME }}/.emacs.d/emacs-client.desktop"
+    dest: "{{ ansible_env.HOME }}/.local/share/applications/emacs-client.desktop"
+    remote_src: yes

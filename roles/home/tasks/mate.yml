@@ -1,0 +1,6 @@
+---
+- name: Copy MATE panel layout
+  become: true
+  copy:
+    src: mate-acp.layout
+    dest: /usr/share/mate-panel/layouts/acp.layout
