@@ -1,9 +1,9 @@
 ---
 - include: dirs.yml
 
-- include: repos.yml
-- include: vim.yml
-- include: shell.yml
+- include: dotfiles.yml
 - include: emacs.yml
-- include: mate.yml
 - include: firefox.yml
+- include: mate.yml
+- include: shell.yml
+- include: vim.yml
