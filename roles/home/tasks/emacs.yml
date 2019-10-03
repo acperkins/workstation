@@ -10,10 +10,6 @@
     recurse: yes
     depth: 3
   register: emacs_service_files
-- name: Create systemd user directory
-  file:
-    path: "{{ ansible_env.HOME }}/.config/systemd/user"
-    state: directory
 - name: Create Emacs user service
   copy:
     src: '{{ item.path }}'
@@ -27,10 +23,6 @@
     daemon_reload: yes
     enabled: yes
     state: started
-- name: Create user applications directory
-  file:
-    path: "{{ ansible_env.HOME }}/.local/share/applications"
-    state: directory
 - name: Create Emacs client launcher
   copy:
     src: "{{ ansible_env.HOME }}/.emacs.d/emacs-client.desktop"

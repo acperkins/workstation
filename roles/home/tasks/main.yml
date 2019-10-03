@@ -1,4 +1,6 @@
 ---
+- include: dirs.yml
+
 - include: repos.yml
 - include: vim.yml
 - include: shell.yml
