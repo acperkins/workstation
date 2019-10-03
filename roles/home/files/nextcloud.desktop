@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Utility
+Type=Application
+Exec=nextcloud
+Name=Nextcloud desktop sync client 
+Comment=Nextcloud desktop synchronization client
+GenericName=Folder Sync
+Icon=Nextcloud
+Keywords=Nextcloud;syncing;file;sharing;
+X-GNOME-Autostart-Delay=3
