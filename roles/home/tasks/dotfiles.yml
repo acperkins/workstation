@@ -11,6 +11,10 @@
   copy:
     src: gitconfig
     dest: "{{ ansible_env.HOME }}/.gitconfig"
+- name: Copy .hushlogin
+  copy:
+    src: hushlogin
+    dest: "{{ ansible_env.HOME }}/.hushlogin"
 - name: Copy .inputrc
   copy:
     src: inputrc
@@ -19,7 +23,3 @@
   copy:
     src: tmux.conf
     dest: "{{ ansible_env.HOME }}/.tmux.conf"
-- name: Copy .hushlogin
-  copy:
-    src: hushlogin
-    dest: "{{ ansible_env.HOME }}/.hushlogin"
