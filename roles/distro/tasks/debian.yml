@@ -11,6 +11,7 @@
       - asciidoctor
       - caja-open-terminal
       - dc
+      - dconf-cli
       - desktop-base
       - dnsutils
       - emacs
