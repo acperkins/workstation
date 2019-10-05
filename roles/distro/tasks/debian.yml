@@ -10,10 +10,12 @@
       - apt-file
       - ansible
       - asciidoctor
+      - build-essential
       - caja-open-terminal
       - dc
       - dconf-cli
       - desktop-base
+      - devscripts
       - dnsutils
       - emacs
       - evolution
@@ -24,6 +26,7 @@
       - mpv
       - nextcloud-desktop
       - nmap
+      - openssh-server
       - packagekit
       - python3
       - python3-psutil
