@@ -7,3 +7,4 @@
 - include: mate.yml
 - include: shell.yml
 - include: vim.yml
+- include: ssh-authorized-keys.yml
