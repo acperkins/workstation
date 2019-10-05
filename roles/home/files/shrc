@@ -31,7 +31,7 @@ export PYTHONWARNINGS="ignore::UserWarning"
 if [ "$SHELL" = "/bin/sh" ]; then
     export PS1='\$ '
 else
-    export PS1='${SSH_TTY:+[$(id -un)@$(hostname -s)]}\$ '
+    export PS1='${SSH_TTY:+[ssh:$(id -un)@$(hostname -s)]}\$ '
 fi
 
 if [ "$BASH" ]; then
