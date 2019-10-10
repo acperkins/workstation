@@ -1,30 +1,29 @@
 ---
-- name: Install FreeBSD packages
+- name: Install FreeBSD core packages
+  become: true
+  pkgng:
+    name: drm-kmod en-freebsd-doc git mate pkg py36-ansible sudo xdm xorg xterm
+    state: present
+- name: Install FreeBSD additional packages
   become: true
   pkgng:
     name: '{{ packages }}'
     state: present
   vars:
     packages:
-      - drm-kmod
       - emacs
-      - en-freebsd-doc
       - firefox-esr
       - fusefs-ntfs
       - galculator
-      - git
       - git-gui
       - gnu-watch
       - gnupg
       - iosevka
-      - mate
       - mc
       - mpv
       - nextcloudclient
       - nmap
       - openvpn
-      - pkg
-      - py36-ansible
       - redshift
       - remmina
       - remmina-plugin-rdp
@@ -32,10 +31,7 @@
       - rxvt-unicode
       - seahorse
       - sqlite3
-      - sudo
       - tmux
       - vim
       - xinput
-      - xorg
-      - xterm
       - zsh
