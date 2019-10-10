@@ -6,10 +6,9 @@
     state: present
   vars:
     packages:
-      - asciidoctor
       - drm-kmod
-      - en-freebsd-doc
       - emacs
+      - en-freebsd-doc
       - evolution
       - firefox-esr
       - fusefs-ntfs
@@ -30,6 +29,7 @@
       - redshift
       - remmina
       - remmina-plugin-rdp
+      - rubygem-asciidoctor
       - rxvt-unicode
       - seahorse
       - sqlite3
