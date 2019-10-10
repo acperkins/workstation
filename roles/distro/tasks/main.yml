@@ -4,4 +4,5 @@
 - include: freebsd.yml
   when: ansible_distribution == 'FreeBSD'
 - include: modules.yml
+  when: ansible_system == 'Linux'
 - include: ssh.yml

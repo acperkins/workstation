@@ -3,7 +3,9 @@
   become: true
   copy:
     src: mate-acp.layout
-    dest: /usr/share/mate-panel/layouts/acp.layout
+    dest: "{{ prefix }}/share/mate-panel/layouts/acp.layout"
+  vars:
+    prefix: "{{ '/usr/local' if ansible_distribution == 'FreeBSD' else '/usr' }}"
 - name: Set default panel layout
   dconf:
     key: /org/mate/panel/general/default-layout

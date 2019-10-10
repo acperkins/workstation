@@ -8,13 +8,13 @@
   register: changed_ssh_config
 - name: Enable SSH
   become: true
-  systemd:
-    name: ssh.service
+  service:
+    name: ssh
     enabled: yes
     state: started
 - name: Restart SSH
   become: true
-  systemd:
-    name: ssh.service
+  service:
+    name: ssh
     state: restarted
   when: changed_ssh_config.changed == true
