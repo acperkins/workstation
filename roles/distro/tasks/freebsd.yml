@@ -1,5 +1,5 @@
 ---
-- name: Install packages
+- name: Install FreeBSD packages
   become: true
   pkgng:
     name: '{{ packages }}'
