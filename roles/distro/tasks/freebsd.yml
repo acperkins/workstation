@@ -1,0 +1,42 @@
+---
+- name: Install packages
+  become: true
+  pkgng:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - asciidoctor
+      - drm-kmod
+      - en-freebsd-doc
+      - emacs
+      - evolution
+      - firefox-esr
+      - fusefs-ntfs
+      - galculator
+      - git
+      - git-gui
+      - gnu-watch
+      - gnupg
+      - iosevka
+      - mate
+      - mc
+      - mpv
+      - nextcloudclient
+      - nmap
+      - openvpn
+      - pkg
+      - py36-ansible
+      - redshift
+      - remmina
+      - remmina-plugin-rdp
+      - rxvt-unicode
+      - seahorse
+      - sqlite3
+      - sudo
+      - tmux
+      - vim
+      - xinput
+      - xorg
+      - xterm
+      - zsh
