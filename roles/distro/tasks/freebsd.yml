@@ -9,7 +9,6 @@
       - drm-kmod
       - emacs
       - en-freebsd-doc
-      - evolution
       - firefox-esr
       - fusefs-ntfs
       - galculator
