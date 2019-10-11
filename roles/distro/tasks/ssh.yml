@@ -6,15 +6,29 @@
     regexp: '^#?\w*PasswordAuthentication (yes|no)'
     line: 'PasswordAuthentication no'
   register: changed_ssh_config
-- name: Enable SSH
+- name: Enable SSH (Linux)
   become: true
-  service:
-    name: ssh
+  systemd:
+    name: ssh.service
     enabled: yes
     state: started
-- name: Restart SSH
+  when: ansible_system == 'Linux'
+- name: Enable SSH (FreeBSD)
   become: true
   service:
-    name: ssh
+    name: sshd
+    enabled: yes
+    state: started
+  when: ansible_system == 'FreeBSD'
+- name: Restart SSH (Linux)
+  become: true
+  systemd:
+    name: ssh.service
     state: restarted
-  when: changed_ssh_config.changed == true
+  when: changed_ssh_config.changed == true and ansible_system == 'Linux'
+- name: Restart SSH (FreeBSD)
+  become: true
+  service:
+    name: sshd
+    state: restarted
+  when: changed_ssh_config.changed == true and ansible_system == 'FreeBSD'
