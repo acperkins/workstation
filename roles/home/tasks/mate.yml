@@ -11,6 +11,7 @@
     key: /org/mate/panel/general/default-layout
     value: "'acp'"
   register: layout_changed
+  ignore_errors: yes
 - name: Reset panel
   command: mate-panel --reset || true
   when: layout_changed.changed
