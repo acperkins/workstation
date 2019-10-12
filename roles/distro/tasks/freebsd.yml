@@ -11,6 +11,7 @@
     state: present
   vars:
     packages:
+      - dbus
       - emacs
       - firefox-esr
       - fusefs-ntfs
@@ -36,3 +37,15 @@
       - vim
       - xinput
       - zsh
+- name: Start DBUS service
+  become: true
+  service:
+    name: dbus
+    state: started
+    enabled: yes
+- name: Enable XDM
+  become: true
+  lineinfile:
+    path: /etc/ttys
+    regexp: '^ttyv8	.*'
+    line: 'ttyv8	"/usr/local/bin/xdm -nodaemon"	xterm	on  secure'
