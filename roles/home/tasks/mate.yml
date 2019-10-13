@@ -1,11 +1,11 @@
 ---
 - name: Copy MATE panel layout
   become: true
-  copy:
+  template:
     src: mate-acp.layout
     dest: "{{ prefix }}/share/mate-panel/layouts/acp.layout"
   vars:
-    prefix: "{{ '/usr/local' if ansible_distribution == 'FreeBSD' else '/usr' }}"
+    prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/local' }}"
 - name: Detect running mate-panel process
   pids:
     name: mate-panel
@@ -15,24 +15,23 @@
     key: /org/mate/panel/general/default-layout
     value: "'acp'"
   register: layout_changed
-  when: mate_panel.pids | length > 0
+  when: mate_panel.pids | length > 0 and ansible_system == 'Linux'
 - name: Reset panel
   command: mate-panel --reset || true
-  when: layout_changed.changed and mate_panel.pids | length > 0
-  ignore_errors: yes
+  when: layout_changed.changed and mate_panel.pids | length > 0 and ansible_system == 'Linux'
   changed_when: false
 - name: Add cities to clock applet
   dconf:
     key: /org/mate/panel/objects/clock/prefs/cities
     value: ['<location name="" city="Luton" timezone="Europe/London" latitude="51.866669" longitude="-0.366667" code="EGGW" current="true"/>', '<location name="" city="Washington" timezone="America/New_York" latitude="38.848331" longitude="-77.034164" code="KDCA" current="false"/>', '<location name="" city="San Francisco" timezone="America/Los_Angeles" latitude="37.619720" longitude="-122.364723" code="KSFO" current="false"/>', '<location name="UTC" city="" timezone="GMT" latitude="-0.000000" longitude="-0.000000" code="-" current="false"/>']
-  when: mate_panel.pids | length > 0
+  when: mate_panel.pids | length > 0 and ansible_system == 'Linux'
 - name: Set workspace switcher to two rows
   dconf:
     key: /org/mate/panel/objects/workspace-switcher/prefs/num-rows
     value: 2
-  when: mate_panel.pids | length > 0
+  when: mate_panel.pids | length > 0 and ansible_system == 'Linux'
 - name: Expand locations in clock
   dconf:
     key: /org/mate/panel/objects/clock/prefs/expand-locations
     value: 'true'
-  when: mate_panel.pids | length > 0
+  when: mate_panel.pids | length > 0 and ansible_system == 'Linux'
