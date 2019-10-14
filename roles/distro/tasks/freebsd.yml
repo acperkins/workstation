@@ -13,6 +13,7 @@
     packages:
       - dbus
       - emacs
+      - en_GB-libreoffice
       - firefox-esr
       - fusefs-ntfs
       - galculator
@@ -20,6 +21,7 @@
       - gnu-watch
       - gnupg
       - iosevka
+      - libreoffice
       - mc
       - mpv
       - nextcloudclient
