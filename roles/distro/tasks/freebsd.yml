@@ -56,3 +56,51 @@
   copy:
     src: keyboard-gb.conf
     dest: /usr/local/etc/X11/xorg.conf.d/keyboard-gb.conf
+- name: Disable core dumps
+  become: true
+  sysctl:
+    name: kern.coredump
+    value: '0'
+    sysctl_set: yes
+- name: Use IPv6 temporary addresses (sysctl.conf)
+  become: true
+  sysctl:
+    name: net.inet6.ip6.use_tempaddr
+    value: '1'
+    sysctl_set: yes
+- name: Prefer IPv6 temporary addresses (sysctl.conf)
+  become: true
+  sysctl:
+    name: net.inet6.ip6.prefer_tempaddr
+    value: '1'
+    sysctl_set: yes
+- name: Disable VT bell
+  become: true
+  sysctl:
+    name: kern.vt.enable_bell
+    value: '0'
+    sysctl_set: yes
+- name: Enable IPv6 privacy (rc.conf)
+  become: true
+  lineinfile:
+    path: /etc/rc.conf
+    regexp: '^ipv6_privacy=.*'
+    line: 'ipv6_privacy="YES"'
+- name: Set wlan0 arguments
+  become: true
+  lineinfile:
+    path: /etc/rc.conf
+    regexp: '^create_args_wlan0=.*'
+    line: 'create_args_wlan0="country GB"'
+- name: Enable WPA/DHCP for wlan0
+  become: true
+  lineinfile:
+    path: /etc/rc.conf
+    regexp: '^ifconfig_wlan0=.*'
+    line: 'ifconfig_wlan0="WPA SYNCDHCP"'
+- name: Enable IPv6 for wlan0
+  become: true
+  lineinfile:
+    path: /etc/rc.conf
+    regexp: '^ifconfig_wlan0_ipv6=.*'
+    line: 'ifconfig_wlan0_ipv6="inet6 accept_rtadv"'
