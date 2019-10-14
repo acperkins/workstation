@@ -49,3 +49,8 @@
     path: /etc/ttys
     regexp: '^ttyv8	.*'
     line: 'ttyv8	"/usr/local/bin/xdm -nodaemon"	xterm	on  secure'
+- name: Set xorg keyboard layout
+  become: true
+  copy:
+    src: keyboard-gb.conf
+    dest: /usr/local/etc/X11/xorg.conf.d/keyboard-gb.conf
