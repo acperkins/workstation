@@ -1,0 +1,27 @@
+---
+- name: Install Debian GUI packages
+  become: true
+  apt:
+    name: '{{ packages }}'
+    state: present
+    force_apt_get: yes
+  vars:
+    packages:
+      - caja-open-terminal
+      - dconf-cli
+      - desktop-base
+      - emacs
+      - evolution
+      - galculator
+      - git-gui
+      - mpv
+      - nextcloud-desktop
+      - redshift-gtk
+      - remmina
+      - rxvt-unicode
+      - seahorse
+      - task-british-desktop
+      - task-mate-desktop
+      - vim-gtk
+      - xinput
+      - xterm

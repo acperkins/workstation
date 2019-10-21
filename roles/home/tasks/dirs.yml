@@ -11,14 +11,6 @@
   file:
     path: "{{ ansible_env.HOME }}/.config/systemd/user"
     state: directory
-- name: Create user applications directory
-  file:
-    path: "{{ ansible_env.HOME }}/.local/share/applications"
-    state: directory
-- name: Create user autostart directory
-  file:
-    path: "{{ ansible_env.HOME }}/.config/autostart"
-    state: directory
 - name: Create ~/.ssh directory
   file:
     path: "{{ ansible_env.HOME }}/.ssh"

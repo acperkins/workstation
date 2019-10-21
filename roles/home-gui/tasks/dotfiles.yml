@@ -1,0 +1,25 @@
+---
+- name: Copy .Xresources
+  copy:
+    src: Xresources
+    dest: "{{ ansible_env.HOME }}/.Xresources"
+- name: Copy .fonts.conf
+  copy:
+    src: fonts.conf
+    dest: "{{ ansible_env.HOME }}/.fonts.conf"
+- name: Copy redshift.conf
+  copy:
+    src: redshift.conf
+    dest: "{{ ansible_env.HOME }}/.config/redshift.conf"
+- name: Auto start nextcloud
+  copy:
+    src: nextcloud.desktop
+    dest: "{{ ansible_env.HOME }}/.config/autostart/nextcloud.desktop"
+- name: Auto start redshift-gtk
+  copy:
+    src: redshift-gtk.desktop
+    dest: "{{ ansible_env.HOME }}/.config/autostart/redshift-gtk.desktop"
+- name: Auto start remmina-applet
+  copy:
+    src: remmina-applet.desktop
+    dest: "{{ ansible_env.HOME }}/.config/autostart/remmina-applet.desktop"

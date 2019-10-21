@@ -1,5 +1,5 @@
 ---
-- name: Install Debian packages
+- name: Install Debian CLI packages
   become: true
   apt:
     name: '{{ packages }}'
@@ -11,39 +11,22 @@
       - ansible
       - asciidoctor
       - build-essential
-      - caja-open-terminal
       - dc
-      - dconf-cli
-      - desktop-base
       - devscripts
       - dnsutils
-      - emacs
-      - evolution
-      - galculator
       - git
-      - git-gui
       - gnupg
       - mc
-      - mpv
-      - nextcloud-desktop
       - nmap
       - openssh-server
       - packagekit
       - python3
       - python3-psutil
       - realmd
-      - redshift-gtk
-      - remmina
-      - rxvt-unicode
-      - seahorse
       - sqlite3
       - sssd
       - sudo
-      - task-british-desktop
-      - task-mate-desktop
       - tlp
       - tmux
-      - vim-gtk
-      - xinput
-      - xterm
+      - vim
       - zsh

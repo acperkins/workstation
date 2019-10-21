@@ -1,61 +1,28 @@
 ---
-- name: Install FreeBSD core packages
+- name: Install FreeBSD core CLI packages
   become: true
   pkgng:
-    name: drm-kmod en-freebsd-doc git mate pkg py36-ansible sudo xdm xorg xterm
+    name: en-freebsd-doc git pkg py36-ansible sudo
     state: present
-- name: Install FreeBSD additional packages
+- name: Install FreeBSD additional CLI packages
   become: true
   pkgng:
     name: '{{ packages }}'
     state: present
   vars:
     packages:
-      - dbus
-      - emacs
-      - en_GB-libreoffice
-      - firefox-esr
       - fusefs-ntfs
-      - galculator
-      - git-gui
       - gnu-watch
       - gnupg
-      - iosevka
-      - libreoffice
       - mc
-      - mpv
-      - nextcloudclient
       - nmap
       - openvpn
       - py36-psutil
-      - redshift
-      - remmina
-      - remmina-plugin-rdp
       - rubygem-asciidoctor
-      - rxvt-unicode
-      - seahorse
       - sqlite3
       - tmux
       - vim
-      - xinput
       - zsh
-- name: Start DBUS service
-  become: true
-  service:
-    name: dbus
-    state: started
-    enabled: yes
-- name: Enable XDM
-  become: true
-  lineinfile:
-    path: /etc/ttys
-    regexp: '^ttyv8\s.*'
-    line: 'ttyv8	"/usr/local/bin/xdm -nodaemon"	xterm	on  secure'
-- name: Set xorg keyboard layout
-  become: true
-  copy:
-    src: keyboard-gb.conf
-    dest: /usr/local/etc/X11/xorg.conf.d/keyboard-gb.conf
 - name: Disable core dumps
   become: true
   sysctl:

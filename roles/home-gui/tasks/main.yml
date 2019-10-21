@@ -1,0 +1,7 @@
+---
+- include: dirs.yml
+
+- include: dotfiles.yml
+- include: emacs.yml
+- include: firefox.yml
+- include: mate.yml
