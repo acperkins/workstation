@@ -29,4 +29,5 @@
       - tlp
       - tmux
       - vim
+      - wordgrinder-ncurses
       - zsh
