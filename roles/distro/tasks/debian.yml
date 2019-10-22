@@ -22,9 +22,8 @@
       - packagekit
       - python3
       - python3-psutil
-      - realmd
+      - ruby-asciidoctor-pdf
       - sqlite3
-      - sssd
       - sudo
       - tlp
       - tmux
