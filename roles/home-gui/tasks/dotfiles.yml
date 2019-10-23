@@ -23,3 +23,7 @@
   copy:
     src: remmina-applet.desktop
     dest: "{{ ansible_env.HOME }}/.config/autostart/remmina-applet.desktop"
+- name: Auto-start XClock
+  copy:
+    src: xclock.desktop
+    dest: "{{ ansible_env.HOME }}/.config/autostart/xclock.desktop"
