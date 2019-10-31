@@ -26,6 +26,7 @@
       - remmina-plugin-rdp
       - rxvt-unicode
       - seahorse
+      - vim
       - xinput
 - name: Start DBUS service
   become: true

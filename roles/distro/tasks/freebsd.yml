@@ -21,7 +21,6 @@
       - rubygem-asciidoctor
       - sqlite3
       - tmux
-      - vim
       - zsh
 - name: Disable core dumps
   become: true
