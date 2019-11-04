@@ -1,0 +1,32 @@
+---
+- name: Install Ubuntu CLI packages
+  become: true
+  apt:
+    name: '{{ packages }}'
+    state: present
+    force_apt_get: yes
+  vars:
+    packages:
+      - apt-file
+      - ansible
+      - asciidoctor
+      - build-essential
+      - dc
+      - devscripts
+      - dnsutils
+      - git
+      - gnupg
+      - mc
+      - nmap
+      - openssh-server
+      - packagekit
+      - python3
+      - python3-psutil
+      - ruby-asciidoctor-pdf
+      - sqlite3
+      - sudo
+      - tlp
+      - tmux
+      - vim
+      - wordgrinder-ncurses
+      - zsh
