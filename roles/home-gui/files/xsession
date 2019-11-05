@@ -1,2 +1,3 @@
 PATH=/usr/bin:/bin:/usr/local/bin
+xrdb -merge ~/.Xresources
 exec ck-launch-session mate-session
