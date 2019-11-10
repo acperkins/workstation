@@ -1,0 +1,6 @@
+---
+- name: Install NetBSD GUI packages
+  become: true
+  pkgin:
+    name: motif,vim-gtk3
+    state: present

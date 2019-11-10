@@ -1,0 +1,14 @@
+---
+- name: Install NetBSD CLI packages
+  become: true
+  pkgin:
+    name: git,gnupg2,mc,mozilla-rootcerts-openssl,nmap,openvpn,pkgin,py37-pip,python37,sqlite3,sudo,tmux,vim,zsh
+    state: present
+- name: Enable wheel group to use sudo
+  become: true
+  lineinfile:
+    path: /usr/pkg/etc/sudoers.d/wheel
+    regexp: 'wheel'
+    line: '%wheel ALL=(ALL) ALL'
+    create: yes
+    mode: '0644'

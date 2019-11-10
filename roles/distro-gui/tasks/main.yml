@@ -5,3 +5,5 @@
   when: ansible_distribution == 'Ubuntu'
 - include: freebsd.yml
   when: ansible_distribution == 'FreeBSD'
+- include: netbsd.yml
+  when: ansible_distribution == 'NetBSD'
