@@ -1,4 +1,11 @@
 ---
+- name: Configure pkg to ignore OSABI
+  become: true
+  lineinfile:
+    path: /etc/pkg_install.conf
+    regexp: '^CHECK_OSABI='
+    line: 'CHECK_OSABI=no'
+    create: yes
 - name: Install NetBSD CLI packages
   become: true
   pkgin:
