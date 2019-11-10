@@ -2,7 +2,7 @@
 - name: Install FreeBSD core CLI packages
   become: true
   pkgng:
-    name: en-freebsd-doc git pkg py36-ansible sudo
+    name: drm-kmod en-freebsd-doc git pkg py36-ansible sudo
     state: present
 - name: Install FreeBSD additional CLI packages
   become: true
