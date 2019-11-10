@@ -9,7 +9,7 @@
 - name: Install NetBSD CLI packages
   become: true
   pkgin:
-    name: git,gnupg2,mc,mozilla-rootcerts-openssl,nmap,openvpn,pkgin,py37-pip,python37,sqlite3,sudo,tmux,vim,zsh
+    name: git,gnupg2,mc,mozilla-rootcerts-openssl,nmap,openvpn,pkgin,py37-pip,python37,sqlite3,sudo,tmux,zsh
     state: present
 - name: Enable wheel group to use sudo
   become: true
