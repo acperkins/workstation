@@ -6,6 +6,7 @@
     dest: "{{ prefix }}/share/mate-panel/layouts/acp.layout"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/local' }}"
+  when: ansible_system == 'Linux' or ansible_system == 'FreeBSD'
 - name: Set default panel layout
   dconf:
     key: /org/mate/panel/general/default-layout
