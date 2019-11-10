@@ -27,3 +27,18 @@
   copy:
     src: xclock.desktop
     dest: "{{ ansible_env.HOME }}/.config/autostart/xclock.desktop"
+- name: Create FreeBSD xsession file
+  copy:
+    src: xsession-freebsd
+    dest: "{{ ansible_env.HOME }}/.xsession"
+  when: ansible_system == "FreeBSD"
+- name: Create NetBSD xsession file
+  copy:
+    src: xsession-netbsd
+    dest: "{{ ansible_env.HOME }}/.xsession"
+  when: ansible_system == "NetBSD"
+- name: Create xinitrc symlink
+  file:
+    src: ".xsession"
+    dest: "{{ ansible_env.HOME }}/.xinitrc"
+    state: link

@@ -32,8 +32,3 @@
     key: /org/mate/panel/objects/clock/prefs/expand-locations
     value: 'true'
   when: ansible_system == 'Linux'
-- name: Create xsession file
-  copy:
-    src: xsession
-    dest: "{{ ansible_env.HOME }}/.xsession"
-  when: ansible_system == "FreeBSD"
