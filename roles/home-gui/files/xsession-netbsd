@@ -1,4 +1,5 @@
 PATH=/usr/bin:/bin:/usr/X11R7/bin:/usr/pkg/bin
 xrdb -merge ~/.Xresources
 xset b off
+setxkbmap gb
 exec mwm
