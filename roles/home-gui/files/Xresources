@@ -1,5 +1,5 @@
 *color: true
-URxvt*background: #111111
+URxvt*background: #ffffff
 URxvt*color0: #1e1e1e
 URxvt*color1: #cc0000
 URxvt*color2: #4e9a06
@@ -17,7 +17,7 @@ URxvt*color13: #ad7fa8
 URxvt*color14: #00f5e9
 URxvt*color15: #eeeeec
 URxvt*font: xft:Monospace:Regular:size=10
-URxvt*foreground: #c0c0c0
+URxvt*foreground: #000000
 URxvt*letterSpace: -1
 URxvt*locale: true
 URxvt*metaSendsEscape: true
@@ -33,7 +33,7 @@ XClock*secondColor: red
 XClock*update: 1
 Xft.hintstyle: hintfull
 Xft.rgba: none
-xterm*background: #111111
+xterm*background: #ffffff
 xterm*color0: #1e1e1e
 xterm*color1: #cc0000
 xterm*color2: #4e9a06
@@ -58,7 +58,7 @@ xterm*faceSize4: 12
 xterm*faceSize5: 14
 xterm*faceSize6: 16
 xterm*faceSize: 9
-xterm*foreground: #c0c0c0
+xterm*foreground: #000000
 xterm*locale: true
 xterm*metaSendsEscape: true
 xterm*scrollBar: true
