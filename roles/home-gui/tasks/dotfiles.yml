@@ -32,6 +32,11 @@
     src: xsession-freebsd
     dest: "{{ ansible_env.HOME }}/.xsession"
   when: ansible_system == "FreeBSD"
+- name: Create MWM config file
+  copy:
+    src: mwmrc
+    dest: "{{ ansible_env.HOME }}/.mwmrc"
+  when: ansible_system == "NetBSD"
 - name: Create NetBSD xsession file
   copy:
     src: xsession-netbsd
