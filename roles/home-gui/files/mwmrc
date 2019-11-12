@@ -43,10 +43,10 @@
 Menu DefaultRootMenu
 {
 	"Root Menu"             f.title
-	Terminal                f.exec "xterm &"
+	Terminal                f.exec "(urxvt || xterm) &"
 	no-label                f.separator
 
-	"Midnight Commander"    f.exec "xterm -geometry 120x40 -e mc &"
+	"Midnight Commander"    f.exec "(urxvt -geometry 120x40 -e mc || xterm -geometry 120x40 -e mc) &"
 	no-label                f.separator
 
 	Firefox                 f.exec "firefox &"

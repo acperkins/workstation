@@ -23,7 +23,7 @@ URxvt*locale: true
 URxvt*metaSendsEscape: true
 URxvt*perl-ext: -searchable-scrollback
 URxvt*scrollBar_right: true
-URxvt*termName: rxvt-unicode
+URxvt*termName: rxvt
 XClock*hourColor: black
 XClock*majorColor: red
 XClock*minorColor: black
