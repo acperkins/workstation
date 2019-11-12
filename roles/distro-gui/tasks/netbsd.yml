@@ -4,3 +4,15 @@
   pkgin:
     name: firefox,motif,vim-motif,xlockmore-lite
     state: present
+- name: Enable xdm
+  become: true
+  lineinfile:
+    path: /etc/rc.conf
+    regexp: ^xdm=.*
+    line: xdm=YES
+- name: Disable console getty
+  become: true
+  lineinfile:
+    path: /etc/ttys
+    regexp: ^console\s+
+    line: 'console "/usr/libexec/getty Pc"         vt100   off secure'
