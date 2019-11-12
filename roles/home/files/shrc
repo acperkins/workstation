@@ -73,10 +73,12 @@ fi
 if [ "$(uname -s)" = "FreeBSD" ]; then
     LSOPTIONS="$LSOPTIONS -G"
 fi
+if [ "$(uname -s)" = "Linux" ]; then
+    alias df="df -x squashfs"
+fi
 
 alias adoc="asciidoctor -a stylesheet=$HOME/.asciidoctor.css"
 alias cal="ncal -w"
-alias df="df -x squashfs"
 alias ec="emacsclient -c"
 alias en="emacsclient -nw"
 alias f="fossil"
