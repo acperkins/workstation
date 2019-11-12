@@ -15,4 +15,4 @@
   lineinfile:
     path: /etc/ttys
     regexp: ^console\s+
-    line: 'console "/usr/libexec/getty Pc"         vt100   off secure'
+    line: 'console	"/usr/libexec/getty Pc"		vt100	off secure'
