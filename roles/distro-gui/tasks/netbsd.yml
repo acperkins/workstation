@@ -10,9 +10,15 @@
     path: /etc/rc.conf
     regexp: ^xdm=.*
     line: xdm=YES
-- name: Disable console getty
+- name: Disable getty on /dev/console
   become: true
   lineinfile:
     path: /etc/ttys
     regexp: ^console\s+
     line: 'console	"/usr/libexec/getty Pc"		vt100	off secure'
+- name: Enable getty on /dev/ttyE0
+  become: true
+  lineinfile:
+    path: /etc/ttys
+    regexp: ^ttyE0\s+
+    line: 'ttyE0	"/usr/libexec/getty Pc"		wsvt25	on secure'
