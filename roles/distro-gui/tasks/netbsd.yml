@@ -2,5 +2,5 @@
 - name: Install NetBSD GUI packages
   become: true
   pkgin:
-    name: firefox,motif,vim-motif
+    name: firefox,motif,vim-motif,xlockmore-lite
     state: present
