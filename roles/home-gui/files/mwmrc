@@ -52,7 +52,7 @@ Menu DefaultRootMenu
 	Firefox                 f.exec "firefox &"
 	GVIM                    f.exec "gvim &"
 	LibreOffice             f.exec "libreoffice &"
-	Vi                      f.exec "xterm -e vi &"
+	Vi                      f.exec "(urxvt -e vi || xterm -e vi) &"
 
 	no-label                f.separator
 	"Shuffle Up"            f.circle_up
