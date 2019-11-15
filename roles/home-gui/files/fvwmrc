@@ -1,0 +1,348 @@
+# This file has been heavily modified from the OpenBSD 6.2 default version.
+
+# be sure to customize these paths for your installation:
+# (install fvwm-icons on Debian)
+ModulePath /usr/X11R6/lib/X11/fvwm:/usr/lib/fvwm/2.6.7:/usr/pkg/lib/X11/fvwm2/2.6.9
+PixmapPath /usr/X11R6/include/X11/pixmaps:/usr/X11R7/include/X11/pixmaps:/usr/X11R7/include/X11/pixmaps/ctwm:/usr/share/pixmaps
+IconPath   /usr/X11R6/include/X11/bitmaps:/usr/X11R7/include/X11/bitmaps:/usr/X11R7/include/X11/pixmaps/ctwm:/usr/share/pixmaps/fvwm
+
+Emulate Mwm
+MenuStyle * Mwm
+Style * MwmButtons
+Style * MwmBorder
+
+# Set some default fonts:
+#DefaultFont    "xft:Liberation Sans:Medium:size=10"
+#Style Font     "xft:Liberation Sans:Medium:size=10"
+#Style IconFont "xft:Liberation Sans:Medium:size=10"
+#WindowFont     "xft:Liberation Sans:Bold:size=11"
+DefaultFont	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+Style Font	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+Style IconFont	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+WindowFont	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+
+EdgeResistance 250 10
+EdgeScroll 0 0
+ClickTime 750
+
+HilightColor #fefefe CadetBlue
+MenuStyle #4d4d4d #bebebe #e7e7e7
+
+DeskTopSize 1x1
+
+ColormapFocus FollowsFocus
+
+# default Styles:
+Style "*"           BorderWidth 7, HandleWidth 7
+Style "*"           Icon unknown1.xpm, Color #fefefe/DarkGrey
+Style "*"           MWMFunctions, MWMDecor, HintOverride
+Style "*"           DecorateTransient, NoPPosition
+Style "*"           IconBox 0 -10 -280 -1
+Style "*"           SloppyFocus
+Style "*"           RandomPlacement, SmartPlacement
+
+# Styles for various Fvwm modules:
+Style "Fvwm*"       NoTitle,  Sticky, WindowListSkip
+Style "Fvwm*"       BorderWidth 2, CirculateSkipIcon, CirculateSkip
+Style "FvwmPager"   StaysOnTop
+Style "FvwmBanner"  StaysOnTop
+Style "FvwmButtons" Icon toolbox.xpm, ClickToFocus
+
+# Styles for your common terminal emulator programs:
+AddToDecor terms
++ ButtonStyle 1 Pixmap mini.xterm.xpm
++ HilightColor #fefefe CadetBlue
+Style "XTerm"       UseDecor terms
+Style "XTerm"       Icon xterm.xpm, SloppyFocus, IconBox -70 1 -1 -140
+Style "URxvt"       UseDecor terms
+Style "URxvt"       Icon term.xpm, SloppyFocus, IconBox -70 1 -1 -140
+Style "URxvt"       MWMBorder, MWMButtons
+
+# Styles for various common programs:
+Style "xclock"      NoTitle, NoHandles, Sticky, WindowListSkip, ClickToFocus
+Style "xbiff"       NoTitle, Sticky, WindowListSkip, ClickToFocus
+Style "xcalc"       Icon xcalc.xpm, NoButton 2,RandomPlacement
+Style "xmh"         Icon mail1.xpm, NoIconTitle,StickyIcon
+Style "xmh"         RandomPlacement, NoButton 2
+Style "xman"        Icon xman.xpm, RandomPlacement, ClickToFocus
+Style "xmag"        Icon mag_glass.xpm, RandomPlacement, ClickToFocus
+Style "xgraph"      Icon graphs.xpm, RandomPlacement, ClickToFocus
+Style "xmosaic"     Color Green/Yellow, ClickToFocus
+Style "xconsole"    Icon rterm.xpm, WindowListSkip, Sticky
+Style "stalonetray" WindowListSkip, Sticky
+
+# some simple default mouse bindings:
+#   for the root window:
+Mouse 1 R       A       Menu RootMenu Nop
+Mouse 2 R       A       Menu Window-Ops Nop
+Mouse 3 R       A       WindowList
+
+#   for the title bar buttons:
+Mouse 0 1       A       Menu Window-Ops Close
+Mouse 0 2       A       Maximize
+Mouse 0 4       A       Iconify
+
+#   for other parts of the window/borders/icons:
+Mouse 1 F       A       Resize-or-Raise
+Mouse 1 TS      A       Move-or-Raise
+Mouse 1 I       A       Move-or-Iconify
+Mouse 2 I       A       Iconify
+Mouse 2 TSIF    A       RaiseLower
+Mouse 3 FSTI    A       Menu Window-Ops Nop
+
+######################## Initialization Functions ############################
+AddToFunc InitFunction      "I" Module FvwmPager 0 5
++                           "I" exec xsetroot -solid steelblue
+
+AddToFunc RestartFunction   "I" Module FvwmPager 0 5
++                           "I" exec xsetroot -solid steelblue
+
+
+######################## Menus ###################
+AddToMenu RootMenu      "Root Menu"                 Title
++                       "Terminal%mini.xterm.xpm%"  Exec (urxvt || xterm)
++                       "Terminal (dark)"           Exec (urxvt -fg grey -bg black || xterm -fg grey -bg black)
++                       ""                          Nop
++                       "Firefox"                   Exec firefox
++                       "GVIM"                      Exec gvim
++                       "LibreOffice"               Exec libreoffice
++                       "Midnight Commander"        Exec (urxvt -geometry 120x40 -e mc || xterm -geometry 120x40 -e mc)
++                       "Rxvt"                      Exec (urxvt || rxvt)
++                       "Vi"                        Exec (urxvt -e vi || xterm -e vi)
++                       "XTerm"                     Exec xterm
++                       ""                          Nop
++                       "Utilities"                 Popup Utilities
++                       ""                          Nop
++                       "Fvwm Modules"              Popup Module-Popup
++                       "Fvwm Window Ops"           Popup Window-Ops
++                       "Fvwm Simple Config Ops"    Popup Misc-Ops
++                       ""                          Nop
++                       "Refresh Screen"            Refresh
++                       "Recapture Screen"          Recapture
++                       "(Re)Start"                 Popup Quit-Verify
++                       ""                          Nop
++                       "Exit"                      Module FvwmForm QuitVerify
+
+AddToMenu Utilities     "Utilities"             Title
++                       "Top"                   Exec exec xterm -T Top -n Top -e top
++                       "Calculator"            Exec exec xcalc
++                       "Clock"                 Exec exec xclock -update 1
++                       "Xman"                  Exec exec xman
++                       "Xmag"                  Exec exec xmag
++                       "Editres"               Exec exec editres
++                       ""                      Nop
++                       "XLock%mini.xlock.xpm%" Exec exec xlock -mode blank
++                       ""                      Nop
++                       "Reset X defaults"      Exec xrdb -load $HOME/.Xdefaults
+
+AddToMenu Misc-Ops      "Misc Config Opts"           Title
++                       "Sloppy Focus"               ChangeDefaultFocus SloppyFocus
++                       "Click To Focus"             ChangeDefaultFocus ClickToFocus
++                       "Focus Follows Mouse"        ChangeDefaultFocus FocusFollowsMouse
++                       ""                           Nop
++                       "Colormap Follows Mouse"     ColormapFocus FollowsMouse
++                       "Colormap Follows Focus"     ColormapFocus FollowsFocus
++                       ""                           Nop
++                       "Full Paging ON"             EdgeScroll    100    100
++                       "All Paging OFF"             EdgeScroll      0      0
++                       "Horizontal Paging Only"     EdgeScroll    100      0
++                       "Vertical Paging Only"       EdgeScroll      0    100
++                       "Partial Paging"             EdgeScroll     50     50
++                       "Full Paging && Edge Wrap"   EdgeScroll 100000 100000
+
+AddToMenu Window-Ops    "Window Ops"                        Title
++                       "Move%mini.move.xpm%"               Move
++                       "Resize%mini.resize.xpm%"           Resize
++                       "Raise%mini.raise.xpm%"             Raise
++                       "Lower%mini.lower.xpm%"             Lower
++                       "(De)Iconify%mini.iconify.xpm%"     Iconify
++                       "(Un)Stick%mini.stick2.xpm%"        Stick
++                       "(Un)Maximize%mini.maximize.xpm%"   Maximize
++                       ""                                  Nop
++                       "Send To"                           Popup Send-To
++                       ""                                  Nop
++                       "Delete%mini.excl.xpm%"             Delete
++                       "Close%mini.cut.xpm%"               Close
++                       "Destroy%mini.destroy.xpm%"         Destroy
++                       ""                                  Nop
++                       "Refresh Window%mini.refresh.xpm%"  RefreshWindow
+
+AddToMenu Module-Popup  "FvwmModules"       Title
++                       "Identify"          Module  FvwmIdent
++                       "Talk"              Module  FvwmTalk
++                       ""                  Nop
++                       "Button-Bar"        Module  FvwmButtons
++                       "Pager"             Module  FvwmPager 0 0
++                       "Pager (2 desks)"   Module  FvwmPager 0 1
++                       "WinList"           Module  FvwmWinList
++                       ""                  Nop
++                       "Banner"            Module  FvwmBanner
++                       "ScrollBar"         Module  FvwmScroll 50 50
++                       "Background"        Module  FvwmBacker
++                       "AutoRaise"         Module  FvwmAuto 200 Raise Nop
++                       "Stop AutoRaise"    KillModule FvwmAuto
++                       ""                  Nop
++                       "IconBox"           Module  FvwmIconBox
++                       "IconMan"           Module  FvwmIconMan
++                       ""                  Nop
++                       "Form - QuitVerify" Module FvwmForm QuitVerify
+
+AddToMenu Quit-Verify   "Restart WM"                        Title
++                       "Restart Fvwm%mini.refresh.xpm%"    Restart fvwm
++                       ""                                  Nop
++                       "Start cwm"                         Restart cwm
++                       "Start twm"                         Restart twm
++                       "Start mwm"                         Restart mwm
++                       "Start jwm"                         Restart jwm
++                       "Start icewm"                       Restart icewm-session
++                       ""                                  Nop
++                       "Start dummy%mini.xterm.xpm%"       Restart xterm
+
+AddToMenu Send-To       "Desk &0"       MoveToDesk 0 0
++                       "Desk &1"       MoveToDesk 0 1
++                       "Desk &2"       MoveToDesk 0 2
++                       "Desk &3"       MoveToDesk 0 3
++                       "Desk &4"       MoveToDesk 0 4
++                       "Desk &5"       MoveToDesk 0 5
+
+######################## Sample Functions ##########################
+
+AddToFunc Move-or-Raise         "I" Raise
++                               "M" Move
++                               "D" Lower
+
+AddToFunc Move-or-Raise2        "M" Raise
++                               "M" Move
++                               "D" Lower
+
+AddToFunc Maximize-Func         "M" Maximize      0 100
++                               "C" Maximize      0  80
++                               "D" Maximize    100 100
+
+AddToFunc Move-or-Iconify       "I" Raise
++                               "M" Move
++                               "D" Iconify
+
+AddToFunc Resize-or-Raise       "I" Raise
++                               "M" Resize
++                               "D" Lower
+
+AddToFunc Resize-or-Raise2      "M" Raise
++                               "M" Resize
++                               "D" Lower
+
+AddToFunc Iconify-and-Raise     "I" Iconify
++                               "I" Raise
+
+AddToFunc FocusAndWarp          "I" Focus
++                               "I" WarpToWindow 2p 2p
+
+AddToFunc DeiconifyFocusAndWarp "I" Iconify -1
++                               "I" FocusAndWarp
+
+AddToFunc ChangeDefaultFocus    "I" Style "*" $0
++                               "I" Recapture
+
+################## FvwmButtons button-bar ################################
+*FvwmButtonsBack bisque3
+*FvwmButtons(Frame 2 Padding 2 2 Container(Rows 2 Frame 1 Padding 10 0 \
+                                           Swallow(Respawn)))
+*FvwmButtons(NoSize Title Close, Icon bomb.xpm, Action Close)
+*FvwmButtons(Title Resize Icon mini.resize.xpm Back bisque4 Action Resize)
+*FvwmButtons(Frame -3 Swallow(Respawn,NoHints) xclock \
+       `Exec exec xclock -bg darkolivegreen -padding 0 -geometry +2000+0`)
+*FvwmButtons(3x1 Back darkolivegreen Fore white Frame 2 Padding 2 2 \
+                 Container(Rows 1 Frame -2 Padding 1 1 Back darkolivegreen))
+*FvwmButtons(Frame 2 Title(Side,Right) Mail Fore white \
+         Swallow(UseOld,NoRespawn)\
+         xbiff `Exec exec xbiff -bg darkolivegreen -geometry +200+200`)
+*FvwmButtons(2x1 Swallow (NoHints) "FvwmTalk" "FvwmTalk")
+*FvwmButtons(End)
+*FvwmButtons(End)
+
+
+########################## Window-Identifier ###############################
+# Just choose colors and a fonts
+*FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+
+########################### Pager #########################################
+*FvwmPagerFont "xft:Liberation Sans:Medium:size=8"
+*FvwmPagerBack darkblue
+*FvwmPagerFore white
+*FvwmPagerHilight #2d2d2d
+*FvwmPagerGeometry 180x30-0-0
+*FvwmPagerSmallFont 5x8
+
+##########################FvwmWinList##################################
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+
+*FvwmBackerDesk 0 -solid steelblue
+
+*FvwmScrollBack grey40
+*FvwmScrollFore green
+
+############################################################
+# Note that icons are shown in the module
+#    only if NoIcon commnand is applied.
+#Style     "*"  NoIcon
+
+############################################################
+*FvwmIconBoxIconBack    #cfcfcf
+*FvwmIconBoxIconHiFore  black
+*FvwmIconBoxIconHiBack  LightSkyBlue
+*FvwmIconBoxBack        #5f9ea0
+*FvwmIconBoxGeometry    5x1+0+0
+*FvwmIconBoxMaxIconSize 64x38
+*FvwmIconBoxSortIcons   IconName
+*FvwmIconBoxPadding     4
+*FvwmIconBoxLines       10
+*FvwmIconBoxSBWidth     11
+*FvwmIconBoxPlacement   Left Top
+*FvwmIconBoxPixmap      fvwm.xpm
+*FvwmIconBoxSetWMIconSize
+*FvwmIconBoxHilightFocusWin
+*FvwmIconBoxMouse       1       Click           RaiseLower
+*FvwmIconBoxMouse       1       DoubleClick     Iconify
+*FvwmIconBoxMouse       2       Click           Iconify -1, Focus
+*FvwmIconBoxMouse       3       Click           Module FvwmIdent
+*FvwmIconBoxKey         r       RaiseLower
+*FvwmIconBoxKey         space   Iconify
+*FvwmIconBoxKey         d       Close
+*FvwmIconBoxKey         n       Next
+*FvwmIconBoxKey         p       Prev
+*FvwmIconBoxKey         h       Left
+*FvwmIconBoxKey         j       Down
+*FvwmIconBoxKey         k       Up
+*FvwmIconBoxKey         l       Right
+#
+# Icon file specifications
+#
+# Mostly, you don't have to specify icon files, as FvwmIconBox now
+# reads icon files specified in Style commands.
+#
+*FvwmIconBox            "Fvwm*"         -
+
+# FvwmForm alias - query exit à la mwm
+*QuitVerifyGrabServer
+*QuitVerifyWarpPointer
+*QuitVerifyFont         *helvetica*m*r*n*14*
+*QuitVerifyButtonFont   7x13bold
+*QuitVerifyFore         Black
+*QuitVerifyBack         Light Gray
+*QuitVerifyItemFore     Wheat
+*QuitVerifyItemBack     Gray50
+# begin items
+*QuitVerifyLine         center
+*QuitVerifyText         "Do you really want to exit FVWM?"
+*QuitVerifyLine         expand
+*QuitVerifyButton       quit    " Exit "
+*QuitVerifyCommand      Quit
+*QuitVerifyButton       quit    "Cancel"
+*QuitVerifyCommand      Nop

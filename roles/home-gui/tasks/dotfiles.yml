@@ -37,6 +37,11 @@
     src: mwmrc
     dest: "{{ ansible_env.HOME }}/.mwmrc"
   when: ansible_system == "NetBSD"
+- name: Create fvwm config file
+  copy:
+    src: fvwmrc
+    dest: "{{ ansible_env.HOME }}/.fvwm/config"
+  when: ansible_system == "NetBSD"
 - name: Create NetBSD xsession file
   copy:
     src: xsession-netbsd
