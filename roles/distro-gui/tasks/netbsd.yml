@@ -2,7 +2,7 @@
 - name: Install NetBSD GUI packages
   become: true
   pkgin:
-    name: atril,firefox,fvwm,motif,rxvt-unicode,vim-motif,xlockmore-lite
+    name: adwaita-icon-theme,atril,firefox,fvwm,liberation-ttf,rxvt-unicode,vim-gtk3,xlockmore-lite
     state: present
 - name: Enable xdm
   become: true
