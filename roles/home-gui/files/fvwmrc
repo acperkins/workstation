@@ -100,14 +100,13 @@ AddToFunc RestartFunction   "I" Module FvwmPager 0 5
 
 ######################## Menus ###################
 AddToMenu RootMenu      "Root Menu"                 Title
-+                       "Terminal%mini.xterm.xpm%"  Exec (urxvt || xterm)
++                       "Terminal%mini.xterm.xpm%"  Exec (mate-terminal || urxvt || xterm)
 +                       "Terminal (dark)"           Exec (urxvt -fg grey -bg black || xterm -fg grey -bg black)
 +                       ""                          Nop
 +                       "Firefox"                   Exec firefox
 +                       "GVIM"                      Exec gvim
 +                       "LibreOffice"               Exec libreoffice
 +                       "Midnight Commander"        Exec (urxvt -geometry 120x40 -e mc || xterm -geometry 120x40 -e mc)
-+                       "Rxvt"                      Exec (urxvt || rxvt)
 +                       "Vi"                        Exec (urxvt -e vi || xterm -e vi)
 +                       "XTerm"                     Exec xterm
 +                       ""                          Nop
