@@ -107,6 +107,7 @@ AddToMenu RootMenu      "Root Menu"                 Title
 +                       "GVIM"                      Exec gvim
 +                       "LibreOffice"               Exec libreoffice
 +                       "Midnight Commander"        Exec (urxvt -geometry 120x40 -e mc || xterm -geometry 120x40 -e mc)
++                       "Rxvt"                      Exec (urxvt || rxvt)
 +                       "Vi"                        Exec (urxvt -e vi || xterm -e vi)
 +                       "XTerm"                     Exec xterm
 +                       ""                          Nop
