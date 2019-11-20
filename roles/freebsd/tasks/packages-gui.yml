@@ -2,7 +2,7 @@
 - name: Install core GUI packages
   become: true
   pkgng:
-    name: drm-kmod xdm xorg xterm
+    name: drm-kmod,xdm,xorg,xterm
     state: present
 - name: Install additional GUI packages
   become: true
