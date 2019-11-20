@@ -11,4 +11,3 @@
   file:
     path: "{{ ansible_env.HOME}}/.fvwm"
     state: directory
-  when: ansible_system == "NetBSD"
