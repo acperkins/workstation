@@ -16,3 +16,9 @@
   copy:
     src: keyboard-gb.conf
     dest: /usr/local/etc/X11/xorg.conf.d/keyboard-gb.conf
+- name: Set xorg screen size for kvm/qemu
+  become: true
+  copy:
+    src: screen-qemu.conf
+    dest: /usr/local/etc/X11/xorg.conf.d/screen-qemu.conf
+  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
