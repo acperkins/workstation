@@ -2,7 +2,7 @@
 
 # be sure to customize these paths for your installation:
 # (install fvwm-icons on Debian)
-ModulePath /usr/X11R6/lib/X11/fvwm:/usr/lib/fvwm/2.6.7:/usr/pkg/lib/X11/fvwm2/2.6.9
+ModulePath /usr/X11R6/lib/X11/fvwm:/usr/lib/fvwm/2.6.7:/usr/pkg/lib/X11/fvwm2/2.6.9:/usr/local/libexec/fvwm/2.6.8
 PixmapPath /usr/X11R6/include/X11/pixmaps:/usr/X11R7/include/X11/pixmaps:/usr/X11R7/include/X11/pixmaps/ctwm:/usr/share/pixmaps
 IconPath   /usr/X11R6/include/X11/bitmaps:/usr/X11R7/include/X11/bitmaps:/usr/X11R7/include/X11/pixmaps/ctwm:/usr/share/pixmaps/fvwm
 
@@ -15,7 +15,7 @@ Style * MwmBorder
 #DefaultFont    "xft:Liberation Sans:Medium:size=10"
 #Style Font     "xft:Liberation Sans:Medium:size=10"
 #Style IconFont "xft:Liberation Sans:Medium:size=10"
-#WindowFont     "xft:Liberation Sans:Bold:size=11"
+#WindowFont     "xft:Liberation Sans:Medium:size=10"
 DefaultFont	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
 Style Font	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
 Style IconFont	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
@@ -57,6 +57,8 @@ Style "XTerm"       Icon xterm.xpm, SloppyFocus, IconBox -70 1 -1 -140
 Style "URxvt"       UseDecor terms
 Style "URxvt"       Icon term.xpm, SloppyFocus, IconBox -70 1 -1 -140
 Style "URxvt"       MWMBorder, MWMButtons
+Style "mate-terminal" UseDecor terms
+Style "mate-terminal" Icon term.xpm, SloppyFocus, IconBox -70 1 -1 -140
 
 # Styles for various common programs:
 Style "xclock"      NoTitle, NoHandles, Sticky, WindowListSkip, ClickToFocus
