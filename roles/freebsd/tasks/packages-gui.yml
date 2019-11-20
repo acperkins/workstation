@@ -2,7 +2,7 @@
 - name: Install core GUI packages
   become: true
   pkgng:
-    name: drm-kmod mate xdm xorg xterm
+    name: drm-kmod xdm xorg xterm
     state: present
 - name: Install additional GUI packages
   become: true
@@ -11,15 +11,20 @@
     state: present
   vars:
     packages:
+      - adwaita-icon-theme
+      - atril
       - dbus
       - emacs
       - en_GB-libreoffice
       - firefox-esr
+      - fvwm
       - galculator
       - git-gui
       - iosevka
+      - liberation-fonts-ttf
       - libreoffice
       - luit
+      - mate-terminal
       - mpv
       - nextcloudclient
       - redshift

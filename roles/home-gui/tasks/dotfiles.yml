@@ -27,6 +27,10 @@
   copy:
     src: xclock.desktop
     dest: "{{ ansible_env.HOME }}/.config/autostart/xclock.desktop"
+- name: Create stalonetrayrc
+  copy:
+    src: stalonetrayrc
+    dest: "{{ ansible_env.HOME }}/.stalonetrayrc"
 - name: Create FreeBSD xsession file
   copy:
     src: xsession-freebsd
