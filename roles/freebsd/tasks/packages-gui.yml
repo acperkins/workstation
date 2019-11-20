@@ -1,10 +1,10 @@
 ---
-- name: Install FreeBSD core GUI packages
+- name: Install core GUI packages
   become: true
   pkgng:
     name: drm-kmod mate xdm xorg xterm
     state: present
-- name: Install FreeBSD additional GUI packages
+- name: Install additional GUI packages
   become: true
   pkgng:
     name: '{{ packages }}'
@@ -29,20 +29,3 @@
       - seahorse
       - vim
       - xinput
-- name: Start DBUS service
-  become: true
-  service:
-    name: dbus
-    state: started
-    enabled: yes
-- name: Enable XDM
-  become: true
-  lineinfile:
-    path: /etc/ttys
-    regexp: '^ttyv8\s.*'
-    line: 'ttyv8	"/usr/local/bin/xdm -nodaemon"	xterm	on  secure'
-- name: Set xorg keyboard layout
-  become: true
-  copy:
-    src: keyboard-gb.conf
-    dest: /usr/local/etc/X11/xorg.conf.d/keyboard-gb.conf

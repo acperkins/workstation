@@ -1,0 +1,6 @@
+---
+- name: Install GUI packages
+  become: true
+  pkgin:
+    name: adwaita-icon-theme,atril,firefox,fvwm,liberation-ttf,mate-terminal,rxvt-unicode,vim-gtk3,xlockmore-lite
+    state: present

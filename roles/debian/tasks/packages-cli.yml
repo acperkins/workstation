@@ -1,5 +1,5 @@
 ---
-- name: Install Debian CLI packages
+- name: Install CLI packages
   become: true
   apt:
     name: '{{ packages }}'

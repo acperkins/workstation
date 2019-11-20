@@ -1,0 +1,24 @@
+---
+- name: Install core CLI packages
+  become: true
+  pkgng:
+    name: drm-kmod en-freebsd-doc git pkg py36-ansible sudo
+    state: present
+- name: Install additional CLI packages
+  become: true
+  pkgng:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - fusefs-ntfs
+      - gnu-watch
+      - gnupg
+      - mc
+      - nmap
+      - openvpn
+      - py36-psutil
+      - rubygem-asciidoctor
+      - sqlite3
+      - tmux
+      - zsh

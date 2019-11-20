@@ -1,5 +1,5 @@
 ---
-- name: Install Ubuntu GUI packages
+- name: Install GUI packages
   become: true
   apt:
     name: '{{ packages }}'
@@ -9,6 +9,7 @@
     packages:
       - caja-open-terminal
       - dconf-cli
+      - desktop-base
       - emacs
       - evolution
       - galculator
@@ -19,6 +20,8 @@
       - remmina
       - rxvt-unicode
       - seahorse
+      - task-british-desktop
+      - task-mate-desktop
       - vim-gtk
       - xinput
       - xterm

@@ -1,0 +1,10 @@
+---
+- include: packages-cli.yml
+- include: packages-gui.yml
+  when: gui == true
+- include: rc.yml
+- include: sysctl.yml
+- include: sudo.yml
+- include: ssh.yml
+- include: xorg.yml
+  when: gui == true

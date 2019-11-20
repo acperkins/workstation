@@ -2,8 +2,20 @@
 ---
 - name: Setup CLI
   hosts: localhost
+  vars:
+    gui: false
   tasks:
     - include_role:
-        name: distro
+        name: debian
+      when: ansible_distribution == 'Debian'
     - include_role:
-        name: home
+        name: freebsd
+      when: ansible_distribution == 'FreeBSD'
+    - include_role:
+        name: netbsd
+      when: ansible_distribution == 'NetBSD'
+    - include_role:
+        name: ubuntu
+      when: ansible_distribution == 'Ubuntu'
+    - include_role:
+        name: home-cli

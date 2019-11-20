@@ -1,0 +1,9 @@
+---
+- name: Enable wheel group to use sudo
+  become: true
+  lineinfile:
+    path: /usr/pkg/etc/sudoers.d/wheel
+    regexp: 'wheel'
+    line: '%wheel ALL=(ALL) ALL'
+    create: yes
+    mode: '0644'

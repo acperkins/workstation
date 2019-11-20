@@ -1,0 +1,6 @@
+---
+- include: packages-cli.yml
+- include: packages-gui.yml
+  when: gui == true
+- include: sudo.yml
+- include: xorg.yml

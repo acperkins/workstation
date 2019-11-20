@@ -1,0 +1,20 @@
+---
+- name: Disable SSH passwords
+  become: true
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?\w*PasswordAuthentication (yes|no)'
+    line: 'PasswordAuthentication no'
+  register: changed_ssh_config
+- name: Enable SSH
+  become: true
+  service:
+    name: sshd
+    enabled: yes
+    state: started
+- name: Restart SSH
+  become: true
+  service:
+    name: sshd
+    state: restarted
+  when: changed_ssh_config.changed == true

@@ -1,0 +1,25 @@
+---
+- name: Disable core dumps
+  become: true
+  sysctl:
+    name: kern.coredump
+    value: '0'
+    sysctl_set: yes
+- name: Use IPv6 temporary addresses
+  become: true
+  sysctl:
+    name: net.inet6.ip6.use_tempaddr
+    value: '1'
+    sysctl_set: yes
+- name: Prefer IPv6 temporary addresses
+  become: true
+  sysctl:
+    name: net.inet6.ip6.prefer_tempaddr
+    value: '1'
+    sysctl_set: yes
+- name: Disable VT bell
+  become: true
+  sysctl:
+    name: kern.vt.enable_bell
+    value: '0'
+    sysctl_set: yes
