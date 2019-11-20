@@ -12,14 +12,10 @@ Style * MwmButtons
 Style * MwmBorder
 
 # Set some default fonts:
-#DefaultFont    "xft:Liberation Sans:Medium:size=10"
-#Style Font     "xft:Liberation Sans:Medium:size=10"
-#Style IconFont "xft:Liberation Sans:Medium:size=10"
-#WindowFont     "xft:Liberation Sans:Medium:size=10"
-DefaultFont	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
-Style Font	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
-Style IconFont	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
-WindowFont	-*-helvetica-medium-r-*-*-*-120-*-*-*-*-*-*
+DefaultFont    "xft:Liberation Sans:Medium:size=10"
+Style Font     "xft:Liberation Sans:Medium:size=10"
+Style IconFont "xft:Liberation Sans:Medium:size=10"
+WindowFont     "xft:Liberation Sans:Medium:size=10"
 
 EdgeResistance 250 10
 EdgeScroll 0 0
