@@ -22,3 +22,10 @@
       - sqlite3
       - tmux
       - zsh
+- name: Install asciidoctor-pdf Ruby gem
+  become: true
+  gem:
+    name: asciidoctor-pdf
+    state: present
+    pre_release: yes
+    user_install: no
