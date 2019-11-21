@@ -9,5 +9,5 @@
 - name: Install CLI packages
   become: true
   pkgin:
-    name: git,gnupg2,mc,mozilla-rootcerts-openssl,nmap,openvpn,pkgin,py37-pip,python37,sqlite3,sudo,tmux,zsh
+    name: ansible,git,gnupg2,mc,mozilla-rootcerts-openssl,nmap,openvpn,pkgin,py37-pip,python37,sqlite3,sudo,zsh
     state: present
