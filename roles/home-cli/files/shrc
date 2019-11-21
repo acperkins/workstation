@@ -91,7 +91,7 @@ alias ls="/bin/ls $LSOPTIONS"
 alias now="date +%Y%m%dT%H%M%S%z"
 alias nowu="date -u +%Y%m%dT%H%M%SZ"
 alias ta="$HOME/opt/textadept/textadept"
-alias tm="tmux -2 attach-session || tmux -2 new-session"
+alias tm="tmux -2 attach-session || ssh-agent tmux -2 new-session"
 alias wg="wordgrinder"
 alias ytmp3="youtube-dl -q -x --audio-format=mp3"
 
