@@ -26,8 +26,13 @@ export TIME_STYLE="long-iso"
 
 # Other exports.
 export EDITOR=vi
-export PS1='\$ '
 export PYTHONWARNINGS="ignore::UserWarning"
+
+PS1="$  "
+if /bin/test -z "${HOST}"; then
+    HOST="$(hostname)"
+fi
+export PS1="${HOST%%.*}$PS1"
 
 if [ "$BASH" ]; then
     shopt -s histappend
