@@ -32,7 +32,11 @@ PS1="$ "
 if /bin/test -z "${HOST}"; then
     HOST="$(hostname)"
 fi
-export PS1="${HOST%%.*}$PS1"
+if /bin/test $(id -u) -eq 0; then
+	export PS1="${HOST%%.*}# "
+else
+	export PS1="${HOST%%.*}$ "
+fi
 
 if [ "$BASH" ]; then
     shopt -s histappend
