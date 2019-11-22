@@ -144,6 +144,7 @@ for dir in  $HOME/.local/bin \
             /var/lib/snapd/snap/bin \
             $GOPATH/bin \
             $HOME/.cargo/bin \
+            $HOME/.gem/ruby/*/bin \
     ; do
     if [ -d "$dir" ]; then
         PATH="$PATH:$dir"

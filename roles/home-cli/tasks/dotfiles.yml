@@ -1,4 +1,8 @@
 ---
+- name: Copy .gemrc
+  copy:
+    src: gemrc
+    dest: "{{ ansible_env.HOME }}/.gemrc"
 - name: Copy .gitconfig
   copy:
     src: gitconfig
