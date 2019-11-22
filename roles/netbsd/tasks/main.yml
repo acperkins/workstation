@@ -3,4 +3,6 @@
 - include: packages-gui.yml
   when: gui == true
 - include: sudo.yml
+- include: console.yml
 - include: xorg.yml
+  when: gui == true
