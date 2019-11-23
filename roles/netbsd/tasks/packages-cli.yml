@@ -16,5 +16,20 @@
 - name: Install CLI packages
   become: true
   pkgin:
-    name: ansible,git,gnupg2,mc,mozilla-rootcerts-openssl,nmap,openvpn,pkgin,py37-pip,python37,sqlite3,sudo,zsh
+    name: '{{ packages }}'
     state: present
+  vars:
+    packages:
+      - ansible
+      - git
+      - gnupg2
+      - mc
+      - mozilla-rootcerts-openssl
+      - nmap
+      - openvpn
+      - pkgin
+      - py37-pip
+      - python37
+      - sqlite3
+      - sudo
+      - zsh
