@@ -30,6 +30,7 @@
       - pkgin
       - py37-pip
       - python37
+      - ruby
       - sqlite3
       - sudo
       - zsh
