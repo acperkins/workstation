@@ -1,4 +1,7 @@
 ---
+- name: Install libstroke manually
+  become: true
+  command: pkg_add libstroke
 - name: Install GUI packages
   become: true
   pkgin:
