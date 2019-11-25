@@ -222,11 +222,6 @@ fi
 case $- in
     *i*)
         # Shell is interactive
-        if ! test -f .hushlogin && test -r /etc/motd; then
-            echo "---- BEGIN MOTD ----"
-            cat /etc/motd
-            echo "----- END MOTD -----"
-        fi
         printf "\033[7m"
         uname -sr
         printf "\033[0m"
