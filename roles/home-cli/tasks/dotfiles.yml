@@ -7,10 +7,10 @@
   copy:
     src: gitconfig
     dest: "{{ ansible_env.HOME }}/.gitconfig"
-- name: Copy .hushlogin
-  copy:
-    src: hushlogin
-    dest: "{{ ansible_env.HOME }}/.hushlogin"
+- name: Remove .hushlogin
+  file:
+    path: "{{ ansible_env.HOME }}/.hushlogin"
+    state: absent
 - name: Copy .inputrc
   copy:
     src: inputrc
