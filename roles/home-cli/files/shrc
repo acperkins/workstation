@@ -106,7 +106,7 @@ if [ ! -d "$HOME/.local/bin" ]; then
 fi
 
 # Alias vi to vim if it is installed
-if [ -x /usr/bin/vim ] || [ -x /usr/local/bin/vim ]; then
+if [ -x /usr/bin/vim ] || [ -x /usr/local/bin/vim ] || [ -x /usr/pkg/bin/vim ]; then
     alias vi="vim"
 fi
 
