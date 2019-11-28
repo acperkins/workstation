@@ -1,0 +1,9 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Setup GUI for user only
+  hosts: localhost
+  vars:
+    gui: true
+  tasks:
+    - include_role:
+        name: home-cli
