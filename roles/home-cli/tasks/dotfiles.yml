@@ -3,10 +3,6 @@
   copy:
     src: gemrc
     dest: "{{ ansible_env.HOME }}/.gemrc"
-- name: Copy .gitconfig
-  copy:
-    src: gitconfig
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
 - name: Remove .hushlogin
   file:
     path: "{{ ansible_env.HOME }}/.hushlogin"
