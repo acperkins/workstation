@@ -126,7 +126,7 @@ alias prunx="podman run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$D
 alias drun="sudo docker run --rm -it"
 alias drunx="sudo docker run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
 
-PATH="/usr/sbin:/usr/bin:/sbin:/bin"
+PATH="/usr/sbin:/sbin:/usr/bin:/bin"
 for dir in  $HOME/bin \
             $GOPATH/bin \
             $HOME/.cargo/bin \
