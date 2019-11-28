@@ -23,6 +23,7 @@
       - ansible
       - git
       - gnupg2
+      - heirloom-doctools
       - mc
       - mozilla-rootcerts-openssl
       - nmap

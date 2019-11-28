@@ -139,6 +139,7 @@ for dir in  $HOME/bin \
             /usr/pkg/bin \
             /usr/games \
             /usr/local/heirloom-doctools/bin \
+            /usr/pkg/heirloom-doctools/bin \
             /var/lib/snapd/snap/bin \
             /app/bin \
             /snap/bin \
