@@ -1,7 +1,4 @@
 ---
-- name: Install libstroke manually
-  become: true
-  command: pkg_add libstroke
 - name: Install GUI packages
   become: true
   pkgin:
@@ -11,10 +8,10 @@
     packages:
       - adwaita-icon-theme
       - atril
+      - dbus
       - firefox
-      - fvwm
       - liberation-ttf
-      - mate-terminal
+      - mate
       - rxvt-unicode
       - vim-gtk3
       - xlockmore-lite

@@ -4,4 +4,4 @@ export XDG_DATA_DIRS=/usr/local/share:/usr/share:/usr/pkg/share
 xrdb -merge ~/.Xresources
 xset b off
 setxkbmap gb
-exec ssh-agent fvwm
+exec ssh-agent mate-session
