@@ -1,7 +1,7 @@
 [Toplevel top]
 expand=true
 orientation=top
-size=32
+size=48
 
 [Object menu]
 object-type=menu
