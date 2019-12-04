@@ -2,7 +2,7 @@
 - name: pull.rebase
   git_config:
     name: pull.rebase
-    value: true
+    value: 'true'
     scope: global
 - name: push.default
   git_config:
