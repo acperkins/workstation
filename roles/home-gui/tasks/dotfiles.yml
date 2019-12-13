@@ -46,3 +46,4 @@
     src: ".xsession"
     dest: "{{ ansible_env.HOME }}/.xinitrc"
     state: link
+  when: ansible_system == "NetBSD" or ansible_system == "FreeBSD"
