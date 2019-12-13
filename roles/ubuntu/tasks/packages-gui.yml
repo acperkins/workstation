@@ -13,4 +13,4 @@
       - git-gui
       - nextcloud-desktop
       - remmina
-      - vim-gtk
+      - vim-gtk3
