@@ -204,6 +204,10 @@ xa () {
     done
 }
 
+lastreboots () {
+    journalctl | grep -A 1 -- '-- Reboot --' | grep -v '^--' | awk '{print $1, $2, $3}'
+}
+
 if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]; then
     alias dnf='yum'
 fi
