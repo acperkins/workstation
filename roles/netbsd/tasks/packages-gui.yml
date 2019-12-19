@@ -8,6 +8,7 @@
     packages:
       - adwaita-icon-theme
       - atril
+      - emacs
       - firefox
       - liberation-ttf
       - mate-terminal
