@@ -8,10 +8,8 @@
     packages:
       - adwaita-icon-theme
       - atril
-      - dbus
       - firefox
       - liberation-ttf
-      - mate
-      - rxvt-unicode
+      - mate-terminal
       - vim-gtk3
       - xlockmore-lite
