@@ -1,4 +1,10 @@
 ---
+- name: Check for MATE layouts directory
+  stat:
+    path: "{{ prefix }}/share/mate-panel/layouts"
+  vars:
+    prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
+  register: mate_layouts
 - name: Copy MATE panel layout
   become: true
   template:
@@ -6,25 +12,30 @@
     dest: "{{ prefix }}/share/mate-panel/layouts/acp.layout"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
+  when: mate_layouts.stat.exists and mate_layouts.stat.isdir
 - name: Set default panel layout
   dconf:
     key: /org/mate/panel/general/default-layout
     value: "'acp'"
   register: layout_changed
+  when: ansible_system == 'Linux'
 - name: Reset panel
   command: mate-panel --reset || true
-  when: layout_changed.changed
+  when: ansible_system == 'Linux' and layout_changed.changed
   ignore_errors: yes
   changed_when: false
 - name: Add cities to clock applet
   dconf:
     key: /org/mate/panel/objects/clock/prefs/cities
     value: ['<location name="" city="Luton" timezone="Europe/London" latitude="51.866669" longitude="-0.366667" code="EGGW" current="true"/>', '<location name="" city="San Francisco" timezone="America/Los_Angeles" latitude="37.619720" longitude="-122.364723" code="KSFO" current="false"/>', '<location name="UTC" city="" timezone="GMT" latitude="-0.000000" longitude="-0.000000" code="-" current="false"/>', '<location name="" city="Halifax" timezone="America/Halifax" latitude="44.883331" longitude="-63.500000" code="CYHZ" current="false"/>']
+  when: ansible_system == 'Linux'
 - name: Set workspace switcher to two rows
   dconf:
     key: /org/mate/panel/objects/workspace-switcher/prefs/num-rows
     value: 2
+  when: ansible_system == 'Linux'
 - name: Expand locations in clock
   dconf:
     key: /org/mate/panel/objects/clock/prefs/expand-locations
     value: 'true'
+  when: ansible_system == 'Linux'
