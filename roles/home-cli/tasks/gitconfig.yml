@@ -1,75 +1,75 @@
 ---
-- name: pull.rebase
+- name: Git pull.rebase
   git_config:
     name: pull.rebase
     value: 'true'
     scope: global
-- name: push.default
+- name: Git push.default
   git_config:
     name: push.default
     value: simple
     scope: global
-- name: color.ui
+- name: Git color.ui
   git_config:
     name: color.ui
     value: auto
     scope: global
-- name: credential.helper
+- name: Git credential.helper
   git_config:
     name: credential.helper
     value: store
     scope: global
-- name: gui.encoding
+- name: Git gui.encoding
   git_config:
     name: gui.encoding
     value: utf-8
     scope: global
-- name: guitool.Rebase.cmd
+- name: Git guitool.Rebase.cmd
   git_config:
     name: guitool.Rebase.cmd
     value: rebase
     scope: global
-- name: user.name
+- name: Git user.name
   git_config:
     name: user.name
     value: Anthony Perkins
     scope: global
-- name: alias.ci
+- name: Git alias.ci
   git_config:
     name: alias.ci
     value: commit
     scope: global
-- name: alias.co
+- name: Git alias.co
   git_config:
     name: alias.co
     value: checkout
     scope: global
-- name: alias.ff
+- name: Git alias.ff
   git_config:
     name: alias.ff
     value: merge --ff-only
     scope: global
-- name: alias.graph
+- name: Git alias.graph
   git_config:
     name: alias.graph
     value: log --graph --oneline --all
     scope: global
-- name: alias.l1
+- name: Git alias.l1
   git_config:
     name: alias.l1
     value: log --pretty=oneline
     scope: global
-- name: alias.last
+- name: Git alias.last
   git_config:
     name: alias.last
     value: log -1 HEAD --pretty=fuller
     scope: global
-- name: alias.unstage
+- name: Git alias.unstage
   git_config:
     name: alias.unstage
     value: reset HEAD --
     scope: global
-- name: alias.up
+- name: Git alias.up
   git_config:
     name: alias.up
     value: pull --rebase
