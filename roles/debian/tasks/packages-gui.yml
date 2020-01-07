@@ -7,21 +7,20 @@
     force_apt_get: yes
   vars:
     packages:
-      - caja-open-terminal
       - dconf-cli
       - desktop-base
       - emacs
       - evolution
       - galculator
       - git-gui
+      - kleopatra
       - mpv
       - nextcloud-desktop
       - redshift-gtk
       - remmina
       - rxvt-unicode
-      - seahorse
       - task-british-desktop
-      - task-mate-desktop
+      - task-kde-desktop
       - vim-gtk
       - xinput
       - xterm
