@@ -31,6 +31,7 @@
       - wordgrinder-ncurses
       - zsh
 - name: load /etc/profile in zsh
+  become: true
   lineinfile:
-    file: /etc/zsh/zprofile
+    path: /etc/zsh/zprofile
     line: emulate sh -c 'source /etc/profile'
