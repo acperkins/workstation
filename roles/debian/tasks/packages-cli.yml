@@ -30,3 +30,7 @@
       - vim
       - wordgrinder-ncurses
       - zsh
+- name: load /etc/profile in zsh
+  lineinfile:
+    file: /etc/zsh/zprofile
+    line: emulate sh -c 'source /etc/profile'
