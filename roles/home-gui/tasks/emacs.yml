@@ -3,37 +3,3 @@
   git:
     repo: https://code.acperkins.com/acp/emacs.d.git
     dest: "{{ ansible_env.HOME }}/.emacs.d"
-- name: Find Emacs service definition
-  find:
-    paths: /usr/share/emacs
-    patterns: 'emacs.service'
-    recurse: yes
-    depth: 3
-  register: emacs_service_files
-  when: ansible_system == 'Linux'
-- name: Create Emacs user service (Linux)
-  copy:
-    src: '{{ item.path }}'
-    dest: "{{ ansible_env.HOME }}/.config/systemd/user/emacs.service"
-    remote_src: yes
-  loop: '{{ emacs_service_files.files }}'
-  when: ansible_system == 'Linux'
-- name: Add Emacs server to autostart (FreeBSD)
-  copy:
-    src: '{{ ansible_env.HOME }}/.emacs.d/emacs-server.desktop'
-    dest: '{{ ansible_env.HOME }}/.config/autostart'
-    remote_src: yes
-  when: ansible_system == 'FreeBSD'
-- name: Start Emacs user service
-  systemd:
-    name: emacs.service
-    scope: user
-    daemon_reload: yes
-    enabled: yes
-    state: started
-  when: ansible_system == 'Linux'
-- name: Create Emacs client launcher
-  copy:
-    src: "{{ ansible_env.HOME }}/.emacs.d/emacs-client.desktop"
-    dest: "{{ ansible_env.HOME }}/.local/share/applications/emacs-client.desktop"
-    remote_src: yes
