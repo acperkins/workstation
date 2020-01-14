@@ -11,11 +11,14 @@
       - ansible
       - asciidoctor
       - build-essential
+      - clang
+      - clang-format
       - dc
       - devscripts
       - dnsutils
       - git
       - gnupg
+      - lldb
       - mc
       - nmap
       - openssh-server
