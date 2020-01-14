@@ -4,3 +4,4 @@
   when: gui == true
 - include: modules.yml
 - include: ssh.yml
+- include: solokeys.yml

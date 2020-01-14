@@ -18,6 +18,7 @@
       - dnsutils
       - git
       - gnupg
+      - libu2f-udev
       - lldb
       - mc
       - nmap
