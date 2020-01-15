@@ -25,6 +25,7 @@ export PAPERSIZE="a4"
 export TIME_STYLE="long-iso"
 
 # Other exports.
+export ANSIBLE_NOCOWS=1
 export EDITOR=vi
 export PYTHONWARNINGS="ignore::UserWarning"
 
