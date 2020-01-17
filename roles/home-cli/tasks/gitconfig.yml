@@ -74,3 +74,8 @@
     name: alias.up
     value: pull --rebase
     scope: global
+- name: Git URL rewrite
+  git_config:
+    name: url."https://code.acperkins.com/".insteadof
+    value: https://git.acperkins.com/
+    scope: global
