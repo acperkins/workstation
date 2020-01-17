@@ -16,6 +16,7 @@
       - kleopatra
       - mpv
       - nextcloud-desktop
+      - plasma-browser-integration
       - redshift-gtk
       - remmina
       - rxvt-unicode
