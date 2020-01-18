@@ -9,6 +9,7 @@
     packages:
       - dconf-cli
       - desktop-base
+      - dolphin-nextcloud
       - emacs
       - evolution
       - galculator
@@ -17,6 +18,7 @@
       - mpv
       - nextcloud-desktop
       - plasma-browser-integration
+      - okular-extra-backends
       - redshift-gtk
       - remmina
       - rxvt-unicode
