@@ -1,6 +1,0 @@
-PATH=/usr/bin:/bin:/usr/local/bin
-xrdb -merge ~/.Xresources
-xset b off
-stalonetray &
-redshift &
-exec ssh-agent fvwm

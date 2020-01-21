@@ -11,26 +11,22 @@
     state: present
   vars:
     packages:
-      - adwaita-icon-theme
-      - atril
       - dbus
       - emacs
       - en_GB-libreoffice
       - firefox-esr
-      - fvwm
       - galculator
       - git-gui
       - iosevka
+      - kde5
       - liberation-fonts-ttf
       - libreoffice
-      - luit
-      - mate-terminal
       - mpv
       - nextcloudclient
       - redshift
       - remmina
       - remmina-plugin-rdp
       - rxvt-unicode
-      - seahorse
+      - sddm
       - vim
       - xinput

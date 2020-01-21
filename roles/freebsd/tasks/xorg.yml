@@ -5,12 +5,6 @@
     name: dbus
     state: started
     enabled: yes
-- name: Enable XDM
-  become: true
-  lineinfile:
-    path: /etc/ttys
-    regexp: '^ttyv8\s.*'
-    line: 'ttyv8	"/usr/local/bin/xdm -nodaemon"	xterm	on  secure'
 - name: Set xorg keyboard layout
   become: true
   copy:

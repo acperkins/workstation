@@ -2,7 +2,7 @@
 - name: Install core CLI packages
   become: true
   pkgng:
-    name: drm-kmod,en-freebsd-doc,git,pkg,py36-ansible,sudo
+    name: drm-kmod,en-freebsd-doc,git,pkg,py37-ansible,sudo
     state: present
 - name: Install additional CLI packages
   become: true
@@ -17,7 +17,7 @@
       - mc
       - nmap
       - openvpn
-      - py36-psutil
+      - py37-psutil
       - rubygem-asciidoctor
       - sqlite3
       - tmux
