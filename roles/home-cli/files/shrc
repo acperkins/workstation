@@ -209,6 +209,10 @@ lastreboots () {
     journalctl | grep -A 1 -- '-- Reboot --' | grep -v '^--' | awk '{print $1, $2, $3}'
 }
 
+eview () {
+    emacs $1 -f view-mode
+}
+
 if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]; then
     alias dnf='yum'
 fi
