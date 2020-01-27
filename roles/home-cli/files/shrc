@@ -34,9 +34,9 @@ if /bin/test -z "${HOST}"; then
     HOST="$(hostname)"
 fi
 if /bin/test $(id -u) -eq 0; then
-	export PS1="${HOST%%.*}# "
+    export PS1="${HOST%%.*}# "
 else
-	export PS1="${HOST%%.*}$ "
+    export PS1="${HOST%%.*}$ "
 fi
 
 if [ "$BASH" ]; then
