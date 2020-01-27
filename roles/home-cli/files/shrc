@@ -209,7 +209,7 @@ lastreboots () {
     journalctl | grep -A 1 -- '-- Reboot --' | grep -v '^--' | awk '{print $1, $2, $3}'
 }
 
-eview () {
+emacsro () {
     emacs $1 -f view-mode
 }
 
