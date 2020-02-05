@@ -92,7 +92,6 @@ alias ls="/bin/ls $LSOPTIONS"
 alias now="date +%Y%m%dT%H%M%S%z"
 alias nowu="date -u +%Y%m%dT%H%M%SZ"
 alias ta="$HOME/opt/textadept/textadept"
-alias tm="tmux -2 attach-session || tmux -2 new-session"
 alias wgr="wordgrinder"
 alias ytmp3="youtube-dl -q -x --audio-format=mp3"
 
@@ -211,6 +210,14 @@ lastreboots () {
 
 emacsro () {
     emacs $1 -f view-mode
+}
+
+tm () {
+    if tmux list-session 2>/dev/null 1>/dev/null; then
+        tmux -2 attach-session
+    else
+        tmux -2 new-session
+    fi
 }
 
 if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]; then
