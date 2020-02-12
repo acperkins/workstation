@@ -224,6 +224,10 @@ if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]; then
     alias dnf='yum'
 fi
 
+if test -n "$DISPLAY" && test -x /usr/bin/subl; then
+    export EDITOR="/usr/bin/subl -nw"
+fi
+
 if [ -x /usr/bin/svnlite ] && [ ! -x /usr/local/bin/svn ]; then
     alias svn='svnlite'
     alias svnadmin='svnliteadmin'
