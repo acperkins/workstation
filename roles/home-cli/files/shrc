@@ -27,6 +27,7 @@ export TIME_STYLE="long-iso"
 # Other exports.
 export ANSIBLE_NOCOWS=1
 export EDITOR=vi
+export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS="ignore::UserWarning"
 
 PS1="$ "
