@@ -221,6 +221,10 @@ tm () {
     fi
 }
 
+qemu-quick () {
+    qemu-system-x86_64 -nodefaults -readconfig $1
+}
+
 if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]; then
     alias dnf='yum'
 fi
