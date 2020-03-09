@@ -7,7 +7,6 @@
   copy:
     src: emacs.service
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/emacs.service"
-    remote_src: yes
   when: ansible_system == 'Linux'
 - name: Add Emacs server to autostart (FreeBSD)
   copy:
