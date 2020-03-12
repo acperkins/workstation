@@ -9,6 +9,9 @@
         name: debian
       when: ansible_distribution == 'Debian'
     - include_role:
+        name: fedora
+      when: ansible_distribution == 'Fedora'
+    - include_role:
         name: freebsd
       when: ansible_distribution == 'FreeBSD'
     - include_role:

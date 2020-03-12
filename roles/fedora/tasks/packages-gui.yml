@@ -1,0 +1,21 @@
+---
+- name: Install GUI packages
+  become: true
+  dnf:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - emacs
+      - evolution
+      - evolution-ews
+      - galculator
+      - git-gui
+      - kleopatra
+      - nextcloud-client
+      - nextcloud-client-dolphin
+      - redshift-gtk
+      - remmina
+      - rxvt-unicode
+      - vim-X11
+      - xterm

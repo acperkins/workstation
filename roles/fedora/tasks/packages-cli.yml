@@ -1,0 +1,36 @@
+---
+- name: Install CLI packages
+  become: true
+  dnf:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - "@c-development"
+      - ansible
+      - asciidoctor
+      - bc
+      - bind-utils
+      - clang
+      - git
+      - gnupg
+      - lldb
+      - mc
+      - nmap
+      - openssh-server
+      - python3
+      - python3-psutil
+      - rubygem-asciidoctor-pdf
+      - sqlite
+      - sudo
+      - tlp
+      - tmux
+      - vim
+      - wordgrinder
+      - zsh
+- name: Enable TLP
+  become: true
+  systemd:
+    name: tlp.service
+    enabled: true
+    state: started
