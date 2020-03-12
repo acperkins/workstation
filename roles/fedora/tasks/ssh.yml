@@ -18,3 +18,10 @@
     name: sshd.service
     state: restarted
   when: changed_ssh_config.changed == true
+- name: Allow SSH through firewall
+  become: true
+  firewalld:
+    service: ssh
+    permanent: yes
+    state: enabled
+    immediate: yes
