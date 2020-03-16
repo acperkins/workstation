@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [ -r /etc/profile ]; then
-    . /etc/profile
-fi
+#if [ -r /etc/profile ]; then
+#    . /etc/profile
+#fi
 
 export BASH_ENV="$HOME/.bashrc"
 export BLOCKSIZE="K"
