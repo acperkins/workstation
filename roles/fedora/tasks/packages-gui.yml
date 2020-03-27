@@ -11,10 +11,8 @@
       - evolution-ews
       - galculator
       - git-gui
-      - kleopatra
       - nextcloud-client
-      - nextcloud-client-dolphin
-      - redshift-gtk
+      - nextcloud-client-nautilus
       - remmina
       - rxvt-unicode
       - vim-X11
