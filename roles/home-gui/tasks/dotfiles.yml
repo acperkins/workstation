@@ -15,14 +15,6 @@
   copy:
     src: nextcloud.desktop
     dest: "{{ ansible_env.HOME }}/.config/autostart/nextcloud.desktop"
-- name: Auto start redshift-gtk
-  copy:
-    src: redshift-gtk.desktop
-    dest: "{{ ansible_env.HOME }}/.config/autostart/redshift-gtk.desktop"
-- name: Auto start remmina-applet
-  copy:
-    src: remmina-applet.desktop
-    dest: "{{ ansible_env.HOME }}/.config/autostart/remmina-applet.desktop"
 - name: Create stalonetrayrc
   copy:
     src: stalonetrayrc
