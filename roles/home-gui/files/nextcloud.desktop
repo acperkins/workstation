@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Utility
 Type=Application
-Exec=nextcloud
-Name=Nextcloud desktop sync client 
+Exec=nextcloud --background
+Name=Nextcloud desktop sync client
 Comment=Nextcloud desktop synchronization client
 GenericName=Folder Sync
 Icon=Nextcloud
