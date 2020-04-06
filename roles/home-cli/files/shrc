@@ -106,12 +106,12 @@ if [ ! -d "$HOME/.local/bin" ]; then
     /bin/mkdir -p "$HOME/.local/bin"
 fi
 
-# Alias vi to vim if it is installed
+# Alias vi to vim if it is installed.
 if [ -x /usr/bin/vim ] || [ -x /usr/local/bin/vim ] || [ -x /usr/pkg/bin/vim ]; then
     alias vi="vim"
 fi
 
-# Set up GOPATH
+# Set up GOPATH.
 export GOPATH="$HOME/data/go"
 if [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]; then
     if [ ! -d "$GOPATH" ]; then
@@ -119,6 +119,12 @@ if [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]; then
         /bin/mkdir -p "$GOPATH/pkg"
         /bin/mkdir -p "$GOPATH/src"
     fi
+fi
+
+# Use a manually-installed ansible if available.
+if [ -x "$HOME/opt/ansible/bin/ansible" ]; then
+    alias ansible="$HOME/opt/ansible/bin/ansible"
+    alias ansible-playbook="$HOME/opt/ansible/bin/ansible-playbook"
 fi
 
 # Useful aliases for Podman and Docker
