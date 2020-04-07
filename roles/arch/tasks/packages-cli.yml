@@ -12,6 +12,7 @@
   vars:
     packages:
       - ansible
+      - aspell-en
       - arch-wiki-docs
       - asciidoctor
       - bc

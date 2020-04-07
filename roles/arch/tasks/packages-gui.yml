@@ -23,4 +23,5 @@
       - nextcloud-client
       - remmina
       - rxvt-unicode
+      - tk
       - xterm
