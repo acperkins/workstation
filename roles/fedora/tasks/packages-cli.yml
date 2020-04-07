@@ -9,6 +9,7 @@
       - "@c-development"
       - ansible
       - asciidoctor
+      - aspell-en
       - bc
       - bind-utils
       - clang
