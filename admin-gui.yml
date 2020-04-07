@@ -6,6 +6,9 @@
     gui: true
   tasks:
     - include_role:
+        name: arch
+      when: ansible_distribution == 'Archlinux'
+    - include_role:
         name: debian
       when: ansible_distribution == 'Debian'
     - include_role:

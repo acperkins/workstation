@@ -1,0 +1,23 @@
+---
+- name: Upgrade all packages
+  become: true
+  pacman:
+    upgrade: yes
+- name: Install GUI packages
+  become: true
+  dnf:
+    name: '{{ packages }}'
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - emacs
+      - evolution
+      - evolution-ews
+      - galculator
+      - gvim
+      - libgnome-keyring
+      - nextcloud-client
+      - remmina
+      - rxvt-unicode
+      - xterm

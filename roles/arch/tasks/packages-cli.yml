@@ -1,0 +1,37 @@
+---
+- name: Upgrade all packages
+  become: true
+  pacman:
+    upgrade: yes
+- name: Install CLI packages
+  become: true
+  pacman:
+    name: '{{ packages }}'
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - ansible
+      - arch-wiki-docs
+      - asciidoctor
+      - bc
+      - bind-tools
+      - clang
+      - git
+      - gnupg
+      - lldb
+      - mc
+      - nmap
+      - openssh
+      - python
+      - python-psutil
+      - sudo
+      - tlp
+      - tmux
+      - zsh
+- name: Enable TLP
+  become: true
+  systemd:
+    name: tlp.service
+    enabled: true
+    state: started
