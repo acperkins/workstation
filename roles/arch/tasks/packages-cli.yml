@@ -18,6 +18,7 @@
       - bc
       - bind-tools
       - clang
+      - fakeroot
       - git
       - gnupg
       - lldb
