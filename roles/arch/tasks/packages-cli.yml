@@ -20,6 +20,7 @@
       - git
       - gnupg
       - lldb
+      - man-db
       - mc
       - nmap
       - openssh
