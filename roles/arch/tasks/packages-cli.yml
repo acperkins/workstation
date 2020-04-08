@@ -18,6 +18,7 @@
       - bc
       - bind-tools
       - clang
+      - exfat-utils
       - fakeroot
       - git
       - gnupg
