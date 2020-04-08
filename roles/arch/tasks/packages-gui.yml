@@ -24,4 +24,5 @@
       - remmina
       - rxvt-unicode
       - tk
+      - ttf-liberation
       - xterm
