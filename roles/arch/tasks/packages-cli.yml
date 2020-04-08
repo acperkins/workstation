@@ -15,11 +15,10 @@
       - aspell-en
       - arch-wiki-docs
       - asciidoctor
+      - base-devel
       - bc
       - bind-tools
       - clang
-      - exfat-utils
-      - fakeroot
       - git
       - gnupg
       - lldb
