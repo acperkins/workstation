@@ -1,5 +1,43 @@
 #!/bin/sh
 
+PATH="/usr/sbin:/sbin:/usr/bin:/bin"
+for dir in  $HOME/bin \
+            $HOME/.cargo/bin \
+            $HOME/.gem/ruby/2.6.0/bin \
+            /usr/X11R7/bin \
+            /usr/X11R6/bin \
+            /usr/local/sbin \
+            /usr/local/bin \
+            /usr/pkg/sbin \
+            /usr/pkg/bin \
+            /usr/games \
+            /usr/local/heirloom-doctools/bin \
+            /usr/pkg/heirloom-doctools/bin \
+            /var/lib/snapd/snap/bin \
+            /app/bin \
+            /snap/bin \
+    ; do
+    if [ -d "$dir" ]; then
+        PATH="$PATH:$dir"
+    fi
+done
+export PATH
+
+MANPATH="/usr/share/man"
+for dir in  $HOME/.local/share/man \
+            /usr/X11R6/man \
+            /usr/X11R7/man \
+            /usr/local/man \
+            /usr/pkg/man \
+            /usr/local/share/man \
+            /usr/local/heirloom-doctools/man \
+    ; do
+    if [ -d "$dir" ]; then
+        MANPATH="$MANPATH:$dir"
+    fi
+done
+export MANPATH
+
 umask 0022
 
 set -o emacs
@@ -31,13 +69,16 @@ export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS="ignore::UserWarning"
 
 PS1="$ "
-if /bin/test -z "${HOST}"; then
+if test -z "${HOST}"; then
     HOST="$(hostname 2>/dev/null || cat /etc/hostname)"
 fi
-if /bin/test $(id -u) -eq 0; then
+if test $(id -u) -eq 0; then
     export PS1="${HOST%%.*}# "
 else
     export PS1="${HOST%%.*}$ "
+fi
+if test -x /usr/bin/tty; then
+    export GPG_TTY=$(tty)
 fi
 
 if [ "$BASH" ]; then
@@ -103,7 +144,7 @@ alias qemu-p3="qemu-system-i386 -machine pc,accel=kvm -cpu pentium3 -m 256 -vga 
 alias qemu-core2="qemu-system-x86_64 -machine q35,accel=kvm -cpu core2duo -m 2048 -vga qxl -usb -soundhw hda -nic none" # -nic user,model=e1000
 
 if [ ! -d "$HOME/.local/bin" ]; then
-    /bin/mkdir -p "$HOME/.local/bin"
+    mkdir -p "$HOME/.local/bin"
 fi
 
 # Alias vi to vim if it is installed.
@@ -115,10 +156,11 @@ fi
 export GOPATH="$HOME/data/go"
 if [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]; then
     if [ ! -d "$GOPATH" ]; then
-        /bin/mkdir -p "$GOPATH/bin"
-        /bin/mkdir -p "$GOPATH/pkg"
-        /bin/mkdir -p "$GOPATH/src"
+        mkdir -p "$GOPATH/bin"
+        mkdir -p "$GOPATH/pkg"
+        mkdir -p "$GOPATH/src"
     fi
+    export PATH="$PATH:$GOPATH"
 fi
 
 # Use a manually-installed ansible if available.
@@ -132,45 +174,6 @@ alias prun="podman run --rm -it"
 alias prunx="podman run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
 alias drun="sudo docker run --rm -it"
 alias drunx="sudo docker run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
-
-PATH="/usr/sbin:/sbin:/usr/bin:/bin"
-for dir in  $HOME/bin \
-            $GOPATH/bin \
-            $HOME/.cargo/bin \
-            $HOME/.gem/ruby/2.6.0/bin \
-            /usr/X11R7/bin \
-            /usr/X11R6/bin \
-            /usr/local/sbin \
-            /usr/local/bin \
-            /usr/pkg/sbin \
-            /usr/pkg/bin \
-            /usr/games \
-            /usr/local/heirloom-doctools/bin \
-            /usr/pkg/heirloom-doctools/bin \
-            /var/lib/snapd/snap/bin \
-            /app/bin \
-            /snap/bin \
-    ; do
-    if [ -d "$dir" ]; then
-        PATH="$PATH:$dir"
-    fi
-done
-export PATH
-
-MANPATH="/usr/share/man"
-for dir in  $HOME/.local/share/man \
-            /usr/X11R6/man \
-            /usr/X11R7/man \
-            /usr/local/man \
-            /usr/pkg/man \
-            /usr/local/share/man \
-            /usr/local/heirloom-doctools/man \
-    ; do
-    if [ -d "$dir" ]; then
-        MANPATH="$MANPATH:$dir"
-    fi
-done
-export MANPATH
 
 mkcd () {
     if [ $# -ne 1 ]; then
