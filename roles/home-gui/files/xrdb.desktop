@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Terminal=false
+Name=Xresources
+Exec=xrdb -merge .Xresources
+Icon=xterm-color
+Type=Application

@@ -26,3 +26,8 @@
     dest: "{{ ansible_env.HOME }}/.xinitrc"
     state: link
   when: ansible_system == "NetBSD"
+- name: Load ~/.Xresources on Fedora
+  copy:
+    src: "xrdb.desktop"
+    dest: "{{ ansible_env.HOME }}/.config/autostart/xrdb.desktop"
+  when: ansible_distribution == "Fedora"
