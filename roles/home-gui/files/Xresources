@@ -1,5 +1,5 @@
 *color: true
-URxvt*background: #ffffff
+URxvt*background: #2e3436
 URxvt*color0: #1e1e1e
 URxvt*color1: #cc0000
 URxvt*color2: #4e9a06
@@ -17,7 +17,7 @@ URxvt*color13: #ad7fa8
 URxvt*color14: #00f5e9
 URxvt*color15: #eeeeec
 URxvt*font: xft:Monospace:Regular:size=10
-URxvt*foreground: #000000
+URxvt*foreground: #d3d7cf
 URxvt*letterSpace: -1
 URxvt*locale: true
 URxvt*metaSendsEscape: true
