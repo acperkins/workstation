@@ -26,6 +26,7 @@
       - man-db
       - mc
       - nmap
+      - openbsd-netcat
       - openssh
       - python
       - python-psutil
