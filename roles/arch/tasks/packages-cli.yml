@@ -18,13 +18,17 @@
       - base-devel
       - bc
       - bind-tools
+      - bridge-utils
       - clang
       - cups
+      - dnsmasq
+      - ebtables
       - git
       - gnupg
       - lldb
       - man-db
       - mc
+      - nftables
       - nmap
       - openbsd-netcat
       - openssh
