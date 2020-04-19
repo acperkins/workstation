@@ -1,0 +1,7 @@
+---
+- name: Enable CUPS
+  become: true
+  systemd:
+    name: org.cups.cupsd.service
+    enabled: yes
+    state: started

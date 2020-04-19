@@ -6,3 +6,4 @@
 - include: ssh.yml
 - include: solokeys.yml
 - include: locale.yml
+- include: printing.yml
