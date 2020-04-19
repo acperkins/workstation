@@ -28,7 +28,6 @@
       - lldb
       - man-db
       - mc
-      - nftables
       - nmap
       - openbsd-netcat
       - openssh
