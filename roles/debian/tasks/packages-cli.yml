@@ -16,6 +16,8 @@
       - dc
       - devscripts
       - dnsutils
+      - exfat-fuse
+      - exfat-utils
       - git
       - gnupg
       - lldb
