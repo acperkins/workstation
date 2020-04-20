@@ -9,21 +9,19 @@
     packages:
       - dconf-cli
       - desktop-base
-      - dolphin-nextcloud
       - emacs
       - evolution
       - galculator
       - git-gui
-      - kleopatra
+      - gnome-tweaks
       - mpv
+      - nautilus-nextcloud
       - nextcloud-desktop
-      - plasma-browser-integration
-      - okular-extra-backends
-      - redshift-gtk
       - remmina
       - rxvt-unicode
       - task-british-desktop
-      - task-kde-desktop
+      - task-gnome-desktop
+      - task-print-server
       - vim-gtk
       - xinput
       - xterm
