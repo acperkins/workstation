@@ -1,8 +1,4 @@
 ---
-- name: Upgrade all packages
-  become: true
-  pacman:
-    upgrade: yes
 - name: Install GUI packages
   become: true
   pacman:
