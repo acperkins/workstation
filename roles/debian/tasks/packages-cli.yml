@@ -21,6 +21,7 @@
       - exfat-utils
       - git
       - gnupg
+      - groff
       - lldb
       - mc
       - nmap
