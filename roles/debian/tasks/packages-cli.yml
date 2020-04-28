@@ -29,6 +29,7 @@
       - python3
       - python3-psutil
       - ruby-asciidoctor-pdf
+      - sipcalc
       - sqlite3
       - sudo
       - tlp
