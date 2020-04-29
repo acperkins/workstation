@@ -14,6 +14,7 @@
       - galculator
       - git-gui
       - gnome-tweaks
+      - latexmk
       - mpv
       - nautilus-nextcloud
       - nextcloud-desktop
@@ -22,6 +23,9 @@
       - task-british-desktop
       - task-gnome-desktop
       - task-print-server
+      - texlive
+      - texlive-pictures
+      - texlive-science
       - vim-gtk
       - xinput
       - xterm
