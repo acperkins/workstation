@@ -24,6 +24,7 @@
       - groff
       - lldb
       - mc
+      - nftables
       - nmap
       - openssh-server
       - packagekit
