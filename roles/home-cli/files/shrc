@@ -16,6 +16,7 @@ for dir in  $HOME/bin \
             /var/lib/snapd/snap/bin \
             /app/bin \
             /snap/bin \
+            /usr/dt/bin \
     ; do
     if [ -d "$dir" ]; then
         PATH="$PATH:$dir"
