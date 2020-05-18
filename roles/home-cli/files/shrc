@@ -103,6 +103,7 @@ if [ "$ZSH_VERSION" ]; then
     bindkey "^[[1;5D" backward-word  # Ctrl-Left
     bindkey "^[[3;5~" delete-char  # Ctrl-Del
     bindkey "^[[3~" delete-char  # Del
+    bindkey "^[x" undefined-key  # Alt-X
     export HISTFILE=$HOME/.zsh_history
     export HISTSIZE=1000000
     export SAVEHIST=1000000
