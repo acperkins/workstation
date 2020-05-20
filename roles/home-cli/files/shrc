@@ -174,10 +174,10 @@ if [ -x "$HOME/opt/ansible/bin/ansible" ]; then
 fi
 
 # Useful aliases for Podman and Docker
-alias prun='podman run -v $(pwd):/mnt --rm -it'
-alias prunx='podman run -v $(pwd):/mnt -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY="unix$DISPLAY"'
-alias drun='sudo docker run -v $(pwd):/mnt --rm -it'
-alias drunx='sudo docker run -v $(pwd):/mnt -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY="unix$DISPLAY"'
+alias prun="podman run --rm -it"
+alias prunx="podman run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
+alias drun="sudo docker run --rm -it"
+alias drunx="sudo docker run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
 
 mkcd () {
     if [ $# -ne 1 ]; then
