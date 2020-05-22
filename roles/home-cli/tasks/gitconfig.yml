@@ -34,6 +34,11 @@
     name: user.name
     value: Anthony Perkins
     scope: global
+- name: Git user.email
+  git_config:
+    name: user.email
+    value: anthony@acperkins.com
+    scope: global
 - name: Git alias.ci
   git_config:
     name: alias.ci
