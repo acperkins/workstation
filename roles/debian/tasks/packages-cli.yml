@@ -16,10 +16,13 @@
       - console-data
       - curl
       - dc
+      - debhelper
       - devscripts
+      - dh-make
       - dnsutils
       - exfat-fuse
       - exfat-utils
+      - fakeroot
       - git
       - gnupg
       - groff
