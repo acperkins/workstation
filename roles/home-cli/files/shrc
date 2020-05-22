@@ -127,6 +127,7 @@ if [ "$(uname -s)" = "Linux" ]; then
 fi
 
 alias adoc="asciidoctor -a stylesheet=$HOME/.asciidoctor.css"
+alias alu="apt list --upgradable"
 alias aurmake="makepkg -irs"
 alias cal="ncal -w"
 alias ec="emacsclient -c"
