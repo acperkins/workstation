@@ -15,6 +15,7 @@
       - git-gui
       - gnome-tweaks
       - latexmk
+      - libcanberra-gtk-module
       - mpv
       - nautilus-nextcloud
       - nextcloud-desktop
