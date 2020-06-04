@@ -12,7 +12,8 @@
 	],
 	"rulers":
 	[
-		120
+		72,
+		100
 	],
 	"show_encoding": true,
 	"show_line_endings": true,
