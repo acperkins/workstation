@@ -130,6 +130,7 @@ fi
 
 alias adoc="asciidoctor -a stylesheet=$HOME/.asciidoctor.css"
 alias alu="apt list --upgradable"
+alias asdo="apt source --download-only"
 alias aurmake="makepkg -irs"
 alias cal="ncal -w"
 alias ec="emacsclient -c"
