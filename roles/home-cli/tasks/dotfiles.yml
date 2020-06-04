@@ -19,3 +19,7 @@
   copy:
     src: openpgp.asc
     dest: "{{ ansible_env.HOME }}/.config/openpgp.asc"
+- name: Copy .dput.cf
+  copy:
+    src: dput.cf
+    dest: "{{ ansible_env.HOME }}/.dput.cf"
