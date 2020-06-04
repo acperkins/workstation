@@ -19,3 +19,10 @@
   copy:
     src: pbuilderrc
     dest: /etc/pbuilderrc
+- name: Set permissions on /var/cache/pbuilder/result
+  file:
+    path: /var/cache/pbuilder/result
+    state: directory
+    owner: root
+    group: root
+    mode: '1777'
