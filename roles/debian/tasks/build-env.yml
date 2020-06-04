@@ -1,0 +1,16 @@
+---
+- name: Install build environment packages
+  become: true
+  apt:
+    name: '{{ packages }}'
+    state: present
+    force_apt_get: yes
+  vars:
+    packages:
+      - build-essential
+      - debhelper
+      - debootstrap
+      - devscripts
+      - dh-make
+      - fakeroot
+      - pbuilder
