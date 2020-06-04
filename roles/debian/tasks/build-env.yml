@@ -14,3 +14,8 @@
       - dh-make
       - fakeroot
       - pbuilder
+- name: Copy pbuilderrc
+  become: true
+  copy:
+    src: pbuilderrc
+    dest: /etc/pbuilderrc

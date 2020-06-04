@@ -19,7 +19,3 @@
   copy:
     src: openpgp.asc
     dest: "{{ ansible_env.HOME }}/.config/openpgp.asc"
-- name: Copy .pbuilderrc
-  copy:
-    src: pbuilderrc
-    dest: "{{ ansible_env.HOME }}/.pbuilderrc"
