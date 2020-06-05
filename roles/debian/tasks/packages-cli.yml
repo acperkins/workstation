@@ -13,11 +13,13 @@
       - clang
       - clang-format
       - console-data
+      - cowsay
       - curl
       - dc
       - dnsutils
       - exfat-fuse
       - exfat-utils
+      - figlet
       - git
       - gnupg
       - groff
