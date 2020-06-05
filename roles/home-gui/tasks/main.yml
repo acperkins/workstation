@@ -7,3 +7,4 @@
 - include: mate.yml
   when: ansible_system != 'Linux'
 - include: sublimetext.yml
+- include: mate.yml
