@@ -8,22 +8,16 @@
   vars:
     packages:
       - dconf-cli
-      - desktop-base
       - emacs
       - evolution
       - galculator
       - git-gui
-      - gnome-tweaks
       - latexmk
       - libcanberra-gtk-module
       - mpv
-      - nautilus-nextcloud
       - nextcloud-desktop
       - remmina
       - rxvt-unicode
-      - task-british-desktop
-      - task-gnome-desktop
-      - task-print-server
       - texlive
       - texlive-pictures
       - texlive-science
