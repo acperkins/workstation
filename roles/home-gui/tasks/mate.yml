@@ -4,7 +4,6 @@
     path: "{{ ansible_env.HOME }}/.local/share/mate-panel/layouts"
     state: directory
 - name: Copy MATE panel layout
-  become: true
   template:
     src: mate-acp.layout
     dest: "{{ ansible_env.HOME }}/.local/share/mate-panel/layouts/acp.layout"

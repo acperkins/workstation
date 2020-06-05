@@ -25,7 +25,7 @@ locked=true
 
 [Object text-editor]
 object-type=launcher
-launcher-location={{ prefix }}/share/applications/gvim.desktop
+launcher-location={{ ansible_env.HOME }}/.local/share/applications/emacs.desktop
 toplevel-id=top
 position=30
 locked=true
