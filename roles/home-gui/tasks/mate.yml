@@ -1,12 +1,12 @@
 ---
 - name: Create MATE layouts directory
   file:
-    path: "{{ ansible_env.HOME }}/share/mate-panel/layouts"
+    path: "{{ ansible_env.HOME }}/.local/share/mate-panel/layouts"
     state: directory
 - name: Copy MATE panel layout
   become: true
   template:
     src: mate-acp.layout
-    dest: "{{ ansible_env.HOME }}/share/mate-panel/layouts/acp.layout"
+    dest: "{{ ansible_env.HOME }}/.local/share/mate-panel/layouts/acp.layout"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
