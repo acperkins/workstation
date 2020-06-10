@@ -9,3 +9,4 @@
     dest: "{{ ansible_env.HOME }}/.local/share/mate-panel/layouts/acp.layout"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
+    esr: "{{ '-esr' if ansible_distribution == 'Debian' else '' }}"

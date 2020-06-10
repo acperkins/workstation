@@ -30,18 +30,11 @@ toplevel-id=top
 position=30
 locked=true
 
-[Object web-browser-esr]
-object-type=launcher
-launcher-location={{ prefix }}/share/applications/firefox-esr.desktop
-toplevel-id=top
-position=40
-locked=true
-
 [Object web-browser]
 object-type=launcher
-launcher-location={{ prefix }}/share/applications/firefox.desktop
+launcher-location={{ prefix }}/share/applications/firefox{{ esr }}.desktop
 toplevel-id=top
-position=41
+position=40
 locked=true
 
 [Object window-list]
