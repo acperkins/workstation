@@ -7,10 +7,8 @@
   vars:
     packages:
       - adwaita-icon-theme
-      - atril
       - emacs
       - firefox
       - liberation-ttf
-      - mate-terminal
+      - mate
       - vim-gtk3
-      - xlockmore-lite

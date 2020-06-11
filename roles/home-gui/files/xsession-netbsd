@@ -4,4 +4,4 @@ XDG_DATA_DIRS=/usr/local/share:/usr/share:/usr/pkg/share
 xrdb -merge ~/.Xresources
 xset b off
 setxkbmap gb
-exec ssh-agent /usr/X11R7/bin/twm
+exec /usr/pkg/bin/mate-session
