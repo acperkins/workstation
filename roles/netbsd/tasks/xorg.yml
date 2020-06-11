@@ -5,3 +5,15 @@
     path: /etc/rc.conf
     regexp: ^xdm=.*
     line: xdm=YES
+- name: Copy dbus service
+  become: true
+  copy:
+    src: /usr/pkg/share/examples/rc.d/dbus
+    dest: /etc/rc.d/dbus
+    remote_src: yes
+- name: Enable dbus
+  become: true
+  lineinfile:
+    path: /etc/rc.conf
+    regexp: ^dbus=.*
+    line: dbus=YES
