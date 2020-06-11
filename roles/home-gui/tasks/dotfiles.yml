@@ -31,3 +31,7 @@
     src: "xrdb.desktop"
     dest: "{{ ansible_env.HOME }}/.config/autostart/xrdb.desktop"
   when: ansible_distribution == "Fedora" or ansible_distribution == "Debian"
+- name: Add to-do list launcher
+  template:
+    src: todo.desktop
+    dest: "{{ ansible_env.HOME }}/.local/share/applications/todo.desktop"
