@@ -1,6 +1,6 @@
 [Toplevel main]
 expand=true
-orientation=top
+orientation=bottom
 size=32
 
 [Object menu]
