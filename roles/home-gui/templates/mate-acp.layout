@@ -1,53 +1,53 @@
-[Toplevel top]
+[Toplevel main]
 expand=true
 orientation=top
 size=32
 
 [Object menu]
 object-type=menu
-toplevel-id=top
+toplevel-id=main
 position=0
 locked=true
 
 [Object terminal]
 object-type=launcher
 launcher-location={{ prefix }}/share/applications/mate-terminal.desktop
-toplevel-id=top
+toplevel-id=main
 position=10
 locked=true
 
 [Object file-browser]
 object-type=launcher
 launcher-location={{ prefix }}/share/applications/caja-browser.desktop
-toplevel-id=top
+toplevel-id=main
 position=20
 locked=true
 
 [Object text-editor]
 object-type=launcher
 launcher-location={{ ansible_env.HOME }}/.local/share/applications/emacs.desktop
-toplevel-id=top
+toplevel-id=main
 position=30
 locked=true
 
 [Object web-browser]
 object-type=launcher
 launcher-location={{ prefix }}/share/applications/firefox{{ esr }}.desktop
-toplevel-id=top
+toplevel-id=main
 position=40
 locked=true
 
 [Object window-list]
 object-type=applet
 applet-iid=WnckletFactory::WindowListApplet
-toplevel-id=top
+toplevel-id=main
 position=50
 locked=true
 
 [Object workspace-switcher]
 object-type=applet
 applet-iid=WnckletFactory::WorkspaceSwitcherApplet
-toplevel-id=top
+toplevel-id=main
 position=20
 panel-right-stick=true
 locked=true
@@ -55,7 +55,7 @@ locked=true
 [Object notification-area]
 object-type=applet
 applet-iid=NotificationAreaAppletFactory::NotificationArea
-toplevel-id=top
+toplevel-id=main
 position=10
 panel-right-stick=true
 locked=true
@@ -63,7 +63,7 @@ locked=true
 [Object clock]
 object-type=applet
 applet-iid=ClockAppletFactory::ClockApplet
-toplevel-id=top
+toplevel-id=main
 position=0
 panel-right-stick=true
 locked=true
