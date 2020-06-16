@@ -3,6 +3,7 @@
 - include: packages-gui.yml
   when: gui == true
 - include: build-env.yml
+- include: keyboard.yml
 - include: modules.yml
 - include: ssh.yml
 - include: solokeys.yml

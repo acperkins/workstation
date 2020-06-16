@@ -1,0 +1,6 @@
+---
+- name: set keyboard layout
+  become: true
+  copy:
+    src: keyboard
+    dest: /etc/default/keyboard

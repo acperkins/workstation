@@ -1,0 +1,9 @@
+# KEYBOARD CONFIGURATION FILE
+
+# Consult the keyboard(5) manual page.
+
+XKBMODEL="pc105"
+XKBLAYOUT="us,us"
+XKBVARIANT="typo,intl"
+XKBOPTIONS="lv3:ralt_switch,compose:menu,grp:win_space_toggle"
+BACKSPACE="guess"
