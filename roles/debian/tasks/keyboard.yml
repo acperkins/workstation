@@ -1,6 +1,25 @@
 ---
-- name: set keyboard layout
+- name: set default Xorg/Wayland keyboard layout
   become: true
   copy:
     src: keyboard
     dest: /etc/default/keyboard
+- name: copy CMS keyboard layout
+  become: true
+  copy:
+    src: ca.map
+    dest: /usr/share/keymaps/i386/qwerty/ca.kmap
+- name: enable CMS layout for the console
+  become: true
+  lineinfile:
+    path: /etc/vconsole.conf
+    regexp: KEYMAP=.*
+    line: KEYMAP=ca
+    create: yes
+- name: use a better font for French characters
+  become: true
+  lineinfile:
+    path: /etc/vconsole.conf
+    regexp: FONT=.*
+    line: FONT=eurlatgr
+    create: yes
