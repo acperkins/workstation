@@ -9,7 +9,6 @@
     packages:
       - dconf-cli
       - emacs
-      - evolution
       - galculator
       - git-gui
       - latexmk
@@ -21,6 +20,7 @@
       - texlive
       - texlive-pictures
       - texlive-science
+      - thunderbird
       - vim-gtk
       - xinput
       - xterm
