@@ -3,7 +3,8 @@
 # Consult the keyboard(5) manual page.
 
 XKBMODEL="pc105"
-XKBLAYOUT="us"
-XKBVARIANT=""
+XKBLAYOUT="ca"
+XKBVARIANT="multi"
 XKBOPTIONS=""
+
 BACKSPACE="guess"
