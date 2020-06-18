@@ -2,7 +2,7 @@
 
 # Consult the keyboard(5) manual page.
 
-XKBMODEL="pc105"
+XKBMODEL="pc104"
 XKBLAYOUT="us,us"
 XKBVARIANT=",intl"
 XKBOPTIONS="grp:win_space_toggle"
