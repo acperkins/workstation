@@ -5,6 +5,6 @@
 XKBMODEL="pc104"
 XKBLAYOUT="us,us"
 XKBVARIANT=",intl"
-XKBOPTIONS="grp:win_space_toggle"
+XKBOPTIONS="compose:menu,grp:win_space_toggle"
 
 BACKSPACE="guess"
