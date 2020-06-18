@@ -3,8 +3,8 @@
 # Consult the keyboard(5) manual page.
 
 XKBMODEL="pc105"
-XKBLAYOUT="ca"
-XKBVARIANT="multi"
-XKBOPTIONS=""
+XKBLAYOUT="us,us"
+XKBVARIANT=",intl"
+XKBOPTIONS="grp:win_space_toggle"
 
 BACKSPACE="guess"
