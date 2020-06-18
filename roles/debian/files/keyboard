@@ -6,6 +6,6 @@ XKBMODEL="pc104"
 XKBLAYOUT="us,us"
 XKBVARIANT=",intl"
 XKBOPTIONS="compose:menu,grp:win_space_toggle"
-KMAP="us"
+KMAP="/usr/share/keymaps/i386/qwerty/us.kmap.gz"
 
 BACKSPACE="guess"
