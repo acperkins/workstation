@@ -1,10 +1,10 @@
 ---
-- name: set default Xorg/Wayland keyboard layout
+- name: Set default Xorg/Wayland keyboard layout
   become: true
   copy:
     src: keyboard
     dest: /etc/default/keyboard
-- name: enable US layout for the console
+- name: Enable US layout for the console
   become: true
   lineinfile:
     path: /etc/vconsole.conf
