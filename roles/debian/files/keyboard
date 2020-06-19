@@ -6,6 +6,5 @@ XKBMODEL="pc104"
 XKBLAYOUT="us,us"
 XKBVARIANT=",intl"
 XKBOPTIONS="compose:menu,grp:lctrl_lshift_toggle"
-KMAP="/usr/share/keymaps/i386/qwerty/us.kmap.gz"
 
 BACKSPACE="guess"
