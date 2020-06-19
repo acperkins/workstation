@@ -61,10 +61,23 @@ if [ -r /etc/default/locale ] && [ $(. /etc/default/locale; echo $LANG) = "fr_FR
     export LC_NUMERIC="fr_FR.UTF-8"
     export LC_TIME="fr_FR.UTF-8"
 else
-## Fall back to no locale.
-    export LANG="en_US.UTF-8"
+## Fall back to British English.
+    export LANG="en_GB.UTF-8"
+    export LANGUAGE="en_GB:fr"
+    export LC_COLLATE="en_GB.UTF-8"
+    export LC_CTYPE="en_GB.UTF-8"
+    export LC_IDENTIFICATION="en_GB.UTF-8"
+    export LC_MEASUREMENT="en_GBUTF-8"
+    export LC_MESSAGES="en_GB.UTF-8"
+    export LC_NAME="en_GB.UTF-8"
+    export LC_NUMERIC="en_GB.UTF-8"
+    export LC_TIME="en_GB.UTF-8"
 fi
 ## These defaults depend on my physical location.
+export LC_ADDRESS="en_GB.UTF-8"
+export LC_MONETARY="en_GB.UTF-8"
+export LC_PAPER="en_GB.UTF-8"
+export LC_TELEPHONE="en_GB.UTF-8"
 export PAPERSIZE="a4"
 
 # Other exports.
