@@ -1,10 +1,11 @@
 # KEYBOARD CONFIGURATION FILE
 
 # Consult the keyboard(5) manual page.
+# Update the initramfs after changing this file.
 
-XKBMODEL="pc104"
-XKBLAYOUT="us,us"
-XKBVARIANT=",intl"
+XKBMODEL="pc105"
+XKBLAYOUT="us,ca"
+XKBVARIANT=",multix"
 XKBOPTIONS="compose:menu,grp:lctrl_lshift_toggle"
 
 BACKSPACE="guess"
