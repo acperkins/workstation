@@ -4,3 +4,8 @@
   copy:
     src: keyboard
     dest: /etc/default/keyboard
+  register: keyboard_copy
+- name: Update initramfs
+  become: true
+  command: /usr/sbin/update-initramfs -k all -u
+  when: keyboard_copy.changed
