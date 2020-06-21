@@ -23,5 +23,3 @@
     - include_role:
         name: ubuntu
       when: ansible_distribution == 'Ubuntu'
-    - include_role:
-        name: home-cli
