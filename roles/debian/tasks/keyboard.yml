@@ -4,10 +4,3 @@
   copy:
     src: keyboard
     dest: /etc/default/keyboard
-- name: Enable US layout for the console
-  become: true
-  lineinfile:
-    path: /etc/vconsole.conf
-    regexp: KEYMAP=.*
-    line: KEYMAP=us
-    create: yes

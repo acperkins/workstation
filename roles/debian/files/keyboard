@@ -6,6 +6,6 @@
 XKBMODEL="pc105"
 XKBLAYOUT="us,ca"
 XKBVARIANT=",multix"
-XKBOPTIONS="compose:menu,grp:lctrl_lshift_toggle"
+XKBOPTIONS="compose:menu,grp:grp:alt_caps_toggle"
 
 BACKSPACE="guess"
