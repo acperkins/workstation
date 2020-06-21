@@ -5,7 +5,7 @@
 
 XKBMODEL="pc105"
 XKBLAYOUT="us,ca"
-XKBVARIANT=",multix"
-XKBOPTIONS="compose:menu,grp:grp:alt_caps_toggle"
+XKBVARIANT=",multi"
+XKBOPTIONS="compose:menu,grp:alt_caps_toggle"
 
 BACKSPACE="guess"
