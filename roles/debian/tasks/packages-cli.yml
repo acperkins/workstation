@@ -34,6 +34,7 @@
       - ruby-asciidoctor-pdf
       - sipcalc
       - sqlite3
+      - sshpass
       - sudo
       - tlp
       - tmux
