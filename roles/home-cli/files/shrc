@@ -255,7 +255,7 @@ tm () {
     fi
 }
 
-qemu-quick () {
+qemuquick () {
     qemu-system-x86_64 -nodefaults -readconfig $1
 }
 
