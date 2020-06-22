@@ -3,9 +3,9 @@
 # Consult the keyboard(5) manual page.
 # Update the initramfs after changing this file.
 
-XKBMODEL="pc105"
-XKBLAYOUT="us,ca"
-XKBVARIANT=",multi"
-XKBOPTIONS="compose:menu,grp:alt_caps_toggle"
+XKBMODEL="pc104"
+XKBLAYOUT="us,us"
+XKBVARIANT=",intl"
+XKBOPTIONS="compose:menu,grp:alt_caps_toggle,nbsp:level3"
 
 BACKSPACE="guess"
