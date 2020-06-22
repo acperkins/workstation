@@ -1,7 +1,7 @@
 #!/usr/bin/env ansible-playbook
 ---
 - name: Setup GUI
-  hosts: localhost
+  hosts: all
   vars:
     gui: true
   tasks:

@@ -1,7 +1,7 @@
 #!/usr/bin/env ansible-playbook
 ---
 - name: Setup CLI
-  hosts: localhost
+  hosts: all
   vars:
     gui: false
   tasks:
