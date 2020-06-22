@@ -107,6 +107,12 @@ if [ "$BASH" ]; then
     bind '"\e[1;5D": backward-word'
     bind '"\e[A": history-search-backward'
     bind '"\e[B": history-search-forward'
+
+    if test $(id -u) -eq 0; then
+        export PS1="\[\033[01;32m\]\h\[\033[01;31m\]#\[\033[00m\] "
+    else
+        export PS1="\[\033[01;32m\]\h\[\033[01;34m\]$\[\033[00m\] "
+    fi
 fi
 
 if [ "$ZSH_VERSION" ]; then
@@ -132,6 +138,12 @@ if [ "$ZSH_VERSION" ]; then
     setopt HIST_IGNORE_SPACE
     setopt PROMPT_SUBST
     setopt SHARE_HISTORY
+
+    if test $(id -u) -eq 0; then
+        export PS1="%F{10}%m%F{9}#%f "
+    else
+        export PS1="%F{10}%m%F{12}$%f "
+    fi
 fi
 
 LSOPTIONS="-F"
