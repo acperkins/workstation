@@ -23,3 +23,7 @@
   copy:
     src: dput.cf
     dest: "{{ ansible_env.HOME }}/.dput.cf"
+- name: Copy .mailcap
+  copy:
+    src: mailcap
+    dest: "{{ ansible_env.HOME }}/.mailcap"
