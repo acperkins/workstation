@@ -35,3 +35,7 @@
   template:
     src: todo.desktop
     dest: "{{ ansible_env.HOME }}/.local/share/applications/todo.desktop"
+- name: Copy .xbindkeysrc
+  copy:
+    src: "xbindkeysrc"
+    dest: "{{ ansible_env.HOME }}/.xbindkeysrc"

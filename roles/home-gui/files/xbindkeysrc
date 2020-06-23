@@ -1,0 +1,7 @@
+# Load with xbindkeys. Use "xbindkeys -n" to avoid forking.
+
+"/usr/bin/amixer set Capture cap"
+  Control_R
+
+"/usr/bin/amixer set Capture nocap"
+  Control+Mod2 + Control_R + Release
