@@ -9,5 +9,9 @@
     state: directory
 - name: Create ~/.fvwm directory
   file:
-    path: "{{ ansible_env.HOME}}/.fvwm"
+    path: "{{ ansible_env.HOME }}/.fvwm"
+    state: directory
+- name: Create ~/.local/share/fonts directory
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share/fonts"
     state: directory
