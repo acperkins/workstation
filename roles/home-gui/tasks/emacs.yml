@@ -5,6 +5,10 @@
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
   register: emacs_binary
+- name: Remove ~/.emacs file
+  file:
+    path: "{{ ansible_env.HOME }}/.emacs"
+    state: absent
 - name: Clone Emacs settings
   git:
     repo: https://code.acperkins.com/acp/emacs.d.git
