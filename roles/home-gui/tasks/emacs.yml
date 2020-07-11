@@ -10,9 +10,11 @@
     repo: https://code.acperkins.com/acp/emacs.d.git
     dest: "{{ ansible_env.HOME }}/.emacs.d"
 - name: Create Emacs user service (Linux)
-  copy:
+  template:
     src: emacs.service
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/emacs.service"
+  vars:
+    prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
   when: ansible_system == 'Linux' and emacs_binary.stat.exists == True
 - name: Add Emacs server to autostart (FreeBSD)
   copy:
