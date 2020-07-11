@@ -1,4 +1,10 @@
 ---
+- name: Detect emacs binary
+  stat:
+    path: "{{ prefix }}/bin/emacs"
+  vars:
+    prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
+  register: emacs_binary
 - name: Clone Emacs settings
   git:
     repo: https://code.acperkins.com/acp/emacs.d.git
@@ -7,13 +13,13 @@
   copy:
     src: emacs.service
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/emacs.service"
-  when: ansible_system == 'Linux'
+  when: ansible_system == 'Linux' and emacs_binary.stat.executable == True
 - name: Add Emacs server to autostart (FreeBSD)
   copy:
     src: '{{ ansible_env.HOME }}/.emacs.d/emacs-server.desktop'
     dest: '{{ ansible_env.HOME }}/.config/autostart'
     remote_src: yes
-  when: ansible_system == 'FreeBSD'
+  when: ansible_system == 'FreeBSD' and emacs_binary.stat.executable == True
 - name: Start Emacs user service
   systemd:
     name: emacs.service
@@ -21,9 +27,10 @@
     daemon_reload: yes
     enabled: yes
     state: started
-  when: ansible_system == 'Linux'
+  when: ansible_system == 'Linux' and emacs_binary.stat.executable == True
 - name: Create Emacs client launcher
   copy:
     src: "{{ ansible_env.HOME }}/.emacs.d/emacs-client.desktop"
     dest: "{{ ansible_env.HOME }}/.local/share/applications/emacs.desktop"
     remote_src: yes
+  when: emacs_binary.stat.executable == True
