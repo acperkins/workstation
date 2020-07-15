@@ -10,3 +10,8 @@
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
     esr: "{{ '-esr' if ansible_distribution == 'Debian' else '' }}"
+- name: Copy MATE Clock reset script
+  copy:
+    src: reset-mate-clock.sh
+    dest: "{{ ansible_env.HOME }}/bin/reset-mate-clock"
+    mode: '0755'
