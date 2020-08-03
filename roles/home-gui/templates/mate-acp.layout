@@ -3,8 +3,8 @@ expand=true
 orientation=bottom
 size=32
 
-[Object menu]
-object-type=menu
+[Object menu-bar]
+object-type=menu-bar
 toplevel-id=main
 position=0
 locked=true
