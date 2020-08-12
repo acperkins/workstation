@@ -77,6 +77,7 @@ export ANSIBLE_NOCOWS=1
 export DEBEMAIL="anthony@acperkins.com"
 export DEBFULLNAME="Anthony Perkins"
 export EDITOR=vi
+export GTK_THEME=Adwaita:light  # Force Adwaita Light for KDE.
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS="ignore::UserWarning"
 
