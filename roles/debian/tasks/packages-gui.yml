@@ -14,7 +14,7 @@
       - latexmk
       - libcanberra-gtk-module
       - mpv
-      - nextcloud-desktop
+      - onedrive
       - remmina
       - rxvt-unicode
       - texlive
