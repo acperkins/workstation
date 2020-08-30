@@ -110,6 +110,7 @@ fi
 
 if [ "$ZSH_VERSION" ]; then
     # Command history.
+    autoload -Uz compinit && compinit
     autoload -U history-search-end
     zle -N history-beginning-search-backward-end history-search-end
     zle -N history-beginning-search-forward-end history-search-end
@@ -131,6 +132,9 @@ if [ "$ZSH_VERSION" ]; then
     setopt HIST_IGNORE_SPACE
     setopt PROMPT_SUBST
     setopt SHARE_HISTORY
+    setopt no_list_ambiguous
+
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
     if test $(id -u) -eq 0; then
         export PS1="%F{10}%m%F{9}#%f "
