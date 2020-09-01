@@ -10,5 +10,6 @@ user_pref("general.smoothScroll", false);
 user_pref("media.peerconnection.enabled", false);
 user_pref("network.security.ports.banned.override", "6697");
 user_pref("privacy.resistFingerprinting", true);
+user_pref("security.mixed_content.use_hstsc", false);
 user_pref("security.webauth.u2f", true);
 user_pref("signon.rememberSignons", false);
