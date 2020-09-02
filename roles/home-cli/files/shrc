@@ -154,6 +154,7 @@ if [ "$(uname -s)" = "Linux" ]; then
     alias df="df -x squashfs"
 fi
 
+alias 7zencrypt="7z a -t7z -p -mhe"
 alias adoc="asciidoctor -a stylesheet=$HOME/.asciidoctor.css"
 alias alu="apt list --upgradable"
 alias asdo="apt source --download-only"
