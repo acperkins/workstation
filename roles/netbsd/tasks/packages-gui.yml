@@ -9,6 +9,7 @@
       - adwaita-icon-theme
       - emacs
       - firefox
+      - gettext-lib
       - liberation-ttf
       - mate
       - vim-gtk3
