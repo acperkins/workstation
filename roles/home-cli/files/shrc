@@ -188,11 +188,15 @@ fi
 
 # Set up GOPATH.
 export GOPATH="$HOME/data/go"
-if [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]; then
+if [ -x $HOME/opt/go/bin/go ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]; then
     if [ ! -d "$GOPATH" ]; then
         mkdir -p "$GOPATH/bin"
         mkdir -p "$GOPATH/pkg"
         mkdir -p "$GOPATH/src"
+    fi
+    if [ -x $HOME/opt/go/bin/go ]; then
+        export GOROOT="$HOME/opt/go"
+        export PATH="$PATH:$GOROOT/bin"
     fi
     export PATH="$PATH:$GOPATH"
 fi
