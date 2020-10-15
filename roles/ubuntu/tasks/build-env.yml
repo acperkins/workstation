@@ -1,0 +1,29 @@
+---
+- name: Install build environment packages
+  become: true
+  apt:
+    name: '{{ packages }}'
+    state: present
+    force_apt_get: yes
+  vars:
+    packages:
+      - build-essential
+      - debhelper
+      - debootstrap
+      - devscripts
+      - dh-make
+      - fakeroot
+      - pbuilder
+- name: Copy pbuilderrc
+  become: true
+  copy:
+    src: pbuilderrc
+    dest: /etc/pbuilderrc
+- name: Set permissions on /var/cache/pbuilder/result
+  become: true
+  file:
+    path: /var/cache/pbuilder/result
+    state: directory
+    owner: root
+    group: root
+    mode: '1777'

@@ -1,0 +1,4 @@
+AUTO_DEBSIGN=${AUTO_DEBSIGN:-no}
+HOOKDIR=/var/cache/pbuilder/hooks
+DISTRIBUTION=${DISTRIBUTION:-focal}
+DEBOOTSTRAPOPTS=( '--variant=buildd' )
