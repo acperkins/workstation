@@ -8,10 +8,7 @@
   vars:
     packages:
       - emacs
-      - evolution
       - galculator
       - git-gui
-      - gnome-session
-      - nextcloud-desktop
       - remmina
       - vim-gtk3
