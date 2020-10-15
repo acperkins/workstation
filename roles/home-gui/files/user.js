@@ -3,6 +3,8 @@ user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("browser.discovery.enabled", false);
 user_pref("browser.formfill.enable", false);
 user_pref("browser.newtabpage.enabled", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.search.countryCode", "GB");
 user_pref("browser.search.region", "GB");
 user_pref("browser.search.suggest.enabled", false);
