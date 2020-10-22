@@ -11,5 +11,5 @@
       - firefox
       - gettext-lib
       - liberation-ttf
-      - mate
+      - xfce4
       - vim-gtk3

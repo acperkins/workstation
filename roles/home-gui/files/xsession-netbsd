@@ -3,5 +3,5 @@ XDG_DATA_HOME=$HOME/.local/share
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/usr/pkg/share
 xrdb -merge ~/.Xresources
 xset b off
-setxkbmap gb
-exec /usr/pkg/bin/mate-session
+setxkbmap us
+exec /usr/pkg/bin/startxfce4
