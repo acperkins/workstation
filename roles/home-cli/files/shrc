@@ -101,9 +101,9 @@ if [ "$BASH" ]; then
     bind '"\e[B": history-search-forward'
 
     if test $(id -u) -eq 0; then
-        export PS1="\[\033[01;32m\]\h\[\033[01;31m\]#\[\033[00m\] "
+        export PS1="\[\033[01;32m\]\h\[\033[01;31m\]\#\[\033[00m\] "
     else
-        export PS1="\[\033[01;32m\]\h\[\033[01;34m\]$\[\033[00m\] "
+        export PS1="\[\033[01;32m\]\h\[\033[01;34m\]\$\[\033[00m\] "
     fi
 fi
 
