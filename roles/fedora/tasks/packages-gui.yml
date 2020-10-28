@@ -7,13 +7,8 @@
   vars:
     packages:
       - emacs
-      - evolution
-      - evolution-ews
       - galculator
       - git-gui
-      - libgnome-keyring
-      - nextcloud-client
-      - nextcloud-client-nautilus
       - remmina
       - rxvt-unicode
       - vim-X11
