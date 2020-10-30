@@ -18,6 +18,7 @@
       - lldb
       - mc
       - nmap
+      - nodejs
       - onedrive
       - openssh-server
       - python3
