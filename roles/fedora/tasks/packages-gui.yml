@@ -9,6 +9,7 @@
       - emacs
       - galculator
       - git-gui
+      - liberation-fonts
       - remmina
       - rxvt-unicode
       - vim-X11
