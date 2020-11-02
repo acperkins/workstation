@@ -26,7 +26,6 @@
       - rubygem-asciidoctor-pdf
       - sqlite
       - sudo
-      - tlp
       - tmux
       - vim
       - wordgrinder
