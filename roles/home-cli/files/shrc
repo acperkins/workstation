@@ -212,7 +212,7 @@ fi
 
 # Useful aliases for Podman and Docker
 alias prun="podman run --rm -it"
-alias prunx="podman run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
+alias prunx="podman run --security-opt label=disable -v /tmp/.X11-unix/:/tmp/.X11-unix/ -e DISPLAY=\"unix\$DISPLAY\" -v /run/user/$(id -u)/:/run/user/$(id -u)/ -e XDG_RUNTIME_DIR=/run/user/$(id -u) -e PULSE_SERVER=/run/user/$(id -u)/pulse/native --ipc host"
 alias drun="sudo docker run --rm -it"
 alias drunx="sudo docker run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
 
