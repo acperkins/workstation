@@ -15,6 +15,7 @@
       - clang
       - git
       - gpg2
+      - libstdc++-devel
       - lldb
       - mc
       - nmap
