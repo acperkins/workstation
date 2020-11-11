@@ -5,6 +5,7 @@
   zypper:
     name: '{{ packages }}'
     state: present
+    type: package
   vars:
     packages:
       - emacs-x11

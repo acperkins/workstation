@@ -5,6 +5,7 @@
   zypper:
     name: '{{ packages }}'
     state: present
+    type: package
   vars:
     packages:
       - ansible
@@ -29,3 +30,13 @@
       - tmux
       - vim
       - zsh
+- name: Install CLI patterns
+  become: true
+  zypper:
+    name: '{{ patterns }}'
+    state: present
+    type: pattern
+  vars:
+    patterns:
+      - devel_C_C++
+      - devel_rpm_build
