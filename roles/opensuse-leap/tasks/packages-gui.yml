@@ -1,0 +1,15 @@
+---
+# The zypper module requires python-xml on openSUSE.
+- name: Install GUI packages
+  become: true
+  zypper:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - emacs-x11
+      - galculator
+      - git-gui
+      - gvim
+      - liberation-fonts
+      - remmina

@@ -15,6 +15,9 @@
         name: fedora
       when: ansible_distribution == 'Fedora'
     - include_role:
+        name: opensuse-leap
+      when: ansible_distribution == 'openSUSE Leap'
+    - include_role:
         name: freebsd
       when: ansible_distribution == 'FreeBSD'
     - include_role:
