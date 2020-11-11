@@ -1,5 +1,15 @@
 ---
 # The zypper module requires python-xml on openSUSE.
+- name: Install CLI patterns
+  become: true
+  zypper:
+    name: '{{ patterns }}'
+    state: present
+    type: pattern
+  vars:
+    patterns:
+      - devel_C_C++
+      - devel_rpm_build
 - name: Install CLI packages
   become: true
   zypper:
@@ -13,6 +23,7 @@
       - bc
       - bind-utils
       - clang
+      - gcc-g++
       - git
       - gpg2
       - libstdc++-devel
@@ -31,13 +42,3 @@
       - tmux
       - vim
       - zsh
-- name: Install CLI patterns
-  become: true
-  zypper:
-    name: '{{ patterns }}'
-    state: present
-    type: pattern
-  vars:
-    patterns:
-      - devel_C_C++
-      - devel_rpm_build
