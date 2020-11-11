@@ -30,9 +30,3 @@
       - vim
       - wordgrinder
       - zsh
-- name: Enable TLP
-  become: true
-  systemd:
-    name: tlp.service
-    enabled: true
-    state: started
