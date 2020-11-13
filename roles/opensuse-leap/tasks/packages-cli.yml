@@ -23,7 +23,7 @@
       - bc
       - bind-utils
       - clang
-      - gcc-g++
+      - gcc-c++
       - git
       - gpg2
       - libstdc++-devel
