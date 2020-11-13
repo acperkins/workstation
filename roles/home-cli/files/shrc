@@ -175,6 +175,7 @@ alias streamdec="openssl aes-256-cbc -pbkdf2 -in - -out - -d"
 alias ta="$HOME/opt/textadept/textadept"
 alias wgr="wordgrinder"
 alias ytmp3="youtube-dl -q -x --audio-format=mp3"
+alias zlu="zypper list-updates"
 
 # QEMU aliases
 alias qemu-486="qemu-system-i386 -machine isapc,accel=kvm -cpu 486 -m 16 -vga cirrus -soundhw sb16 -nic none" # -nic user,model=ne2k_isa
