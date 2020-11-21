@@ -74,6 +74,7 @@ export PAPERSIZE="a4"              # Default paper size (GhostScript).
 
 # Other exports.
 export ANSIBLE_NOCOWS=1
+export CHROMIUM_FLAGS="--incognito"
 export DEBEMAIL="anthony@acperkins.com"
 export DEBFULLNAME="Anthony Perkins"
 export EDITOR=vi
