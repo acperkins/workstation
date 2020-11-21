@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ "$ZSH_VERSION" ]; then
+	emulate sh -c 'source /etc/profile'
+fi
+
 PATH="/usr/sbin:/sbin:/usr/bin:/bin"
 for dir in  $HOME/bin \
             $HOME/.cargo/bin \
