@@ -291,8 +291,8 @@ if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]; then
     alias dnf='yum'
 fi
 
-if test -n "$DISPLAY" && test -x /usr/bin/emacsclient; then
-    export EDITOR="/usr/bin/emacsclient -c -a vi"
+if test -n "$DISPLAY" && test -x /usr/bin/gvim; then
+    export EDITOR="/usr/bin/gvim"
 fi
 
 if [ -x /usr/bin/svnlite ] && [ ! -x /usr/local/bin/svn ]; then
