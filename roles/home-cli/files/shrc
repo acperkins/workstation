@@ -1,9 +1,5 @@
 #!/bin/sh
 
-if [ "$ZSH_VERSION" ]; then
-	emulate sh -c 'source /etc/profile'
-fi
-
 PATH="/usr/sbin:/sbin:/usr/bin:/bin"
 for dir in  $HOME/bin \
             $HOME/.cargo/bin \
@@ -223,6 +219,14 @@ alias prun="podman run --rm -it"
 alias prunx="podman run --security-opt label=disable -v /tmp/.X11-unix/:/tmp/.X11-unix/ -e DISPLAY=\"unix\$DISPLAY\" -v /run/user/$(id -u)/:/run/user/$(id -u)/ -e XDG_RUNTIME_DIR=/run/user/$(id -u) -e PULSE_SERVER=/run/user/$(id -u)/pulse/native --ipc host"
 alias drun="sudo docker run --rm -it"
 alias drunx="sudo docker run -v /tmp/.X11-unix:/tmp/.X11-unix:ro -e DISPLAY=\"unix\$DISPLAY\""
+
+# Desktop files (used by desktop environments within both X11 and Wayland) are
+# looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
+# snappy applications' desktop files.
+snap_xdg_path="/var/lib/snapd/desktop"
+if [ -n "${XDG_DATA_DIRS##*${snap_xdg_path}}" ] && [ -n "${XDG_DATA_DIRS##*${snap_xdg_path}:*}" ]; then
+    export XDG_DATA_DIRS="${XDG_DATA_DIRS}:${snap_xdg_path}"
+fi
 
 mkcd () {
     if [ $# -ne 1 ]; then
