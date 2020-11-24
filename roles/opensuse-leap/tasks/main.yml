@@ -6,3 +6,4 @@
 - include: ssh.yml
   when: wsl_distro|length == 0
 - include: solokeys.yml
+  when: wsl_distro|length == 0
