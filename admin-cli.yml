@@ -4,6 +4,7 @@
   hosts: all
   vars:
     gui: false
+    wsl_distro: "{{ lookup('env', 'WSL_DISTRO_NAME') }}"
   tasks:
     - include_role:
         name: arch
