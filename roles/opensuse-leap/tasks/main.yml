@@ -4,6 +4,6 @@
   when: gui == true
 - include: modules.yml
 - include: ssh.yml
-  when: wsl_distro|length == 0
+  when: wsl_distro is not defined
 - include: solokeys.yml
-  when: wsl_distro|length == 0
+  when: wsl_distro is not defined
