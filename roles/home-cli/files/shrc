@@ -325,8 +325,8 @@ case $- in
         ;;
 esac
 
-if test -S "$SSH_AUTH_SOCK"  && test -r "$HOME/.ssh/id_rsa" && [ $(ssh-add -l | grep "$HOME/.ssh/id_rsa" | wc -l) = 0 ]; then
-    ssh-add "$HOME/.ssh/id_rsa"
+if test -S "$SSH_AUTH_SOCK"  && test -r "$HOME/.ssh/id_ed25519" && [ $(ssh-add -l | grep "$HOME/.ssh/id_ed25519" | wc -l) = 0 ]; then
+    ssh-add "$HOME/.ssh/id_ed25519"
 fi
 
 if [ -r $HOME/.shrc.$(hostname -s 2>/dev/null || cat /etc/hostname) ]; then
