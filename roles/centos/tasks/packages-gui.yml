@@ -1,0 +1,12 @@
+---
+- name: Install GUI packages
+  become: true
+  dnf:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - emacs
+      - git-gui
+      - liberation-fonts
+      - vim-X11
