@@ -104,6 +104,7 @@ if [ "$BASH" ]; then
     bind '"\e[1;5D": backward-word'
     bind '"\e[A": history-search-backward'
     bind '"\e[B": history-search-forward'
+    bind 'set completion-ignore-case on'
 
     if test $(id -u) -eq 0; then
         export PS1="\[\033[01;32m\]\h\[\033[01;31m\]\#\[\033[00m\] "
