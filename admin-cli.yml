@@ -22,6 +22,9 @@
         name: opensuse-leap
       when: ansible_distribution == 'openSUSE Leap'
     - include_role:
+        name: opensuse-tumbleweed
+      when: ansible_distribution == 'openSUSE Tumbleweed'
+    - include_role:
         name: freebsd
       when: ansible_distribution == 'FreeBSD'
     - include_role:

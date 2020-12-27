@@ -1,0 +1,29 @@
+---
+- name: Disable SSH passwords
+  become: true
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?\w*PasswordAuthentication (yes|no)'
+    line: 'PasswordAuthentication no'
+  register: changed_ssh_config
+- name: Enable SSH
+  become: true
+  systemd:
+    name: sshd.service
+    enabled: yes
+    state: started
+- name: Restart SSH
+  become: true
+  systemd:
+    name: sshd.service
+    state: restarted
+  when: changed_ssh_config.changed == true
+- name: Allow SSH through firewall
+  become: true
+  firewalld:
+    service: ssh
+    permanent: yes
+    state: enabled
+    immediate: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3

@@ -1,0 +1,44 @@
+---
+# The zypper module requires python-xml on openSUSE.
+- name: Install CLI patterns
+  become: true
+  zypper:
+    name: '{{ patterns }}'
+    state: present
+    type: pattern
+  vars:
+    patterns:
+      - devel_C_C++
+      - devel_rpm_build
+- name: Install CLI packages
+  become: true
+  zypper:
+    name: '{{ packages }}'
+    state: present
+    type: package
+  vars:
+    packages:
+      - ansible
+      - aspell-en
+      - bc
+      - bind-utils
+      - clang
+      - gcc-c++
+      - git
+      - gpg2
+      - libstdc++-devel
+      - lldb
+      - mc
+      - nmap
+      - nodejs10
+      - onedrive
+      - openssh
+      - python-xml
+      - python3
+      - python3-psutil
+      - ruby2.5-rubygem-asciidoctor
+      - sqlite3
+      - sudo
+      - tmux
+      - vim
+      - zsh
