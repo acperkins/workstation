@@ -7,10 +7,6 @@
   file:
     path: "{{ ansible_env.HOME }}/.hushlogin"
     state: absent
-- name: Copy .inputrc
-  copy:
-    src: inputrc
-    dest: "{{ ansible_env.HOME }}/.inputrc"
 - name: Copy .tmux.conf
   copy:
     src: tmux.conf

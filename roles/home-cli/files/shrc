@@ -104,6 +104,7 @@ if [ "$BASH" ]; then
     bind '"\e[1;5D": backward-word'
     bind '"\e[A": history-search-backward'
     bind '"\e[B": history-search-forward'
+    bind 'set bell-style none'
     bind 'set completion-ignore-case on'
 
     if test $(id -u) -eq 0; then
