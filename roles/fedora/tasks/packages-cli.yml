@@ -31,3 +31,4 @@
       - vim
       - wordgrinder
       - zsh
+      - zstd
