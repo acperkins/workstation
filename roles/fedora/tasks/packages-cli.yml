@@ -21,6 +21,7 @@
       - nodejs
       - onedrive
       - openssh-server
+      - podman
       - python3
       - python3-psutil
       - rubygem-asciidoctor-pdf
