@@ -99,6 +99,7 @@ if test -x /usr/bin/tty; then
 fi
 
 if [ "$BASH" ]; then
+    HISTCONTROL=ignorespace:ignoredups
     shopt -s histappend
     bind '"\e[1;5C": forward-word'
     bind '"\e[1;5D": backward-word'
