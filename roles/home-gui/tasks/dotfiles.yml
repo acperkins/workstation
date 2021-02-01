@@ -39,3 +39,9 @@
   copy:
     src: "xbindkeysrc"
     dest: "{{ ansible_env.HOME }}/.xbindkeysrc"
+- name: Add custom Chromium launcher
+  template:
+    src: chromium-browser.desktop
+    dest: "{{ ansible_env.HOME }}/.local/share/applications/chromium-browser.desktop"
+  vars:
+    prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
