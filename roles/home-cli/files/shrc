@@ -321,7 +321,7 @@ case $- in
         uname -sr
         printf "\033[0m"
         if [ -r /etc/os-release ]; then
-            echo "    $(. /etc/os-release; echo $PRETTY_NAME)"
+            echo "    $(. /etc/os-release; echo $NAME $VERSION)"
         fi
         ;;
     *)
