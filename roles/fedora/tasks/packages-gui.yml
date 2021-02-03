@@ -6,6 +6,7 @@
     state: present
   vars:
     packages:
+      - chromium
       - emacs
       - galculator
       - git-gui
