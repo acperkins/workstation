@@ -56,21 +56,29 @@ export TIME_STYLE="long-iso"       # Used by GNU 'ls'.
 case "$LANG" in
     "en_GB.UTF-8")
         LANGUAGE="en_GB:en"
+        PAPERSIZE="a4"
         ;;
     "en_CA.UTF-8")
         LANGUAGE="en_CA:en"
+        PAPERSIZE="letter"
         ;;
     "fr_FR.UTF-8")
         LANGUAGE="fr_FR:fr"
+        PAPERSIZE="a4"
         ;;
     "fr_CA.UTF-8")
         LANGUAGE="fr_CA:fr"
+        PAPERSIZE="letter"
         ;;
     *)
-        export LANG="en_GB.UFT-8"
-        export LANGUAGE="en_GB:en"
+        LANG="en_GB.UFT-8"
+        LANGUAGE="en_GB:en"
+        PAPERSIZE="a4"
         ;;
 esac
+export LANG
+export LANGUAGE
+export PAPERSIZE
 ## Set the other language options to ${LANG}.
 export LC_COLLATE="$LANG"          # Alphabetic sorting.
 export LC_CTYPE="$LANG"            # Interpretation of byte sequences.
@@ -80,12 +88,10 @@ export LC_MESSAGES="$LANG"         # Language that messages are displayed in.
 export LC_NAME="$LANG"             # Salutations and titles (GNU).
 export LC_NUMERIC="$LANG"          # Formatting for non-monetary numbers.
 export LC_TIME="$LANG"             # Time format.
-## These should be set to the physical location.
-export LC_ADDRESS="en_GB.UTF-8"    # Postal address (GNU).
-export LC_MONETARY="en_GB.UTF-8"   # Currency display.
-export LC_PAPER="en_GB.UTF-8"      # Standard paper size -- A4 or Letter (GNU).
-export LC_TELEPHONE="en_GB.UTF-8"  # Formats for telephone services (GNU).
-export PAPERSIZE="a4"              # Default paper size (GhostScript).
+export LC_ADDRESS="$LANG"          # Postal address (GNU).
+export LC_MONETARY="$LANG"         # Currency display.
+export LC_PAPER="$LANG"            # Standard paper size -- A4 or Letter (GNU).
+export LC_TELEPHONE="$LANG"        # Formats for telephone services (GNU).
 
 # Other exports.
 export ANSIBLE_NOCOWS=1
