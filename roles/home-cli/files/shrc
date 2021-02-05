@@ -71,7 +71,7 @@ case "$LANG" in
         PAPERSIZE="letter"
         ;;
     *)
-        LANG="en_GB.UFT-8"
+        LANG="en_GB.UTF-8"
         LANGUAGE="en_GB:en"
         PAPERSIZE="a4"
         ;;
