@@ -53,13 +53,24 @@ set -o noclobber
 export LC_ALL=''
 export TIME_STYLE="long-iso"       # Used by GNU 'ls'.
 ## Set the default language.
-export LANG="en_GB.UTF-8"
-export LANGUAGE="en_GB:en"
-## Use French if that is set as the system locale.
-if [ -r /etc/default/locale ] && [ $(. /etc/default/locale; echo $LANG) = "fr_FR.UTF-8" ]; then
-    export LANG="fr_FR.UTF-8"
-    export LANGUAGE="fr_FR:fr"
-fi
+case "$LANG" in
+    "en_GB.UTF-8")
+        LANGUAGE="en_GB:en"
+        ;;
+    "en_CA.UTF-8")
+        LANGUAGE="en_CA:en"
+        ;;
+    "fr_FR.UTF-8")
+        LANGUAGE="fr_FR:fr"
+        ;;
+    "fr_CA.UTF-8")
+        LANGUAGE="fr_CA:fr"
+        ;;
+    *)
+        export LANG="en_GB.UFT-8"
+        export LANGUAGE="en_GB:en"
+        ;;
+esac
 ## Set the other language options to ${LANG}.
 export LC_COLLATE="$LANG"          # Alphabetic sorting.
 export LC_CTYPE="$LANG"            # Interpretation of byte sequences.
