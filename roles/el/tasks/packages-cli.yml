@@ -17,13 +17,13 @@
     state: present
   vars:
     packages:
+      - "@container-tools"
       - "@development"
       - ansible
       - aspell-en
       - bc
       - bind-utils
       - clang
-      - crun
       - git
       - gnupg2
       - lldb
@@ -31,7 +31,6 @@
       - nmap
       - nodejs
       - openssh-server
-      - podman
       - python38
       - python38-psutil
       - sqlite
