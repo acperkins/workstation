@@ -9,11 +9,11 @@
         name: arch
       when: ansible_distribution == 'Archlinux'
     - include_role:
-        name: centos
-      when: ansible_distribution == 'CentOS'
-    - include_role:
         name: debian
       when: ansible_distribution == 'Debian'
+    - include_role:
+        name: el
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'AlmaLinux'
     - include_role:
         name: fedora
       when: ansible_distribution == 'Fedora'
