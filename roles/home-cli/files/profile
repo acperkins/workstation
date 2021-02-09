@@ -14,3 +14,7 @@ export PAGER="less"
 if [ -r $HOME/.profile.$(hostname -s) ]; then
     . $HOME/.profile.$(hostname -s)
 fi
+
+if [ -n "$SSH_TTY" ]; then
+    . $HOME/.shrc
+fi
