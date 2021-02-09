@@ -53,7 +53,9 @@ set -o noclobber
 export LC_ALL=''
 export TIME_STYLE="long-iso"       # Used by GNU 'ls'.
 ## Set the default language.
-if [ -r "$HOME/.config/locale.conf" ]; then
+if [ -r "$HOME/.config/user-dirs.locale" ]; then
+    LANG="$(cat $HOME/.config/user-dirs.locale).UTF-8"
+elif [ -r "$HOME/.config/locale.conf" ]; then
     . "$HOME/.config/locale.conf"
 fi
 case "$LANG" in
