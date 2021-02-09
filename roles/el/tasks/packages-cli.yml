@@ -1,15 +1,4 @@
 ---
-- name: Install CentOS Ansible repo
-  become: true
-  dnf:
-    name: centos-release-ansible-29
-    state: present
-  when: ansible_distribution == 'CentOS'
-- name: Install EPEL
-  become: true
-  dnf:
-    name: epel-release
-    state: present
 - name: Install CLI packages
   become: true
   dnf:
@@ -19,7 +8,6 @@
     packages:
       - "@container-tools"
       - "@development"
-      - ansible
       - aspell-en
       - bc
       - bind-utils
