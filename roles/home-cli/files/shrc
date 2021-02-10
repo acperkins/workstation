@@ -1,4 +1,5 @@
 #!/bin/sh
+export ACP_SHRC=1
 
 if [ "$ZSH_VERSION" ]; then
         emulate sh -c 'source /etc/profile'

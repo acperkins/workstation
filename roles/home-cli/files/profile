@@ -1,4 +1,5 @@
 #!/bin/sh
+export ACP_PROFILE=1
 
 #if [ -r /etc/profile ]; then
 #    . /etc/profile
@@ -15,6 +16,6 @@ if [ -r $HOME/.profile.$(hostname -s) ]; then
     . $HOME/.profile.$(hostname -s)
 fi
 
-if [ -n "$SSH_TTY" ]; then
+if [ -z "$ACP_SHRC" ] || [ -n "$SSH_TTY" ]; then
     . $HOME/.shrc
 fi
