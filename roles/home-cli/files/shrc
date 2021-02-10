@@ -72,11 +72,12 @@ acctsvclang=$(dbus-send \
     | awk '{print $2}')
 if [ -n "$acctsvclang" ]; then
     LANG=$acctsvclang
-elif [ -r "$HOME/.config/user-dirs.locale" ]; then
-    LANG="$(cat $HOME/.config/user-dirs.locale).UTF-8"
 elif [ -r "$HOME/.config/locale.conf" ]; then
     . "$HOME/.config/locale.conf"
+elif [ -r "$HOME/.config/user-dirs.locale" ]; then
+    LANG="$(cat $HOME/.config/user-dirs.locale).UTF-8"
 fi
+unset acctsvclang
 case "$LANG" in
     "en_GB.UTF-8")
         LANGUAGE="en_GB:en"
