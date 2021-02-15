@@ -102,6 +102,10 @@ case "$LANG" in
         PAPERSIZE="a4"
         ;;
 esac
+if [ -x /usr/bin/locale ] && [ $(locale -a 2>/dev/null | grep ${LANG-invalid} | sed 's/UTF-8//' | wc -l) -eq 0 ]; then
+    LANG=C
+    LANGUAGE=C:en
+fi
 export LANG
 export LANGUAGE
 export PAPERSIZE
