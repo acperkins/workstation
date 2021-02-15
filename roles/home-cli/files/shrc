@@ -64,7 +64,8 @@ acctsvclang=$(dbus-send \
         --dest=org.freedesktop.Accounts \
         --type=method_call \
         /org/freedesktop/Accounts \
-        org.freedesktop.Accounts.FindUserById int64:$(id -u)) \
+        org.freedesktop.Accounts.FindUserById int64:$(id -u) \
+        2>/dev/null) \
     org.freedesktop.DBus.Properties.Get \
     string:org.freedesktop.Accounts.User \
     string:Language \
