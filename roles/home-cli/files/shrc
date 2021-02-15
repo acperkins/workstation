@@ -102,7 +102,7 @@ case "$LANG" in
         PAPERSIZE="a4"
         ;;
 esac
-if [ -x /usr/bin/locale ] && [ $(locale -a 2>/dev/null | grep ${LANG-invalid} | sed 's/UTF-8//' | wc -l) -eq 0 ]; then
+if [ -x /usr/bin/locale ] && [ $(locale -a 2>/dev/null | sed 's/.utf8$/.UTF-8/' | grep ${LANG-invalid} | wc -l) -eq 0 ]; then
     LANG=C
     LANGUAGE=C:en
 fi
