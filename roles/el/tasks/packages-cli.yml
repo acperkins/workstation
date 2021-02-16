@@ -1,4 +1,16 @@
 ---
+- name: Check for CentOS-Stream-PowerTools.repo file
+  stat:
+    path: /etc/yum.repos.d/CentOS-Stream-PowerTools.repo
+  register: pt
+- name: Enable CentOS Stream PowerTools repository
+  become: true
+  lineinfile:
+    path: /etc/yum.repos.d/CentOS-Stream-PowerTools.repo
+    create: false
+    regexp: ^enabled=
+    line: enabled=1
+  when: ansible_distribution == 'CentOS' and pt.stat.exists
 - name: Install CLI packages
   become: true
   dnf:
