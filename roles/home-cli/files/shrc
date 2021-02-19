@@ -9,7 +9,6 @@ PATH="/usr/sbin:/sbin:/usr/bin:/bin"
 for dir in  $HOME/bin \
             $HOME/.cargo/bin \
             $HOME/.gem/ruby/2.6.0/bin \
-            $HOME/opt/ansible/bin \
             $HOME/opt/centos-git-common \
             /usr/X11R7/bin \
             /usr/X11R6/bin \

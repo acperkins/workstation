@@ -18,6 +18,18 @@ pipinstall () {
 	./bin/pip install --upgrade $1
 }
 
+create_link () {
+	ln -sf "../opt/ansible/bin/$1" "$HOME/bin/$1"
+}
+
+py3cmd="$(command -v python3)"
+if [ ! -x "$py3cmd" ]; then
+	echo "python3 not found"
+	return 1
+else
+	echo "python3 found: $py3cmd"
+fi
+
 if [ ! -x "$HOME/opt/ansible/bin/ansible-playbook" ]; then
 	python3 -m venv "$HOME/opt/ansible"
 fi
@@ -27,3 +39,18 @@ pipinstall pip
 pipinstall wheel
 pipinstall ansible
 popd
+
+for command in \
+	ansible \
+	ansible-config \
+	ansible-connection \
+	ansible-console \
+	ansible-doc \
+	ansible-galaxy \
+	ansible-inventory \
+	ansible-playbook \
+	ansible-pull \
+	ansible-test \
+	ansible-vault; do
+	create_link $command
+done
