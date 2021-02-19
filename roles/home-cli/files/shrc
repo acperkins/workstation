@@ -9,6 +9,7 @@ PATH="/usr/sbin:/sbin:/usr/bin:/bin"
 for dir in  $HOME/bin \
             $HOME/.cargo/bin \
             $HOME/.gem/ruby/2.6.0/bin \
+            $HOME/opt/ansible/bin \
             $HOME/opt/centos-git-common \
             /usr/X11R7/bin \
             /usr/X11R6/bin \
@@ -261,12 +262,6 @@ if [ -x $HOME/opt/go/bin/go ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ];
         export PATH="$PATH:$GOROOT/bin"
     fi
     export PATH="$PATH:$GOPATH"
-fi
-
-# Use a manually-installed ansible if available.
-if [ -x "$HOME/opt/ansible/bin/ansible" ]; then
-    alias ansible="$HOME/opt/ansible/bin/ansible"
-    alias ansible-playbook="$HOME/opt/ansible/bin/ansible-playbook"
 fi
 
 # Useful aliases for Podman and Docker
