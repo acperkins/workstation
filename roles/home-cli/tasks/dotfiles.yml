@@ -1,25 +1,25 @@
 ---
 - name: Copy .gemrc
-  copy:
+  ansible.builtin.copy:
     src: gemrc
     dest: "{{ ansible_env.HOME }}/.gemrc"
 - name: Remove .hushlogin
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.hushlogin"
     state: absent
 - name: Copy .tmux.conf
-  copy:
+  ansible.builtin.copy:
     src: tmux.conf
     dest: "{{ ansible_env.HOME }}/.tmux.conf"
 - name: Copy openpgp.asc
-  copy:
+  ansible.builtin.copy:
     src: openpgp.asc
     dest: "{{ ansible_env.HOME }}/.config/openpgp.asc"
 - name: Copy .dput.cf
-  copy:
+  ansible.builtin.copy:
     src: dput.cf
     dest: "{{ ansible_env.HOME }}/.dput.cf"
 - name: Copy .mailcap
-  copy:
+  ansible.builtin.copy:
     src: mailcap
     dest: "{{ ansible_env.HOME }}/.mailcap"

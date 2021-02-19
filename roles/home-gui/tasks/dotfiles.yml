@@ -1,46 +1,46 @@
 ---
 - name: Copy .Xresources
-  copy:
+  ansible.builtin.copy:
     src: Xresources
     dest: "{{ ansible_env.HOME }}/.Xresources"
 - name: Copy .fonts.conf
-  copy:
+  ansible.builtin.copy:
     src: fonts.conf
     dest: "{{ ansible_env.HOME }}/.fonts.conf"
 - name: Create stalonetrayrc
-  copy:
+  ansible.builtin.copy:
     src: stalonetrayrc
     dest: "{{ ansible_env.HOME }}/.stalonetrayrc"
 - name: Create fvwm config file
-  copy:
+  ansible.builtin.copy:
     src: fvwmrc
     dest: "{{ ansible_env.HOME }}/.fvwm/config"
 - name: Create NetBSD xsession file
-  copy:
+  ansible.builtin.copy:
     src: xsession-netbsd
     dest: "{{ ansible_env.HOME }}/.xsession"
   when: ansible_system == "NetBSD"
 - name: Create xinitrc symlink
-  file:
+  ansible.builtin.file:
     src: ".xsession"
     dest: "{{ ansible_env.HOME }}/.xinitrc"
     state: link
   when: ansible_system == "NetBSD"
 - name: Load ~/.Xresources
-  copy:
+  ansible.builtin.copy:
     src: "xrdb.desktop"
     dest: "{{ ansible_env.HOME }}/.config/autostart/xrdb.desktop"
   when: ansible_distribution == "Fedora" or ansible_distribution == "Debian"
 - name: Add to-do list launcher
-  template:
+  ansible.builtin.template:
     src: todo.desktop
     dest: "{{ ansible_env.HOME }}/.local/share/applications/todo.desktop"
 - name: Copy .xbindkeysrc
-  copy:
+  ansible.builtin.copy:
     src: "xbindkeysrc"
     dest: "{{ ansible_env.HOME }}/.xbindkeysrc"
 - name: Add custom Chromium launcher
-  template:
+  ansible.builtin.template:
     src: chromium-browser.desktop
     dest: "{{ ansible_env.HOME }}/.local/share/applications/chromium-browser.desktop"
   vars:

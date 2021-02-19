@@ -1,7 +1,7 @@
 ---
 - name: Enable wheel group to use sudo
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /usr/pkg/etc/sudoers.d/wheel
     regexp: 'wheel'
     line: '%wheel ALL=(ALL) ALL'

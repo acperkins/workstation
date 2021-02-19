@@ -1,21 +1,21 @@
 ---
 - name: Configure pkg to ignore OSABI
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/pkg_install.conf
     regexp: '^CHECK_OSABI='
     line: 'CHECK_OSABI=no'
     create: yes
 - name: Configure PKG_PATH
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/pkg_install.conf
     regexp: '^PKG_PATH='
     line: 'PKG_PATH=http://cdn.netbsd.org/pub/pkgsrc/packages/NetBSD/{{ ansible_machine }}/{{ ansible_distribution_release }}/All'
     create: yes
 - name: Install CLI packages
   become: true
-  pkgin:
+  community.general.pkgin:
     name: '{{ packages }}'
     state: present
   vars:

@@ -1,13 +1,13 @@
 ---
 - name: Blacklist pcspkr module
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/modprobe.d/blacklist.conf
     line: blacklist pcspkr
     create: yes
 - name: Blacklist dvb_usb_rtl28xxu module
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/modprobe.d/blacklist.conf
     line: blacklist dvb_usb_rtl28xxu
     create: yes

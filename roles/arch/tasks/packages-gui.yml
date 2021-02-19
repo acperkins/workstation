@@ -1,7 +1,7 @@
 ---
 - name: Install GUI packages
   become: true
-  pacman:
+  community.general.pacman:
     name: '{{ packages }}'
     state: present
     update_cache: yes

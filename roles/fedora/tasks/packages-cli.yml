@@ -1,7 +1,7 @@
 ---
 - name: Install CLI packages
   become: true
-  dnf:
+  ansible.builtin.dnf:
     name: '{{ packages }}'
     state: present
   vars:

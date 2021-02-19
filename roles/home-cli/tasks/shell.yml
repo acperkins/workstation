@@ -1,21 +1,21 @@
 ---
 - name: Copy .bashrc
-  copy:
+  ansible.builtin.copy:
     src: bashrc
     dest: "{{ ansible_env.HOME }}/.bashrc"
 - name: Copy .bash_profile
-  copy:
+  ansible.builtin.copy:
     src: bash_profile
     dest: "{{ ansible_env.HOME }}/.bash_profile"
 - name: Copy .profile
-  copy:
+  ansible.builtin.copy:
     src: profile
     dest: "{{ ansible_env.HOME }}/.profile"
 - name: Copy .shrc
-  copy:
+  ansible.builtin.copy:
     src: shrc
     dest: "{{ ansible_env.HOME }}/.shrc"
 - name: Copy .zshrc
-  copy:
+  ansible.builtin.copy:
     src: zshrc
     dest: "{{ ansible_env.HOME }}/.zshrc"

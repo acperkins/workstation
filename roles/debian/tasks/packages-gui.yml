@@ -1,7 +1,7 @@
 ---
 - name: Install GUI packages
   become: true
-  apt:
+  ansible.builtin.apt:
     name: '{{ packages }}'
     state: present
     force_apt_get: yes

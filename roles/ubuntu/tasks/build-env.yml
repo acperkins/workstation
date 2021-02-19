@@ -1,7 +1,7 @@
 ---
 - name: Install build environment packages
   become: true
-  apt:
+  ansible.builtin.apt:
     name: '{{ packages }}'
     state: present
     force_apt_get: yes
@@ -16,12 +16,12 @@
       - pbuilder
 - name: Copy pbuilderrc
   become: true
-  copy:
+  ansible.builtin.copy:
     src: pbuilderrc
     dest: /etc/pbuilderrc
 - name: Set permissions on /var/cache/pbuilder/result
   become: true
-  file:
+  ansible.builtin.file:
     path: /var/cache/pbuilder/result
     state: directory
     owner: root

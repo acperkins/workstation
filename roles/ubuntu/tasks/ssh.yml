@@ -1,20 +1,20 @@
 ---
 - name: Disable SSH passwords
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/ssh/sshd_config
     regexp: '^#?\w*PasswordAuthentication (yes|no)'
     line: 'PasswordAuthentication no'
   register: changed_ssh_config
 - name: Enable SSH
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: ssh.service
     enabled: yes
     state: started
 - name: Restart SSH
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: ssh.service
     state: restarted
   when: changed_ssh_config.changed == true

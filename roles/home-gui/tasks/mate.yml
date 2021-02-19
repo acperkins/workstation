@@ -1,17 +1,17 @@
 ---
 - name: Create MATE layouts directory
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.local/share/mate-panel/layouts"
     state: directory
 - name: Copy MATE panel layout
-  template:
+  ansible.builtin.template:
     src: mate-acp.layout
     dest: "{{ ansible_env.HOME }}/.local/share/mate-panel/layouts/acp.layout"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
     esr: "{{ '-esr' if ansible_distribution == 'Debian' else '' }}"
 - name: Copy MATE Clock reset script
-  copy:
+  ansible.builtin.copy:
     src: reset-mate-clock.sh
     dest: "{{ ansible_env.HOME }}/bin/reset-mate-clock"
     mode: '0755'

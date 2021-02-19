@@ -1,12 +1,12 @@
 ---
 - name: Install core CLI packages
   become: true
-  pkgng:
+  community.general.pkgng:
     name: drm-kmod,en-freebsd-doc,git,pkg,py37-ansible,sudo
     state: present
 - name: Install additional CLI packages
   become: true
-  pkgng:
+  community.general.pkgng:
     name: '{{ packages }}'
     state: present
   vars:
@@ -24,7 +24,7 @@
       - zsh
 - name: Install asciidoctor-pdf Ruby gem
   become: true
-  gem:
+  community.general.gem:
     name: asciidoctor-pdf
     state: present
     pre_release: yes

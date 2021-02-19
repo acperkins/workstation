@@ -1,7 +1,7 @@
 ---
 - name: Install CLI packages
   become: true
-  apt:
+  ansible.builtin.apt:
     name: '{{ packages }}'
     state: present
     force_apt_get: yes
@@ -37,6 +37,6 @@
       - zsh
 - name: Load /etc/profile in zsh
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/zsh/zprofile
     line: emulate sh -c 'source /etc/profile'

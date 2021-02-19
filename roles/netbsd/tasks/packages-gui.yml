@@ -1,7 +1,7 @@
 ---
 - name: Install GUI packages
   become: true
-  pkgin:
+  community.general.pkgin:
     name: '{{ packages }}'
     state: present
   vars:

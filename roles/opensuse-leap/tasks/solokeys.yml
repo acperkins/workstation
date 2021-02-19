@@ -1,15 +1,15 @@
 ---
 - name: Install solokeys udev rule
   become: true
-  copy:
+  ansible.builtin.copy:
     src: 70-solokeys-access.rules
     dest: /etc/udev/rules.d/70-solokeys-access.rules
   register: solokeys_copy
 - name: Reload udevadm rules
   become: true
-  command: udevadm control --reload-rules
+  ansible.builtin.command: udevadm control --reload-rules
   when: solokeys_copy.changed
 - name: Trigger udevadm
   become: true
-  command: udevadm trigger
+  ansible.builtin.command: udevadm trigger
   when: solokeys_copy.changed

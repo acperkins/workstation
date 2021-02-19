@@ -1,41 +1,41 @@
 ---
 - name: Detect Emacs binary
-  stat:
+  ansible.builtin.stat:
     path: "{{ prefix }}/bin/emacs"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
   register: emacs_binary
 - name: Remove ~/.emacs file
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.emacs"
     state: absent
 - name: Clone Emacs settings
-  git:
+  ansible.builtin.git:
     repo: https://code.acperkins.com/acp/emacs.d.git
     dest: "{{ ansible_env.HOME }}/.emacs.d"
 - name: Install NotoSansMono-Regular font
-  copy:
+  ansible.builtin.copy:
     src: NotoSansMono-Regular.ttf
     dest: "{{ ansible_env.HOME }}/.local/share/fonts/NotoSansMono-Regular.ttf"
 - name: Install NotoSansMono-Bold font
-  copy:
+  ansible.builtin.copy:
     src: NotoSansMono-Bold.ttf
     dest: "{{ ansible_env.HOME }}/.local/share/fonts/NotoSansMono-Bold.ttf"
 - name: Create Emacs user service (Linux)
-  template:
+  ansible.builtin.template:
     src: emacs.service
     dest: "{{ ansible_env.HOME }}/.config/systemd/user/emacs.service"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
   when: ansible_system == 'Linux' and emacs_binary.stat.exists == True
 - name: Add Emacs server to autostart (FreeBSD)
-  copy:
+  ansible.builtin.copy:
     src: '{{ ansible_env.HOME }}/.emacs.d/emacs-server.desktop'
     dest: '{{ ansible_env.HOME }}/.config/autostart'
     remote_src: yes
   when: ansible_system == 'FreeBSD' and emacs_binary.stat.exists == True
 - name: Start Emacs user service
-  systemd:
+  ansible.builtin.systemd:
     name: emacs.service
     scope: user
     daemon_reload: yes
@@ -43,7 +43,7 @@
     state: started
   when: ansible_system == 'Linux' and emacs_binary.stat.exists == True
 - name: Create Emacs client launcher
-  copy:
+  ansible.builtin.copy:
     src: "{{ ansible_env.HOME }}/.emacs.d/emacs-client.desktop"
     dest: "{{ ansible_env.HOME }}/.local/share/applications/emacs.desktop"
     remote_src: yes

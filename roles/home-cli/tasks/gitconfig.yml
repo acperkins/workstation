@@ -1,86 +1,86 @@
 ---
 - name: Git pull.rebase
-  git_config:
+  community.general.git_config:
     name: pull.rebase
     value: 'true'
     scope: global
 - name: Git push.default
-  git_config:
+  community.general.git_config:
     name: push.default
     value: simple
     scope: global
 - name: Git color.ui
-  git_config:
+  community.general.git_config:
     name: color.ui
     value: auto
     scope: global
 - name: Git credential.helper
-  git_config:
+  community.general.git_config:
     name: credential.helper
     value: store
     scope: global
 - name: Git gui.encoding
-  git_config:
+  community.general.git_config:
     name: gui.encoding
     value: utf-8
     scope: global
 - name: Git guitool.Rebase.cmd
-  git_config:
+  community.general.git_config:
     name: guitool.Rebase.cmd
     value: rebase
     scope: global
 - name: Git user.name
-  git_config:
+  community.general.git_config:
     name: user.name
     value: Anthony Perkins
     scope: global
 - name: Git user.email
-  git_config:
+  community.general.git_config:
     name: user.email
     value: anthony@acperkins.com
     scope: global
 - name: Git alias.ci
-  git_config:
+  community.general.git_config:
     name: alias.ci
     value: commit
     scope: global
 - name: Git alias.co
-  git_config:
+  community.general.git_config:
     name: alias.co
     value: checkout
     scope: global
 - name: Git alias.ff
-  git_config:
+  community.general.git_config:
     name: alias.ff
     value: merge --ff-only
     scope: global
 - name: Git alias.graph
-  git_config:
+  community.general.git_config:
     name: alias.graph
     value: log --graph --oneline --all
     scope: global
 - name: Git alias.l1
-  git_config:
+  community.general.git_config:
     name: alias.l1
     value: log --pretty=oneline
     scope: global
 - name: Git alias.last
-  git_config:
+  community.general.git_config:
     name: alias.last
     value: log -1 HEAD --pretty=fuller
     scope: global
 - name: Git alias.unstage
-  git_config:
+  community.general.git_config:
     name: alias.unstage
     value: reset HEAD --
     scope: global
 - name: Git alias.up
-  git_config:
+  community.general.git_config:
     name: alias.up
     value: pull --rebase
     scope: global
 - name: Git URL rewrite
-  git_config:
+  community.general.git_config:
     name: url."https://code.acperkins.com/".insteadof
     value: https://git.acperkins.com/
     scope: global

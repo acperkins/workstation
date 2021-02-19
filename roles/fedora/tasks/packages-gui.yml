@@ -1,7 +1,7 @@
 ---
 - name: Install GUI packages
   become: true
-  dnf:
+  ansible.builtin.dnf:
     name: '{{ packages }}'
     state: present
   vars:

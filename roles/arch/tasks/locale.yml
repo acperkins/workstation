@@ -1,13 +1,13 @@
 ---
 - name: Set system locale
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/locale.conf
     line: "LANG=en_GB.UTF-8"
     create: yes
 - name: Set default paper size
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/papersize
     line: a4
     create: yes

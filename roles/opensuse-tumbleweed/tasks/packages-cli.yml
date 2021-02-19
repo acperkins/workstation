@@ -2,7 +2,7 @@
 # The zypper module requires python-xml on openSUSE.
 - name: Install CLI patterns
   become: true
-  zypper:
+  community.general.zypper:
     name: '{{ patterns }}'
     state: present
     type: pattern
@@ -12,7 +12,7 @@
       - devel_rpm_build
 - name: Install CLI packages
   become: true
-  zypper:
+  community.general.zypper:
     name: '{{ packages }}'
     state: present
     type: package

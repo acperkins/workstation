@@ -1,11 +1,11 @@
 ---
 - name: Upgrade all packages
   become: true
-  pacman:
+  community.general.pacman:
     upgrade: yes
 - name: Install CLI packages
   become: true
-  pacman:
+  community.general.pacman:
     name: '{{ packages }}'
     state: present
     update_cache: yes
@@ -39,7 +39,7 @@
       - zsh
 - name: Enable TLP
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: tlp.service
     enabled: true
     state: started

@@ -1,24 +1,24 @@
 ---
 - name: Add home rsa key to authorized_keys
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
     line: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUfTUp1m8MUCjj0Vu8E9sVGwvf4FWL4QcaZ6m8gK5+xGZl+w+yAcb1acH/96Y0DaP4ZNDassC5OlE6F1oJ+cIKtTykXBxqlChLRDCdX8JCt3sBaVmEcRJ0v8MMQrqWX2ajAW6fC/zNYJ4qbhTMGLiEUPbYu7gZKn0e+MEPBRrxdXzqVLTBq0RMelGx74UpZUwzwROq+VxLsFrumFZNFNJL+rWEK3XO5SsQkNp5QNYluIr8+WDbVU6V2thgJTcFpWWWYVg/al5iY5/bcnVSpzoab7Xxo98OYzpSrY0g+CqkLQkfRehOUMeEOGQYZxpUaXFhg2jE+Kf7W2gm3CeJWTzP home"
     create: yes
     mode: '0600'
 - name: Add work rsa key to authorized_keys
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
     line: "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjRPqXzNlrmPWGC6yRCnZszewblS6JcQeNBkHuNmWD9WoMFGLvjkl+NGiC01k9su4JMfz6vOvNG1A6J16+uhEz0+Q70Z/kCM91EqYK8iiGA+qfC2y5PMA10BtWInQ9OqPbanv38ZBB7+afOcEbGR3CC56rp/uibwdBo2RpVRjAjZfsC64tZ6Pt8C55rVvBeZwNtXtw9RIwKAJGmlBsZEdIKpTHIf2IDfPWX3OLahcNA5/6aNB65qQV7fqQXEgBSjJmMsdCD8Jy5O+f7rzC+kFxozB/36mV1pBgZhT/iTK9fFJip0vyFFjk4CPRRbrnnJUBod/aGfWAP876b/0DXviWQ== work"
     create: yes
     mode: '0600'
 - name: Add home ed25519 key to authorized_keys
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
     line: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKG63aHe1QmTPj4mWg0F/fAzcB78tBJglxyLI0AzOKvW acp-home"
     create: yes
     mode: '0600'
 - name: Add work ed25519 key to authorized_keys
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
     line: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMMMawkF2TJzmqHewciwMRhOOTE9W1+vXq1yzV13KWUg acp-work"
     create: yes
