@@ -69,6 +69,11 @@
     name: alias.last
     value: log -1 HEAD --pretty=fuller
     scope: global
+- name: Git alias.lastmail
+  community.general.git_config:
+    name: alias.lastmail
+    value: format-patch --stdout -1 HEAD
+    scope: global
 - name: Git alias.unstage
   community.general.git_config:
     name: alias.unstage
