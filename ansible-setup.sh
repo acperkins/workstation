@@ -31,7 +31,7 @@ else
 fi
 
 if [ ! -x "$HOME/opt/ansible/bin/ansible-playbook" ]; then
-	python3 -m venv "$HOME/opt/ansible"
+	python3 -m venv "$HOME/opt/ansible" || exit 1
 fi
 
 pushd "$HOME/opt/ansible"
