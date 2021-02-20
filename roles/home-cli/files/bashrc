@@ -1,4 +1,259 @@
-#!/usr/bin/env bash
-if [ -r $HOME/.shrc ]; then
-    . $HOME/.shrc
+#!/bin/sh
+export ACP_BASHRC=1
+
+if [ -f /etc/bashrc ]
+then
+    . /etc/bashrc
+fi
+
+if [ -f /usr/share/bash-completion/bash_completion ]
+then
+    . /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]
+then
+    . /etc/bash_completion
+fi
+
+_acp_add_path () {
+    if ! [[ "$PATH" =~ "$1:" ]] && test -d "$1"
+    then
+        PATH="$1:$PATH"
+    fi
+    export PATH
+}
+
+for dir in "$HOME/bin" \
+           "$HOME/.cargo/bin" \
+           "$HOME/opt/centos-git-common" \
+           /usr/local/sbin \
+           /usr/local/bin
+do
+        _acp_add_path "$dir"
+done
+
+umask 0022
+
+set -o emacs
+set -o noclobber
+
+# Locale and language.
+## Clear the existing locale settings and set options I always want.
+export LC_ALL=
+export TIME_STYLE=long-iso  # Used by GNU 'ls'.
+
+## Set the default language.
+_acp_dbus_account="$(dbus-send --system --print-reply=literal --dest=org.freedesktop.Accounts --type=method_call /org/freedesktop/Accounts org.freedesktop.Accounts.FindUserById int64:$(id -u) 2>/dev/null)"
+_acp_dbus_lang="$(dbus-send --system --print-reply=literal --dest=org.freedesktop.Accounts $_acp_dbus_account org.freedesktop.DBus.Properties.Get string:org.freedesktop.Accounts.User string:Language 2>/dev/null | awk '{print $2}')"
+
+if [ -n "$_acp_dbus_lang" ]
+then
+    LANG="$_acp_dbus_lang"
+elif [ -r "$HOME/.config/locale.conf" ]
+then
+    . "$HOME/.config/locale.conf"
+fi
+unset _acp_dbus_lang
+unset _acp_dbus_account
+
+case "$LANG" in
+en_GB.UTF-8)
+    LANGUAGE=en_GB:en
+    PAPERSIZE=a4
+    ;;
+en_CA.UTF-8)
+    LANGUAGE=en_CA:en
+    PAPERSIZE=letter
+    ;;
+fr_FR.UTF-8)
+    LANGUAGE=fr_FR:fr
+    PAPERSIZE=a4
+    ;;
+fr_CA.UTF-8)
+    LANGUAGE=fr_CA:fr
+    PAPERSIZE=letter
+    ;;
+*)
+    LANG=en_GB.UTF-8
+    LANGUAGE=en_GB:en
+    PAPERSIZE=a4
+    ;;
+esac
+
+# Check that the locale exists. If not, use LANG=C.
+if [ -x /usr/bin/locale ] && [ $(locale -a 2>/dev/null | sed 's/.utf8$/.UTF-8/' | grep ${LANG-invalid} | wc -l) -eq 0 ]
+then
+    LANG=C
+    LANGUAGE=C:en
+fi
+
+export LANG
+export LANGUAGE
+export PAPERSIZE
+export LC_COLLATE="$LANG"          # Alphabetic sorting.
+export LC_CTYPE="$LANG"            # Interpretation of byte sequences.
+export LC_IDENTIFICATION="$LANG"   # Locale metadata (GNU).
+export LC_MEASUREMENT="$LANG"      # Units of measure -- metric/imperial (GNU).
+export LC_MESSAGES="$LANG"         # Language that messages are displayed in.
+export LC_NAME="$LANG"             # Salutations and titles (GNU).
+export LC_NUMERIC="$LANG"          # Formatting for non-monetary numbers.
+export LC_TIME="$LANG"             # Time format.
+export LC_ADDRESS="$LANG"          # Postal address (GNU).
+export LC_MONETARY="$LANG"         # Currency display.
+export LC_PAPER="$LANG"            # Standard paper size -- A4 or Letter (GNU).
+export LC_TELEPHONE="$LANG"        # Formats for telephone services (GNU).
+
+# Other exports.
+export ANSIBLE_NOCOWS=1
+export DEBEMAIL=anthony@acperkins.com
+export DEBFULLNAME="Anthony Perkins"
+export EDITOR=vi
+export HISTCONTROL=ignorespace:ignoredups
+export POWERSHELL_TELEMETRY_OPTOUT=1
+export PYTHONWARNINGS=ignore::UserWarning
+
+if test -x /usr/bin/tty; then
+    export GPG_TTY=$(tty)
+fi
+
+shopt -s histappend
+bind '"\e[1;5C": forward-word'
+bind '"\e[1;5D": backward-word'
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind 'set bell-style none'
+bind 'set completion-ignore-case on'
+
+if test $(id -u) -eq 0; then
+    export PS1="\[\033[01;32m\]\h\[\033[01;31m\]\#\[\033[00m\] "
+else
+    export PS1="\[\033[01;32m\]\h\[\033[01;34m\]\$\[\033[00m\] "
+fi
+
+alias 7zencrypt="7z a -t7z -p -mhe"
+alias alu="apt list --upgradable"
+alias asdo="apt source --download-only"
+alias aurmake="makepkg -irs"
+alias btrdf="sudo btrfs filesystem usage"
+alias cal="ncal -w"
+alias df="df -x squashfs"
+alias ec="emacsclient -c"
+alias en="emacsclient -nw"
+alias f=fossil
+alias ip="ip -c"
+alias ll="ls -l --color=auto"
+alias ls="ls -F --color=auto"
+alias now="date +%Y%m%dT%H%M%S%z"
+alias nowu="date -u +%Y%m%dT%H%M%SZ"
+alias pacup="sudo pacman -Syu --needed"
+alias streamenc="openssl aes-256-cbc -pbkdf2 -in - -out - -e"
+alias streamdec="openssl aes-256-cbc -pbkdf2 -in - -out - -d"
+alias ta="$HOME/opt/textadept/textadept"
+alias wgr=wordgrinder
+alias ytmp3="youtube-dl -q -x --audio-format=mp3"
+alias zlu="zypper list-updates"
+
+# Alias vi to vim if it is installed.
+if [ -x /usr/bin/vim ]
+then
+    alias vi=vim
+fi
+
+# Set up GOPATH.
+export GOPATH="$HOME/data/go"
+if [ -x "$HOME/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
+then
+    if [ ! -d "$GOPATH" ]
+    then
+        mkdir -p "$GOPATH/bin"
+        mkdir -p "$GOPATH/pkg"
+        mkdir -p "$GOPATH/src"
+    fi
+    if [ -x "$HOME/opt/go/bin/go" ]
+    then
+        export GOROOT="$HOME/opt/go"
+        _acp_add_path "$GOROOT/bin"
+    fi
+fi
+
+# Useful aliases for Podman and Docker
+alias prun="podman run --rm -it"
+alias drun="sudo docker run --rm -it"
+
+# Desktop files (used by desktop environments within both X11 and Wayland) are
+# looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
+# snappy applications' desktop files.
+_snap_xdg_path=/var/lib/snapd/desktop
+if [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}}" ] && [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}:*}" ]
+then
+    export XDG_DATA_DIRS="${XDG_DATA_DIRS}:${_snap_xdg_path}"
+fi
+unset _snap_xdg_path
+
+mkcd () {
+    if [ $# -ne 1 ]
+    then
+        echo "mkcd: incorrect arguments (one directory required)." >&2
+        return 1
+    else
+        mkdir -p "$1"
+        cd "$1"
+    fi
+}
+
+termtitle () {
+    echo -en "\033]0;$1\007"
+}
+
+linapm () {
+    cat /sys/class/power_supply/BAT0/{status,capacity}
+}
+
+xa () {
+    out=$(xrandr --listactivemonitors | awk 'NR!=1{print " "$NF" "}')
+    for monitor in "$out"
+    do
+        m=$(echo "$monitor" | sed 's/ //g')
+        xrandr --output "$m" --auto
+    done
+}
+
+emacsro () {
+    emacs "$1" -f view-mode
+}
+
+tm () {
+    if tmux list-session 2>/dev/null 1>/dev/null
+    then
+        tmux -2 attach-session
+    else
+        tmux -2 new-session
+    fi
+}
+
+if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]
+then
+    alias dnf=yum
+fi
+
+case "$-" in
+*i*)
+    # Shell is interactive
+    printf "\033[7m"; uname -sr; printf "\033[0m"
+    if [ -r /etc/os-release ]
+    then
+        echo "    $(. /etc/os-release; echo $NAME $VERSION)"
+    fi
+    ;;
+*)
+    ;;
+esac
+
+if [ -S "$SSH_AUTH_SOCK" ] && [ -r "$HOME/.ssh/id_ed25519" ] && [ $(ssh-add -l | egrep "acp-(home|work) \(ED25519\)" | wc -l) = 0 ]
+then
+    ssh-add "$HOME/.ssh/id_ed25519"
+fi
+
+if [ -r "$HOME/.bashrc.$(hostname -s)" ]
+then
+    . "$HOME/.bashrc.$(hostname -s)"
 fi

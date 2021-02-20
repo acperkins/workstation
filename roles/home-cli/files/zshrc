@@ -1,3 +1,0 @@
-if [ -r $HOME/.shrc ]; then
-    . $HOME/.shrc
-fi
