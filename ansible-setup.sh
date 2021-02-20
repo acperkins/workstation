@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Copyright 2021 Anthony Perkins
 #
@@ -39,6 +39,10 @@ pipinstall pip
 pipinstall wheel
 pipinstall ansible
 popd
+
+if [ ! -d "$HOME/bin" ]; then
+	mkdir "$HOME/bin"
+fi
 
 for command in \
 	ansible \
