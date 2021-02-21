@@ -38,22 +38,19 @@ set -o noclobber
 
 # Locale and language.
 ## Clear the existing locale settings and set options I always want.
-export LC_ALL=
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
-## Set the default language.
-_acp_dbus_account="$(dbus-send --system --print-reply=literal --dest=org.freedesktop.Accounts --type=method_call /org/freedesktop/Accounts org.freedesktop.Accounts.FindUserById int64:$(id -u) 2>/dev/null)"
-_acp_dbus_lang="$(dbus-send --system --print-reply=literal --dest=org.freedesktop.Accounts $_acp_dbus_account org.freedesktop.DBus.Properties.Get string:org.freedesktop.Accounts.User string:Language 2>/dev/null | awk '{print $2}')"
+if [ ! -r "$HOME/.config/locale.conf" ]
+then
+    if [ -r /etc/locale.conf ]
+    thenn
 
-if [ -n "$_acp_dbus_lang" ]
-then
-    LANG="$_acp_dbus_lang"
-elif [ -r "$HOME/.config/locale.conf" ]
-then
-    . "$HOME/.config/locale.conf"
+        cp /etc/locale.conf "$HOME/.config/locale.conf"
+    else
+        echo "LANG=\"${LANG-C}\"" > "$HOME/.config/locale.conf"
+    fi
 fi
-unset _acp_dbus_lang
-unset _acp_dbus_account
+. "$HOME/.config/locale.conf"
 
 case "$LANG" in
 en_GB.UTF-8|en_GB.utf8)
@@ -78,13 +75,6 @@ fr_CA.UTF-8|fr_CA.uft8)
     PAPERSIZE=a4
     ;;
 esac
-
-# Check that the locale exists. If not, use LANG=C.
-if [ -x /usr/bin/locale ] && [ $(locale -a 2>/dev/null | grep -e ${LANG-invalid} -e $(echo "$LANG" | sed 's/\.UTF-8$/.utf8/') -e $(echo "$LANG" | sed 's/\.UTF-8$/.uft8/') | wc -l) -eq 0 ]
-then
-    LANG=C
-    LANGUAGE=C:en
-fi
 
 export LANG
 export LANGUAGE
