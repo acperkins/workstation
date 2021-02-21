@@ -34,7 +34,6 @@
     state: present
   vars:
     packages:
-      - ansible
       - git
       - gnupg2
       - heirloom-doctools

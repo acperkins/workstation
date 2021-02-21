@@ -21,7 +21,6 @@
   vars:
     packages:
       - "@c-development"
-      - ansible
       - asciidoctor
       - aspell-en
       - bc

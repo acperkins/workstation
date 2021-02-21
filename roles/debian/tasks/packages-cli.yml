@@ -22,7 +22,6 @@
   vars:
     packages:
       - apt-file
-      - ansible
       - asciidoctor
       - clang
       - clang-format

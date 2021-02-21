@@ -32,7 +32,6 @@
     type: package
   vars:
     packages:
-      - ansible
       - aspell-en
       - bc
       - bind-utils

@@ -22,7 +22,6 @@
   vars:
     packages:
       - apt-file
-      - ansible
       - asciidoctor
       - build-essential
       - clang
