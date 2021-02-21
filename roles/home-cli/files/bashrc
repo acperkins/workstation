@@ -56,19 +56,19 @@ unset _acp_dbus_lang
 unset _acp_dbus_account
 
 case "$LANG" in
-en_GB.UTF-8)
+en_GB.UTF-8|en_GB.utf8)
     LANGUAGE=en_GB:en
     PAPERSIZE=a4
     ;;
-en_CA.UTF-8)
+en_CA.UTF-8|en_CA.utf8)
     LANGUAGE=en_CA:en
     PAPERSIZE=letter
     ;;
-fr_FR.UTF-8)
+fr_FR.UTF-8|fr_FR.uft8)
     LANGUAGE=fr_FR:fr
     PAPERSIZE=a4
     ;;
-fr_CA.UTF-8)
+fr_CA.UTF-8|fr_CA.uft8)
     LANGUAGE=fr_CA:fr
     PAPERSIZE=letter
     ;;
@@ -80,7 +80,7 @@ fr_CA.UTF-8)
 esac
 
 # Check that the locale exists. If not, use LANG=C.
-if [ -x /usr/bin/locale ] && [ $(locale -a 2>/dev/null | sed 's/.utf8$/.UTF-8/' | grep ${LANG-invalid} | wc -l) -eq 0 ]
+if [ -x /usr/bin/locale ] && [ $(locale -a 2>/dev/null | grep -e ${LANG-invalid} -e $(echo "$LANG" | sed 's/\.UTF-8$/.utf8/') -e $(echo "$LANG" | sed 's/\.UTF-8$/.uft8/') | wc -l) -eq 0 ]
 then
     LANG=C
     LANGUAGE=C:en
