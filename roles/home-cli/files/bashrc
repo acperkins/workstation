@@ -40,44 +40,38 @@ set -o noclobber
 ## Clear the existing locale settings and set options I always want.
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
-if [ ! -r "$HOME/.config/locale.conf" ]
-then
-    if [ -r /etc/locale.conf ]
-    then
-        cp /etc/locale.conf "$HOME/.config/locale.conf"
-    else
-        echo "LANG=\"${LANG-C}\"" > "$HOME/.config/locale.conf"
-    fi
-fi
-. "$HOME/.config/locale.conf"
+_acp_set_locale () {
+    _acp_locale_selected=0
+    while [ $_acp_locale_selected -eq 0 ]
+    do
+        echo "Enter a locale, 'list', or leave blank to skip."
+        echo -n "[skip] "
+        read _acp_entered_locale
+        case "$_acp_entered_locale" in
+        list)
+            localectl list-locales
+            ;;
+        "")
+            LANG=C
+            _acp_locale_selected=1
+            ;;
+        *)
+            LANG="$_acp_entered_locale"
+            echo "LANG=$LANG" > "$HOME/.config/locale.conf"
+            _acp_locale_selected=1
+        esac
+    done
+}
 
-case "$LANG" in
-en_GB.UTF-8|en_GB.utf8)
-    LANGUAGE=en_GB:en
-    PAPERSIZE=a4
-    ;;
-en_CA.UTF-8|en_CA.utf8)
-    LANGUAGE=en_CA:en
-    PAPERSIZE=letter
-    ;;
-fr_FR.UTF-8|fr_FR.uft8)
-    LANGUAGE=fr_FR:fr
-    PAPERSIZE=a4
-    ;;
-fr_CA.UTF-8|fr_CA.uft8)
-    LANGUAGE=fr_CA:fr
-    PAPERSIZE=letter
-    ;;
-*)
-    LANG=en_GB.UTF-8
-    LANGUAGE=en_GB:en
-    PAPERSIZE=a4
-    ;;
-esac
+if [ -r "$HOME/.config/locale.conf" ]
+then
+    . "$HOME/.config/locale.conf"
+else
+    _acp_set_locale
+fi
 
 export LANG
-export LANGUAGE
-export PAPERSIZE
+export PAPERSIZE=a4
 export LC_COLLATE="$LANG"          # Alphabetic sorting.
 export LC_CTYPE="$LANG"            # Interpretation of byte sequences.
 export LC_IDENTIFICATION="$LANG"   # Locale metadata (GNU).
