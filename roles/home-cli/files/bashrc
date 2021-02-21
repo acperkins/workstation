@@ -56,9 +56,28 @@ _acp_set_locale () {
             _acp_locale_selected=1
             ;;
         *)
+            if [ $(localectl list-locales | grep "$_acp_entered_locale" | wc -l) -eq 0 ]
+            then
+                echo "Invalid locale entered."
+                continue
+            fi
             LANG="$_acp_entered_locale"
-            echo "LANG=$LANG" > "$HOME/.config/locale.conf"
+            LC_COLLATE="$LANG"          # Alphabetic sorting.
+            LC_CTYPE="$LANG"            # Interpretation of byte sequences.
+            LC_IDENTIFICATION="$LANG"   # Locale metadata (GNU).
+            LC_MEASUREMENT="$LANG"      # Units of measure -- metric/imperial (GNU).
+            LC_MESSAGES="$LANG"         # Language that messages are displayed in.
+            LC_NAME="$LANG"             # Salutations and titles (GNU).
+            LC_NUMERIC="$LANG"          # Formatting for non-monetary numbers.
+            LC_TIME="$LANG"             # Time format.
+            LC_ADDRESS="$LANG"          # Postal address (GNU).
+            LC_MONETARY="$LANG"         # Currency display.
+            LC_PAPER="$LANG"            # Standard paper size -- A4 or Letter (GNU).
+            LC_TELEPHONE="$LANG"        # Formats for telephone services (GNU).
+            rm "$HOME/.config/locale.conf"
+            locale > "$HOME/.config/locale.conf"
             _acp_locale_selected=1
+            ;;
         esac
     done
 }
@@ -71,19 +90,18 @@ else
 fi
 
 export LANG
-export PAPERSIZE=a4
-export LC_COLLATE="$LANG"          # Alphabetic sorting.
-export LC_CTYPE="$LANG"            # Interpretation of byte sequences.
-export LC_IDENTIFICATION="$LANG"   # Locale metadata (GNU).
-export LC_MEASUREMENT="$LANG"      # Units of measure -- metric/imperial (GNU).
-export LC_MESSAGES="$LANG"         # Language that messages are displayed in.
-export LC_NAME="$LANG"             # Salutations and titles (GNU).
-export LC_NUMERIC="$LANG"          # Formatting for non-monetary numbers.
-export LC_TIME="$LANG"             # Time format.
-export LC_ADDRESS="$LANG"          # Postal address (GNU).
-export LC_MONETARY="$LANG"         # Currency display.
-export LC_PAPER="$LANG"            # Standard paper size -- A4 or Letter (GNU).
-export LC_TELEPHONE="$LANG"        # Formats for telephone services (GNU).
+export LC_COLLATE
+export LC_CTYPE
+export LC_IDENTIFICATION
+export LC_MEASUREMENT
+export LC_MESSAGES
+export LC_NAME
+export LC_NUMERIC
+export LC_TIME
+export LC_ADDRESS
+export LC_MONETARY
+export LC_PAPER
+export LC_TELEPHONE
 
 # Other exports.
 export ANSIBLE_NOCOWS=1
@@ -91,6 +109,7 @@ export DEBEMAIL=anthony@acperkins.com
 export DEBFULLNAME="Anthony Perkins"
 export EDITOR=vi
 export HISTCONTROL=ignorespace:ignoredups
+export PAPERSIZE=a4
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS=ignore::UserWarning
 
