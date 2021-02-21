@@ -74,7 +74,7 @@ _acp_set_locale () {
             LC_MONETARY="$LANG"         # Currency display.
             LC_PAPER="$LANG"            # Standard paper size -- A4 or Letter (GNU).
             LC_TELEPHONE="$LANG"        # Formats for telephone services (GNU).
-            rm "$HOME/.config/locale.conf"
+            rm -f "$HOME/.config/locale.conf"
             locale > "$HOME/.config/locale.conf"
             _acp_locale_selected=1
             ;;
