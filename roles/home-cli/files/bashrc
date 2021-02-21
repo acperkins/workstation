@@ -43,8 +43,7 @@ export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 if [ ! -r "$HOME/.config/locale.conf" ]
 then
     if [ -r /etc/locale.conf ]
-    thenn
-
+    then
         cp /etc/locale.conf "$HOME/.config/locale.conf"
     else
         echo "LANG=\"${LANG-C}\"" > "$HOME/.config/locale.conf"
