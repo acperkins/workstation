@@ -14,12 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+if [ $(id -u) -eq 0 ]; then
+	install_path=/opt/ansible
+	bin_path=/usr/local/bin
+else
+	install_path="$HOME/opt/ansible"
+	bin_path="$HOME/bin"
+fi
+
 pipinstall () {
 	./bin/pip install --upgrade $1
 }
 
 create_link () {
-	ln -sf "../opt/ansible/bin/$1" "$HOME/bin/$1"
+	ln -sf "$install_path/bin/$1" "$bin_path/$1"
 }
 
 py3cmd="$(command -v python3)"
@@ -31,17 +39,17 @@ else
 fi
 
 if [ ! -x "$HOME/opt/ansible/bin/ansible-playbook" ]; then
-	python3 -m venv "$HOME/opt/ansible" || exit 1
+	python3 -m venv "$install_path" || exit 1
 fi
 
-pushd "$HOME/opt/ansible"
+pushd "$install_path"
 pipinstall pip
 pipinstall wheel
 pipinstall ansible
 popd
 
-if [ ! -d "$HOME/bin" ]; then
-	mkdir "$HOME/bin"
+if [ ! -d "$bin_path" ]; then
+	mkdir "$bin_path"
 fi
 
 for command in \
