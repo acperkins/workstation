@@ -53,7 +53,7 @@ _acp_set_locale () {
             locale -a
             ;;
         *)
-            if [ $(localectl list-locales | grep "${_acp_entered_locale}" | wc -l) -eq 0 ]
+            if [ $(locale -a | grep "${_acp_entered_locale}" | wc -l) -eq 0 ]
             then
                 echo "Invalid locale entered."
                 continue
