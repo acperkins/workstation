@@ -41,7 +41,8 @@ set -o noclobber
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
 _acp_set_locale () {
-    _acp_locale_selected=0
+    local _acp_locale_selected=0
+    local _acp_entered_locale=
     while [ $_acp_locale_selected -eq 0 ]
     do
         echo "Enter a locale, 'list', or leave blank to skip."
@@ -49,7 +50,7 @@ _acp_set_locale () {
         read _acp_entered_locale
         case "$_acp_entered_locale" in
         list)
-            localectl list-locales
+            locale -a
             ;;
         *)
             if [ $(localectl list-locales | grep "${_acp_entered_locale}" | wc -l) -eq 0 ]
@@ -84,8 +85,6 @@ _acp_set_locale () {
             locale > "$HOME/.config/locale.conf"
         fi
     done
-    unset _acp_locale_selected
-    unset _acp_entered_locale
 }
 
 if [ -r "$HOME/.config/locale.conf" ]
