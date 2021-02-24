@@ -13,10 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: dirs.yml
-
-- include: dotfiles.yml
-- include: firefox.yml
-- include: gnome.yml
-- include: mate.yml
-- include: sublimetext.yml
+- name: Copy MATE Clock reset script
+  ansible.builtin.copy:
+    src: gnome-setup.sh
+    dest: "{{ ansible_env.HOME }}/bin/reset-gnome-setup"
+    mode: '0755'
