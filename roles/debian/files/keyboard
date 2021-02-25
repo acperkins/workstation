@@ -4,8 +4,8 @@
 # Update the initramfs after changing this file.
 
 XKBMODEL="pc104"
-XKBLAYOUT="us,us"
-XKBVARIANT=",intl"
+XKBLAYOUT="us,ca"
+XKBVARIANT=",multix"
 XKBOPTIONS="compose:menu,grp:alt_caps_toggle,nbsp:level3n"
 
 BACKSPACE="guess"
