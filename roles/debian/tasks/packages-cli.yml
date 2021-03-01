@@ -50,11 +50,11 @@
       - sqlite3
       - sshpass
       - sudo
-      - tlp
       - tmux
       - vim
       - wordgrinder-ncurses
       - zsh
+      - zstd
 - name: Load /etc/profile in zsh
   become: true
   ansible.builtin.lineinfile:
