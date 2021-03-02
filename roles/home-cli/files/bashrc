@@ -260,7 +260,7 @@ then
     ssh-add "$HOME/.ssh/id_ed25519"
 fi
 
-if [ -r "$HOME/.bashrc.$(hostname -s)" ]
+if [ -r "$HOME/.bashrc.local" ]
 then
-    . "$HOME/.bashrc.$(hostname -s)"
+    . "$HOME/.bashrc.local"
 fi
