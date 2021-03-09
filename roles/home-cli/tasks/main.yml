@@ -17,6 +17,5 @@
 
 - include: dotfiles.yml
 - include: shell.yml
-- include: gitconfig.yml
 - include: vim.yml
 - include: ssh-authorized-keys.yml

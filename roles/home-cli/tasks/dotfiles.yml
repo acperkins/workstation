@@ -37,3 +37,7 @@
   ansible.builtin.copy:
     src: mailcap
     dest: "{{ ansible_env.HOME }}/.mailcap"
+- name: Copy .gitconfig
+  ansible.builtin.copy:
+    src: gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
