@@ -59,3 +59,7 @@
     dest: "{{ ansible_env.HOME }}/.local/share/applications/chromium-browser.desktop"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
+- name: Add GVim COC launcher
+  ansible.builtin.copy:
+    src: gvim-coc.desktop
+    dest: "{{ ansible_env.HOME }}/.local/share/applications/gvim-coc.desktop"
