@@ -25,6 +25,7 @@ set_keyboard_and_language () {
 		layouts="[$us, $ca]"
 	fi
 	gsettings set org.gnome.desktop.input-sources sources "$layouts"
+	gsettings set org.gnome.desktop.input-sources xkb-options "['grp:alt_caps_toggle', 'nbsp:level3n', 'compose:menu']"
 }
 set_keyboard_and_language
 
