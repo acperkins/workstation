@@ -52,7 +52,7 @@ set_misc_preferences () {
 
 	# Configure the top bar and calendar.
 	gsettings set org.gnome.desktop.interface clock-show-date true
-	gsettings set org.gnome.desktop.interface clock-show-seconds true
+	gsettings set org.gnome.desktop.interface clock-show-seconds false
 	gsettings set org.gnome.desktop.interface show-battery-percentage true
 	gsettings set org.gnome.desktop.calendar show-weekdate true
 
