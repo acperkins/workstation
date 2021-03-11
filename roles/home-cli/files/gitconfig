@@ -10,9 +10,6 @@
 	encoding = utf-8
 [guitool "Rebase"]
 	cmd = rebase
-[user]
-	name = Anthony Perkins
-	email = anthony@acperkins.com
 [alias]
 	ci = commit
 	co = checkout
@@ -23,3 +20,5 @@
 	lastmail = format-patch --stdout -1 HEAD
 	unstage = reset HEAD --
 	up = pull --rebase
+[include]
+	path = .gitconfig.local
