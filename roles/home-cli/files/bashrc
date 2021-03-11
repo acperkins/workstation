@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 export ACP_BASHRC=1
 
 if [ -f /etc/bashrc ]
@@ -110,8 +110,6 @@ export LC_TELEPHONE
 
 # Other exports.
 export ANSIBLE_NOCOWS=1
-export DEBEMAIL=anthony@acperkins.com
-export DEBFULLNAME="Anthony Perkins"
 export EDITOR=vi
 export HISTCONTROL=ignorespace:ignoredups
 export PAPERSIZE=a4
