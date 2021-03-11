@@ -48,5 +48,17 @@ set_misc_preferences () {
 
 	# Turn off natural scrolling.
 	gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
+	# Configure the top bar and calendar.
+	gsettings set org.gnome.desktop.interface clock-show-date true
+	gsettings set org.gnome.desktop.interface clock-show-seconds true
+	gsettings set org.gnome.desktop.interface show-battery-percentage true
+	gsettings set org.gnome.desktop.calendar show-weekdate true
+
+	# Add minimise and maximise buttons to the window title bars.
+	gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+
+	# Stop dialogue boxes from 'sticking' to their parent windows.
+	gsettings set org.gnome.mutter attach-modal-dialogs false
 }
 set_misc_preferences
