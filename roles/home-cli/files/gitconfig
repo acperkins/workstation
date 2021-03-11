@@ -11,14 +11,9 @@
 [guitool "Rebase"]
 	cmd = rebase
 [alias]
-	ci = commit
-	co = checkout
-	ff = merge --ff-only
 	graph = log --graph --oneline --all
 	l1 = log --pretty=oneline
 	last = log -1 HEAD --pretty=fuller
 	lastmail = format-patch --stdout -1 HEAD
-	unstage = reset HEAD --
-	up = pull --rebase
 [include]
 	path = .gitconfig.local
