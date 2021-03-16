@@ -162,6 +162,7 @@ alias zlu="zypper list-updates"
 
 if [ -f /usr/share/bash-completion/completions/quilt ]
 then
+    . /usr/share/bash-completion/completions/quilt
     complete -F _quilt_completion -o filenames dquilt
 fi
 
