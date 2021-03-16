@@ -28,6 +28,7 @@
       - dh-make
       - fakeroot
       - pbuilder
+      - quilt
 - name: Copy pbuilderrc
   become: true
   ansible.builtin.copy:

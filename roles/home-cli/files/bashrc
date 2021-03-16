@@ -116,7 +116,8 @@ export PAPERSIZE=a4
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS=ignore::UserWarning
 
-if test -x /usr/bin/tty; then
+if test -x /usr/bin/tty
+then
     export GPG_TTY=$(tty)
 fi
 
@@ -128,7 +129,8 @@ bind '"\e[B": history-search-forward'
 bind 'set bell-style none'
 bind 'set completion-ignore-case on'
 
-if test $(id -u) -eq 0; then
+if test $(id -u) -eq 0
+then
     export PS1="\[\033[01;32m\]\u@\h\[\033[01;31m\]\#\[\033[00m\] "
 else
     export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\]\$\[\033[00m\] "
@@ -141,6 +143,7 @@ alias aurmake="makepkg -irs"
 alias btrdf="sudo btrfs filesystem usage"
 alias cal="ncal -w"
 alias df="df -x squashfs"
+alias dquilt="quilt --quiltrc=\"${HOME}/.quiltrc-dpkg\""
 alias ec="emacsclient -c"
 alias en="emacsclient -nw"
 alias f=fossil
@@ -156,6 +159,11 @@ alias ta="$HOME/opt/textadept/textadept"
 alias wgr=wordgrinder
 alias ytmp3="youtube-dl -q -x --audio-format=mp3"
 alias zlu="zypper list-updates"
+
+if [ -f /usr/share/bash-completion/completions/quilt ]
+then
+    complete -F _quilt_completion -o filenames dquilt
+fi
 
 # Alias vi to vim if it is installed.
 if [ -x /usr/bin/vim ]

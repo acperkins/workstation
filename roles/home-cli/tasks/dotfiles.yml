@@ -41,3 +41,7 @@
   ansible.builtin.copy:
     src: gitconfig
     dest: "{{ ansible_env.HOME }}/.gitconfig"
+- name: Copy .quiltrc-dpkg
+  ansible.builtin.copy:
+    src: quiltrc-dpkg
+    dest: "{{ ansible_env.HOME }}/.quiltrc-dpkg"
