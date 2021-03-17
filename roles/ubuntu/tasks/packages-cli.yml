@@ -23,12 +23,10 @@
     packages:
       - apt-file
       - asciidoctor
-      - build-essential
       - clang
       - clang-format
       - curl
       - dc
-      - devscripts
       - dnsutils
       - git
       - gnupg
@@ -43,7 +41,6 @@
       - ruby-asciidoctor-pdf
       - sqlite3
       - sudo
-      - tlp
       - tmux
       - vim
       - wordgrinder-ncurses
