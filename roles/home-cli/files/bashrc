@@ -262,7 +262,10 @@ case "$-" in
     ;;
 esac
 
-if [ -S "$SSH_AUTH_SOCK" ] && [ -r "$HOME/.ssh/id_ed25519" ] && [ $(ssh-add -l | egrep "acp-(home|work) \(ED25519\)" | wc -l) = 0 ]
+if [ -S "$SSH_AUTH_SOCK" ] \
+    && [ -r "$HOME/.ssh/id_ed25519" ] \
+    && [ -r "$HOME/.ssh/id_ed25519.pub" ] \
+    && [ $(ssh-add -l | grep "$(ssh-keygen -l -f "$HOME/.ssh/id_ed25519.pub")" | wc -l) = 0 ]
 then
     ssh-add "$HOME/.ssh/id_ed25519"
 fi
