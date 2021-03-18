@@ -43,8 +43,8 @@ if [ ! -x "$HOME/opt/ansible/bin/ansible-playbook" ]; then
 fi
 
 pushd "$install_path"
-pipinstall pip
 pipinstall wheel
+pipinstall pip
 pipinstall ansible
 popd
 
