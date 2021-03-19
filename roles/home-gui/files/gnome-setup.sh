@@ -10,7 +10,16 @@ set_favorites_bar () {
 	else
 		firefox=firefox
 	fi
-	gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'chromium_chromium.desktop', '$firefox.desktop']"
+
+	local chromium
+	if [ -r /var/lib/snapd/desktop/applications ]
+	then
+		chromium=chromium_chromium
+	else
+		chromium=chromium
+	fi
+
+	gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', '$chromium.desktop', '$firefox.desktop']"
 }
 set_favorites_bar
 
