@@ -38,7 +38,7 @@ else
 	echo "python3 found: $py3cmd"
 fi
 
-if [ ! -x "$HOME/opt/ansible/bin/ansible-playbook" ]; then
+if [ ! -d "$install_path" ]; then
 	python3 -m venv "$install_path" || exit 1
 fi
 
