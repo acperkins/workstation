@@ -45,3 +45,8 @@
   ansible.builtin.copy:
     src: quiltrc-dpkg
     dest: "{{ ansible_env.HOME }}/.quiltrc-dpkg"
+- name: Copy docutils setup script
+  ansible.builtin.copy:
+    src: docutils-setup.sh
+    dest: "{{ ansible_env.HOME }}/bin/docutils-setup"
+    mode: '0755'
