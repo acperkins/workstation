@@ -13,12 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
-  when: gui == true
-- include: build-env.yml
-- include: keyboard.yml
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: sudo.yml
+- name: Disable sudo FQDN lookups
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/nofqdn
+    regexp: '^Defaults.*fqdn'
+    line: 'Defaults !fqdn'
+    mode: '0640'
+    create: yes
