@@ -18,7 +18,7 @@ default. This causes the initial git clone to fail with the error
 _server certificate verification failed_. You can ignore SSL warnings with the
 `GIT_SSL_NO_VERIFY=true` environment variable:
 
-    GIT_SSL_NO_VERIFY=true git clone https://acperkins.com/acp/workstation.git
+    GIT_SSL_NO_VERIFY=true git clone https://github.com/acperkins/workstation.git
 
 This will clone without checking the validation of the root certificates. This
 should only be done for the initial clone. The playbooks should be configured to

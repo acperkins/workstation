@@ -25,7 +25,7 @@
     state: absent
 - name: Clone Emacs settings
   ansible.builtin.git:
-    repo: https://acperkins.com/acp/emacs.d.git
+    repo: https://github.com/acperkins/emacs.d.git
     dest: "{{ ansible_env.HOME }}/.emacs.d"
 - name: Install NotoSansMono-Regular font
   ansible.builtin.copy:

@@ -15,5 +15,5 @@
 
 - name: Clone vim settings
   ansible.builtin.git:
-    repo: https://acperkins.com/acp/vimfiles.git
+    repo: https://github.com/acperkins/vimfiles.git
     dest: "{{ ansible_env.HOME }}/.vim"

@@ -15,9 +15,5 @@
 	l1 = log --pretty=oneline
 	last = log -1 HEAD --pretty=fuller
 	lastmail = format-patch --stdout -1 HEAD
-[url "git@acperkins.com:acp/"]
-	insteadOf = acp:
-[url "git@github.com:acperkins/"]
-	insteadOf = gh:
 [include]
 	path = .gitconfig.local
