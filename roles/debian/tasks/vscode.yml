@@ -13,13 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
-  when: gui == true
-- include: build-env.yml
-- include: keyboard.yml
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: sudo.yml
-- include: vscode.yml
+- name: Install vscode repository
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/vscode.list
+    regexp: '^deb .* http://packages.microsoft.com/repos/code'
+    line: 'deb [arch=amd64,arm64,armhf] http://packages.microsoft.com/repos/code stable main'
+    create: yes
+    mode: '644'
+- name: Install Visual Studio Code package
+  become: true
+  ansible.builtin.apt:
+    name: 'code'
+    state: present
+    force_apt_get: yes
