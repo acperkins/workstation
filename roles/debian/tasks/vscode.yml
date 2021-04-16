@@ -27,3 +27,4 @@
     name: 'code'
     state: present
     force_apt_get: yes
+    update_cache: yes
