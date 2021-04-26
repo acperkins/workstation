@@ -69,5 +69,9 @@ set_misc_preferences () {
 
 	# Stop dialogue boxes from 'sticking' to their parent windows.
 	gsettings set org.gnome.mutter attach-modal-dialogs false
+
+	# Solid-colour background.
+	gsettings set org.gnome.desktop.background picture-uri ''
+	gsettings set org.gnome.desktop.background primary-color '#3a6ea5'
 }
 set_misc_preferences
