@@ -26,6 +26,8 @@
       - bc
       - bind-utils
       - clang
+      - clang-tools-extra
+      - fossil
       - git
       - gnupg
       - lldb
