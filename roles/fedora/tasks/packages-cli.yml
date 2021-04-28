@@ -41,6 +41,7 @@
       - python3-psutil
       - rubygem-asciidoctor-pdf
       - sqlite
+      - sipcalc
       - sudo
       - tmux
       - vim
