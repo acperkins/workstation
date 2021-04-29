@@ -13,11 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
-  when: gui == true
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: vscode.yml
-  when: gui == true
+- name: Install Microsoft signing key
+  become: true
+  ansible.builtin.rpm_key:
+    key: https://packages.microsoft.com/keys/microsoft.asc
+    fingerprint: BC528686B50D79E339D3721CEB3E94ADBE1229CF
+- name: Install vscode repository
+  become: true
+  ansible.builtin.copy:
+    src: vscode.repo
+    dest: /etc/yum.repos.d/vscode.repo
+- name: Install Visual Studio Code package
+  become: true
+  ansible.builtin.dnf:
+    name: 'code'
+    state: present
