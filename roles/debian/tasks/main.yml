@@ -23,3 +23,4 @@
 - include: solokeys.yml
 - include: sudo.yml
 - include: vscode.yml
+  when: gui == true
