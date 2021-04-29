@@ -27,6 +27,7 @@
       - bind-utils
       - clang
       - clang-tools-extra
+      - cmake
       - fossil
       - git
       - gnupg
