@@ -1,38 +1,40 @@
 #!/bin/bash
 export ACP_BASHRC=1
 
+if [ -f /etc/bashrc ]
+then
+	. /etc/bashrc
+fi
+
 if [ -f /usr/share/bash-completion/bash_completion ]
 then
-    true
-    . /usr/share/bash-completion/bash_completion
+	. /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]
 then
-    true
-    . /etc/bash_completion
+	. /etc/bash_completion
 fi
 
 if [ -f /usr/share/bash-completion/completions/quilt ]
 then
-    true
-    . /usr/share/bash-completion/completions/quilt
-    complete -F _quilt_completion -o filenames dquilt
+	. /usr/share/bash-completion/completions/quilt
+	complete -F _quilt_completion -o filenames dquilt
 fi
 
 _acp_add_path () {
-    if ! [[ "$PATH" =~ "$1:" ]] && test -d "$1"
-    then
-        PATH="$1:$PATH"
-    fi
-    export PATH
+	if ! [[ "$PATH" =~ "$1:" ]] && test -d "$1"
+	then
+		PATH="$1:$PATH"
+	fi
+	export PATH
 }
 
 for dir in "$HOME/bin" \
-           "$HOME/.cargo/bin" \
-           "$HOME/opt/centos-git-common" \
-           /usr/local/sbin \
-           /usr/local/bin
+	   "$HOME/.cargo/bin" \
+	   "$HOME/opt/centos-git-common" \
+	   /usr/local/sbin \
+	   /usr/local/bin
 do
-    _acp_add_path "$dir"
+	_acp_add_path "$dir"
 done
 
 umask 0022
@@ -55,7 +57,7 @@ export PYTHONWARNINGS=ignore::UserWarning
 
 if test -x /usr/bin/tty
 then
-    export GPG_TTY=$(tty)
+	export GPG_TTY=$(tty)
 fi
 
 shopt -s histappend
@@ -68,10 +70,10 @@ bind 'set completion-ignore-case on'
 
 if test $(id -u) -eq 0
 then
-    export PS1="\[\033[01;35m\]╭─ \u @ \h ────\n╰─ #\[\033[00m\] "
+	export PS1="\[\033[01;35m\]╭─ \u @ \h ────\n╰─ #\[\033[00m\] "
 else
-    export PS1="\[\033[01;35m\]╭─ \u @ \h ────\n╰─ $\[\033[00m\] "
-    alias dnf="dnf -C"
+	export PS1="\[\033[01;35m\]╭─ \u @ \h ────\n╰─ $\[\033[00m\] "
+	alias dnf="dnf -C"
 fi
 
 alias 7zencrypt="7z a -t7z -p -mhe"
@@ -101,24 +103,24 @@ alias zlu="zypper list-updates"
 # Alias vi to vim if it is installed.
 if [ -x /usr/bin/vim ]
 then
-    alias vi=vim
+	alias vi=vim
 fi
 
 # Set up GOPATH.
 export GOPATH="$HOME/data/go"
 if [ -x "$HOME/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
 then
-    if [ ! -d "$GOPATH" ]
-    then
-        mkdir -p "$GOPATH/bin"
-        mkdir -p "$GOPATH/pkg"
-        mkdir -p "$GOPATH/src"
-    fi
-    if [ -x "$HOME/opt/go/bin/go" ]
-    then
-        export GOROOT="$HOME/opt/go"
-        _acp_add_path "$GOROOT/bin"
-    fi
+	if [ ! -d "$GOPATH" ]
+	then
+		mkdir -p "$GOPATH/bin"
+		mkdir -p "$GOPATH/pkg"
+		mkdir -p "$GOPATH/src"
+	fi
+	if [ -x "$HOME/opt/go/bin/go" ]
+	then
+		export GOROOT="$HOME/opt/go"
+		_acp_add_path "$GOROOT/bin"
+	fi
 fi
 
 # Useful aliases for Podman and Docker
@@ -131,78 +133,78 @@ alias drun="sudo docker run --rm -it"
 _snap_xdg_path=/var/lib/snapd/desktop
 if [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}}" ] && [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}:*}" ]
 then
-    export XDG_DATA_DIRS="${XDG_DATA_DIRS}:${_snap_xdg_path}"
+	export XDG_DATA_DIRS="${XDG_DATA_DIRS}:${_snap_xdg_path}"
 fi
 unset _snap_xdg_path
 
 mkcd () {
-    if [ $# -ne 1 ]
-    then
-        echo "mkcd: incorrect arguments (one directory required)." >&2
-        return 1
-    else
-        mkdir -p "$1"
-        cd "$1"
-    fi
+	if [ $# -ne 1 ]
+	then
+		echo "mkcd: incorrect arguments (one directory required)." >&2
+		return 1
+	else
+		mkdir -p "$1"
+		cd "$1"
+	fi
 }
 
 termtitle () {
-    echo -en "\033]0;$1\007"
+	echo -en "\033]0;$1\007"
 }
 
 linapm () {
-    cat /sys/class/power_supply/BAT0/{status,capacity}
+	cat /sys/class/power_supply/BAT0/{status,capacity}
 }
 
 xa () {
-    out=$(xrandr --listactivemonitors | awk 'NR!=1{print " "$NF" "}')
-    for monitor in "$out"
-    do
-        m=$(echo "$monitor" | sed 's/ //g')
-        xrandr --output "$m" --auto
-    done
+	out=$(xrandr --listactivemonitors | awk 'NR!=1{print " "$NF" "}')
+	for monitor in "$out"
+	do
+		m=$(echo "$monitor" | sed 's/ //g')
+		xrandr --output "$m" --auto
+	done
 }
 
 emacsro () {
-    emacs "$1" -f view-mode
+	emacs "$1" -f view-mode
 }
 
 tm () {
-    if tmux list-session 2>/dev/null 1>/dev/null
-    then
-        tmux -2 attach-session
-    else
-        tmux -2 new-session
-    fi
+	if tmux list-session 2>/dev/null 1>/dev/null
+	then
+		tmux -2 attach-session
+	else
+		tmux -2 new-session
+	fi
 }
 
 if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]
 then
-    alias dnf=yum
+	alias dnf=yum
 fi
 
 case "$-" in
 *i*)
-    # Shell is interactive
-    printf "\033[7m"; uname -sr; printf "\033[0m"
-    if [ -r /etc/os-release ]
-    then
-        echo "    $(. /etc/os-release; echo $NAME $VERSION)"
-    fi
-    ;;
+	# Shell is interactive
+	printf "\033[7m"; uname -sr; printf "\033[0m"
+	if [ -r /etc/os-release ]
+	then
+		echo "	$(. /etc/os-release; echo $NAME $VERSION)"
+	fi
+	;;
 *)
-    ;;
+	;;
 esac
 
 if [ -S "$SSH_AUTH_SOCK" ] \
-    && [ -r "$HOME/.ssh/id_ed25519" ] \
-    && [ -r "$HOME/.ssh/id_ed25519.pub" ] \
-    && [ $(ssh-add -l | grep "$(ssh-keygen -l -f "$HOME/.ssh/id_ed25519.pub")" | wc -l) = 0 ]
+	&& [ -r "$HOME/.ssh/id_ed25519" ] \
+	&& [ -r "$HOME/.ssh/id_ed25519.pub" ] \
+	&& [ $(ssh-add -l | grep "$(ssh-keygen -l -f "$HOME/.ssh/id_ed25519.pub")" | wc -l) = 0 ]
 then
-    ssh-add "$HOME/.ssh/id_ed25519"
+	ssh-add "$HOME/.ssh/id_ed25519"
 fi
 
 if [ -r "$HOME/.bashrc.local" ]
 then
-    . "$HOME/.bashrc.local"
+	. "$HOME/.bashrc.local"
 fi
