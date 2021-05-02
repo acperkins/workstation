@@ -44,13 +44,6 @@ set_gnome_terminal_preferences () {
 }
 set_gnome_terminal_preferences
 
-set_custom_keyboard_shortcuts () {
-	gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Terminal'
-	gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'gnome-terminal'
-	gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Primary><Alt>t'
-}
-set_custom_keyboard_shortcuts
-
 set_misc_preferences () {
 	# Disable alert sounds.
 	gsettings set org.gnome.desktop.sound event-sounds false
