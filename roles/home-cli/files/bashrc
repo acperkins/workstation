@@ -1,17 +1,21 @@
 #!/bin/bash
 export ACP_BASHRC=1
 
-if [ -f /etc/bashrc ]
-then
-    . /etc/bashrc
-fi
-
 if [ -f /usr/share/bash-completion/bash_completion ]
 then
+    true
     . /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]
 then
+    true
     . /etc/bash_completion
+fi
+
+if [ -f /usr/share/bash-completion/completions/quilt ]
+then
+    true
+    . /usr/share/bash-completion/completions/quilt
+    complete -F _quilt_completion -o filenames dquilt
 fi
 
 _acp_add_path () {
@@ -93,12 +97,6 @@ alias ta="$HOME/opt/textadept/textadept"
 alias wgr=wordgrinder
 alias ytmp3="youtube-dl -q -x --audio-format=mp3"
 alias zlu="zypper list-updates"
-
-if [ -f /usr/share/bash-completion/completions/quilt ]
-then
-    . /usr/share/bash-completion/completions/quilt
-    complete -F _quilt_completion -o filenames dquilt
-fi
 
 # Alias vi to vim if it is installed.
 if [ -x /usr/bin/vim ]
