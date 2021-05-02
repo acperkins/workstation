@@ -39,74 +39,7 @@ set -o noclobber
 # Locale and language.
 ## Clear the existing locale settings and set options I always want.
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
-
-_acp_set_locale () {
-    local _acp_locale_selected=0
-    local _acp_entered_locale=
-    while [ $_acp_locale_selected -eq 0 ]
-    do
-        echo "Enter a locale, 'list', or leave blank to skip."
-        echo -n "[skip] "
-        read _acp_entered_locale
-        case "$_acp_entered_locale" in
-        list)
-            locale -a
-            ;;
-        *)
-            if [ $(locale -a | grep "${_acp_entered_locale}" | wc -l) -eq 0 ]
-            then
-                echo "Invalid locale entered."
-                continue
-            fi
-            if [ -z "$_acp_entered_locale" ]
-            then
-                LANG=C.utf8
-            else
-                LANG="$_acp_entered_locale"
-            fi
-            _acp_locale_selected=1
-            ;;
-        esac
-        LC_COLLATE="$LANG"          # Alphabetic sorting.
-        LC_CTYPE="$LANG"            # Interpretation of byte sequences.
-        LC_IDENTIFICATION="$LANG"   # Locale metadata (GNU).
-        LC_MEASUREMENT="$LANG"      # Units of measure -- metric/imperial (GNU).
-        LC_MESSAGES="$LANG"         # Language that messages are displayed in.
-        LC_NAME="$LANG"             # Salutations and titles (GNU).
-        LC_NUMERIC="$LANG"          # Formatting for non-monetary numbers.
-        LC_TIME="$LANG"             # Time format.
-        LC_ADDRESS="$LANG"          # Postal address (GNU).
-        LC_MONETARY="$LANG"         # Currency display.
-        LC_PAPER="$LANG"            # Standard paper size -- A4 or Letter (GNU).
-        LC_TELEPHONE="$LANG"        # Formats for telephone services (GNU).
-        if [ ! -z "$_acp_entered_locale" ]
-        then
-            rm -f "$HOME/.config/locale.conf"
-            locale > "$HOME/.config/locale.conf"
-        fi
-    done
-}
-
-if [ -r "$HOME/.config/locale.conf" ]
-then
-    . "$HOME/.config/locale.conf"
-else
-    _acp_set_locale
-fi
-
-export LANG
-export LC_COLLATE
-export LC_CTYPE
-export LC_IDENTIFICATION
-export LC_MEASUREMENT
-export LC_MESSAGES
-export LC_NAME
-export LC_NUMERIC
-export LC_TIME
-export LC_ADDRESS
-export LC_MONETARY
-export LC_PAPER
-export LC_TELEPHONE
+export LANG=C.UTF-8
 
 # Other exports.
 export ANSIBLE_NOCOWS=1
