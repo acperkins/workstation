@@ -189,7 +189,7 @@ case "$-" in
 	printf "\033[7m"; uname -sr; printf "\033[0m"
 	if [ -r /etc/os-release ]
 	then
-		echo "	$(. /etc/os-release; echo $NAME $VERSION)"
+		echo "    $(. /etc/os-release; echo $NAME $VERSION)"
 	fi
 	;;
 *)
