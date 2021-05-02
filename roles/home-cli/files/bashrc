@@ -28,7 +28,7 @@ for dir in "$HOME/bin" \
            /usr/local/sbin \
            /usr/local/bin
 do
-        _acp_add_path "$dir"
+    _acp_add_path "$dir"
 done
 
 umask 0022
