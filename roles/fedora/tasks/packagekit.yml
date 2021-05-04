@@ -13,12 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
-  when: gui == true
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: vscode.yml
-  when: gui == true
-- include: packagekit.yml
+- name: Disable PackageKit
+  become: true
+  ansible.builtin.systemd:
+    name: packagekit.service
+    enabled: no
+    masked: yes
+    state: stopped
+- name: Disable PackageKit offline updates
+  become: true
+  ansible.builtin.systemd:
+    name: packagekit-offline-update.service
+    enabled: no
+    masked: yes
+    state: stopped
