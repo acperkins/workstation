@@ -65,6 +65,6 @@ set_misc_preferences () {
 
 	# Solid-colour background.
 	gsettings set org.gnome.desktop.background picture-uri ''
-	gsettings set org.gnome.desktop.background primary-color '#008000'
+	gsettings set org.gnome.desktop.background primary-color '#808080'
 }
 set_misc_preferences
