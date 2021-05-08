@@ -16,14 +16,14 @@ set_favorites_bar () {
 set_favorites_bar
 
 set_keyboard_and_language () {
-	local us="('xkb', 'us')"
-	local ca="('xkb', 'ca+multix')"
+	local en="('xkb', 'ca+eng')"
+	local fr="('xkb', 'ca+multix')"
 	local layouts
 	if [ "$(echo $LANG | sed 's/_.*//')" = "fr" ]
 	then
-		layouts="[$ca, $us]"
+		layouts="[$fr, $en]"
 	else
-		layouts="[$us, $ca]"
+		layouts="[$en, $fr]"
 	fi
 	gsettings set org.gnome.desktop.input-sources sources "$layouts"
 	gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
