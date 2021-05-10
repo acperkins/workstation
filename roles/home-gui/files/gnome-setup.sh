@@ -68,3 +68,8 @@ set_misc_preferences () {
 	gsettings set org.gnome.desktop.background primary-color '#808080'
 }
 set_misc_preferences
+
+if [ -x "$HOME/bin/reset-gnome-setup.local" ]
+then
+	. "$HOME/bin/reset-gnome-setup.local"
+fi
