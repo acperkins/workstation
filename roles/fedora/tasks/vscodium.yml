@@ -18,7 +18,7 @@
   ansible.builtin.rpm_key:
     key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
     fingerprint: 1302DE60231889FE1EBACADC54678CF75A278D9C
-- name: Install vscode repository
+- name: Install VSCodium repository
   become: true
   ansible.builtin.copy:
     src: vscodium.repo
