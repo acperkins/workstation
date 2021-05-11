@@ -13,12 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
-  when: gui == true
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: vscodium.yml
-  when: gui == true
-- include: packagekit.yml
+- name: Install paulcarroty signing key
+  become: true
+  ansible.builtin.rpm_key:
+    key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+    fingerprint: 1302DE60231889FE1EBACADC54678CF75A278D9C
+- name: Install vscode repository
+  become: true
+  ansible.builtin.copy:
+    src: vscodium.repo
+    dest: /etc/yum.repos.d/vscodium.repo
+- name: Install VSCodium package
+  become: true
+  ansible.builtin.dnf:
+    name: 'codium'
+    state: present
