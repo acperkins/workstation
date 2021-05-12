@@ -73,7 +73,7 @@ then
 	export PS1="\[\033[01;35m\]┌─ \u @ \h ────\n└─ #\[\033[00m\] "
 else
 	export PS1="\[\033[01;35m\]┌─ \u @ \h ────\n└─ $\[\033[00m\] "
-	alias dnf="dnf -C"
+	alias dnf="dnf --cacheonly --nogpgcheck"
 fi
 
 alias 7zencrypt="7z a -t7z -p -mhe"
