@@ -23,7 +23,7 @@ set_keyboard_and_language () {
 	then
 		layouts="[$fr, $en]"
 	else
-		layouts="[$en, $fr]"
+		layouts="[$en]"
 	fi
 	gsettings set org.gnome.desktop.input-sources sources "$layouts"
 	gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'compose:caps', 'shift:both_capslock']"
