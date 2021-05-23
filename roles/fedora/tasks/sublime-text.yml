@@ -13,14 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
-  when: gui == true
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: vscodium.yml
-  when: gui == true
-- include: sublime-text.yml
-  when: gui == true
-- include: packagekit.yml
+- name: Install Sublime Text signing key
+  become: true
+  ansible.builtin.rpm_key:
+    key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+    fingerprint: 1B64279675A4299DCFC70858CA464A9A222D23D0
+- name: Install Sublime Text repository
+  become: true
+  ansible.builtin.copy:
+    src: sublime-text.repo
+    dest: /etc/yum.repos.d/sublime-text.repo
+- name: Install Sublime Text package
+  become: true
+  ansible.builtin.dnf:
+    name: 'sublime-text'
+    state: present
