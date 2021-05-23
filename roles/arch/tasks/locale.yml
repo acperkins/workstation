@@ -13,12 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Set system locale
-  become: true
-  ansible.builtin.lineinfile:
-    path: /etc/locale.conf
-    line: "LANG=en_GB.UTF-8"
-    create: yes
 - name: Set default paper size
   become: true
   ansible.builtin.lineinfile:
