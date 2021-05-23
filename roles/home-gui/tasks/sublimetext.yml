@@ -15,10 +15,10 @@
 
 - name: Check for Sublime Text directory
   ansible.builtin.stat:
-    path: "{{ ansible_env.HOME }}/.config/sublime-text-3/Packages/User"
+    path: "{{ ansible_env.HOME }}/.config/sublime-text/Packages/User"
   register: sublime
 - name: Copy Sublime Text preferences
   ansible.builtin.copy:
     src: Preferences.sublime-settings
-    dest: "{{ ansible_env.HOME }}/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+    dest: "{{ ansible_env.HOME }}/.config/sublime-text/Packages/User/Preferences.sublime-settings"
   when: sublime.stat.exists
