@@ -21,6 +21,4 @@
 - include: solokeys.yml
 - include: vscodium.yml
   when: gui == true
-- include: sublime-text.yml
-  when: gui == true
 - include: packagekit.yml
