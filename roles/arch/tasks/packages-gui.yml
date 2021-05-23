@@ -21,9 +21,6 @@
     update_cache: yes
   vars:
     packages:
-      - emacs
-      - evolution
-      - evolution-ews
       - firefox
       - galculator
       - gnome-tweaks
@@ -31,7 +28,6 @@
       - libgnome-keyring
       - libreoffice-fresh
       - libreoffice-fresh-en-gb
-      - nextcloud-client
       - remmina
       - rxvt-unicode
       - tk

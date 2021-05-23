@@ -27,7 +27,6 @@
     packages:
       - aspell-en
       - arch-wiki-docs
-      - asciidoctor
       - base-devel
       - bc
       - bind-tools
@@ -35,7 +34,6 @@
       - clang
       - cups
       - dnsmasq
-      - ebtables
       - git
       - gnupg
       - lldb
@@ -47,12 +45,4 @@
       - python
       - python-psutil
       - sudo
-      - tlp
       - tmux
-      - zsh
-- name: Enable TLP
-  become: true
-  ansible.builtin.systemd:
-    name: tlp.service
-    enabled: true
-    state: started
