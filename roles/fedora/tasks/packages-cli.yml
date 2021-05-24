@@ -28,6 +28,7 @@
       - clang
       - clang-tools-extra
       - cmake
+      - dnf-automatic
       - fossil
       - git
       - gnupg
