@@ -28,6 +28,7 @@
       - aspell-en
       - arch-wiki-docs
       - base-devel
+      - bash-completion
       - bc
       - bind-tools
       - bridge-utils
