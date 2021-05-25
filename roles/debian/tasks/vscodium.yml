@@ -1,0 +1,35 @@
+---
+# Copyright 2021 Anthony Perkins
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+- name: Install paulcarroty signing key
+  become: true
+  ansible.builtin.apt_key:
+    id: 1302DE60231889FE1EBACADC54678CF75A278D9C
+    url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+- name: Install VSCodium repository
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/apt/sources.list.d/vscodium.list
+    regexp: '^deb .* https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs'
+    line: 'deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main'
+    create: yes
+    mode: '644'
+- name: Install VSCodium package
+  become: true
+  ansible.builtin.apt:
+    name: 'codium'
+    state: present
+    force_apt_get: yes
+    update_cache: yes

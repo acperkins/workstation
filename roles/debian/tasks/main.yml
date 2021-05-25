@@ -22,5 +22,5 @@
 - include: ssh.yml
 - include: solokeys.yml
 - include: sudo.yml
-- include: vscode.yml
+- include: vscodium.yml
   when: gui == true
