@@ -17,10 +17,6 @@
   ansible.builtin.copy:
     src: Xresources
     dest: "{{ ansible_env.HOME }}/.Xresources"
-- name: Copy .fonts.conf
-  ansible.builtin.copy:
-    src: fonts.conf
-    dest: "{{ ansible_env.HOME }}/.fonts.conf"
 - name: Create stalonetrayrc
   ansible.builtin.copy:
     src: stalonetrayrc
