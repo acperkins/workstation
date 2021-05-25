@@ -27,3 +27,8 @@
     enabled: no
     masked: yes
     state: stopped
+- name: Delete PackageKit/APT integration
+  become: true
+  ansible.builtin.file:
+    path: /etc/apt/apt.conf.d/20packagekit
+    state: absent
