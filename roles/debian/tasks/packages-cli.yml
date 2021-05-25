@@ -47,3 +47,14 @@
   ansible.builtin.lineinfile:
     path: /etc/zsh/zprofile
     line: emulate sh -c 'source /etc/profile'
+- name: Enable automatic update check
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/apt/apt.conf.d/10periodic
+    line: "APT::Periodic::Update-Package-Lists \"1\";"
+    create: yes
+- name: Enable automatic install of updates
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/apt/apt.conf.d/10periodic
+    line: "APT::Periodic::Unattended-Upgrade \"1\";"
