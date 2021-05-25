@@ -22,37 +22,24 @@
   vars:
     packages:
       - apt-file
-      - asciidoctor
       - clang
       - clang-format
-      - console-data
-      - cowsay
       - curl
       - dc
       - dnsutils
-      - exfat-fuse
-      - exfat-utils
-      - figlet
+      - exfatprogs
       - git
       - gnupg
-      - groff
       - lldb
-      - lynx
       - mc
       - nftables
       - nmap
       - openssh-server
-      - packagekit
-      - python3
-      - python3-psutil
-      - ruby-asciidoctor-pdf
       - sipcalc
       - sqlite3
-      - sshpass
       - sudo
       - tmux
       - vim
-      - wordgrinder-ncurses
       - zsh
       - zstd
 - name: Load /etc/profile in zsh

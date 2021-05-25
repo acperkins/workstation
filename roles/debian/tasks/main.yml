@@ -24,3 +24,4 @@
 - include: sudo.yml
 - include: vscodium.yml
   when: gui == true
+- include: packagekit.yml

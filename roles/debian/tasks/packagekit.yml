@@ -13,18 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Install GUI packages
+- name: Disable PackageKit
   become: true
-  ansible.builtin.apt:
-    name: '{{ packages }}'
-    state: present
-    force_apt_get: yes
-  vars:
-    packages:
-      - dconf-cli
-      - galculator
-      - git-gui
-      - libcanberra-gtk-module
-      - remmina
-      - thunderbird
-      - vim-gtk
+  ansible.builtin.systemd:
+    name: packagekit.service
+    enabled: no
+    masked: yes
+    state: stopped
+- name: Disable PackageKit offline updates
+  become: true
+  ansible.builtin.systemd:
+    name: packagekit-offline-update.service
+    enabled: no
+    masked: yes
+    state: stopped
