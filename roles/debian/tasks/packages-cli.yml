@@ -51,10 +51,12 @@
   become: true
   ansible.builtin.lineinfile:
     path: /etc/apt/apt.conf.d/10periodic
+    regex: "APT::Periodic::Update-Package-Lists "
     line: "APT::Periodic::Update-Package-Lists \"1\";"
     create: yes
 - name: Enable automatic install of updates
   become: true
   ansible.builtin.lineinfile:
     path: /etc/apt/apt.conf.d/10periodic
+    regex: "APT::Periodic::Unattended-Upgrade "
     line: "APT::Periodic::Unattended-Upgrade \"1\";"
