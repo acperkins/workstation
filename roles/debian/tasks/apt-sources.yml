@@ -18,3 +18,8 @@
   ansible.builtin.template:
     src: sources.list
     dest: "/etc/apt/sources.list"
+- name: Update APT cache
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+    force_apt_get: yes
