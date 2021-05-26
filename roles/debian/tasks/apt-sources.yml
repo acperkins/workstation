@@ -13,15 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: apt-sources.yml
-- include: packages-cli.yml
-- include: packages-gui.yml
-  when: gui == true
-- include: build-env.yml
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: sudo.yml
-- include: vscodium.yml
-  when: gui == true
-- include: packagekit.yml
+- name: Add to-do list launcher
+  become: true
+  ansible.builtin.template:
+    src: sources.list
+    dest: "/etc/apt/sources.list"
