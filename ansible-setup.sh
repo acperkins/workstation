@@ -33,7 +33,7 @@ create_link () {
 py3cmd="$(command -v python3)"
 if [ ! -x "$py3cmd" ]; then
 	echo "python3 not found"
-	return 1
+	exit 1
 else
 	echo "python3 found: $py3cmd"
 fi
