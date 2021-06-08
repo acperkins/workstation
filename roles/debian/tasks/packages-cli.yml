@@ -27,7 +27,6 @@
       - curl
       - dc
       - dnsutils
-      - exfatprogs
       - git
       - gnupg
       - lldb
