@@ -38,8 +38,13 @@ else
 	echo "python3 found: $py3cmd"
 fi
 
-if ! $($py3cmd -c "import venv"); then
-	echo "Python 3 venv module missing. Try installing python3-venv package."
+if ! $($py3cmd -c "import venv" 2> /dev/null); then
+	echo "Python3 venv module missing. Try installing python3-venv package."
+	exit 1
+fi
+
+if ! $($py3cmd -c "import ensurepip" 2> /dev/null); then
+	echo "Python3 ensurepip module missing. Try installing python3-venv package."
 	exit 1
 fi
 
