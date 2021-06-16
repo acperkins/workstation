@@ -13,11 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Set APT sources.list
+- name: Set APT sources.list for Debian 10
   become: true
-  ansible.builtin.template:
-    src: sources.list
+  ansible.builtin.copy:
+    src: sources.list.10
     dest: "/etc/apt/sources.list"
+  when: ansible_distribution_version == "10"
+- name: Set APT sources.list for Debian 11
+  become: true
+  ansible.builtin.copy:
+    src: sources.list.11
+    dest: "/etc/apt/sources.list"
+  when: ansible_distribution_version == "11"
 - name: Update APT cache
   become: true
   ansible.builtin.apt:

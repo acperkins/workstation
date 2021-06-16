@@ -13,8 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# apt-sources.yml is disabled until Debian bullseye is released.
-#- include: apt-sources.yml
+- include: apt-sources.yml
 - include: packages-cli.yml
 - include: packages-gui.yml
   when: gui == true
