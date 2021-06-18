@@ -177,9 +177,9 @@ emacsro () {
 tm () {
 	if tmux list-session 2>/dev/null 1>/dev/null
 	then
-		tmux -2 attach-session
+		tmux -2 -u attach-session
 	else
-		tmux -2 new-session
+		tmux -2 -u new-session
 	fi
 }
 
