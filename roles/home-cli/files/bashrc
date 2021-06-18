@@ -21,15 +21,14 @@ then
 fi
 
 _acp_add_path () {
-	if ! [[ ":$PATH" =~ ":$1:" ]] && test -d "$1"
+	if ! [[ ":$PATH:" =~ ":$1:" ]] && test -d "$1"
 	then
 		PATH="$1:$PATH"
 	fi
 	export PATH
 }
 
-for dir in "/$USER/bin" \
-	   "$HOME/bin" \
+for dir in "$HOME/bin" \
 	   "$HOME/.cargo/bin" \
 	   "$HOME/opt/centos-git-common" \
 	   /usr/local/sbin \
