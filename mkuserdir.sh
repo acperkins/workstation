@@ -10,6 +10,7 @@ install -d -m 700 -o $TARGET_USER -g $TARGET_GROUP $TARGET_DIR || exit 1
 
 # Create subdirectories.
 install -d -o $TARGET_USER -g $TARGET_GROUP $TARGET_DIR/bin
+install -d -o $TARGET_USER -g $TARGET_GROUP $TARGET_DIR/data
 install -d -o $TARGET_USER -g $TARGET_GROUP $TARGET_DIR/doc
 install -d -o $TARGET_USER -g $TARGET_GROUP $TARGET_DIR/etc
 install -d -o $TARGET_USER -g $TARGET_GROUP $TARGET_DIR/lib
