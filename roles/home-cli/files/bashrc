@@ -214,4 +214,10 @@ then
 	. "$HOME/.bashrc.local"
 fi
 
-echo "LANG=$LANG"
+case "$-" in
+*i*)
+	echo "LANG=$LANG"
+	;;
+*)
+	;;
+esac
