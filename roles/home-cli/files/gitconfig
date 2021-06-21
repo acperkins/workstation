@@ -4,6 +4,8 @@
 	default = simple
 [color]
 	ui = auto
+[init]
+	defaultBranch = main
 [credential]
 	helper = store
 [gui]
