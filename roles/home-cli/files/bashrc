@@ -112,7 +112,7 @@ then
 fi
 
 # Set up GOPATH.
-export GOPATH="$HOME/data/go"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 if [ -x "$HOME/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
 then
 	if [ ! -d "$GOPATH" ]
