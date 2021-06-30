@@ -1,3 +1,5 @@
+[core]
+	autocrlf = input
 [pull]
 	rebase = true
 [push]
@@ -7,7 +9,7 @@
 [init]
 	defaultBranch = main
 [credential]
-	helper = store
+	helper = cache
 [gui]
 	encoding = utf-8
 [guitool "Rebase"]
