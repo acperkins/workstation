@@ -111,7 +111,8 @@ then
 	alias vi=vim
 fi
 
-# Set up GOPATH.
+# Set up Go.
+export GOPROXY=https://proxy.golang.org
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 if [ -x "$HOME/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
 then
