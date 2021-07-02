@@ -112,10 +112,10 @@ then
 fi
 
 # Set up Go.
-export GOPROXY=https://proxy.golang.org
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 if [ -x "$HOME/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
 then
+	export GOPROXY=https://proxy.golang.org
+	export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 	if [ ! -d "$GOPATH" ]
 	then
 		mkdir -p "$GOPATH/bin"
@@ -127,6 +127,7 @@ then
 		export GOROOT="$HOME/opt/go"
 		_acp_add_path "$GOROOT/bin"
 	fi
+	_acp_add_path "$GOPATH/bin"
 fi
 
 # Useful aliases for Podman and Docker
