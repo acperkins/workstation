@@ -21,8 +21,10 @@
     force_apt_get: yes
   vars:
     packages:
-      - emacs
+      - dconf-cli
       - galculator
       - git-gui
+      - libcanberra-gtk-module
       - remmina
-      - vim-gtk3
+      - thunderbird
+      - vim-gtk
