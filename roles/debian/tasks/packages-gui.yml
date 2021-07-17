@@ -26,5 +26,6 @@
       - git-gui
       - libcanberra-gtk-module
       - remmina
+      - rxvt-unicode
       - thunderbird
       - vim-gtk
