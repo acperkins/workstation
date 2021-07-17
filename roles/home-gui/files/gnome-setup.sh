@@ -31,14 +31,12 @@ set_keyboard_and_language () {
 set_keyboard_and_language
 
 set_nautilus_preferences () {
-	gsettings set org.gnome.nautilus.list-view default-zoom-level 'small'
 	gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 	gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 }
 set_nautilus_preferences
 
 set_gnome_terminal_preferences () {
-	gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'system'
 	gsettings set org.gnome.Terminal.Legacy.Settings menu-accelerator-enabled false
 	gsettings set org.gnome.Terminal.Legacy.Settings shortcuts-enabled false
 }
