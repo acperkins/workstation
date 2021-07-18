@@ -21,6 +21,7 @@
     force_apt_get: yes
   vars:
     packages:
+      - chromium
       - dconf-cli
       - galculator
       - git-gui
