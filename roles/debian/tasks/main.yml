@@ -23,7 +23,7 @@
 - include: solokeys.yml
   when: wsl_distro is not defined
 - include: sudo.yml
-- include: vscodium.yml
+- include: vscode.yml
   when: gui == true
 - include: packagekit.yml
   when: gui == true
