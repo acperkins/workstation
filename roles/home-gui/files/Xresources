@@ -18,6 +18,7 @@ URxvt*color14: #00f5e9
 URxvt*color15: #eeeeec
 URxvt*font: xft:Monospace:Regular:size=10
 URxvt*foreground: #d3d7cf
+URxvt*geometry: 120x40
 URxvt*letterSpace: -1
 URxvt*locale: true
 URxvt*metaSendsEscape: true
