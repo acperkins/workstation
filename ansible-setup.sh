@@ -27,7 +27,7 @@ pipinstall () {
 }
 
 create_link () {
-	ln -sf "$install_path/bin/$1" "$bin_path/$1"
+	ln -srf "$install_path/bin/$1" "$bin_path/$1"
 }
 
 py3cmd="$(command -v python3)"
