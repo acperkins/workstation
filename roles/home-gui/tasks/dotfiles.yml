@@ -49,7 +49,3 @@
   ansible.builtin.copy:
     src: "xbindkeysrc"
     dest: "{{ ansible_env.HOME }}/.xbindkeysrc"
-- name: Add GVim COC launcher
-  ansible.builtin.copy:
-    src: gvim-coc.desktop
-    dest: "{{ ansible_env.HOME }}/.local/share/applications/gvim-coc.desktop"
