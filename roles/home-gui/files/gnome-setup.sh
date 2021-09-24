@@ -46,8 +46,8 @@ set_misc_preferences () {
 	# Disable alert sounds.
 	gsettings set org.gnome.desktop.sound event-sounds false
 
-	# Turn off natural scrolling.
-	gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+	# Turn on natural scrolling.
+	gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
 
 	# Configure the top bar and calendar.
 	gsettings set org.gnome.desktop.interface clock-show-date true
