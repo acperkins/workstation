@@ -1,0 +1,19 @@
+---
+Language: Cpp
+
+AccessModifierOffset: -4
+AlignTrailingComments: true
+AlwaysBreakAfterReturnType: None
+BreakBeforeBraces: Linux
+ColumnLimit: 100
+ContinuationIndentWidth: 4
+IndentWidth: 8
+PointerAlignment: Right
+ReflowComments: true
+SortIncludes: true
+SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: 2
+Standard: Cpp11
+TabWidth: 8
+UseTab: ForIndentation
+...

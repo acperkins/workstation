@@ -45,6 +45,14 @@
   ansible.builtin.copy:
     src: quiltrc-dpkg
     dest: "{{ ansible_env.HOME }}/.quiltrc-dpkg"
+- name: Copy .editorconfig
+  ansible.builtin.copy:
+    src: editorconfig
+    dest: "{{ ansible_env.HOME }}/.editorconfig"
+- name: Copy .clang-format
+  ansible.builtin.copy:
+    src: clang-format
+    dest: "{{ ansible_env.HOME }}/.clang-format"
 - name: Copy docutils setup script
   ansible.builtin.copy:
     src: docutils-setup.sh
