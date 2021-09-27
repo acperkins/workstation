@@ -1,7 +1,7 @@
 [core]
 	autocrlf = input
 [pull]
-	rebase = true
+	ff = only
 [push]
 	default = simple
 [color]
