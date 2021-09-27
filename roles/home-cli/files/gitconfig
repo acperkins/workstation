@@ -8,8 +8,6 @@
 	ui = auto
 [init]
 	defaultBranch = main
-[credential]
-	helper = cache
 [gui]
 	encoding = utf-8
 [guitool "Rebase"]
