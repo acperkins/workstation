@@ -49,3 +49,7 @@
   ansible.builtin.copy:
     src: "xbindkeysrc"
     dest: "{{ ansible_env.HOME }}/.xbindkeysrc"
+- name: Copy fonts.conf
+  ansible.builtin.copy:
+    src: "fonts.conf"
+    dest: "{{ ansible_env.HOME }}/.config/fontconfig/fonts.conf"
