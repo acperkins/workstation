@@ -43,7 +43,6 @@
       - lldb
       - mc
       - nmap
-      - nodejs
       - openssh-server
       - python38
       - python38-psutil

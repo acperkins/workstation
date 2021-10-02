@@ -11,21 +11,12 @@ set_favorites_bar () {
 		firefox=firefox
 	fi
 
-	gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', '$firefox.desktop', 'chromium.desktop', 'codium.desktop']"
+	gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', '$firefox.desktop', 'chromium.desktop']"
 }
 set_favorites_bar
 
 set_keyboard_and_language () {
-	local en="('xkb', 'ca+eng')"
-	local fr="('xkb', 'ca+multix')"
-	local layouts
-	if [ "$(echo $LANG | sed 's/_.*//')" = "fr" ]
-	then
-		layouts="[$fr, $en]"
-	else
-		layouts="[$en]"
-	fi
-	gsettings set org.gnome.desktop.input-sources sources "$layouts"
+	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us')]"
 	gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'compose:caps', 'shift:both_capslock']"
 }
 set_keyboard_and_language
