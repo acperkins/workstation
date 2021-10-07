@@ -16,7 +16,7 @@ set_favorites_bar () {
 set_favorites_bar
 
 set_keyboard_and_language () {
-	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us')]"
+	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'us')]"
 	gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'compose:caps', 'shift:both_capslock']"
 }
 set_keyboard_and_language
