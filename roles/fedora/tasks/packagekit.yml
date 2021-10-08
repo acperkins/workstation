@@ -27,3 +27,9 @@
     enabled: no
     masked: yes
     state: stopped
+- name: Enable automatic updates
+  become: true
+  ansible.builtin.systemd:
+    name: dnf-automatic-install.timer
+    enabled: yes
+    state: started

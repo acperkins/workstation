@@ -19,6 +19,6 @@
 - include: modules.yml
 - include: ssh.yml
 - include: solokeys.yml
-- include: vscodium.yml
+- include: vscode.yml
   when: gui == true
 - include: packagekit.yml
