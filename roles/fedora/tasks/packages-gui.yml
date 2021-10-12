@@ -20,6 +20,7 @@
     state: present
   vars:
     packages:
+      - chromium
       - galculator
       - git-gui
       - liberation-fonts
