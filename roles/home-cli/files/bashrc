@@ -190,19 +190,6 @@ then
 	alias dnf=yum
 fi
 
-case "$-" in
-*i*)
-	# Shell is interactive
-	printf "\033[7m"; uname -sr; printf "\033[0m"
-	if [ -r /etc/os-release ]
-	then
-		echo "    $(. /etc/os-release; echo $NAME $VERSION)"
-	fi
-	;;
-*)
-	;;
-esac
-
 if [ -S "$SSH_AUTH_SOCK" ] \
 	&& [ -r "$HOME/.ssh/id_ed25519" ] \
 	&& [ -r "$HOME/.ssh/id_ed25519.pub" ] \
@@ -216,9 +203,23 @@ then
 	. "$HOME/.bashrc.local"
 fi
 
+usermotd () {
+	printf "\033[7m"; uname -sr; printf "\033[0m"
+	if [ -r /etc/os-release ]
+	then
+		echo "    $(. /etc/os-release; echo $NAME $VERSION)"
+	fi
+	uptime
+	if ! [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/locale.conf" ]; then
+		echo "${XDG_CONFIG_HOME:-$HOME/.config}/locale.conf does not exist"
+	fi
+	echo "LANG=$LANG"
+}
+
 case "$-" in
 *i*)
-	echo "LANG=$LANG"
+	# Shell is interactive
+	usermotd
 	;;
 *)
 	;;
