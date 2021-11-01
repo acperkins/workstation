@@ -49,9 +49,9 @@ if [ -f /etc/locale.conf ]
 then
 	. /etc/locale.conf
 fi
-if [ -f "$HOME/.config/locale.conf" ]
+if [ -f "${XDG_CONFIG_DIR:-$HOME/.config}/locale.conf" ]
 then
-	. "$HOME/.config/locale.conf"
+	. "${XDG_CONFIG_DIR:-$HOME/.config}/locale.conf"
 fi
 
 # Other exports.
@@ -198,9 +198,9 @@ then
 	ssh-add "$HOME/.ssh/id_ed25519"
 fi
 
-if [ -r "$HOME/.bashrc.local" ]
+if [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/bashrc.local" ]
 then
-	. "$HOME/.bashrc.local"
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/bashrc.local"
 fi
 
 usermotd () {
