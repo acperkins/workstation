@@ -18,4 +18,4 @@
 	last = log -1 HEAD --pretty=fuller
 	lastmail = format-patch --stdout -1 HEAD
 [include]
-	path = .gitconfig.local
+	path = local
