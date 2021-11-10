@@ -39,4 +39,5 @@
     packages:
       - gnome-extensions-app
       - gnome-shell-extension-appindicator
+      - gnome-shell-extension-dash-to-dock
   when: gnome_shell.stat.exists
