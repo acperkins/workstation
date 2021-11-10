@@ -37,6 +37,35 @@ set_gnome_terminal_preferences () {
 }
 set_gnome_terminal_preferences
 
+set_dash_to_dock_preferences () {
+	if gsettings list-keys org.gnome.shell.extensions.dash-to-dock 2>&1 >/dev/null; then
+		# Reset all dash-to-dock settings.
+		gsettings reset-recursively org.gnome.shell.extensions.dash-to-dock
+
+		# Set my preferences, based on Ubuntu's default config (as of 21.10).
+		gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.69999999999999996
+		gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-or-previews'
+		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-customize-running-dots true
+		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-border-color '#dedede'
+		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-color '#dedede'
+		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+		gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+		gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'RIGHT'
+		gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
+		gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
+		gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WINDOWS'
+		gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
+		gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'switch-workspace'
+		gsettings set org.gnome.shell.extensions.dash-to-dock shift-click-action 'launch'
+		gsettings set org.gnome.shell.extensions.dash-to-dock shift-middle-click-action 'minimize'
+		gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
+		gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
+		gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
+
+	fi
+}
+set_dash_to_dock_preferences
+
 set_misc_preferences () {
 	# Disable alert sounds.
 	gsettings set org.gnome.desktop.sound event-sounds false
