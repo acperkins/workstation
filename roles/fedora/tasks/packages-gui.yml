@@ -30,7 +30,7 @@
   ansible.builtin.stat:
     path: /usr/bin/gnome-shell
   register: gnome_shell
-- name: Install Gnome extensions
+- name: Install Gnome packages
   become: true
   ansible.builtin.dnf:
     name: '{{ packages }}'
