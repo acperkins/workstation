@@ -43,11 +43,11 @@ set_dash_to_dock_preferences () {
 		gsettings reset-recursively org.gnome.shell.extensions.dash-to-dock
 
 		# Set my preferences, based on Ubuntu's default config (as of 21.10).
-		gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.69999999999999996
+		gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 1.0
 		gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-or-previews'
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-customize-running-dots true
-		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-border-color '#dedede'
-		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-color '#dedede'
+		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-border-color '#ffffff'
+		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-color '#ffffff'
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
 		gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
 		gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'RIGHT'
