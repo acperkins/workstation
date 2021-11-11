@@ -54,6 +54,7 @@ set_dash_to_dock_preferences () {
 		gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
 		gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
 		gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WINDOWS'
+		gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 		gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
 		gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'switch-workspace'
 		gsettings set org.gnome.shell.extensions.dash-to-dock shift-click-action 'launch'
