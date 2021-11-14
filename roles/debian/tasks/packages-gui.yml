@@ -33,9 +33,10 @@
   register: gnome_shell
 - name: Install Gnome packages
   become: true
-  ansible.builtin.dnf:
+  ansible.builtin.apt:
     name: '{{ packages }}'
     state: present
+    force_apt_get: yes
   vars:
     packages:
       - gnome-shell-extension-appindicator
