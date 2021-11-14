@@ -25,7 +25,5 @@
 - include: sudo.yml
 - include: vscode.yml
   when: gui == true
-- include: google-chrome.yml
-  when: gui == true
 - include: packagekit.yml
   when: gui == true
