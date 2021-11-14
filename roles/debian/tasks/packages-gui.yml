@@ -21,11 +21,25 @@
     force_apt_get: yes
   vars:
     packages:
-      - dconf-cli
       - galculator
       - git-gui
       - libcanberra-gtk-module
       - remmina
       - rxvt-unicode
-      - thunderbird
       - vim-gtk
+- name: Check for Gnome Shell
+  ansible.builtin.stat:
+    path: /usr/bin/gnome-shell
+  register: gnome_shell
+- name: Install Gnome packages
+  become: true
+  ansible.builtin.dnf:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - gnome-shell-extension-appindicator
+      - gnome-shell-extension-dashtodock
+      - gnome-shell-extension-prefs
+      - gnome-tweaks
+  when: gnome_shell.stat.exists
