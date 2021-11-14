@@ -41,13 +41,7 @@
       - sudo
       - tmux
       - vim
-      - zsh
       - zstd
-- name: Load /etc/profile in zsh
-  become: true
-  ansible.builtin.lineinfile:
-    path: /etc/zsh/zprofile
-    line: emulate sh -c 'source /etc/profile'
 - name: Enable automatic update check
   become: true
   ansible.builtin.lineinfile:

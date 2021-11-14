@@ -50,4 +50,3 @@
       - sudo
       - tmux
       - vim-enhanced
-      - zsh

@@ -25,6 +25,7 @@
     state: present
   vars:
     packages:
+      - bash
       - fusefs-ntfs
       - gnu-watch
       - gnupg
@@ -35,7 +36,6 @@
       - rubygem-asciidoctor
       - sqlite3
       - tmux
-      - zsh
 - name: Install asciidoctor-pdf Ruby gem
   become: true
   community.general.gem:

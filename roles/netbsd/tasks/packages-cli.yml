@@ -34,6 +34,7 @@
     state: present
   vars:
     packages:
+      - bash
       - git
       - gnupg2
       - heirloom-doctools
@@ -47,4 +48,3 @@
       - ruby
       - sqlite3
       - sudo
-      - zsh
