@@ -54,7 +54,7 @@ set_dash_to_dock_preferences () {
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-color '#ffffff'
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
 		gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
-		gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'RIGHT'
+		gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
 		gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
 		gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
 		gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WINDOWS'
@@ -89,6 +89,9 @@ set_misc_preferences () {
 
 	# Stop dialogue boxes from 'sticking' to their parent windows.
 	gsettings set org.gnome.mutter attach-modal-dialogs false
+
+	# Disable hot-corners.
+	gsettings set org.gnome.desktop.interface enable-hot-corners false
 }
 set_misc_preferences
 
