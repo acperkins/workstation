@@ -32,8 +32,10 @@ for dir in "$HOME/bin" \
 	   "$HOME/.cargo/bin" \
 	   "$HOME/opt/centos-git-common" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/gem/ruby/bin" \
+	   /usr/local/bin \
 	   /usr/local/sbin \
-	   /usr/local/bin
+	   /usr/bin \
+	   /usr/sbin
 do
 	_acp_add_path "$dir"
 done
