@@ -13,19 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: apt-sources.yml
-- include: packages-cli.yml
-- include: packages-gui.yml
-  when: gui == true
-- include: build-env.yml
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-  when: wsl_distro is not defined
-- include: sudo.yml
-- include: vscode.yml
-  when: gui == true
-- include: google-chrome.yml
-  when: gui == true
-- include: packagekit.yml
-  when: gui == true
+- name: Install Google signing key
+  become: true
+  ansible.builtin.rpm_key:
+    key: https://dl.google.com/linux/linux_signing_key.pub
+    fingerprint: EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
+- name: Install Google Chrome repository
+  become: true
+  ansible.builtin.copy:
+    src: google-chrome.repo
+    dest: /etc/yum.repos.d/google-chrome.repo
+- name: Install Google Chrome package
+  become: true
+  ansible.builtin.dnf:
+    name: 'google-chrome-stable'
+    state: present
