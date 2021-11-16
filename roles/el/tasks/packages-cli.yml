@@ -32,9 +32,7 @@
     state: present
   vars:
     packages:
-      - "@container-tools"
       - "@development"
-      - aspell-en
       - bc
       - bind-utils
       - clang
@@ -44,9 +42,19 @@
       - mc
       - nmap
       - openssh-server
-      - python38
-      - python38-psutil
       - sqlite
       - sudo
       - tmux
       - vim-enhanced
+- name: Install CLI packages (EL 8)
+  become: true
+  ansible.builtin.dnf:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - "@container-tools"
+      - aspell-en
+      - python38
+      - python38-psutil
+  when: ansible_distribution_major_version == 8

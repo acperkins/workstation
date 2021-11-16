@@ -23,6 +23,10 @@
       - git-gui
       - liberation-fonts
       - vim-X11
+- name: Check for Gnome Shell
+  ansible.builtin.stat:
+    path: /usr/bin/gnome-shell
+  register: gnome_shell
 - name: Install Gnome packages (EL 8)
   become: true
   ansible.builtin.dnf:
