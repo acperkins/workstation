@@ -100,6 +100,11 @@ set_misc_preferences () {
 
 	# Disable hot-corners.
 	gsettings set org.gnome.desktop.interface enable-hot-corners false
+
+	# Set a background colour for when a wallpaper is not available.
+	gsettings set org.gnome.desktop.background primary-color '#808080'
+	gsettings set org.gnome.desktop.background secondary-color '#808080'
+	gsettings set org.gnome.desktop.background color-shading-type 'solid'
 }
 set_misc_preferences
 
