@@ -36,6 +36,7 @@
       - bc
       - bind-utils
       - clang
+      - dnf-automatic
       - git
       - gnupg2
       - lldb
