@@ -47,6 +47,25 @@ set_gnome_terminal_preferences () {
 }
 set_gnome_terminal_preferences
 
+set_gnome_extensions () {
+	gnomeextcmd=/usr/bin/gnome-extensions
+	if ! [ -x $gnomeextcmd ]
+	then
+		# gnome-extensions not installed.
+		return
+	fi
+	for ext in dash-to-dock@micxgx.gmail.com appindicatorsupport@rgcjonas.gmail.com
+	do
+		installed=$($gnomeextcmd list | grep $ext)
+		enabled=$($gnomeextcmd list --enabled | grep $ext)
+		if [ x$ext == x$installed ] && [ x$ext != x$enabled ]
+		then
+			$gnomeextcmd enable $ext
+		fi
+	done
+}
+set_gnome_extensions
+
 set_dash_to_dock_preferences () {
 	if gsettings list-keys org.gnome.shell.extensions.dash-to-dock 2>&1 >/dev/null; then
 		# Reset all dash-to-dock settings.
