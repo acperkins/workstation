@@ -56,12 +56,7 @@ set_gnome_extensions () {
 	fi
 	for ext in dash-to-dock@micxgx.gmail.com appindicatorsupport@rgcjonas.gmail.com
 	do
-		installed=$($gnomeextcmd list | grep $ext)
-		enabled=$($gnomeextcmd list --enabled | grep $ext)
-		if [ x$ext == x$installed ] && [ x$ext != x$enabled ]
-		then
-			$gnomeextcmd enable $ext
-		fi
+		$gnomeextcmd enable -q $ext
 	done
 }
 set_gnome_extensions
