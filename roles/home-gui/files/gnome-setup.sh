@@ -54,7 +54,13 @@ set_gnome_extensions () {
 		# gnome-extensions not installed.
 		return
 	fi
-	for ext in dash-to-dock@micxgx.gmail.com appindicatorsupport@rgcjonas.gmail.com
+	if [ $(. /etc/os-release && echo ${ID_LIKE:-none}) == "*rhel*" ]
+	then
+		dashtodock=dash-to-dock@gnome-shell-extensions.gcampax.github.com
+	else
+		dashtodock=dash-to-dock@micxgx.gmail.com
+	fi
+	for ext in $dashtodock appindicatorsupport@rgcjonas.gmail.com
 	do
 		$gnomeextcmd enable -q $ext
 	done
