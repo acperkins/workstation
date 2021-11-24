@@ -20,7 +20,8 @@ set_favorites_bar () {
 set_favorites_bar
 
 set_keyboard_and_language () {
-	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'us')]"
+	gsettings set org.gnome.desktop.input-sources show-all-sources true
+	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'us'), ('xkb', 'eu')]"
 	gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'compose:caps', 'shift:both_capslock']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
