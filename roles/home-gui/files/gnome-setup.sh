@@ -56,7 +56,7 @@ set_gnome_extensions () {
 		return
 	fi
 	# Bash-specific test.
-	if [[ "$(. /etc/os-release && echo ${ID_LIKE:-none})" == *rhel* ]]
+	if [[ "$(. /etc/os-release && echo ${ID:-none})" == rhel ]] || [[ "$(. /etc/os-release && echo ${ID_LIKE:-none})" == *rhel* ]]
 	then
 		dashtodock=dash-to-dock@gnome-shell-extensions.gcampax.github.com
 	else
