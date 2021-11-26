@@ -13,12 +13,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Check for profiles.ini
+- name: Check for regular profiles.ini
   ansible.builtin.stat:
     path: "{{ ansible_env.HOME }}/.mozilla/firefox/profiles.ini"
   register: profile_ini
-- name: Copy Firefox preferences to Profile0
+- name: Copy Firefox preferences to regular Profile0
   ansible.builtin.copy:
     src: user.js
     dest: "{{ ansible_env.HOME }}/.mozilla/firefox/{{ lookup('ini', 'Path section=Profile0 file={{ ansible_env.HOME }}/.mozilla/firefox/profiles.ini') }}/user.js"
   when: profile_ini.stat.exists
+- name: Check for Flatpak profiles.ini
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.var/app/org.mozilla.firefox/.mozilla/firefox/profiles.ini"
+  register: profile_ini_flatpak
+- name: Copy Firefox preferences to Flatpak Profile0
+  ansible.builtin.copy:
+    src: user.js
+    dest: "{{ ansible_env.HOME }}/.var/app/org.mozilla.firefox/.mozilla/firefox/{{ lookup('ini', 'Path section=Profile0 file={{ ansible_env.HOME }}/.var/app/org.mozilla.firefox/.mozilla/firefox/profiles.ini') }}/user.js"
+  when: profile_ini_flatpak.stat.exists
