@@ -99,7 +99,7 @@ set_dash_to_dock_preferences () {
 
 	fi
 }
-set_dash_to_dock_preferences
+#set_dash_to_dock_preferences
 
 set_misc_preferences () {
 	# Disable alert sounds.
