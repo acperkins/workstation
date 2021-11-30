@@ -24,6 +24,7 @@ user_pref("network.security.ports.banned.override", "6697");
 user_pref("privacy.resistFingerprinting", false);
 user_pref("privacy.userContext.enabled", true);
 user_pref("security.mixed_content.use_hstsc", false);
+user_pref("security.tls.version.enable-deprecated", false);
 user_pref("security.webauth.u2f", true);
 user_pref("sidebar.position_start", false);
 user_pref("signon.rememberSignons", false);
