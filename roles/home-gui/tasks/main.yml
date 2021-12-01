@@ -13,10 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: dirs.yml
+- import_tasks: dirs.yml
 
-- include: dotfiles.yml
-- include: firefox.yml
-- include: gnome.yml
-- include: mate.yml
-- include: sublimetext.yml
+- import_tasks: dotfiles.yml
+- import_tasks: firefox.yml
+- import_tasks: gnome.yml
+- import_tasks: mate.yml
+- import_tasks: sublimetext.yml

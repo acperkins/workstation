@@ -13,12 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
+- import_tasks: packages-cli.yml
+- import_tasks: packages-gui.yml
   when: gui == true
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: locale.yml
-- include: printing.yml
-- include: localbin.yml
+- import_tasks: modules.yml
+- import_tasks: ssh.yml
+- import_tasks: solokeys.yml
+- import_tasks: locale.yml
+- import_tasks: printing.yml
+- import_tasks: localbin.yml
