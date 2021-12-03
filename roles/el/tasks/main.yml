@@ -13,11 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
+- import_tasks: packages-cli.yml
+- import_tasks: packages-gui.yml
   when: gui == true
-- include: modules.yml
-- include: ssh.yml
-- include: solokeys.yml
-- include: packagekit.yml
-- include: vscode.yml
+- import_tasks: modules.yml
+- import_tasks: ssh.yml
+- import_tasks: solokeys.yml
+- import_tasks: packagekit.yml
+- import_tasks: vscode.yml

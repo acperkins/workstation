@@ -13,9 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: packages-cli.yml
-- include: packages-gui.yml
+- import_tasks: packages-cli.yml
+- import_tasks: packages-gui.yml
   when: gui == true
-- include: build-env.yml
-- include: modules.yml
-- include: ssh.yml
+- import_tasks: build-env.yml
+- import_tasks: modules.yml
+- import_tasks: ssh.yml
