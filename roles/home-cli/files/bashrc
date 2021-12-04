@@ -211,10 +211,6 @@ usermotd () {
 		echo "    $(. /etc/os-release; echo $NAME $VERSION)"
 	fi
 	uptime
-	if ! [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/locale.conf" ]
-	then
-		echo "${XDG_CONFIG_HOME:-$HOME/.config}/locale.conf does not exist"
-	fi
 	echo "LANG=$LANG"
 	if [ -x /usr/bin/timedatectl ]
 	then
