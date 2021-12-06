@@ -71,4 +71,5 @@
       - podman
       - toolbox
       - wireguard-tools
+      - zram-generator
   when: ansible_distribution_major_version == '9'
