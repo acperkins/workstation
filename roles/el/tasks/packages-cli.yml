@@ -70,4 +70,5 @@
     packages:
       - podman
       - toolbox
+      - wireguard-tools
   when: ansible_distribution_major_version == '9'
