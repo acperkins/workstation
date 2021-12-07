@@ -64,7 +64,7 @@ set_gnome_extensions () {
 	fi
 	for ext in $dashtodock appindicatorsupport@rgcjonas.gmail.com
 	do
-		$gnomeextcmd disable -q $ext
+		$gnomeextcmd enable -q $ext
 	done
 }
 set_gnome_extensions
@@ -83,8 +83,9 @@ set_dash_to_dock_preferences () {
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-border-color '#ffffff'
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-color '#ffffff'
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+		gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
 		gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
-		gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
+		gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 		gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
 		gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
 		gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WINDOWS'
@@ -93,13 +94,14 @@ set_dash_to_dock_preferences () {
 		gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'switch-workspace'
 		gsettings set org.gnome.shell.extensions.dash-to-dock shift-click-action 'launch'
 		gsettings set org.gnome.shell.extensions.dash-to-dock shift-middle-click-action 'minimize'
+		gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 		gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 		gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 		gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
 
 	fi
 }
-#set_dash_to_dock_preferences
+set_dash_to_dock_preferences
 
 set_misc_preferences () {
 	# Disable alert sounds.
