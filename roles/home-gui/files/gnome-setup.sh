@@ -122,8 +122,8 @@ set_misc_preferences () {
 	# Stop dialogue boxes from 'sticking' to their parent windows.
 	gsettings set org.gnome.mutter attach-modal-dialogs false
 
-	# Enable hot-corners.
-	gsettings set org.gnome.desktop.interface enable-hot-corners true
+	# Disable hot-corners.
+	gsettings set org.gnome.desktop.interface enable-hot-corners false
 
 	# Set a background colour for when a wallpaper is not available.
 	gsettings set org.gnome.desktop.background primary-color '#023c88'
