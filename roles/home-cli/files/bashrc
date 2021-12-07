@@ -212,7 +212,7 @@ usermotd () {
 	fi
 	uptime
 	echo "LANG=$LANG"
-	if [ -x /usr/bin/timedatectl ]
+	if [ -x /usr/bin/timedatectl ] && [ "x$(systemctl is-system-running)" != "xoffline" ]
 	then
 		timedatectl show --property=Timezone | sed 's/Timezone=/TZ=/'
 	fi
