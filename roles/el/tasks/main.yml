@@ -22,3 +22,4 @@
 - import_tasks: packagekit.yml
 - import_tasks: vscode.yml
 - import_tasks: zram.yml
+- import_tasks: legacy-openssl.yml
