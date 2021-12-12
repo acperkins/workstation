@@ -18,3 +18,4 @@
   ansible.builtin.copy:
     src: zram-generator.conf
     dest: /etc/systemd/zram-generator.conf
+  when: ansible_distribution_major_version == '9'

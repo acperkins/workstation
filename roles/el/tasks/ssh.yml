@@ -32,6 +32,10 @@
     name: sshd.service
     state: restarted
   when: changed_ssh_config.changed == true
+- name: Check for firewall-cmd
+  ansible.builtin.stat:
+    path: /usr/bin/firewall-cmd
+  register: firewall_cmd
 - name: Allow SSH through firewall
   become: true
   ansible.posix.firewalld:
@@ -39,3 +43,4 @@
     permanent: yes
     state: enabled
     immediate: yes
+  when: firewall_cmd.stat.exists

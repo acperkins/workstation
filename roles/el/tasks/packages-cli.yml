@@ -39,7 +39,6 @@
       - dnf-automatic
       - git
       - gnupg2
-      - lldb
       - mc
       - nmap
       - openssh-server
