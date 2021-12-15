@@ -13,12 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Disable PackageKit cache
+- name: Disable PackageKit
   become: true
-  ansible.builtin.lineinfile:
-    path: /etc/PackageKit/PackageKit.conf
-    regexp: '^#?\w*KeepCache=(true|false)'
-    line: 'KeepCache=false'
+  ansible.builtin.systemd:
+    name: packagekit.service
+    enabled: no
+    masked: yes
+    state: stopped
 - name: Disable PackageKit offline updates
   become: true
   ansible.builtin.systemd:
