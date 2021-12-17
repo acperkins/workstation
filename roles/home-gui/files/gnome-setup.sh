@@ -64,7 +64,7 @@ set_gnome_extensions () {
 	fi
 	for ext in $dashtodock appindicatorsupport@rgcjonas.gmail.com
 	do
-		$gnomeextcmd enable -q $ext
+		$gnomeextcmd disable -q $ext
 	done
 }
 set_gnome_extensions
@@ -82,7 +82,7 @@ set_dash_to_dock_preferences () {
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-customize-running-dots true
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-border-color '#ffffff'
 		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-color '#ffffff'
-		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink false
 		gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
 		gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
 		gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
@@ -101,7 +101,7 @@ set_dash_to_dock_preferences () {
 
 	fi
 }
-set_dash_to_dock_preferences
+#set_dash_to_dock_preferences
 
 set_misc_preferences () {
 	# Disable alert sounds.
@@ -116,14 +116,14 @@ set_misc_preferences () {
 	gsettings set org.gnome.desktop.interface show-battery-percentage true
 	gsettings set org.gnome.desktop.calendar show-weekdate true
 
-	# Add minimise and maximise buttons to the window title bars.
-	gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+	# Remove minimise and maximise buttons from the window title bars.
+	gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:close'
 
 	# Stop dialogue boxes from 'sticking' to their parent windows.
 	gsettings set org.gnome.mutter attach-modal-dialogs false
 
-	# Disable hot-corners.
-	gsettings set org.gnome.desktop.interface enable-hot-corners false
+	# Enable hot-corners.
+	gsettings set org.gnome.desktop.interface enable-hot-corners true
 
 	# Set a background colour for when a wallpaper is not available.
 	gsettings set org.gnome.desktop.background primary-color '#023c88'
