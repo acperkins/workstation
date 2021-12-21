@@ -55,53 +55,13 @@ set_gnome_extensions () {
 		# gnome-extensions not installed.
 		return
 	fi
-	# Bash-specific test.
-	if [[ "$(. /etc/os-release && echo ${ID:-none})" == rhel ]] || [[ "$(. /etc/os-release && echo ${ID_LIKE:-none})" == *rhel* ]]
-	then
-		dashtodock=dash-to-dock@gnome-shell-extensions.gcampax.github.com
-	else
-		dashtodock=dash-to-dock@micxgx.gmail.com
-	fi
-	for ext in $dashtodock appindicatorsupport@rgcjonas.gmail.com
+	# Disable all extensions.
+	for ext in $gnomeextcmd list --enabled
 	do
 		$gnomeextcmd disable -q $ext
 	done
 }
 set_gnome_extensions
-
-set_dash_to_dock_preferences () {
-	if gsettings list-keys org.gnome.shell.extensions.dash-to-dock 2>&1 >/dev/null; then
-		# Reset all dash-to-dock settings.
-		gsettings reset-recursively org.gnome.shell.extensions.dash-to-dock
-
-		# Set my preferences, based on Ubuntu's default config (as of 21.10).
-		gsettings set org.gnome.shell.extensions.dash-to-dock background-color '#000000'
-		gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 1.0
-		gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-or-previews'
-		gsettings set org.gnome.shell.extensions.dash-to-dock custom-background-color true
-		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-customize-running-dots true
-		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-border-color '#ffffff'
-		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots-color '#ffffff'
-		gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink false
-		gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
-		gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
-		gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
-		gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
-		gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
-		gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WINDOWS'
-		gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
-		gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
-		gsettings set org.gnome.shell.extensions.dash-to-dock scroll-action 'switch-workspace'
-		gsettings set org.gnome.shell.extensions.dash-to-dock shift-click-action 'launch'
-		gsettings set org.gnome.shell.extensions.dash-to-dock shift-middle-click-action 'minimize'
-		gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
-		gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
-		gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
-		gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
-
-	fi
-}
-#set_dash_to_dock_preferences
 
 set_misc_preferences () {
 	# Disable alert sounds.
@@ -122,8 +82,8 @@ set_misc_preferences () {
 	# Stop dialogue boxes from 'sticking' to their parent windows.
 	gsettings set org.gnome.mutter attach-modal-dialogs false
 
-	# Enable hot-corners.
-	gsettings set org.gnome.desktop.interface enable-hot-corners true
+	# Disable hot-corners.
+	gsettings set org.gnome.desktop.interface enable-hot-corners false
 
 	# Set a background colour for when a wallpaper is not available.
 	gsettings set org.gnome.desktop.background primary-color '#023c88'
