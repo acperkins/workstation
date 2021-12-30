@@ -21,6 +21,8 @@
   vars:
     packages:
       - git-gui
+      - google-noto-sans-fonts
+      - google-noto-serif-fonts
       - liberation-fonts
       - vim-X11
 - name: Check for Gnome Shell

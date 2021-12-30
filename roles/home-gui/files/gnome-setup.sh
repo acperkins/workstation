@@ -89,6 +89,12 @@ set_misc_preferences () {
 	gsettings set org.gnome.desktop.background primary-color '#023c88'
 	gsettings set org.gnome.desktop.background secondary-color '#5789ca'
 	gsettings set org.gnome.desktop.background color-shading-type 'solid'
+
+	# Configure fonts.
+	gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans 11'
+	gsettings set org.gnome.desktop.interface font-name 'Noto Sans 11'
+	gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 11'
+	gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Noto Sans Bold 11'
 }
 set_misc_preferences
 
