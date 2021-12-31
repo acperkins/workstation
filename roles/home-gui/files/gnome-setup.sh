@@ -95,6 +95,9 @@ set_misc_preferences () {
 	gsettings set org.gnome.desktop.interface font-name 'Sans 11'
 	gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 11'
 	gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Sans Bold 11'
+
+	# Always show the Accessibility menu.
+	gsettings set org.gnome.desktop.a11y always-show-universal-access-status true
 }
 set_misc_preferences
 
