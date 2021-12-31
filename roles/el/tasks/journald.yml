@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Create ~/.config/git directory
+- name: Create /var/log/journal directory
   become: true
   ansible.builtin.file:
     path: "/var/log/journal"
