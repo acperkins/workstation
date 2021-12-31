@@ -13,15 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: packages-cli.yml
-- import_tasks: packages-gui.yml
-  when: gui == true
-- import_tasks: modules.yml
-- import_tasks: ssh.yml
-- import_tasks: solokeys.yml
-- import_tasks: packagekit.yml
-- import_tasks: vscode.yml
-- import_tasks: zram.yml
-- import_tasks: legacy-openssl.yml
-  when: ansible_distribution_major_version == '9'
-- import_tasks: journald.yml
+- name: Create ~/.config/git directory
+  become: true
+  ansible.builtin.file:
+    path: "/var/log/journal"
+    state: directory
