@@ -45,6 +45,12 @@ set_nautilus_preferences
 set_gnome_terminal_preferences () {
 	gsettings set org.gnome.Terminal.Legacy.Settings menu-accelerator-enabled false
 	gsettings set org.gnome.Terminal.Legacy.Settings shortcuts-enabled false
+
+	defaultprofile="org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')/"
+	gsettings set $defaultprofile background-color 'rgb(0,0,0)'
+	gsettings set $defaultprofile foreground-color 'rgb(255,136,0)'
+	gsettings set $defaultprofile palette "['#2E3436', '#CC0000', '#4E9A06', '#C4A000', '#3465A4', '#75507B', '#06989A', '#D3D7CF', '#555753', '#EF2929', '#8AE234', '#FCE94F', '#729FCF', '#AD7FA8', '#34E2E2', '#EEEEEC']"
+	gsettings set $defaultprofile use-theme-colors false
 }
 set_gnome_terminal_preferences
 
