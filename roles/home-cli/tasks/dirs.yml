@@ -43,3 +43,7 @@
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/git"
     state: directory
+- name: Create ~/.config/mc directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/mc"
+    state: directory

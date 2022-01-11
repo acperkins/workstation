@@ -58,3 +58,11 @@
     src: docutils-setup.sh
     dest: "{{ ansible_env.HOME }}/bin/docutils-setup"
     mode: '0755'
+- name: Copy mc ini
+  ansible.builtin.copy:
+    src: mc.ini
+    dest: "{{ ansible_env.HOME }}/.config/mc/ini"
+- name: Copy mc panels.ini
+  ansible.builtin.copy:
+    src: mc.panels.ini
+    dest: "{{ ansible_env.HOME }}/.config/mc/panels.ini"
