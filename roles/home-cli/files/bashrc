@@ -95,6 +95,7 @@ alias ec="emacsclient -c"
 alias en="emacsclient -nw"
 alias f=fossil
 alias ip="ip -c"
+alias la="command ls -a"
 alias ll="command ls -l"
 alias ls="command ls -F"
 alias now="date +%Y%m%dT%H%M%S%z"
