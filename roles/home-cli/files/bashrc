@@ -81,18 +81,14 @@ bind 'set completion-ignore-case on'
 export PS1="\[\033[01;35m\]\u@\h>\[\033[00m\] "
 if test $(id -u) -ne 0 && test -x /usr/bin/dnf
 then
-	alias dnf="/usr/bin/dnf --cacheonly --nogpgcheck"
+	alias dnf="dnf --cacheonly --nogpgcheck"
 fi
 
 alias 7zencrypt="7z a -t7z -p -mhe"
 alias alu="apt list --upgradable"
 alias asdo="apt source --download-only"
 alias aurmake="makepkg -irs"
-alias btrdf="sudo btrfs filesystem usage"
-alias df="df -x squashfs"
 alias dquilt="quilt --quiltrc=\"${HOME}/.quiltrc-dpkg\""
-alias ec="emacsclient -c"
-alias en="emacsclient -nw"
 alias f=fossil
 alias ip="ip -c"
 alias la="ls -a"
@@ -102,7 +98,6 @@ alias now="date +%Y%m%dT%H%M%S%z"
 alias nowu="date -u +%Y%m%dT%H%M%SZ"
 alias streamenc="openssl aes-256-cbc -pbkdf2 -in - -out - -e"
 alias streamdec="openssl aes-256-cbc -pbkdf2 -in - -out - -d"
-alias ta="$HOME/opt/textadept/textadept"
 alias wgr=wordgrinder
 alias ytmp3="youtube-dl -q -x --audio-format=mp3"
 alias zlu="zypper list-updates"
@@ -132,9 +127,8 @@ then
 	_acp_add_path "$GOPATH/bin"
 fi
 
-# Useful aliases for Podman and Docker
+# Useful aliases for Podman.
 alias prun="podman run --rm -it"
-alias drun="sudo docker run --rm -it"
 
 # Desktop files (used by desktop environments within both X11 and Wayland) are
 # looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
