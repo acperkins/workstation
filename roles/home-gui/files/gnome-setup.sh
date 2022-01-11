@@ -50,8 +50,8 @@ set_gnome_terminal_preferences () {
 	gsettings set $defaultprofile background-color 'rgb(0,0,0)'
 	gsettings set $defaultprofile foreground-color 'rgb(255,136,0)'
 	gsettings set $defaultprofile palette "[
-		'#000000', '#CD0000', '#00CD00', '#CDCD00', '#0000CD', '#CD00CD', '#00CDCD', '#CDCDCD',
-		'#7F7F7F', '#FF0000', '#00FF00', '#FFFF00', '#0000FF', '#FF00FF', '#00FFFF', '#FFFFFF'
+		'#000000', '#800000', '#008000', '#808000', '#000080', '#800080', '#008080', '#808080',
+		'#C0C0C0', '#FF0000', '#00FF00', '#FFFF00', '#0000FF', '#FF00FF', '#00FFFF', '#FFFFFF'
 	]"
 	gsettings set $defaultprofile use-theme-colors false
 }
