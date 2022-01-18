@@ -66,3 +66,7 @@
   ansible.builtin.copy:
     src: mc.panels.ini
     dest: "{{ ansible_env.HOME }}/.config/mc/panels.ini"
+- name: Copy Microsoft.PowerShell_profile.ps1
+  ansible.builtin.copy:
+    src: Microsoft.PowerShell_profile.ps1
+    dest: "{{ ansible_env.HOME }}/.config/powershell/Microsoft.PowerShell_profile.ps1"

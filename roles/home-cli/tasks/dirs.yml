@@ -47,3 +47,7 @@
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/mc"
     state: directory
+- name: Create ~/.config/powershell directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/powershell"
+    state: directory
