@@ -27,14 +27,6 @@
   ansible.builtin.git:
     repo: https://github.com/acperkins/emacs.d.git
     dest: "{{ ansible_env.HOME }}/.emacs.d"
-- name: Install NotoSansMono-Regular font
-  ansible.builtin.copy:
-    src: NotoSansMono-Regular.ttf
-    dest: "{{ ansible_env.HOME }}/.local/share/fonts/NotoSansMono-Regular.ttf"
-- name: Install NotoSansMono-Bold font
-  ansible.builtin.copy:
-    src: NotoSansMono-Bold.ttf
-    dest: "{{ ansible_env.HOME }}/.local/share/fonts/NotoSansMono-Bold.ttf"
 - name: Create Emacs user service (Linux)
   ansible.builtin.template:
     src: emacs.service
