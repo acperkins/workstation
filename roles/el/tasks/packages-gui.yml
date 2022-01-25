@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Install GUI packages
+- name: Install GUI packages (EL 8)
   become: true
   ansible.builtin.dnf:
     name: '{{ packages }}'
@@ -21,32 +21,26 @@
   vars:
     packages:
       - git-gui
+      - gnome-shell-extension-dash-to-dock
+      - gnome-tweaks
       - google-noto-sans-fonts
       - google-noto-serif-fonts
       - liberation-fonts
       - vim-X11
-- name: Check for Gnome Shell
-  ansible.builtin.stat:
-    path: /usr/bin/gnome-shell
-  register: gnome_shell
-- name: Install Gnome packages (EL 8)
+  when: ansible_distribution_major_version == '8'
+- name: Install GUI packages (EL 9)
   become: true
   ansible.builtin.dnf:
     name: '{{ packages }}'
     state: present
   vars:
     packages:
-      - gnome-shell-extension-dash-to-dock
-      - gnome-tweaks
-  when: gnome_shell.stat.exists and ansible_distribution_major_version == '8'
-- name: Install Gnome packages (EL 9)
-  become: true
-  ansible.builtin.dnf:
-    name: '{{ packages }}'
-    state: present
-  vars:
-    packages:
+      - git-gui
       - gnome-extensions-app
       - gnome-shell-extension-dash-to-dock
       - gnome-tweaks
-  when: gnome_shell.stat.exists and ansible_distribution_major_version == '9'
+      - google-noto-sans-fonts
+      - google-noto-serif-fonts
+      - liberation-fonts
+      - vim-X11
+  when: ansible_distribution_major_version == '9'
