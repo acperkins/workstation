@@ -13,19 +13,35 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Check for CentOS-Stream-PowerTools.repo file
-  ansible.builtin.stat:
-    path: /etc/yum.repos.d/CentOS-Stream-PowerTools.repo
-  register: pt
-- name: Enable CentOS Stream PowerTools repository
+- name: Install CLI packages (EL 8)
   become: true
-  ansible.builtin.lineinfile:
-    path: /etc/yum.repos.d/CentOS-Stream-PowerTools.repo
-    create: false
-    regexp: ^enabled=
-    line: enabled=1
-  when: ansible_distribution == 'CentOS' and pt.stat.exists
-- name: Install CLI packages
+  ansible.builtin.dnf:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - "@container-tools"
+      - "@development"
+      - aspell-en
+      - bc
+      - bind-utils
+      - clang
+      - dnf-automatic
+      - git
+      - gnupg2
+      - mc
+      - nmap
+      - openssh-server
+      - podman
+      - python38
+      - python38-psutil
+      - sqlite
+      - sudo
+      - tmux
+      - toolbox
+      - vim-enhanced
+  when: ansible_distribution_major_version == '8'
+- name: Install CLI packages (EL 9)
   become: true
   ansible.builtin.dnf:
     name: '{{ packages }}'
@@ -42,33 +58,12 @@
       - mc
       - nmap
       - openssh-server
+      - podman
       - sqlite
       - sudo
       - tmux
+      - toolbox
       - vim-enhanced
-- name: Install CLI packages (EL 8)
-  become: true
-  ansible.builtin.dnf:
-    name: '{{ packages }}'
-    state: present
-  vars:
-    packages:
-      - "@container-tools"
-      - aspell-en
-      - podman
-      - python38
-      - python38-psutil
-      - toolbox
-  when: ansible_distribution_major_version == '8'
-- name: Install CLI packages (EL 9)
-  become: true
-  ansible.builtin.dnf:
-    name: '{{ packages }}'
-    state: present
-  vars:
-    packages:
-      - podman
-      - toolbox
       - wireguard-tools
       - zram-generator
   when: ansible_distribution_major_version == '9'
