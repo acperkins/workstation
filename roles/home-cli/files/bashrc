@@ -78,7 +78,7 @@ bind '"\e[B": history-search-forward'
 bind 'set bell-style none'
 bind 'set completion-ignore-case on'
 
-export PS1="\[\033[01;35m\]\u@\h>\[\033[00m\] "
+export PS1="\[\033[01m\]\u@\h>\[\033[00m\] "
 if test $(id -u) -ne 0 && test -x /usr/bin/dnf
 then
 	alias dnf="dnf --cacheonly --nogpgcheck"
