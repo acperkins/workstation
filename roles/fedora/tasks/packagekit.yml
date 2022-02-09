@@ -24,7 +24,7 @@
     enabled: no
     masked: yes
     state: stopped
-- when: packagekitservice.stat.exists
+  when: packagekitservice.stat.exists
 - name: Disable PackageKit offline updates
   become: true
   ansible.builtin.systemd:
@@ -32,7 +32,7 @@
     enabled: no
     masked: yes
     state: stopped
-- when: packagekitservice.stat.exists
+  when: packagekitservice.stat.exists
 - name: Enable automatic updates
   become: true
   ansible.builtin.systemd:
