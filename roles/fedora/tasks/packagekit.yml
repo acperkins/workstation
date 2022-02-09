@@ -13,6 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Check for packagekit.service
+  ansible.builtin.stat:
+    path: /usr/lib/systemd/system/packagekit.service
+  register: packagekitservice
 - name: Disable PackageKit
   become: true
   ansible.builtin.systemd:
@@ -20,6 +24,7 @@
     enabled: no
     masked: yes
     state: stopped
+- when: packagekitservice.stat.exists
 - name: Disable PackageKit offline updates
   become: true
   ansible.builtin.systemd:
@@ -27,6 +32,7 @@
     enabled: no
     masked: yes
     state: stopped
+- when: packagekitservice.stat.exists
 - name: Enable automatic updates
   become: true
   ansible.builtin.systemd:
