@@ -213,6 +213,19 @@ usermotd () {
 	fi
 }
 
+simpletls () {
+	# Create a self-signed certificate with:
+	#     openssl req -new -x509 \
+	#     -keyout $HOME/data/openssl/$(hostname)-key.pem \
+	#     -out $HOME/data/openssl/$(hostname-cert.pem
+	if [ "x$1" == "x-l" ]
+	then
+		openssl s_server -cert $HOME/data/openssl/$(hostname)-cert.pem -key ~/data/openssl/$(hostname)-key.pem -tls1_3 -port $2
+	else
+		openssl s_client -CAfile $HOME/data/openssl/$1-cert.pem -tls1_3 -connect $1:$2
+	fi
+}
+
 case "$-" in
 *i*)
 	# Shell is interactive
