@@ -65,6 +65,9 @@ export PAPERSIZE=a4
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS=ignore::UserWarning
 
+# Override this in ~/.config/bashrc or ~/.ssh/config.
+export LIBVIRT_DEFAULT_URI="qemu+ssh://vmhost/system"
+
 if test -x /usr/bin/tty
 then
 	export GPG_TTY=$(tty)
