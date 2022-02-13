@@ -88,6 +88,7 @@ alias 7zencrypt="7z a -t7z -p -mhe"
 alias alu="apt list --upgradable"
 alias asdo="apt source --download-only"
 alias aurmake="makepkg -irs"
+alias caliso="cal --iso --reform=iso --monday --week"
 alias dquilt="quilt --quiltrc=\"${HOME}/.quiltrc-dpkg\""
 alias f=fossil
 alias ip="ip -c"
