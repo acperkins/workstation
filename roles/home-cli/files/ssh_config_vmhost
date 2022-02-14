@@ -1,0 +1,26 @@
+Host vmhost
+	HostName changeme.invalid.
+	User nobody
+	Compression yes
+	RequestTTY yes
+	RemoteCommand /usr/bin/virsh -c 'qemu:///system'
+	LocalForward 5900 localhost:5900
+	LocalForward 5901 localhost:5901
+	LocalForward 5902 localhost:5902
+	LocalForward 5903 localhost:5903
+	LocalForward 5904 localhost:5904
+	LocalForward 5905 localhost:5905
+	LocalForward 5906 localhost:5906
+	LocalForward 5907 localhost:5907
+	LocalForward 5908 localhost:5908
+	LocalForward 5909 localhost:5909
+	LocalForward 5910 localhost:5910
+	LocalForward 5911 localhost:5911
+	LocalForward 5912 localhost:5912
+	LocalForward 5913 localhost:5913
+	LocalForward 5914 localhost:5914
+	LocalForward 5915 localhost:5915
+	LocalForward 5916 localhost:5916
+	LocalForward 5917 localhost:5917
+	LocalForward 5918 localhost:5918
+	LocalForward 5919 localhost:5919
