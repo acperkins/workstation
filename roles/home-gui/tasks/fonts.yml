@@ -23,12 +23,12 @@
     dest: "{{ ansible_env.HOME }}/.local/share/fonts/texgyre"
     creates: "{{ ansible_env.HOME }}/.local/share/fonts/texgyre/tg2_501otf/texgyretermes-regular.otf"
 
-- name: Create ~/.local/share/fonts/jetbrainsmono directory
+- name: Create ~/.local/share/fonts/iosevka directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/fonts/jetbrainsmono"
+    path: "{{ ansible_env.HOME }}/.local/share/fonts/iosevka"
     state: directory
-- name: Extract JetBrainsMono fonts
+- name: Extract Iosevka fonts
   ansible.builtin.unarchive:
-    src: JetBrainsMono-2.242.zip
-    dest: "{{ ansible_env.HOME }}/.local/share/fonts/jetbrainsmono"
-    creates: "{{ ansible_env.HOME }}/.local/share/fonts/jetbrainsmono/fonts/ttf/JetBrainsMono-Regular.ttf"
+    src: super-ttc-iosevka-14.0.0.zip
+    dest: "{{ ansible_env.HOME }}/.local/share/fonts/iosevka"
+    creates: "{{ ansible_env.HOME }}/.local/share/fonts/iosevka/iosevka.ttc"
