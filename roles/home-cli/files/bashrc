@@ -73,6 +73,11 @@ then
 	export GPG_TTY=$(tty)
 fi
 
+if test -x /usr/bin/vim
+then
+	export EDITOR="/usr/bin/vim -f"
+fi
+
 shopt -s histappend
 bind '"\e[1;5C": forward-word'
 bind '"\e[1;5D": backward-word'
