@@ -30,6 +30,6 @@
 - name: Extract Iosevka fonts
   ansible.builtin.unarchive:
     remote_src: yes
-    src: "https://github.com/be5invis/Iosevka/releases/download/v14.0.0/super-ttc-iosevka-14.0.0.zip"
+    src: "https://github.com/be5invis/Iosevka/releases/download/v14.0.1/super-ttc-iosevka-14.0.1.zip"
     dest: "{{ ansible_env.HOME }}/.local/share/fonts/iosevka"
     creates: "{{ ansible_env.HOME }}/.local/share/fonts/iosevka/iosevka.ttc"
