@@ -24,7 +24,6 @@
       - asciidoctor
       - aspell-en
       - bc
-      - bind-utils
       - clang
       - clang-tools-extra
       - cmake
@@ -32,6 +31,7 @@
       - fossil
       - git
       - gnupg
+      - ldns-utils
       - lldb
       - mc
       - nmap

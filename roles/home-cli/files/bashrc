@@ -117,6 +117,12 @@ then
 	alias vi=vim
 fi
 
+# Alias dig to drill if dig is not installed.
+if [ -x /usr/bin/drill ] && ! [ -x /usr/bin/dig ]
+then
+	alias dig=drill
+fi
+
 # Set up Go.
 if [ -x "$HOME/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
 then
