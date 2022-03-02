@@ -35,7 +35,7 @@ Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardKillWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function KillWord
 
-if ($PSVersionTable.PSVersion.Major -ge [System.Version]"7.2") {
+if ($PSVersionTable.PSVersion -ge [System.Version]"7.2") {
     $AnsiReset = "`e[0m"
     Set-PSReadLineOption -Colors @{
         Default = $AnsiReset;
