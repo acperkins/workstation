@@ -1,0 +1,28 @@
+{
+    "schemes":
+    [
+        {
+            "background": "#FFFFFF",
+            "black": "#0C0C0C",
+            "blue": "#000080",
+            "brightBlack": "#808080",
+            "brightBlue": "#0000FF",
+            "brightCyan": "#00FFFF",
+            "brightGreen": "#00FF00",
+            "brightPurple": "#FF00FF",
+            "brightRed": "#FF0000",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFFF00",
+            "cursorColor": "#000000",
+            "cyan": "#008080",
+            "foreground": "#000000",
+            "green": "#008000",
+            "name": "Rxvt",
+            "purple": "#800080",
+            "red": "#800000",
+            "selectionBackground": "#000000",
+            "white": "#C0C0C0",
+            "yellow": "#808000"
+        }
+    ]
+}
