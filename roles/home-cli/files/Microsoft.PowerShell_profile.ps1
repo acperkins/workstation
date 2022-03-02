@@ -4,7 +4,7 @@
 #   C:\Users\USERNAME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 function Prompt {
-    if ($IsWindows -or $PSVersionTable.PSVersion.Major -le 5) {
+    if ($IsWindows -or $PSVersionTable.PSVersion -lt [System.Version]"6.0") {
         $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
         if ($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
             $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "# "
@@ -35,7 +35,7 @@ Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardKillWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function KillWord
 
-if ($PSVersionTable.PSVersion.Major -ge 7) {
+if ($PSVersionTable.PSVersion.Major -ge [System.Version]"7.2") {
     $AnsiReset = "`e[0m"
     Set-PSReadLineOption -Colors @{
         Default = $AnsiReset;
