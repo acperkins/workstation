@@ -4,7 +4,7 @@
 #   C:\Users\USERNAME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 function Prompt {
-    if ($IsWindows) {
+    if ($IsWindows -or $PSVersionTable.PSVersion.Major -le 5) {
         $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
         if ($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
             $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "# "
@@ -35,22 +35,24 @@ Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardKillWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function KillWord
 
-$AnsiReset = "`e[0m"
-Set-PSReadLineOption -Colors @{
+if ($PSVersionTable.PSVersion.Major -ge 7) {
+    $AnsiReset = "`e[0m"
+    Set-PSReadLineOption -Colors @{
         Default = $AnsiReset;
-	Command = $AnsiReset;
-	Comment = $AnsiReset;
-	ContinuationPrompt = $AnsiReset;
-	Emphasis = $AnsiReset;
-	Error = $AnsiReset;
-	InlinePrediction = $AnsiReset;
-	Keyword = $AnsiReset;
-	Member = $AnsiReset;
-	Number = $AnsiReset;
-	Operator = $AnsiReset;
-	Parameter = $AnsiReset;
-	Selection = $AnsiReset;
-	String = $AnsiReset;
-	Type = $AnsiReset;
-	Variable = $AnsiReset;
+        Command = $AnsiReset;
+        Comment = $AnsiReset;
+        ContinuationPrompt = $AnsiReset;
+        Emphasis = $AnsiReset;
+        Error = $AnsiReset;
+        InlinePrediction = $AnsiReset;
+        Keyword = $AnsiReset;
+        Member = $AnsiReset;
+        Number = $AnsiReset;
+        Operator = $AnsiReset;
+        Parameter = $AnsiReset;
+        Selection = $AnsiReset;
+        String = $AnsiReset;
+        Type = $AnsiReset;
+        Variable = $AnsiReset;
+    }
 }
