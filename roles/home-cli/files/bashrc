@@ -78,6 +78,11 @@ then
 	export EDITOR="/usr/bin/vim -f"
 fi
 
+if [ ${XDG_CURRENT_DESKTOP:-unknown} == GNOME ]
+then
+	export QT_FONT_DPI=72
+fi
+
 shopt -s histappend
 bind '"\e[1;5C": forward-word'
 bind '"\e[1;5D": backward-word'
