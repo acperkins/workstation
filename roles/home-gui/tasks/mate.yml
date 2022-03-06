@@ -27,5 +27,5 @@
 - name: Copy MATE Clock reset script
   ansible.builtin.copy:
     src: reset-mate-clock.sh
-    dest: "{{ ansible_env.HOME }}/bin/reset-mate-clock"
+    dest: "{{ ansible_env.HOME }}/.local/bin/reset-mate-clock"
     mode: '0755'
