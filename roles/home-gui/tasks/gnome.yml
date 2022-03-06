@@ -16,5 +16,5 @@
 - name: Copy GNOME settings reset script
   ansible.builtin.copy:
     src: gnome-setup.sh
-    dest: "{{ ansible_env.HOME }}/bin/reset-gnome-setup"
+    dest: "{{ ansible_env.HOME }}/.local/bin/reset-gnome-setup"
     mode: '0755'
