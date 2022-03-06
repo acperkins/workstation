@@ -20,7 +20,7 @@
     mode: '0700'
 - name: Create user bin directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/bin"
+    path: "{{ ansible_env.HOME }}/.local/bin"
     state: directory
 - name: Create user opt directory
   ansible.builtin.file:

@@ -28,7 +28,7 @@ _acp_add_path () {
 	export PATH
 }
 
-for dir in "$HOME/bin" \
+for dir in "$HOME/.local/bin" \
 	   "$HOME/.cargo/bin" \
 	   "$HOME/opt/centos-git-common" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/gem/ruby/bin" \
