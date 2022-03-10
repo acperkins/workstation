@@ -26,12 +26,13 @@
     name: sshd.service
     enabled: yes
     state: started
+  when: wsl_distro is not defined
 - name: Restart SSH
   become: true
   ansible.builtin.systemd:
     name: sshd.service
     state: restarted
-  when: changed_ssh_config.changed == true
+  when: changed_ssh_config.changed == true and wsl_distro is not defined
 - name: Check for firewalld
   ansible.builtin.stat:
     path: /usr/sbin/firewalld

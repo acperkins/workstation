@@ -22,8 +22,8 @@
 - name: Reload udevadm rules
   become: true
   ansible.builtin.command: udevadm control --reload-rules
-  when: solokeys_copy.changed
+  when: solokeys_copy.changed and wsl_distro is not defined
 - name: Trigger udevadm
   become: true
   ansible.builtin.command: udevadm trigger
-  when: solokeys_copy.changed
+  when: solokeys_copy.changed and wsl_distro is not defined

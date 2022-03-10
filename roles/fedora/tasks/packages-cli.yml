@@ -30,7 +30,9 @@
       - dnf-automatic
       - fossil
       - git
+      - glibc-langpack-en
       - gnupg
+      - hostname
       - ldns-utils
       - lldb
       - mc
