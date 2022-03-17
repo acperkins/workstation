@@ -21,7 +21,7 @@ set_favorites_bar
 
 set_keyboard_and_language () {
 	gsettings set org.gnome.desktop.input-sources show-all-sources true
-	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'gb')]"
+	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'ca+multix')]"
 	gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'compose:caps', 'nbsp:level3n', 'shift:both_capslock']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
@@ -111,7 +111,7 @@ set_misc_preferences () {
 }
 set_misc_preferences
 
-if [ -x "$HOME/bin/reset-gnome-setup.local" ]
+if [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/reset-gnome-setup.local" ]
 then
-	. "$HOME/bin/reset-gnome-setup.local"
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/reset-gnome-setup.local"
 fi
