@@ -22,6 +22,7 @@
     packages:
       - galculator
       - git-gui
+      - keepassxc
       - liberation-fonts
       - remmina
       - vim-X11
