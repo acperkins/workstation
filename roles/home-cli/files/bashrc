@@ -246,6 +246,15 @@ simpletls () {
 	fi
 }
 
+tlscheck () {
+	if [ "x$1" == "x" ]
+	then
+		echo "Usage: tlscheck hostname:port" >&2
+	else
+		echo | openssl s_client -connect $1 | openssl x509 -text
+	fi
+}
+
 case "$-" in
 *i*)
 	# Shell is interactive
