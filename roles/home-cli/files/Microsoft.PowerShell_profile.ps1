@@ -17,6 +17,43 @@ function Prompt {
     }
 }
 
+function ADUserInfo {
+    Param (
+        [Parameter(Mandatory=$true)] [string]$User
+    )
+    Import-Module ActiveDirectory -ErrorAction Stop
+    $ADPropertiesCommon = @(
+        'SamAccountName'
+        'UserPrincipalName'
+        'DisplayName'
+        'Enabled'
+        'PasswordExpired'
+        'LockedOut'
+        'CannotChangePassword'
+        'PasswordNeverExpires'
+        'PasswordLastSet'
+        'GivenName'
+        'Surname'
+        'DistinguishedName'
+        'EmployeeID'
+        'PersonalPager'
+        'Title'
+        'Division'
+        'Department'
+        'Created'
+        'Modified'
+    )
+    $ADPropertiesGetOnly = @(
+        'msDS-UserPasswordExpiryTimeComputed'
+    )
+    $ADPropertiesPrintOnly = @(
+        @{Name="PasswordExpiresDate";Expression={[datetime]::FromFileTime($_."msDS-UserPasswordExpiryTimeComputed")}}
+    )
+    $ADPropertiesGet = $ADPropertiesCommon + $ADPropertiesGetOnly
+    $ADPropertiesPrint = $ADPropertiesCommon + $ADPropertiesPrintOnly
+    Get-ADUser -Properties $ADPropertiesGet -Identity $User | Select-Object -Property $ADPropertiesPrint
+}
+
 Set-Alias -Name json -Value ConvertTo-Json
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Emacs
