@@ -31,7 +31,6 @@ function ADUserInfo {
         'LockedOut'
         'CannotChangePassword'
         'PasswordNeverExpires'
-        'PasswordLastSet'
         'GivenName'
         'Surname'
         'DistinguishedName'
@@ -42,6 +41,7 @@ function ADUserInfo {
         'Department'
         'Created'
         'Modified'
+        'PasswordLastSet'
     )
     $ADPropertiesGetOnly = @(
         'msDS-UserPasswordExpiryTimeComputed'
