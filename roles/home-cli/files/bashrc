@@ -90,6 +90,7 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind 'set bell-style none'
 bind 'set completion-ignore-case on'
+bind 'set enable-bracketed-paste off'
 
 export PS1="\[\033[01m\]\u@\h>\[\033[00m\] "
 if test $(id -u) -ne 0 && test -x /usr/bin/dnf
