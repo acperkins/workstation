@@ -24,6 +24,7 @@
       - git-gui
       - keepassxc
       - liberation-fonts
+      - mozilla-openh264
       - remmina
       - vim-X11
 - name: Check for Gnome Shell
