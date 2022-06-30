@@ -36,11 +36,6 @@
   vars:
     packages:
       - git-gui
-      - gnome-extensions-app
-      - gnome-shell-extension-dash-to-dock
       - gnome-tweaks
-      - google-noto-sans-fonts
-      - google-noto-serif-fonts
-      - liberation-fonts
       - vim-X11
   when: ansible_distribution_major_version == '9'

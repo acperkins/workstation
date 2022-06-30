@@ -20,9 +20,5 @@
 - import_tasks: ssh.yml
 - import_tasks: solokeys.yml
 - import_tasks: packagekit.yml
-- import_tasks: vscode.yml
-  when: gui == true
 - import_tasks: zram.yml
-- import_tasks: legacy-openssl.yml
-  when: ansible_distribution_major_version == '9'
 - import_tasks: journald.yml
