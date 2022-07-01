@@ -48,6 +48,7 @@ set -o noclobber
 # Locale and language.
 ## Clear the existing locale settings and set options I always want.
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
+export TZ=Europe/London  # Can override this elsewhere if needed.
 if [ -f /etc/locale.conf ]
 then
 	. /etc/locale.conf
@@ -228,7 +229,10 @@ usermotd () {
 	fi
 	uptime
 	echo "LANG=$LANG"
-	if [ -x /usr/bin/timedatectl ] && [ "x$(systemctl is-system-running)" != "xoffline" ]
+	if [ -n "$TZ" ]
+	then
+		echo "TZ=$TZ"
+	elif [ -x /usr/bin/timedatectl ] && [ "x$(systemctl is-system-running)" != "xoffline" ]
 	then
 		timedatectl show --property=Timezone | sed 's/Timezone=/TZ=/'
 	fi
