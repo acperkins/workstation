@@ -18,5 +18,3 @@
   when: gui == true
 - import_tasks: ssh.yml
 - import_tasks: sudo.yml
-- import_tasks: packagekit.yml
-  when: gui == true
