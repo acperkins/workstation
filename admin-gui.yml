@@ -46,3 +46,6 @@
     - include_role:
         name: ubuntu
       when: ansible_distribution == 'Ubuntu'
+    - include_role:
+        name: kali
+      when: ansible_distribution == 'Kali'
