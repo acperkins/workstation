@@ -2,7 +2,7 @@
 
 [Desktop Entry]
 Name=TODO list
-Exec=/usr/bin/xdg-open {{ ansible_env.HOME }}/.todo.txt
+Exec=/usr/bin/xdg-open {{ ansible_env.HOME }}/.todo.acproject
 Icon=text-x-generic
 Type=Application
 Categories=Office
