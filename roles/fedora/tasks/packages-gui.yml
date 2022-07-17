@@ -22,11 +22,8 @@
     packages:
       - galculator
       - git-gui
-      - keepassxc
       - liberation-fonts
       - mozilla-openh264
-      - remmina
-      - vim-X11
 - name: Check for Gnome Shell
   ansible.builtin.stat:
     path: /usr/bin/gnome-shell
