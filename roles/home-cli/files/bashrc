@@ -126,6 +126,8 @@ alias fr="LANG=fr_FR.UTF-8"
 if [ -x /usr/bin/vim ]
 then
 	alias vi=vim
+else
+	alias vim=vi
 fi
 
 # Alias dig to drill if dig is not installed.
