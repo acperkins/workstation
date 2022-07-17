@@ -14,6 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Check for /run/ostree-booted
+  stat: path=/run/ostree-booted
+  register: ostree
+
 - include_role:
     name: arch
   when: ansible_distribution == 'Archlinux'
