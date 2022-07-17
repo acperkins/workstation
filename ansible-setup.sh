@@ -19,7 +19,7 @@ if [ $(id -u) -eq 0 ]; then
 	bin_path=/usr/local/bin
 else
 	install_path="$HOME/opt/ansible"
-	bin_path="$HOME/bin"
+	bin_path="$HOME/.local/bin"
 fi
 
 pipinstall () {
