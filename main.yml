@@ -1,0 +1,46 @@
+#!/usr/bin/env ansible-playbook
+---
+# Copyright 2021 Anthony Perkins
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+- include_role:
+    name: arch
+  when: ansible_distribution == 'Archlinux'
+- include_role:
+    name: debian
+  when: ansible_distribution == 'Debian'
+- include_role:
+    name: el
+  when: ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS' or ansible_distribution == 'AlmaLinux'
+- include_role:
+    name: fedora
+  when: ansible_distribution == 'Fedora'
+- include_role:
+    name: opensuse-leap
+  when: ansible_distribution == 'openSUSE Leap'
+- include_role:
+    name: opensuse-tumbleweed
+  when: ansible_distribution == 'openSUSE Tumbleweed'
+- include_role:
+    name: freebsd
+  when: ansible_distribution == 'FreeBSD'
+- include_role:
+    name: netbsd
+  when: ansible_distribution == 'NetBSD'
+- include_role:
+    name: ubuntu
+  when: ansible_distribution == 'Ubuntu'
+- include_role:
+    name: kali
+  when: ansible_distribution == 'Kali'

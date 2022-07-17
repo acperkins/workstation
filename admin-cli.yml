@@ -20,33 +20,5 @@
     gui: false
     wsl_distro: "{{ lookup('env', 'WSL_DISTRO_NAME') }}"
   tasks:
-    - include_role:
-        name: arch
-      when: ansible_distribution == 'Archlinux'
-    - include_role:
-        name: debian
-      when: ansible_distribution == 'Debian'
-    - include_role:
-        name: el
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'AlmaLinux'
-    - include_role:
-        name: fedora
-      when: ansible_distribution == 'Fedora'
-    - include_role:
-        name: opensuse-leap
-      when: ansible_distribution == 'openSUSE Leap'
-    - include_role:
-        name: opensuse-tumbleweed
-      when: ansible_distribution == 'openSUSE Tumbleweed'
-    - include_role:
-        name: freebsd
-      when: ansible_distribution == 'FreeBSD'
-    - include_role:
-        name: netbsd
-      when: ansible_distribution == 'NetBSD'
-    - include_role:
-        name: ubuntu
-      when: ansible_distribution == 'Ubuntu'
-    - include_role:
-        name: kali
-      when: ansible_distribution == 'Kali'
+    - name: Include main
+      ansible.builtin.include_tasks: main.yml
