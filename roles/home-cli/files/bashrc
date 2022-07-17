@@ -32,6 +32,7 @@ for dir in "$HOME/.local/bin" \
 	   "$HOME/.cargo/bin" \
 	   "$HOME/opt/centos-git-common" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/gem/ruby/bin" \
+	   "${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/exports/bin" \
 	   /usr/local/bin \
 	   /usr/local/sbin \
 	   /usr/bin \
@@ -74,28 +75,18 @@ then
 	export GPG_TTY=$(tty)
 fi
 
-# Set up Vim.
-vimflatpak=${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/app/org.vim.Vim/current/active/export/bin/org.vim.Vim
-if test -x $vimflatpak
+# Set up Vi/Vim.
+if command -v org.vim.Vim > /dev/null
 then
-	export EDITOR="$vimflatpak -f"
-elif test -x /usr/bin/vim
+	export EDITOR="org.vim.Vim -f"
+	alias vi=org.vim.Vim
+elif command -v vim > /dev/null
 then
-	export EDITOR="/usr/bin/vim -f"
+	export EDITOR="vim -f"
+	alias vi=vim
 else
 	export EDITOR=vi
 fi
-if test -x $vimflatpak
-then
-	alias vim=$vimflatpak
-	alias vi=$vimflatpak
-elif test -x /usr/bin/vim
-then
-	alias vi=/usr/bin/vim
-else
-	alias vim=vi
-fi
-unset vimflatpak
 
 if [ ${XDG_CURRENT_DESKTOP:-unknown} == GNOME ]
 then
