@@ -74,27 +74,28 @@ then
 	export GPG_TTY=$(tty)
 fi
 
-# Set EDITOR to vim or vi.
-if test -x ${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/app/org.vim.Vim/current/active/export/bin/org.vim.Vim
+# Set up Vim.
+vimflatpak=${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/app/org.vim.Vim/current/active/export/bin/org.vim.Vim
+if test -x $vimflatpak
 then
-	export EDITOR="${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/app/org.vim.Vim/current/active/export/bin/org.vim.Vim -f"
+	export EDITOR="$vimflatpak -f"
 elif test -x /usr/bin/vim
 then
 	export EDITOR="/usr/bin/vim -f"
 else
 	export EDITOR=vi
 fi
-
-# Alias vi to vim if it is installed.
-if test -x ${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/app/org.vim.Vim/current/active/export/bin/org.vim.Vim
+if test -x $vimflatpak
 then
-	alias vi=${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/app/org.vim.Vim/current/active/export/bin/org.vim.Vim
+	alias vim=$vimflatpak
+	alias vi=$vimflatpak
 elif test -x /usr/bin/vim
 then
 	alias vi=/usr/bin/vim
 else
 	alias vim=vi
 fi
+unset vimflatpak
 
 if [ ${XDG_CURRENT_DESKTOP:-unknown} == GNOME ]
 then
