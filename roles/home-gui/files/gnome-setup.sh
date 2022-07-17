@@ -54,6 +54,8 @@ set_gnome_terminal_preferences () {
 
 	defaultprofile="org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')/"
 	gsettings set $defaultprofile background-color '#101010'
+	gsettings set $defaultprofile default-size-columns 132
+	gsettings set $defaultprofile default-size-rows 43
 	gsettings set $defaultprofile foreground-color '#C0C0C0'
 	gsettings set $defaultprofile palette "[
 		'#000000', '#800000', '#008000', '#808000', '#000080', '#800080', '#008080', '#C0C0C0',
