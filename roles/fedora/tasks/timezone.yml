@@ -13,13 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: timezone.yml
-- import_tasks: packages-cli.yml
-  when: ostree.stat.exists == false
-- import_tasks: packages-gui.yml
-  when: gui == true and ostree.stat.exists == false
-- import_tasks: modules.yml
-- import_tasks: ssh.yml
-- import_tasks: solokeys.yml
-- import_tasks: packagekit.yml
-  when: ostree.stat.exists == false
+- name: Set timezone to Etc/UTC
+  become: true
+  community.general.timezone:
+    name: UTC
