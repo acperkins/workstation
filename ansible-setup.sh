@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ x$1 -ne x ]; then
+if [ x$1 == x ]; then
 	install_path=$1
 	if [ $(id -u) -eq 0 ]; then
 		bin_path=/usr/local/bin
