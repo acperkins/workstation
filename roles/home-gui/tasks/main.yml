@@ -16,9 +16,9 @@
 - import_tasks: dirs.yml
 
 - import_tasks: dotfiles.yml
+- import_tasks: flatpak.yml
 - import_tasks: firefox.yml
 - import_tasks: gnome.yml
 - import_tasks: mate.yml
 - import_tasks: sublimetext.yml
 - import_tasks: fonts.yml
-- import_tasks: flatpak.yml
