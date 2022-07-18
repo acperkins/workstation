@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ x$1 == x ]; then
+if [ x$1 != x ]; then
 	install_path=$1
 	if [ $(id -u) -eq 0 ]; then
 		bin_path=/usr/local/bin
@@ -28,6 +28,8 @@ else
 	install_path="$HOME/opt/ansible"
 	bin_path="$HOME/.local/bin"
 fi
+echo "Install path:  $install_path"
+echo "Bin path:      $bin_path"
 
 pipinstall () {
 	./bin/pip install --upgrade $1
@@ -42,7 +44,7 @@ if [ ! -x "$py3cmd" ]; then
 	echo "python3 not found"
 	exit 1
 else
-	echo "python3 found: $py3cmd"
+	echo "Python3 found: $py3cmd"
 fi
 
 if ! $($py3cmd -c "import venv" 2> /dev/null); then
