@@ -30,6 +30,7 @@
   community.general.flatpak:
     name:
       - org.keepassxc.KeePassXC
+      - org.mozilla.firefox
       - org.remmina.Remmina
       - org.videolan.VLC
       - org.vim.Vim
