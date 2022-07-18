@@ -32,7 +32,12 @@ echo "Install path:  $install_path"
 echo "Bin path:      $bin_path"
 
 pipinstall () {
-	./bin/pip install --upgrade $1
+	if [ -r /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem ]; then
+		cafile="--cert /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem"
+	else
+		cafile=""
+	fi
+	./bin/pip $cafile install --upgrade $1
 }
 
 create_link () {
