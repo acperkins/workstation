@@ -162,11 +162,11 @@ _podman_cli_args=(
 _podman_desktop_args=(
 	--security-opt label=disable
 	--volume /tmp/.X11-unix/:/tmp/.X11-unix/
-	-env DISPLAY=:0
-	-volume $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR
-	-env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
-	-env XDG_SESSION_TYPE=wayland
-	-env MOZ_ENABLE_WAYLAND=1
+	--env DISPLAY=:0
+	--volume $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR
+	--env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
+	--env XDG_SESSION_TYPE=wayland
+	--env MOZ_ENABLE_WAYLAND=1
 	--ipc host
 )
 alias prun="podman run ${_podman_cli_args[@]}"
