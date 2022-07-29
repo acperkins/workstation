@@ -33,7 +33,6 @@
       - org.mozilla.firefox
       - org.remmina.Remmina
       - org.videolan.VLC
-      - org.vim.Vim
     state: present
     method: user
   when: flatpak.stat.exists == true
