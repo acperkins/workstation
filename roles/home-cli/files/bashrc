@@ -154,14 +154,13 @@ then
 fi
 
 # Useful aliases for Podman.
-_podman_cli_args=(
+_podman_run_args=(
 	--rm
 	--interactive
 	--tty
-)
-_podman_desktop_args=(
 	--security-opt label=disable
 	--volume /tmp/.X11-unix/:/tmp/.X11-unix/
+	--volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro
 	--env DISPLAY=:0
 	--volume $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR
 	--env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
@@ -169,10 +168,8 @@ _podman_desktop_args=(
 	--env MOZ_ENABLE_WAYLAND=1
 	--ipc host
 )
-alias prun="podman run ${_podman_cli_args[@]}"
-alias prunw="podman run ${_podman_cli_args[@]} ${_podman_desktop_args[@]}"
-unset _podman_desktop_args
-unset _podman_cli_args
+alias prun="podman run ${_podman_run_args[@]}"
+unset _podman_run_args
 
 # Desktop files (used by desktop environments within both X11 and Wayland) are
 # looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
