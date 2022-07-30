@@ -161,12 +161,9 @@ _podman_run_args=(
 	--security-opt label=disable
 	--volume $HOME:$HOME
 	--volume $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR
-	--volume /tmp/.X11-unix/:/tmp/.X11-unix/
 	--volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro
-	--env DISPLAY=:0
 	--env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
 	--env XDG_SESSION_TYPE=wayland
-	--env MOZ_ENABLE_WAYLAND=1
 	--ipc host
 )
 alias prun="podman run ${_podman_run_args[@]}"
