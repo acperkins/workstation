@@ -162,6 +162,7 @@ _podman_run_args=(
 	--volume $HOME:$HOME
 	--volume $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR
 	--volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro
+	--volume /etc/ssl/certs:/etc/ssl/certs
 	--env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
 	--env XDG_SESSION_TYPE=wayland
 	--ipc host
