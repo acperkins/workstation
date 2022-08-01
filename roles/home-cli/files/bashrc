@@ -167,7 +167,13 @@ _podman_run_args=(
 	--env XDG_SESSION_TYPE=wayland
 	--ipc host
 )
+_podman_certs_args=(
+	--volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro
+	--volume /etc/ssl/certs:/etc/ssl/certs:ro
+)
 alias prun="podman run ${_podman_run_args[@]}"
+alias pruncerts="podman run ${_podman_run_args[@]} ${_podman_certs_args[@]}"
+unset _podman_certs_args
 unset _podman_run_args
 
 # Desktop files (used by desktop environments within both X11 and Wayland) are
