@@ -28,12 +28,14 @@ _acp_add_path () {
 	export PATH
 }
 
+# Last in the list means first in the path.
 for dir in "$HOME/.local/bin" \
 	   "$HOME/.cargo/bin" \
 	   "$HOME/opt/centos-git-common" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/gem/ruby/bin" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/exports/bin" \
 	   /var/lib/flatpak/exports/bin \
+	   /var/acp/bin \
 	   /usr/local/bin \
 	   /usr/local/sbin \
 	   /usr/bin \
