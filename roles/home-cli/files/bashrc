@@ -31,11 +31,10 @@ _acp_add_path () {
 # Last in the list means first in the path.
 for dir in "$HOME/.local/bin" \
 	   "$HOME/.cargo/bin" \
-	   "$HOME/opt/centos-git-common" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/gem/ruby/bin" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/exports/bin" \
 	   /var/lib/flatpak/exports/bin \
-	   /var/acp/bin \
+	   "$HOME/data/bin" \
 	   /usr/local/bin \
 	   /usr/local/sbin \
 	   /usr/bin \
@@ -137,7 +136,7 @@ then
 fi
 
 # Set up Go.
-if [ -x "$HOME/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
+if [ -x "$HOME/data/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
 then
 	export GOPROXY=https://proxy.golang.org
 	export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
@@ -147,9 +146,9 @@ then
 		mkdir -p "$GOPATH/pkg"
 		mkdir -p "$GOPATH/src"
 	fi
-	if [ -x "$HOME/opt/go/bin/go" ]
+	if [ -x "$HOME/data/opt/go/bin/go" ]
 	then
-		export GOROOT="$HOME/opt/go"
+		export GOROOT="$HOME/data/opt/go"
 		_acp_add_path "$GOROOT/bin"
 	fi
 	_acp_add_path "$GOPATH/bin"
