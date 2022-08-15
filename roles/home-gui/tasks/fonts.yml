@@ -13,23 +13,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Set Linux font directory
+  set_fact:
+    font_dir: "{{ ansible_env.HOME }}/.local/share/fonts"
+- name: Set MacOS font directory
+  set_fact:
+    font_dir: "{{ ansible_env.HOME }}/Library/Fonts"
+  when: ansible_distribution == 'MacOS'
+
 - name: Create ~/.local/share/fonts/texgyre directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/fonts/texgyre"
+    path: "{{ font_dir }}/texgyre"
     state: directory
 - name: Extract TeX Gyre fonts
   ansible.builtin.unarchive:
     remote_src: yes
     src: "http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg2_501otf.zip"
-    dest: "{{ ansible_env.HOME }}/.local/share/fonts/texgyre"
-    creates: "{{ ansible_env.HOME }}/.local/share/fonts/texgyre/tg2_501otf/texgyretermes-regular.otf"
+    dest: "{{ font_dir }}/texgyre"
+    creates: "{{ font_dir }}/texgyre/tg2_501otf/texgyretermes-regular.otf"
+
 - name: Create ~/.local/share/fonts/iosevka directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/fonts/iosevka"
+    path: "{{ font_dir }}/iosevka"
     state: directory
 - name: Extract Iosevka fonts
   ansible.builtin.unarchive:
     remote_src: yes
     src: "https://github.com/be5invis/Iosevka/releases/download/v15.5.2/super-ttc-iosevka-15.5.2.zip"
-    dest: "{{ ansible_env.HOME }}/.local/share/fonts/iosevka"
-    creates: "{{ ansible_env.HOME }}/.local/share/fonts/iosevka/iosevka.ttc"
+    dest: "{{ font_dir }}/iosevka"
+    creates: "{{ font_dir }}/iosevka/iosevka.ttc"
