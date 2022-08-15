@@ -31,3 +31,12 @@
     src: user.js
     dest: "{{ ansible_env.HOME }}/.var/app/org.mozilla.firefox/.mozilla/firefox/{{ lookup('ini', 'Path section=Profile0 file={{ ansible_env.HOME }}/.var/app/org.mozilla.firefox/.mozilla/firefox/profiles.ini') }}/user.js"
   when: profile_ini_flatpak.stat.exists
+- name: Check for MacOS profiles.ini
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/Library/Application Support/Firefox/profiles.ini"
+  register: profile_ini_macos
+- name: Copy Firefox preferences to regular Profile0
+  ansible.builtin.copy:
+    src: user.js
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Firefox/{{ lookup('ini', 'Path section=Profile0 file={{ ansible_env.HOME }}/Library/Application Support/Firefox/profiles.ini') }}/user.js"
+  when: profile_ini_macos.stat.exists
