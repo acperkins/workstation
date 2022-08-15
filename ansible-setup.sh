@@ -14,22 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ x$1 != x ]; then
-	install_path=$1
-	if [ $(id -u) -eq 0 ]; then
-		bin_path=/usr/local/bin
-	else
-		bin_path="$HOME/.local/bin"
-	fi
-elif [ $(id -u) -eq 0 ]; then
-	install_path=/opt/ansible
-	bin_path=/usr/local/bin
-else
-	install_path="$HOME/opt/ansible"
-	bin_path="$HOME/.local/bin"
+if [ "x$1" == "x--help" ] || [ "x$1" == "x-h" ] || [ "x$1" == "x-?" ]
+then
+	echo "Usage: $0 [install_path] [bin_path]"
+	exit
 fi
+
+install_path=${1:-/opt/ansible}
+bin_path=${2:-/usr/local/bin}
 echo "Install path:  $install_path"
 echo "Bin path:      $bin_path"
+echo "Press RETURN to continue, or Ctrl-C to cancel."
+read
 
 pipinstall () {
 	if [ -r /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem ]; then
@@ -41,7 +37,7 @@ pipinstall () {
 }
 
 create_link () {
-	ln -srf "$install_path/bin/$1" "$bin_path/$1"
+	ln -sf "$install_path/bin/$1" "$bin_path/$1"
 }
 
 py3cmd="$(command -v python3)"
