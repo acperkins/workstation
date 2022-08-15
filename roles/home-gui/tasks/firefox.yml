@@ -35,7 +35,7 @@
   ansible.builtin.stat:
     path: "{{ ansible_env.HOME }}/Library/Application Support/Firefox/profiles.ini"
   register: profile_ini_macos
-- name: Copy Firefox preferences to regular Profile0
+- name: Copy Firefox preferences to MacOS Profile0
   ansible.builtin.copy:
     src: user.js
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Firefox/{{ lookup('ini', 'Path section=Profile0 file={{ ansible_env.HOME }}/Library/Application Support/Firefox/profiles.ini') }}/user.js"
