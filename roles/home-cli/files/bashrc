@@ -262,6 +262,10 @@ usermotd () {
 	then
 		echo "    $(. /etc/os-release; echo $NAME $VERSION)"
 	fi
+	if [ "x$(uname -s)" == "xDarwin" ]
+	then
+		echo "    $(sw_vers -productName) $(sw_vers -productVersion)"
+	fi
 	uptime
 	echo "LANG=$LANG"
 	if [ -n "$TZ" ]
