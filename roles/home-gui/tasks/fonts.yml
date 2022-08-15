@@ -16,10 +16,14 @@
 - name: Set Linux font directory
   set_fact:
     font_dir: "{{ ansible_env.HOME }}/.local/share/fonts"
-- name: Set MacOS font directory
+- name: Set MacOSX font directory
   set_fact:
     font_dir: "{{ ansible_env.HOME }}/Library/Fonts"
-  when: ansible_distribution == 'MacOS'
+  when: ansible_distribution == 'MacOSX'
+- name: Set macOS font directory
+  set_fact:
+    font_dir: "{{ ansible_env.HOME }}/Library/Fonts"
+  when: ansible_distribution == 'macOS'
 
 - name: Create ~/.local/share/fonts/texgyre directory
   ansible.builtin.file:
