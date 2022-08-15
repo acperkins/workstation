@@ -25,7 +25,7 @@
     font_dir: "{{ ansible_env.HOME }}/Library/Fonts"
   when: ansible_distribution == 'macOS'
 
-- name: Create ~/.local/share/fonts/texgyre directory
+- name: Create texgyre font directory
   ansible.builtin.file:
     path: "{{ font_dir }}/texgyre"
     state: directory
@@ -36,7 +36,7 @@
     dest: "{{ font_dir }}/texgyre"
     creates: "{{ font_dir }}/texgyre/tg2_501otf/texgyretermes-regular.otf"
 
-- name: Create ~/.local/share/fonts/iosevka directory
+- name: Create iosevka font directory
   ansible.builtin.file:
     path: "{{ font_dir }}/iosevka"
     state: directory
