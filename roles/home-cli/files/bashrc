@@ -69,6 +69,11 @@ export PAPERSIZE=a4
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS=ignore::UserWarning
 
+if [ "$(uname -s)" == "Darwin" ]
+then
+	export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
+
 # Override this in ~/.config/bashrc or ~/.ssh/config.
 export LIBVIRT_DEFAULT_URI="qemu+ssh://vmhost/system"
 
