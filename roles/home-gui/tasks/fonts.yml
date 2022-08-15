@@ -13,6 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Store Iosevka version
+  set_fact:
+    iosevka_version: "15.6.3"
+
 - name: Set Linux font directory
   set_fact:
     font_dir: "{{ ansible_env.HOME }}/.local/share/fonts"
@@ -43,6 +47,6 @@
 - name: Extract Iosevka fonts
   ansible.builtin.unarchive:
     remote_src: yes
-    src: "https://github.com/be5invis/Iosevka/releases/download/v15.5.2/super-ttc-iosevka-15.5.2.zip"
+    src: "https://github.com/be5invis/Iosevka/releases/download/v{{ iosevka_version }}/super-ttc-iosevka-{{ iosevka_version }}.zip"
     dest: "{{ font_dir }}/iosevka"
     creates: "{{ font_dir }}/iosevka/iosevka.ttc"
