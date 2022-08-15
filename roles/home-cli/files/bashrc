@@ -1,6 +1,13 @@
 #!/bin/bash
 export ACP_BASHRC=1
 
+if [ -d /var/acp ]
+then
+	export ACP=/var/acp
+else
+	export ACP="$HOME/data"
+fi
+
 if [ -f /etc/bashrc ]
 then
 	. /etc/bashrc
@@ -34,7 +41,7 @@ for dir in "$HOME/.local/bin" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/gem/ruby/bin" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/exports/bin" \
 	   /var/lib/flatpak/exports/bin \
-	   "$HOME/data/bin" \
+	   $ACP/bin \
 	   /usr/local/bin \
 	   /usr/local/sbin \
 	   /usr/bin \
@@ -141,7 +148,7 @@ then
 fi
 
 # Set up Go.
-if [ -x "$HOME/data/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
+if [ -x "$ACP/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
 then
 	export GOPROXY=https://proxy.golang.org
 	export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
@@ -151,9 +158,9 @@ then
 		mkdir -p "$GOPATH/pkg"
 		mkdir -p "$GOPATH/src"
 	fi
-	if [ -x "$HOME/data/opt/go/bin/go" ]
+	if [ -x "$ACP/opt/go/bin/go" ]
 	then
-		export GOROOT="$HOME/data/opt/go"
+		export GOROOT="$ACP/opt/go"
 		_acp_add_path "$GOROOT/bin"
 	fi
 	_acp_add_path "$GOPATH/bin"
@@ -269,13 +276,13 @@ usermotd () {
 simpletls () {
 	# Create a self-signed certificate with:
 	#     openssl req -new -x509 \
-	#     -keyout $HOME/data/openssl/$(hostname)-key.pem \
-	#     -out $HOME/data/openssl/$(hostname-cert.pem
+	#     -keyout $ACP/openssl/$(hostname)-key.pem \
+	#     -out $ACP/openssl/$(hostname-cert.pem
 	if [ "x$1" == "x-l" ]
 	then
-		openssl s_server -cert $HOME/data/openssl/$(hostname)-cert.pem -key ~/data/openssl/$(hostname)-key.pem -tls1_3 -port $2
+		openssl s_server -cert $ACP/openssl/$(hostname)-cert.pem -key ~/data/openssl/$(hostname)-key.pem -tls1_3 -port $2
 	else
-		openssl s_client -CAfile $HOME/data/openssl/$1-cert.pem -tls1_3 -connect $1:$2
+		openssl s_client -CAfile $ACP/openssl/$1-cert.pem -tls1_3 -connect $1:$2
 	fi
 }
 
