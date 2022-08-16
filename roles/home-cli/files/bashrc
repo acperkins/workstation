@@ -41,6 +41,7 @@ for dir in "$HOME/.local/bin" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/gem/ruby/bin" \
 	   "${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/exports/bin" \
 	   /opt/local/bin \
+	   /opt/local/sbin \
 	   /var/lib/flatpak/exports/bin \
 	   $ACP/bin \
 	   /usr/local/bin \
