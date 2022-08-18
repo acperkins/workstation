@@ -124,6 +124,12 @@ bind 'set bell-style none'
 bind 'set completion-ignore-case on'
 bind 'set enable-bracketed-paste off'
 
+if [ -n "$ZSH_VERSION" ]
+then
+	bindkey "^[[A" history-beginning-search-backward
+	bindkey "^[[B" history-beginning-search-forward
+fi
+
 export PS1="\[\033[01m\]\u@\h>\[\033[00m\] "
 if [ -n "$ZSH_VERSION" ]
 then
