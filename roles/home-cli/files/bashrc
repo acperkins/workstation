@@ -93,9 +93,9 @@ if [ -f /etc/locale.conf ]
 then
 	. /etc/locale.conf
 fi
-if [ -f "$XDG_CONFIG_DIR/locale.conf" ]
+if [ -f "$XDG_CONFIG_HOME/locale.conf" ]
 then
-	. "$XDG_CONFIG_DIR/locale.conf"
+	. "$XDG_CONFIG_HOME/locale.conf"
 fi
 
 # Other exports.
