@@ -276,7 +276,7 @@ fi
 usermotd () {
 	if [ -n "$_acp_motd_shown" ]
 	then
-		exit 1
+		return 1
 	fi
 	export _acp_motd_shown=1
 	printf "\033[7m"; uname -sr; printf "\033[0m"
