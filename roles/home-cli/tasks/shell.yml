@@ -21,3 +21,11 @@
   ansible.builtin.copy:
     src: bash_profile
     dest: "{{ ansible_env.HOME }}/.bash_profile"
+- name: Copy .zshrc
+  ansible.builtin.copy:
+    src: zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+- name: Copy .zprofile
+  ansible.builtin.copy:
+    src: zprofile
+    dest: "{{ ansible_env.HOME }}/.zprofile"

@@ -1,0 +1,4 @@
+if [ -e $HOME/.bash_profile ]
+then
+	emulate sh -c ". $HOME/.bash_profile"
+fi

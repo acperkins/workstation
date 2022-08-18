@@ -8,6 +8,13 @@ else
 	export ACP="$HOME/data"
 fi
 
+if [ -n "$ZSH_VERSION" ]
+then
+	# These commands do not exist in zsh.
+	alias bind=false
+	alias shopt=false
+fi
+
 if [ -f /etc/bashrc ]
 then
 	. /etc/bashrc
@@ -78,7 +85,7 @@ export PAPERSIZE=a4
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS=ignore::UserWarning
 
-if [ "$(uname -s)" == "Darwin" ]
+if [ "x$(uname -s)" = "xDarwin" ]
 then
 	export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
@@ -100,7 +107,7 @@ else
 	export EDITOR=vi
 fi
 
-if [ ${XDG_CURRENT_DESKTOP:-unknown} == GNOME ]
+if [ ${XDG_CURRENT_DESKTOP:-unknown} = GNOME ]
 then
 	export QT_FONT_DPI=72
 fi
@@ -115,6 +122,11 @@ bind 'set completion-ignore-case on'
 bind 'set enable-bracketed-paste off'
 
 export PS1="\[\033[01m\]\u@\h>\[\033[00m\] "
+if [ -n "$ZSH_VERSION" ]
+then
+	export PS1="%B%n@%m>%b "
+fi
+
 if test $(id -u) -ne 0 && test -x /usr/bin/dnf
 then
 	alias dnf="dnf --cacheonly --nogpgcheck"
@@ -264,7 +276,7 @@ usermotd () {
 	then
 		echo "    $(. /etc/os-release; echo $NAME $VERSION)"
 	fi
-	if [ "x$(uname -s)" == "xDarwin" ]
+	if [ "x$(uname -s)" = "xDarwin" ]
 	then
 		echo "    $(sw_vers -productName) $(sw_vers -productVersion)"
 	fi
@@ -309,3 +321,10 @@ case "$-" in
 *)
 	;;
 esac
+
+if [ -n "$ZSH_VERSION" ]
+then
+	# These commands do not exist in zsh.
+	unalias shopt
+	unalias bind
+fi

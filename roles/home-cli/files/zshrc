@@ -1,0 +1,4 @@
+if [ -e $HOME/.bashrc ]
+then
+	emulate sh -c ". $HOME/.bashrc"
+fi
