@@ -87,12 +87,6 @@ done
 
 umask 0022
 
-if [ -z "$ZSH_VERSION" ]
-then
-	set -o emacs
-	set -o noclobber
-fi
-
 # Locale and language.
 ## Clear the existing locale settings and set options I always want.
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
@@ -143,6 +137,8 @@ fi
 
 if [ -n "$BASH_VERSION" ]
 then
+	set -o emacs
+	set -o noclobber
 	shopt -s histappend
 	bind '"\e[1;5C": forward-word'
 	bind '"\e[1;5D": backward-word'
@@ -153,6 +149,7 @@ then
 	bind 'set enable-bracketed-paste off'
 elif [ -n "$ZSH_VERSION" ]
 then
+	bindkey -e
 	bindkey "^[[A" history-beginning-search-backward
 	bindkey "^[[B" history-beginning-search-forward
 fi
