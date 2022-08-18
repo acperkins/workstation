@@ -1,9 +1,20 @@
 #!/bin/bash
 export ACP_BASH_PROFILE=1
 
-if [ -r /etc/profile ]
+if [ -n "$BASH_VERSION" ]
 then
-    . /etc/profile
+	if [ -r /etc/profile ]
+	then
+	    . /etc/profile
+	fi
+fi
+
+if [ -n "$ZSH_VERSION" ]
+then
+	if [ -r /etc/zprofile ]
+	then
+	    . /etc/zprofile
+	fi
 fi
 
 export BASH_ENV="$HOME/.bashrc"
