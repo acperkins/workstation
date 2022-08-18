@@ -61,8 +61,11 @@ done
 
 umask 0022
 
-if [ -z "$ZSH_VERSION" ]
+if [ -n "$ZSH_VERSION" ]
 then
+	setopt emacs
+	setopt noclobber
+else
 	set -o emacs
 	set -o noclobber
 fi
