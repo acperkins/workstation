@@ -61,8 +61,11 @@ done
 
 umask 0022
 
-set -o emacs
-set -o noclobber
+if [ -z "$ZSH_VERSION" ]
+then
+	set -o emacs
+	set -o noclobber
+fi
 
 # Locale and language.
 ## Clear the existing locale settings and set options I always want.
@@ -271,6 +274,11 @@ then
 fi
 
 usermotd () {
+	if [ -n "$_acp_motd_shown" ]
+	then
+		exit 1
+	fi
+	export _acp_motd_shown=1
 	printf "\033[7m"; uname -sr; printf "\033[0m"
 	if [ -r /etc/os-release ]
 	then
