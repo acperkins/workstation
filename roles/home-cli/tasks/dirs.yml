@@ -22,9 +22,10 @@
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.local/bin"
     state: directory
+    mode: '0700'
 - name: Create systemd user directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/systemd/user"
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}/systemd/user"
     state: directory
 - name: Create ~/.ssh directory
   ansible.builtin.file:
@@ -33,17 +34,17 @@
     mode: '0700'
 - name: Create ~/.config directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config"
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}"
     state: directory
 - name: Create ~/.config/git directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/git"
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}/git"
     state: directory
 - name: Create ~/.config/mc directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/mc"
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}/mc"
     state: directory
 - name: Create ~/.config/powershell directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/powershell"
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}/powershell"
     state: directory

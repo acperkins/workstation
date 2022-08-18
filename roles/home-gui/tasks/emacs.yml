@@ -30,14 +30,14 @@
 - name: Create Emacs user service (Linux)
   ansible.builtin.template:
     src: emacs.service
-    dest: "{{ ansible_env.HOME }}/.config/systemd/user/emacs.service"
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/systemd/user/emacs.service"
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
   when: ansible_system == 'Linux' and emacs_binary.stat.exists == True
 - name: Add Emacs server to autostart (FreeBSD)
   ansible.builtin.copy:
     src: '{{ ansible_env.HOME }}/.emacs.d/emacs-server.desktop'
-    dest: '{{ ansible_env.HOME }}/.config/autostart'
+    dest: '{{ ansible_env.XDG_CONFIG_HOME }}/autostart'
     remote_src: yes
   when: ansible_system == 'FreeBSD' and emacs_binary.stat.exists == True
 - name: Start Emacs user service
@@ -51,6 +51,6 @@
 - name: Create Emacs client launcher
   ansible.builtin.copy:
     src: "{{ ansible_env.HOME }}/.emacs.d/emacs-client.desktop"
-    dest: "{{ ansible_env.HOME }}/.local/share/applications/emacs.desktop"
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/applications/emacs.desktop"
     remote_src: yes
   when: emacs_binary.stat.exists == True

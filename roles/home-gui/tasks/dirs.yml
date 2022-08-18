@@ -15,11 +15,11 @@
 
 - name: Create user applications directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/applications"
+    path: "{{ ansible_env.XDG_DATA_HOME }}/applications"
     state: directory
 - name: Create user autostart directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/autostart"
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}/autostart"
     state: directory
 - name: Create ~/.fvwm directory
   ansible.builtin.file:
@@ -27,9 +27,9 @@
     state: directory
 - name: Create ~/.local/share/fonts directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/fonts"
+    path: "{{ ansible_env.XDG_DATA_HOME }}/fonts"
     state: directory
 - name: Create ~/.config/fontconfig directory
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/fontconfig"
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}/fontconfig"
     state: directory

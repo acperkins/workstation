@@ -19,7 +19,7 @@
 
 - name: Set Linux font directory
   set_fact:
-    font_dir: "{{ ansible_env.HOME }}/.local/share/fonts"
+    font_dir: "{{ ansible_env.XDG_DATA_HOME }}/fonts"
 - name: Set MacOSX font directory
   set_fact:
     font_dir: "{{ ansible_env.HOME }}/Library/Fonts"

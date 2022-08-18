@@ -28,7 +28,7 @@
 - name: Copy openpgp.asc
   ansible.builtin.copy:
     src: openpgp.asc
-    dest: "{{ ansible_env.HOME }}/.config/openpgp.asc"
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/openpgp.asc"
 - name: Copy .dput.cf
   ansible.builtin.copy:
     src: dput.cf
@@ -40,7 +40,7 @@
 - name: Copy .config/git/config
   ansible.builtin.copy:
     src: gitconfig
-    dest: "{{ ansible_env.HOME }}/.config/git/config"
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/git/config"
 - name: Copy .quiltrc-dpkg
   ansible.builtin.copy:
     src: quiltrc-dpkg
@@ -61,12 +61,12 @@
 - name: Copy mc ini
   ansible.builtin.copy:
     src: mc.ini
-    dest: "{{ ansible_env.HOME }}/.config/mc/ini"
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/mc/ini"
 - name: Copy mc panels.ini
   ansible.builtin.copy:
     src: mc.panels.ini
-    dest: "{{ ansible_env.HOME }}/.config/mc/panels.ini"
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/mc/panels.ini"
 - name: Copy Microsoft.PowerShell_profile.ps1
   ansible.builtin.copy:
     src: Microsoft.PowerShell_profile.ps1
-    dest: "{{ ansible_env.HOME }}/.config/powershell/Microsoft.PowerShell_profile.ps1"
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/powershell/Microsoft.PowerShell_profile.ps1"
