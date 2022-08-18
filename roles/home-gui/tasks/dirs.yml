@@ -13,23 +13,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Create user applications directory
+- name: Create $XDG_DATA_HOME/applications
   ansible.builtin.file:
     path: "{{ ansible_env.XDG_DATA_HOME }}/applications"
     state: directory
-- name: Create user autostart directory
+- name: Create $XDG_CONFIG_HOME/autostart
   ansible.builtin.file:
     path: "{{ ansible_env.XDG_CONFIG_HOME }}/autostart"
     state: directory
-- name: Create ~/.fvwm directory
+- name: Create $HOME/.fvwm
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.fvwm"
     state: directory
-- name: Create ~/.local/share/fonts directory
+- name: Create $XDG_DATA_HOME/fonts
   ansible.builtin.file:
     path: "{{ ansible_env.XDG_DATA_HOME }}/fonts"
     state: directory
-- name: Create ~/.config/fontconfig directory
+- name: Create $XDG_CONFIG_HOME/fontconfig
   ansible.builtin.file:
     path: "{{ ansible_env.XDG_CONFIG_HOME }}/fontconfig"
     state: directory

@@ -13,60 +13,60 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Copy .gemrc
+- name: Create $HOME/.gemrc
   ansible.builtin.copy:
     src: gemrc
     dest: "{{ ansible_env.HOME }}/.gemrc"
-- name: Remove .hushlogin
+- name: Remove $HOME/.hushlogin
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.hushlogin"
     state: absent
-- name: Copy .tmux.conf
+- name: Create $HOME/.tmux.conf
   ansible.builtin.copy:
     src: tmux.conf
     dest: "{{ ansible_env.HOME }}/.tmux.conf"
-- name: Copy openpgp.asc
+- name: Create $XDG_CONFIG_HOME/openpgp.asc
   ansible.builtin.copy:
     src: openpgp.asc
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/openpgp.asc"
-- name: Copy .dput.cf
+- name: Create $HOME/.dput.cf
   ansible.builtin.copy:
     src: dput.cf
     dest: "{{ ansible_env.HOME }}/.dput.cf"
-- name: Copy .mailcap
+- name: Create $HOME/.mailcap
   ansible.builtin.copy:
     src: mailcap
     dest: "{{ ansible_env.HOME }}/.mailcap"
-- name: Copy .config/git/config
+- name: Create $XDG_CONFIG_HOME/git/config
   ansible.builtin.copy:
     src: gitconfig
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/git/config"
-- name: Copy .quiltrc-dpkg
+- name: Create $HOME/.quiltrc-dpkg
   ansible.builtin.copy:
     src: quiltrc-dpkg
     dest: "{{ ansible_env.HOME }}/.quiltrc-dpkg"
-- name: Copy .editorconfig
+- name: Create $XDG_CONFIG_HOME/editorconfig
   ansible.builtin.copy:
     src: editorconfig
-    dest: "{{ ansible_env.HOME }}/.editorconfig"
-- name: Copy .clang-format
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/editorconfig"
+- name: Create $XDG_CONFIG_HOME/clang-format
   ansible.builtin.copy:
     src: clang-format
-    dest: "{{ ansible_env.HOME }}/.clang-format"
-- name: Copy docutils setup script
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/clang-format"
+- name: Create $HOME/.local/bin/docutils-setup
   ansible.builtin.copy:
     src: docutils-setup.sh
     dest: "{{ ansible_env.HOME }}/.local/bin/docutils-setup"
     mode: '0755'
-- name: Copy mc ini
+- name: Create $XDG_CONFIG_HOME/mc/ini
   ansible.builtin.copy:
     src: mc.ini
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/mc/ini"
-- name: Copy mc panels.ini
+- name: Create $XDG_CONFIG_HOME/mc/panels.ini
   ansible.builtin.copy:
     src: mc.panels.ini
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/mc/panels.ini"
-- name: Copy Microsoft.PowerShell_profile.ps1
+- name: Create $XDG_CONFIG_HOME/powershell/Microsoft.PowerShell_profile.ps1
   ansible.builtin.copy:
     src: Microsoft.PowerShell_profile.ps1
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/powershell/Microsoft.PowerShell_profile.ps1"

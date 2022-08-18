@@ -13,43 +13,43 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Copy .Xresources
+- name: Create $HOME/.Xresources
   ansible.builtin.copy:
     src: Xresources
     dest: "{{ ansible_env.HOME }}/.Xresources"
-- name: Create stalonetrayrc
+- name: Create $HOME/.stalonetrayrc
   ansible.builtin.copy:
     src: stalonetrayrc
     dest: "{{ ansible_env.HOME }}/.stalonetrayrc"
-- name: Create fvwm config file
+- name: Create $HOME/.fvwm/config
   ansible.builtin.copy:
     src: fvwmrc
     dest: "{{ ansible_env.HOME }}/.fvwm/config"
-- name: Create NetBSD xsession file
+- name: Create NetBSD $HOME/.xsession
   ansible.builtin.copy:
     src: xsession-netbsd
     dest: "{{ ansible_env.HOME }}/.xsession"
   when: ansible_system == "NetBSD"
-- name: Create xinitrc symlink
+- name: Create NetBSD $HOME/.xinitrc
   ansible.builtin.file:
     src: ".xsession"
     dest: "{{ ansible_env.HOME }}/.xinitrc"
     state: link
   when: ansible_system == "NetBSD"
-- name: Load ~/.Xresources
+- name: Create $XDG_CONFIG_HOME/autostart/xrdb.desktop
   ansible.builtin.copy:
     src: "xrdb.desktop"
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/autostart/xrdb.desktop"
   when: ansible_distribution == "Fedora" or ansible_distribution == "Debian"
-- name: Add to-do list launcher
+- name: Create $XDG_DATA_HOME/applications/todo.desktop
   ansible.builtin.template:
     src: todo.desktop
     dest: "{{ ansible_env.XDG_DATA_HOME }}/applications/todo.desktop"
-- name: Copy .xbindkeysrc
+- name: Create $HOME/.xbindkeysrc
   ansible.builtin.copy:
     src: "xbindkeysrc"
     dest: "{{ ansible_env.HOME }}/.xbindkeysrc"
-- name: Copy fonts.conf
+- name: Create $XDG_CONFIG_HOME/fontconfig/fonts.conf
   ansible.builtin.copy:
     src: "fonts.conf"
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/fontconfig/fonts.conf"
