@@ -327,7 +327,11 @@ usermotd () {
 		return 1
 	fi
 	export _acp_motd_shown=1
+	
+	# OS (kernel) name and version in reverse video.
 	printf "\033[7m"; uname -sr; printf "\033[0m"
+
+	# Distro name and version on Linux and macOS.
 	if [ -r /etc/os-release ]
 	then
 		echo "    $(. /etc/os-release; echo "$NAME" "$VERSION")"
@@ -336,21 +340,31 @@ usermotd () {
 	then
 		echo "    $(sw_vers -productName) $(sw_vers -productVersion)"
 	fi
+
+	# System uptime and load averages.
 	uptime
+
+	# Language for the shell.
 	echo "LANG=$LANG"
+
+	# Timezone.
 	if [ -n "$TZ" ]
 	then
 		echo "TZ=$TZ"
-	elif [ -x /usr/bin/timedatectl ] && [ "x$(systemctl is-system-running)" != "xoffline" ]
+	elif [ -x /usr/bin/timedatectl ] && [ "$(systemctl is-system-running)" != offline ]
 	then
 		timedatectl show --property=Timezone | sed 's/Timezone=/TZ=/'
 	fi
+
+	# Shell name and version.
 	if [ -n "$BASH_VERSION" ]
 	then
 		echo "bash $BASH_VERSION"
 	elif [ -n "$ZSH_VERSION" ]
 	then
 		echo "zsh $ZSH_VERSION"
+	else
+		echo "shell unknown"
 	fi
 }
 
