@@ -17,5 +17,5 @@ bindkey "^[OB" history-beginning-search-forward-end
 
 if [ -e "$HOME/.shrc" ]
 then
-	emulate sh -c '. "$HOME/.bashrc"'
+	emulate sh -c '. "$HOME/.shrc"'
 fi
