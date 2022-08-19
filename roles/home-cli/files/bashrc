@@ -16,18 +16,11 @@ export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
-if [ ! -d $XDG_DATA_HOME ]     ; then install -d -m 0700 "$XDG_DATA_HOME"   ; fi
-if [ ! -d $XDG_CACHE_HOME ]    ; then install -d -m 0700 "$XDG_CACHE_HOME"  ; fi
-if [ ! -d $XDG_CONFIG_HOME ]   ; then install -d -m 0700 "$XDG_CONFIG_HOME" ; fi
-if [ ! -d $XDG_STATE_HOME ]    ; then install -d -m 0700 "$XDG_STATE_HOME"  ; fi
+if [ ! -d "$XDG_DATA_HOME" ]     ; then install -d -m 0700 "$XDG_DATA_HOME"   ; fi
+if [ ! -d "$XDG_CACHE_HOME" ]    ; then install -d -m 0700 "$XDG_CACHE_HOME"  ; fi
+if [ ! -d "$XDG_CONFIG_HOME" ]   ; then install -d -m 0700 "$XDG_CONFIG_HOME" ; fi
+if [ ! -d "$XDG_STATE_HOME" ]    ; then install -d -m 0700 "$XDG_STATE_HOME"  ; fi
 if [ ! -d "$HOME/.local/bin" ] ; then install -d -m 0700 "$HOME/.local/bin" ; fi
-
-if [ -n "$ZSH_VERSION" ]
-then
-	# These commands do not exist in zsh.
-	alias bind=false
-	alias shopt=false
-fi
 
 if [ -n "$BASH_VERSION" ]
 then
@@ -45,12 +38,6 @@ then
 		. /etc/bash_completion
 	fi
 
-	if [ -f /usr/share/bash-completion/completions/quilt ]
-	then
-		. /usr/share/bash-completion/completions/quilt
-		complete -F _quilt_completion -o filenames dquilt
-	fi
-
 fi
 
 if [ -n "$ZSH_VERSION" ]
@@ -62,11 +49,19 @@ then
 fi
 
 _acp_add_path () {
-	if ! [[ ":$PATH:" =~ ":$1:" ]] && test -d "$1"
+	if [ -n "$1" ] && [ -d "$1" ]
 	then
-		PATH="$1:$PATH"
+		case ":$PATH:" in
+			*:"$1":*)
+				return
+				;;
+			*)
+				PATH="$1:$PATH"
+				export PATH
+				return
+				;;
+		esac
 	fi
-	export PATH
 }
 
 # Last in the list means first in the path.
@@ -108,7 +103,7 @@ export PAPERSIZE=a4
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS=ignore::UserWarning
 
-if [ x$(uname -s) = xDarwin ]
+if [ "$(uname -s)" = Darwin ]
 then
 	export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
@@ -118,7 +113,8 @@ export LIBVIRT_DEFAULT_URI="qemu+ssh://vmhost/system"
 
 if test -x /usr/bin/tty
 then
-	export GPG_TTY=$(tty)
+	GPG_TTY=$(tty)
+	export GPG_TTY
 fi
 
 # Set up Vi/Vim.
@@ -130,7 +126,7 @@ else
 	export EDITOR=vi
 fi
 
-if [ ${XDG_CURRENT_DESKTOP:-unknown} = GNOME ]
+if [ "${XDG_CURRENT_DESKTOP:-unknown}" = GNOME ]
 then
 	export QT_FONT_DPI=72
 fi
@@ -166,7 +162,7 @@ else
 	export PS1="$ "
 fi
 
-if test $(id -u) -ne 0 && test -x /usr/bin/dnf
+if [ "$(id -u)" -ne 0 ] && [ -x /usr/bin/dnf ]
 then
 	alias dnf="dnf --cacheonly --nogpgcheck"
 fi
@@ -175,7 +171,6 @@ alias 7zencrypt="7z a -t7z -p -mhe"
 alias alu="apt list --upgradable"
 alias asdo="apt source --download-only"
 alias aurmake="makepkg -irs"
-alias dquilt="quilt --quiltrc=\"${HOME}/.quiltrc-dpkg\""
 alias f=fossil
 alias ip="ip -c"
 alias isocal="cal --iso --reform=iso --monday --week"
@@ -219,26 +214,8 @@ then
 	_acp_add_path "$GOPATH/bin"
 fi
 
-# Useful aliases for Podman.
-_podman_run_args=(
-	--rm
-	--interactive
-	--tty
-	--security-opt label=disable
-	--volume $HOME:$HOME
-	--volume $XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR
-	--env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
-	--env XDG_SESSION_TYPE=wayland
-	--ipc host
-)
-_podman_certs_args=(
-	--volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro
-	--volume /etc/ssl/certs:/etc/ssl/certs:ro
-)
-alias prun="podman run ${_podman_run_args[@]}"
-alias pruncerts="podman run ${_podman_run_args[@]} ${_podman_certs_args[@]}"
-unset _podman_certs_args
-unset _podman_run_args
+alias prun='podman run --rm --interactive --tty --security-opt label=disable --volume "$HOME":"$HOME" --volume "$XDG_RUNTIME_DIR":"$XDG_RUNTIME_DIR" --env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" --env XDG_SESSION_TYPE=wayland --ipc host'
+alias pruncerts='prun --volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro --volume /etc/ssl/certs:/etc/ssl/certs:ro'
 
 # Desktop files (used by desktop environments within both X11 and Wayland) are
 # looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
@@ -257,21 +234,18 @@ mkcd () {
 		return 1
 	else
 		mkdir -p "$1"
-		cd "$1"
+		cd "$1" || return
 	fi
 }
 
-termtitle () {
-	echo -en "\033]0;$1\007"
-}
-
 linapm () {
-	cat /sys/class/power_supply/BAT0/{status,capacity}
+	cat /sys/class/power_supply/BAT0/status
+	cat /sys/class/power_supply/BAT0/capacity
 }
 
 xa () {
 	out=$(xrandr --listactivemonitors | awk 'NR!=1{print " "$NF" "}')
-	for monitor in "$out"
+	for monitor in $out
 	do
 		m=$(echo "$monitor" | sed 's/ //g')
 		xrandr --output "$m" --auto
@@ -283,7 +257,7 @@ emacsro () {
 }
 
 tm () {
-	if tmux list-sessions 2>&1 1>/dev/null
+	if tmux list-sessions > /dev/null 2>&1
 	then
 		tmux attach-session
 	else
@@ -299,7 +273,7 @@ fi
 if [ -S "$SSH_AUTH_SOCK" ] \
 	&& [ -r "$HOME/.ssh/id_ed25519" ] \
 	&& [ -r "$HOME/.ssh/id_ed25519.pub" ] \
-	&& [ $(ssh-add -l | grep "$(ssh-keygen -l -f "$HOME/.ssh/id_ed25519.pub")" | wc -l) = 0 ]
+	&& [ "$(ssh-add -l | grep -c "$(ssh-keygen -l -f "$HOME/.ssh/id_ed25519.pub")")" = 0 ]
 then
 	ssh-add "$HOME/.ssh/id_ed25519"
 fi
@@ -318,9 +292,9 @@ usermotd () {
 	printf "\033[7m"; uname -sr; printf "\033[0m"
 	if [ -r /etc/os-release ]
 	then
-		echo "    $(. /etc/os-release; echo $NAME $VERSION)"
+		echo "    $(. /etc/os-release; echo "$NAME" "$VERSION")"
 	fi
-	if [ "x$(uname -s)" = "xDarwin" ]
+	if [ "$(uname -s)" = "Darwin" ]
 	then
 		echo "    $(sw_vers -productName) $(sw_vers -productVersion)"
 	fi
@@ -340,20 +314,20 @@ simpletls () {
 	#     openssl req -new -x509 \
 	#     -keyout $ACP/openssl/$(hostname)-key.pem \
 	#     -out $ACP/openssl/$(hostname-cert.pem
-	if [ "x$1" == "x-l" ]
+	if [ "$1" = "-l" ]
 	then
-		openssl s_server -cert $ACP/openssl/$(hostname)-cert.pem -key ~/data/openssl/$(hostname)-key.pem -tls1_3 -port $2
+		openssl s_server -cert "$ACP/openssl/$(hostname)-cert.pem" -key "$HOME/data/openssl/$(hostname)-key.pem" -tls1_3 -port "$2"
 	else
-		openssl s_client -CAfile $ACP/openssl/$1-cert.pem -tls1_3 -connect $1:$2
+		openssl s_client -CAfile "$ACP/openssl/$1-cert.pem" -tls1_3 -connect "$1":"$2"
 	fi
 }
 
 tlscheck () {
-	if [ "x$1" == "x" ]
+	if [ -z "$1" ]
 	then
 		echo "Usage: tlscheck hostname:port" >&2
 	else
-		openssl s_client -connect $1 </dev/null | openssl x509 -text
+		openssl s_client -connect "$1" </dev/null | openssl x509 -text
 	fi
 }
 
