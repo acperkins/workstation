@@ -233,7 +233,7 @@ usermotd () {
 	export _acp_motd_shown=1
 	
 	# OS (kernel) name and version in reverse video.
-	printf "\033[7m"; uname -sr; printf "\033[0m"
+	printf "\033[7m$(uname -sr)\033[0m\n"
 
 	# Distro name and version on Linux and macOS.
 	if [ -r /etc/os-release ]
