@@ -15,6 +15,8 @@ bindkey "^[[B" history-beginning-search-forward-end
 bindkey "^[OA" history-beginning-search-backward-end
 bindkey "^[OB" history-beginning-search-forward-end
 
+export PS1="%B%n@%m%#%b "
+
 if [ -e "$HOME/.shrc" ]
 then
 	emulate sh -c '. "$HOME/.shrc"'
