@@ -339,10 +339,3 @@ case "$-" in
 *)
 	;;
 esac
-
-if [ -n "$ZSH_VERSION" ]
-then
-	# These commands do not exist in zsh.
-	unalias shopt
-	unalias bind
-fi
