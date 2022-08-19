@@ -1,34 +1,12 @@
 #!/bin/bash
-export ACP_BASH_PROFILE=1
-
-if [ -n "$BASH_VERSION" ]
+if [ -r /etc/profile ]
 then
-	if [ -r /etc/profile ]
-	then
-	    . /etc/profile
-	fi
-fi
-
-if [ -n "$ZSH_VERSION" ]
-then
-	if [ -r /etc/zprofile ]
-	then
-	    . /etc/zprofile
-	fi
+	. /etc/profile
 fi
 
 export BASH_ENV="$HOME/.bashrc"
-export BLOCKSIZE=K
-export EDITOR=vi
-export LANG=C
-export PAGER=less
 
-if [ -r "$HOME/.bash_profile.$(hostname -s)" ]
+if [ -r "$HOME/.profile" ]
 then
-    . "$HOME/.bash_profile.$(hostname -s)"
-fi
-
-if [ -z "$ACP_BASHRC" ] || [ -n "$SSH_TTY" ]
-then
-    . "$HOME/.bashrc"
+	. "$HOME/.profile"
 fi

@@ -1,4 +1,10 @@
-if [ -e $HOME/.bash_profile ]
+#!/bin/zsh
+if [ -r /etc/zprofile ]
 then
-	emulate sh -c ". $HOME/.bash_profile"
+	. /etc/zprofile
+fi
+
+if [ -e $HOME/.profile ]
+then
+	emulate sh -c ". $HOME/.profile"
 fi

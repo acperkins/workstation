@@ -13,19 +13,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Create $HOME/.bashrc
+- name: Create $HOME/.profile
   ansible.builtin.copy:
-    src: bashrc
-    dest: "{{ ansible_env.HOME }}/.bashrc"
+    src: profile
+    dest: "{{ ansible_env.HOME }}/.profile"
+- name: Create $HOME/.shrc
+  ansible.builtin.copy:
+    src: shrc
+    dest: "{{ ansible_env.HOME }}/.shrc"
 - name: Create $HOME/.bash_profile
   ansible.builtin.copy:
     src: bash_profile
     dest: "{{ ansible_env.HOME }}/.bash_profile"
-- name: Create $HOME/.zshrc
+- name: Create $HOME/.bashrc
   ansible.builtin.copy:
-    src: zshrc
-    dest: "{{ ansible_env.HOME }}/.zshrc"
+    src: bashrc
+    dest: "{{ ansible_env.HOME }}/.bashrc"
 - name: Create $HOME/.zprofile
   ansible.builtin.copy:
     src: zprofile
     dest: "{{ ansible_env.HOME }}/.zprofile"
+- name: Create $HOME/.zshrc
+  ansible.builtin.copy:
+    src: zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
