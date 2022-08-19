@@ -268,7 +268,7 @@ usermotd () {
 	then
 		echo "zsh $ZSH_VERSION"
 	else
-		echo "shell unknown"
+		echo "SHELL=$SHELL"
 	fi
 }
 
