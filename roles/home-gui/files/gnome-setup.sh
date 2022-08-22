@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
 test -x /usr/bin/gsettings || (echo "gsettings not found" && exit 1)
 
 set_favorites_bar () {
-	if [ -r ${XDG_CONFIG_HOME:-$HOME/.config}/favorite-apps.conf ]; then
-		gsettings set org.gnome.shell favorite-apps "$(cat ${XDG_CONFIG_HOME:-$HOME/.config}/favorite-apps.conf)"
+	if [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/favorite-apps.conf" ]
+	then
+		gsettings set org.gnome.shell favorite-apps "$(cat "${XDG_CONFIG_HOME:-$HOME/.config}/favorite-apps.conf")"
 	else
 		gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop']"
 	fi
@@ -13,7 +14,7 @@ set_favorites_bar
 
 set_keyboard_and_language () {
 	gsettings set org.gnome.desktop.input-sources show-all-sources true
-	if [ x$LANG == xfr_FR.UTF-8 ]
+	if [ "$LANG" = fr_FR.UTF-8 ]
 	then
 		gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+intl'), ('xkb', 'us')]"
 	else
@@ -45,15 +46,15 @@ set_gnome_terminal_preferences () {
 	gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'dark'
 
 	defaultprofile="org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')/"
-	gsettings set $defaultprofile background-color '#101010'
-	gsettings set $defaultprofile default-size-columns 132
-	gsettings set $defaultprofile default-size-rows 24
-	gsettings set $defaultprofile foreground-color '#C0C0C0'
-	gsettings set $defaultprofile palette "[
+	gsettings set "$defaultprofile" background-color '#101010'
+	gsettings set "$defaultprofile" default-size-columns 132
+	gsettings set "$defaultprofile" default-size-rows 24
+	gsettings set "$defaultprofile" foreground-color '#C0C0C0'
+	gsettings set "$defaultprofile" palette "[
 		'#000000', '#800000', '#008000', '#808000', '#000080', '#800080', '#008080', '#C0C0C0',
 		'#808080', '#FF0000', '#00FF00', '#FFFF00', '#0000FF', '#FF00FF', '#00FFFF', '#FFFFFF'
 	]"
-	gsettings set $defaultprofile use-theme-colors false
+	gsettings set "$defaultprofile" use-theme-colors false
 }
 set_gnome_terminal_preferences
 
