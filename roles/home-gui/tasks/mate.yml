@@ -13,10 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Check for Mate Session
+  ansible.builtin.stat:
+    path: /usr/bin/mate-session
+  register: mate_session
 - name: Create MATE layouts directory
   ansible.builtin.file:
     path: "{{ ansible_env.XDG_DATA_HOME }}/mate-panel/layouts"
     state: directory
+  when: mate_session.stat.exists
 - name: Copy MATE panel layout
   ansible.builtin.template:
     src: mate-acp.layout
@@ -24,8 +29,10 @@
   vars:
     prefix: "{{ '/usr' if ansible_system == 'Linux' else '/usr/pkg' if ansible_system == 'NetBSD' else '/usr/local' }}"
     esr: "{{ '-esr' if ansible_distribution == 'Debian' else '' }}"
+  when: mate_session.stat.exists
 - name: Copy MATE Clock reset script
   ansible.builtin.copy:
     src: reset-mate-clock.sh
     dest: "{{ ansible_env.HOME }}/.local/bin/reset-mate-clock"
     mode: '0755'
+  when: mate_session.stat.exists
