@@ -15,9 +15,9 @@ set_keyboard_and_language () {
 	gsettings set org.gnome.desktop.input-sources show-all-sources true
 	if [ x$LANG == xfr_FR.UTF-8 ]
 	then
-		gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ca+multix'), ('xkb', 'us')]"
+		gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+intl'), ('xkb', 'us')]"
 	else
-		gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us')]"
+		gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'us+intl')]"
 	fi
 	gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'compose:caps', 'nbsp:level3n', 'shift:both_capslock']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
