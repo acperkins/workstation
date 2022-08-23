@@ -8,6 +8,8 @@ case "$-" in
 	;;
 esac
 
+echo "[ Reading \"$HOME/.zshrc\" ]"
+
 if [ -f /etc/zshrc ]
 then
 	. /etc/zshrc

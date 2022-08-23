@@ -1,8 +1,10 @@
 #!/bin/sh
 if [ -n "$_acp_ignore_shrc" ]
 then
+	echo "[ Ignoring \"$HOME/.shrc\" ]"
 	return 1
 fi
+echo "[ Reading \"$HOME/.shrc\" ]"
 
 case "$-" in
 *i*)

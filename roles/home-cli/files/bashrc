@@ -8,6 +8,8 @@ case "$-" in
 	;;
 esac
 
+echo "[ Reading \"$HOME/.bashrc\" ]"
+
 if [ -f /etc/bashrc ]
 then
 	. /etc/bashrc
