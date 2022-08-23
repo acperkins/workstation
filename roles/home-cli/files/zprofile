@@ -4,7 +4,14 @@ then
 	. /etc/zprofile
 fi
 
-if [ -e $HOME/.profile ]
+export _acp_ignore_shrc=1
+if [ -r "$HOME/.profile" ]
 then
-	emulate sh -c ". $HOME/.profile"
+	emulate sh -c '. "$HOME/.profile"'
+fi
+unset _acp_ignore_shrc
+
+if [ -r "$HOME/.zshrc" ]
+then
+	. "$HOME/.zshrc"
 fi

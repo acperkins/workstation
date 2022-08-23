@@ -1,4 +1,13 @@
 #!/bin/zsh
+case "$-" in
+*i*)
+	;;
+*)
+	# Shell is not interactive.
+	return 1
+	;;
+esac
+
 if [ -f /etc/zshrc ]
 then
 	. /etc/zshrc

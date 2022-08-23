@@ -1,4 +1,18 @@
 #!/bin/sh
+if [ -n "$_acp_ignore_shrc" ]
+then
+	return 1
+fi
+
+case "$-" in
+*i*)
+	;;
+*)
+	# Shell is not interactive.
+	return 1
+	;;
+esac
+
 if [ -d /var/acp ]
 then
 	export ACP=/var/acp
@@ -294,11 +308,4 @@ tlscheck () {
 	fi
 }
 
-case "$-" in
-*i*)
-	# Shell is interactive
-	usermotd
-	;;
-*)
-	;;
-esac
+usermotd

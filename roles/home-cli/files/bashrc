@@ -1,4 +1,13 @@
 #!/bin/bash
+case "$-" in
+*i*)
+	;;
+*)
+	# Shell is not interactive.
+	return 1
+	;;
+esac
+
 if [ -f /etc/bashrc ]
 then
 	. /etc/bashrc
