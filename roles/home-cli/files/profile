@@ -1,4 +1,12 @@
 #!/bin/sh
+if [ -r /usr/local/etc/profile ]
+then
+	. /usr/local/etc/profile
+elif [ -r /etc/profile ]
+then
+	. /etc/profile
+fi
+
 export ANSIBLE_NOCOWS=1
 export BLOCKSIZE=K
 export EDITOR=vi

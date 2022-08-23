@@ -8,7 +8,10 @@ case "$-" in
 	;;
 esac
 
-if [ -f /etc/zshrc ]
+if [ -r /usr/local/etc/zshrc ]
+then
+	. /usr/local/etc/zshrc
+elif [ -r /etc/zshrc ]
 then
 	. /etc/zshrc
 fi
@@ -26,7 +29,7 @@ bindkey "^[OB" history-beginning-search-forward
 
 export PS1="%B%n@%m%#%b "
 
-if [ -e "$HOME/.shrc" ]
+if [ -r "$HOME/.shrc" ]
 then
 	emulate sh -c '. "$HOME/.shrc"'
 fi

@@ -1,5 +1,8 @@
 #!/bin/zsh
-if [ -r /etc/zprofile ]
+if [ -r /usr/local/etc/zprofile ]
+then
+	. /usr/local/etc/zprofile ]
+elif [ -r /etc/zprofile ]
 then
 	. /etc/zprofile
 fi

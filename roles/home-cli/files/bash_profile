@@ -1,7 +1,10 @@
 #!/bin/bash
-if [ -r /etc/profile ]
+if [ -r /usr/local/etc/bash_profile ]
 then
-	. /etc/profile
+	. /usr/local/etc/bash_profile
+elif [ -r /etc/bash_profile ]
+then
+	. /etc/bash_profile
 fi
 
 export BASH_ENV="$HOME/.bashrc"

@@ -13,6 +13,14 @@ case "$-" in
 	;;
 esac
 
+if [ -r /usr/local/etc/shrc ]
+then
+	. /usr/local/etc/shrc
+elif [ -r /etc/shrc ]
+then
+	. /etc/shrc
+fi
+
 if [ -d /var/acp ]
 then
 	export ACP=/var/acp

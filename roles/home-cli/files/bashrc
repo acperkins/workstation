@@ -8,7 +8,10 @@ case "$-" in
 	;;
 esac
 
-if [ -f /etc/bashrc ]
+if [ -r /usr/local/etc/bashrc ]
+then
+	. /usr/local/etc/bashrc
+elif [ -r /etc/bashrc ]
 then
 	. /etc/bashrc
 fi
@@ -25,7 +28,7 @@ bind 'set completion-ignore-case on'
 bind 'set enable-bracketed-paste off'
 export PS1="\[\033[01m\]\u@\h\\$\[\033[00m\] "
 
-if [ -f "$HOME/.shrc" ]
+if [ -r "$HOME/.shrc" ]
 then
 	. "$HOME/.shrc"
 fi
