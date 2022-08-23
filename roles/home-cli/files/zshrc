@@ -1,7 +1,6 @@
 #!/bin/zsh
 case "$-" in
 *i*)
-	echo "[ Reading \"$HOME/.zshrc\" ]"
 	;;
 *)
 	# Shell is not interactive.

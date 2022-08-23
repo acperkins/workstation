@@ -1,7 +1,6 @@
 #!/bin/bash
 case "$-" in
 *i*)
-	echo "[ Reading \"$HOME/.bashrc\" ]"
 	;;
 *)
 	# Shell is not interactive.
