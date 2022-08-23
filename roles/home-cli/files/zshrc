@@ -1,14 +1,13 @@
 #!/bin/zsh
 case "$-" in
 *i*)
+	echo "[ Reading \"$HOME/.zshrc\" ]"
 	;;
 *)
 	# Shell is not interactive.
 	return 1
 	;;
 esac
-
-echo "[ Reading \"$HOME/.zshrc\" ]"
 
 if [ -f /etc/zshrc ]
 then

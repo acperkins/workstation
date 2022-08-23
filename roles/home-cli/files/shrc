@@ -4,10 +4,10 @@ then
 	echo "[ Ignoring \"$HOME/.shrc\" ]"
 	return 1
 fi
-echo "[ Reading \"$HOME/.shrc\" ]"
 
 case "$-" in
 *i*)
+	echo "[ Reading \"$HOME/.shrc\" ]"
 	;;
 *)
 	# Shell is not interactive.

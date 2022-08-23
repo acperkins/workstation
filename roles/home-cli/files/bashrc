@@ -1,14 +1,13 @@
 #!/bin/bash
 case "$-" in
 *i*)
+	echo "[ Reading \"$HOME/.bashrc\" ]"
 	;;
 *)
 	# Shell is not interactive.
 	return 1
 	;;
 esac
-
-echo "[ Reading \"$HOME/.bashrc\" ]"
 
 if [ -f /etc/bashrc ]
 then
