@@ -19,11 +19,6 @@
     name: dbus
     state: started
     enabled: yes
-- name: Set xorg keyboard layout
-  become: true
-  ansible.builtin.copy:
-    src: keyboard-gb.conf
-    dest: /usr/local/etc/X11/xorg.conf.d/keyboard-gb.conf
 - name: Set xorg screen size for kvm/qemu
   become: true
   ansible.builtin.copy:
