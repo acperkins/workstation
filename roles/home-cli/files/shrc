@@ -152,7 +152,7 @@ fi
 alias prun='podman run --rm --interactive --tty --security-opt label=disable --volume "$HOME":"$HOME" --volume "$XDG_RUNTIME_DIR":"$XDG_RUNTIME_DIR" --env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" --env XDG_SESSION_TYPE=wayland --ipc host'
 alias pruncerts='prun --volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro --volume /etc/ssl/certs:/etc/ssl/certs:ro'
 
-if [ -z "$SSH_AUTH_SOCK" ] && [ -z "$SSH_AGENT_PID" ]
+if command -v ssh-agent > /dev/null && [ -z "$SSH_AUTH_SOCK" ] && [ -z "$SSH_AGENT_PID" ]
 then
 	export SSH_AUTH_SOCK="$XDG_STATE_HOME/ssh-agent.socket"
 	export SSH_AGENT_PID="$XDG_STATE_HOME/ssh-agent.pid"
@@ -232,6 +232,12 @@ usermotd () {
 
 	# System uptime and load averages.
 	uptime
+
+	# SSH keys.
+	if command -v ssh-add > /dev/null
+	then
+		ssh-add -l
+	fi
 
 	# Language for the shell.
 	echo "LANG=$LANG"
