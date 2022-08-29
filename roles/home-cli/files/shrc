@@ -210,14 +210,6 @@ then
 	alias dnf=yum
 fi
 
-if [ -S "$SSH_AUTH_SOCK" ] \
-	&& [ -r "$HOME/.ssh/id_ed25519" ] \
-	&& [ -r "$HOME/.ssh/id_ed25519.pub" ] \
-	&& [ "$(ssh-add -l | grep -c "$(ssh-keygen -l -f "$HOME/.ssh/id_ed25519.pub")")" = 0 ]
-then
-	ssh-add "$HOME/.ssh/id_ed25519"
-fi
-
 usermotd () {
 	if [ -n "$_acp_motd_shown" ]
 	then
