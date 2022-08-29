@@ -31,11 +31,11 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 # Locale and language.
 ## Clear the existing locale settings and set options I always want.
 export TZ=Europe/London  # Can override this elsewhere if needed.
-if [ -f /etc/locale.conf ]
+if [ -r /etc/locale.conf ]
 then
-	 /etc/locale.conf
+	. /etc/locale.conf
 fi
-if [ -f "$XDG_CONFIG_HOME/locale.conf" ]
+if [ -r "$XDG_CONFIG_HOME/locale.conf" ]
 then
 	. "$XDG_CONFIG_HOME/locale.conf"
 fi
