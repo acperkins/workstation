@@ -38,3 +38,9 @@
     path: /etc/rc.conf.d/ansible-workstation
     regexp: '^ifconfig_wlan0_ipv6=.*'
     line: 'ifconfig_wlan0_ipv6="inet6 accept_rtadv"'
+- name: Clear /tmp at boot
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/rc.conf.d/ansible-workstation
+    regexp: '^clear_tmp_enable=.*'
+    line: 'clear_tmp_enable="YES"'
