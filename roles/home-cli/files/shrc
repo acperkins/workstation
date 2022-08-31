@@ -79,8 +79,6 @@ umask 0022
 # Other exports.
 export PS1="${PS1:-\$ }"
 export HISTFILE=""
-export HISTFILESIZE=0
-export HISTSIZE=0
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
 if [ "$(uname -s)" = Darwin ]
