@@ -76,7 +76,7 @@ done
 umask 0022
 
 # Other exports.
-export PS1="${PS1:-\$\ }"
+export PS1="${PS1:-\$ }"
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
 if [ "$(uname -s)" = Darwin ]
