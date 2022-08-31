@@ -19,6 +19,7 @@
     path: /etc/rc.conf.d/ansible-workstation
     regexp: '^ipv6_privacy=.*'
     line: 'ipv6_privacy="YES"'
+    create: yes
 - name: Set wlan0 arguments
   become: true
   ansible.builtin.lineinfile:
