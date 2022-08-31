@@ -39,6 +39,7 @@ if [ ! -d "$XDG_DATA_HOME" ]   ; then install -d -m 0700 "$XDG_DATA_HOME"   ; fi
 if [ ! -d "$XDG_CACHE_HOME" ]  ; then install -d -m 0700 "$XDG_CACHE_HOME"  ; fi
 if [ ! -d "$XDG_CONFIG_HOME" ] ; then install -d -m 0700 "$XDG_CONFIG_HOME" ; fi
 if [ ! -d "$XDG_STATE_HOME" ]  ; then install -d -m 0700 "$XDG_STATE_HOME"  ; fi
+if [ ! -d "$XDG_RUNTIME_DIR" ] ; then install -d -m 0700 "$XDG_RUNTIME_DIR" ; fi
 if [ ! -d "$HOME/.local/bin" ] ; then install -d -m 0700 "$HOME/.local/bin" ; fi
 
 _acp_add_path () {
@@ -162,8 +163,8 @@ alias pruncerts='prun --volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro --volume /
 
 if command -v ssh-agent > /dev/null
 then
-	export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-$XDG_STATE_HOME/ssh-agent.socket}"
-	export SSH_AGENT_PID="${SSH_AGENT_PID:-$XDG_STATE_HOME/ssh-agent.pid}"
+	export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-$XDG_RUNTIME_DIR/ssh-agent.socket}"
+	export SSH_AGENT_PID="${SSH_AGENT_PID:-$XDG_RUNTIME_DIR/ssh-agent.pid}"
 	if [ ! -S "$SSH_AUTH_SOCK" ]
 	then
 		ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
