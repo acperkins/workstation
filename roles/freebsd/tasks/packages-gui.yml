@@ -26,21 +26,17 @@
   vars:
     packages:
       - dbus
-      - emacs
       - en_GB-libreoffice
       - firefox-esr
       - galculator
       - git-gui
-      - iosevka
       - kde5
       - liberation-fonts-ttf
       - libreoffice
       - mpv
-      - nextcloudclient
       - redshift
       - remmina
       - remmina-plugin-rdp
       - rxvt-unicode
       - sddm
-      - vim
       - xinput

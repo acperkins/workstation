@@ -19,21 +19,25 @@
     name: kern.coredump
     value: '0'
     sysctl_set: yes
+    sysctl_file: /etc/sysctl.conf.local
 - name: Use IPv6 temporary addresses
   become: true
   ansible.posix.sysctl:
     name: net.inet6.ip6.use_tempaddr
     value: '1'
     sysctl_set: yes
+    sysctl_file: /etc/sysctl.conf.local
 - name: Prefer IPv6 temporary addresses
   become: true
   ansible.posix.sysctl:
     name: net.inet6.ip6.prefer_tempaddr
     value: '1'
     sysctl_set: yes
+    sysctl_file: /etc/sysctl.conf.local
 - name: Disable VT bell
   become: true
   ansible.posix.sysctl:
     name: kern.vt.enable_bell
     value: '0'
     sysctl_set: yes
+    sysctl_file: /etc/sysctl.conf.local

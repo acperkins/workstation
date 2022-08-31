@@ -16,7 +16,7 @@
 - name: Install core CLI packages
   become: true
   community.general.pkgng:
-    name: drm-kmod,en-freebsd-doc,git,pkg,py37-ansible,sudo
+    name: en-freebsd-doc,pkg,sudo
     state: present
 - name: Install additional CLI packages
   become: true
@@ -26,16 +26,16 @@
   vars:
     packages:
       - bash
-      - fusefs-ntfs
+      - git
       - gnu-watch
       - gnupg
       - mc
       - nmap
-      - openvpn
-      - py37-psutil
       - rubygem-asciidoctor
       - sqlite3
       - tmux
+      - vim
+      - zsh
 - name: Install asciidoctor-pdf Ruby gem
   become: true
   community.general.gem:

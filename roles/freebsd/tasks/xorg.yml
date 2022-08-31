@@ -25,3 +25,9 @@
     src: screen-qemu.conf
     dest: /usr/local/etc/X11/xorg.conf.d/screen-qemu.conf
   when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
+- name: Enable SDDM
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/rc.conf.d/ansible-workstation
+    regexp: '^sddm_enable=.*'
+    line: 'sddm_enable="YES"'
