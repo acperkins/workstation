@@ -50,7 +50,7 @@ fi
 # looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
 # snappy applications' desktop files.
 _snap_xdg_path=/var/lib/snapd/desktop
-if [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}}" ] && [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}:*}" ]
+if [ -x /usr/lib/snapd/snapd ] && [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}}" ] && [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}:*}" ]
 then
 	XDG_DATA_DIRS="${XDG_DATA_DIRS}:${_snap_xdg_path}"
 fi
