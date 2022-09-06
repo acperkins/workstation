@@ -45,8 +45,8 @@ ram=1G
 # from this host (or via SSH tunnels).
 vnchost="127.0.0.1"
 
-# Change to /dev/nmdm0A for the first null-modem.
-comoutput=stdio
+# Change to /dev/nmdm0A for the first null-modem, or stdio.
+comoutput=/dev/nmdm${vmnumber}A
 
 # Comment the next line out for no CD-ROM.
 #cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"
