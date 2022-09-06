@@ -45,8 +45,16 @@ vnc="localhost:0"
 # Change to /dev/nmdm0A for the first null-modem.
 comoutput=stdio
 
-#  Comment the next line out for no CD-ROM.
+# Comment the next line out for no CD-ROM.
 cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"
+
+################################################################################
+
+# Check for firmware.
+if ! [ -e /usr/local/share/uefi-firmware/BHYVE_UEFI.fd ]; then
+        echo "Firmware not found. Try \`pkg install bhyve-firmware\`." >&2
+        exit 1
+fi
 
 # Finally, run the bhyve command with all of these variables.
 /usr/sbin/bhyve \
@@ -60,7 +68,7 @@ cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"
 	${cdrom:-""} \
 	-s 29,fbuf,tcp=${vnc},w=1024,h=768 \
 	-s 30,xhci,tablet \
-	-s 31,lpc -l com1,stdio \
+	-s 31,lpc \
 	-l com1,$comoutput \
 	-l bootrom,/usr/local/share/uefi-firmware/BHYVE_UEFI.fd \
 	$vmname
