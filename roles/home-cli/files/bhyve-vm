@@ -1,5 +1,5 @@
 #!/bin/sh
-#
+
 #  Copyright 2022 Anthony Perkins
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +14,41 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+# Copy this script to $vmpath. The filename should be the VM name. To ease
+# snapshotting, each VM should be in its own directory, and should be a separate
+# ZFS dataset. For example:
+#
+#   /virt/vm/testvm                   <-- ZFS dataset.
+#   /virt/vm/testvm/testvm            <-- This script.
+#   /virt/vm/testvm/testvm_disk0.img  <-- Hard disk image.
+#   /virt/vm/testvm/cdrom.iso         <-- Operating System install ISO.
+#
+# The VM will be named the same as this script filename, unless you change the
+# vmname variable here.
 vmname=$(basename $0)
 vmpath=$(dirname $0)
+
+# The VM will have one virtual CPU socket with this number of cores. Windows
+# will only see up to two sockets, but up to 256 cores per socket. So cores are
+# preferred.
 cpucores=1
+
+# RAM size in KiB (K), MiB (M), or GiB (G).
 ram=1G
-vncport=0        # Default VNC port is 5900.
-comoutput=stdio  # Change to /dev/nmdm0A for the first null-modem.
 
-cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"  #  Comment out for no CD-ROM.
+# VNC should be "localhost:5900", "127.0.0.1:5901", "[::1]:5902",
+# "0.0.0.0:5903", "[::]:5904", or similar. Note that "0.0.0.0" and "[::]" will
+# be accessible over the network. "localhost", "127.0.0.1", and "[::1]" will
+# only be accessible from this host (or via SSH tunnels).
+vnc="localhost:0"
 
+# Change to /dev/nmdm0A for the first null-modem.
+comoutput=stdio
+
+#  Comment the next line out for no CD-ROM.
+cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"
+
+# Finally, run the bhyve command with all of these variables.
 /usr/sbin/bhyve \
 	-c sockets=1,cores=$cpucores,threads=1 \
 	-m $ram \
@@ -32,7 +58,7 @@ cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"  #  Comment out for no CD-ROM.
 	-s 1,virtio-blk,$vmpath/${vmname}_disk0.img \
 	-s 2,virtio-net,tap0 \
 	${cdrom:-""} \
-	-s 29,fbuf,tcp=localhost:$vncport,w=1024,h=768 \
+	-s 29,fbuf,tcp=${vnc},w=1024,h=768 \
 	-s 30,xhci,tablet \
 	-s 31,lpc -l com1,stdio \
 	-l com1,$comoutput \
