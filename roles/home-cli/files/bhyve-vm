@@ -21,7 +21,7 @@ ram=1G
 vncport=0        # Default VNC port is 5900.
 comoutput=stdio  # Change to /dev/nmdm0A for the first null-modem.
 
-cdrom="-s 3,ahci-cd,$vmpath/$vmname/install.iso"  #  Comment out for no CD-ROM.
+cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"  #  Comment out for no CD-ROM.
 
 /usr/sbin/bhyve \
 	-c sockets=1,cores=$cpucores,threads=1 \
@@ -29,7 +29,7 @@ cdrom="-s 3,ahci-cd,$vmpath/$vmname/install.iso"  #  Comment out for no CD-ROM.
 	-w \
 	-H \
 	-s 0,hostbridge \
-	-s 1,virtio-blk,$vmpath/$vmname/${vmname}0.img \
+	-s 1,virtio-blk,$vmpath/${vmname}_disk0.img \
 	-s 2,virtio-net,tap0 \
 	${cdrom:-""} \
 	-s 29,fbuf,tcp=localhost:$vncport,w=1024,h=768 \
