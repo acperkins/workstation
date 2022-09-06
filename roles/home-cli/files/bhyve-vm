@@ -42,6 +42,9 @@ ram=1G
 # only be accessible from this host (or via SSH tunnels).
 vnc="localhost:0"
 
+# Network TAP device.
+netif=tap0
+
 # Change to /dev/nmdm0A for the first null-modem.
 comoutput=stdio
 
@@ -70,8 +73,8 @@ fi
 	-H \
 	-s 0,hostbridge \
 	-s 1,virtio-blk,$vmpath/${vmname}_disk0.img \
-	-s 2,virtio-net,tap0 \
-	${cdrom:-""} \
+	-s 2,virtio-net,$netif \
+	$cdrom \
 	-s 29,fbuf,tcp=${vnc},w=800,h=600 \
 	-s 30,xhci,tablet \
 	-s 31,lpc \
