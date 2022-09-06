@@ -28,6 +28,10 @@
 vmname=$(basename $0)
 vmpath=$(dirname $0)
 
+# The number of the VM, from 0 to 9. This will be used for the VNC port, TAP
+# interface name, and serial console number.
+vmnumber=0
+
 # The VM will have one virtual CPU socket with this number of cores. Windows
 # will only see up to two sockets, but up to 256 cores per socket. So cores are
 # preferred.
@@ -36,20 +40,16 @@ cpucores=1
 # RAM size in KiB (K), MiB (M), or GiB (G).
 ram=1G
 
-# VNC should be "localhost:5900", "127.0.0.1:5901", "[::1]:5902",
-# "0.0.0.0:5903", "[::]:5904", or similar. Note that "0.0.0.0" and "[::]" will
-# be accessible over the network. "localhost", "127.0.0.1", and "[::1]" will
-# only be accessible from this host (or via SSH tunnels).
-vnc="localhost:0"
-
-# Network TAP device.
-netif=tap0
+# Host that VNC will listen on. Note that "0.0.0.0" and "[::]" will be
+# accessible over the network. "127.0.0.1", and "[::1]" will only be accessible
+# from this host (or via SSH tunnels).
+vnchost="127.0.0.1"
 
 # Change to /dev/nmdm0A for the first null-modem.
 comoutput=stdio
 
 # Comment the next line out for no CD-ROM.
-cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"
+#cdrom="-s 3,ahci-cd,$vmpath/cdrom.iso"
 
 ################################################################################
 
@@ -73,11 +73,12 @@ fi
 	-H \
 	-s 0,hostbridge \
 	-s 1,virtio-blk,$vmpath/${vmname}_disk0.img \
-	-s 2,virtio-net,$netif \
+	-s 2,virtio-net,tap$vmnumber \
 	$cdrom \
-	-s 29,fbuf,tcp=${vnc},w=800,h=600 \
+	-s 29,fbuf,tcp=$vnc:590$vmnumber,w=800,h=600 \
 	-s 30,xhci,tablet \
 	-s 31,lpc \
 	-l com1,$comoutput \
 	-l bootrom,/usr/local/share/uefi-firmware/BHYVE_UEFI.fd \
 	$vmname
+/usr/sbin/bhyvectl --destroy --vm=$vmname
