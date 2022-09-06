@@ -56,7 +56,13 @@ if ! [ -e /usr/local/share/uefi-firmware/BHYVE_UEFI.fd ]; then
         exit 1
 fi
 
-# Finally, run the bhyve command with all of these variables.
+# Finally, run the bhyve command with all of these variables. Note that there
+# are a few limitations with UEFI or Windows:
+#
+#   - ahci-* devices must be in slots 3, 4, 5, or 6.
+#   - lpc must be in slot 31.
+#   - Some Windows versions require a CD-ROM device to be present. This can be
+#     an empty file, created with 'touch cdrom.iso'.
 /usr/sbin/bhyve \
 	-c sockets=1,cores=$cpucores,threads=1 \
 	-m $ram \
@@ -66,7 +72,7 @@ fi
 	-s 1,virtio-blk,$vmpath/${vmname}_disk0.img \
 	-s 2,virtio-net,tap0 \
 	${cdrom:-""} \
-	-s 29,fbuf,tcp=${vnc},w=1024,h=768 \
+	-s 29,fbuf,tcp=${vnc},w=800,h=600 \
 	-s 30,xhci,tablet \
 	-s 31,lpc \
 	-l com1,$comoutput \
