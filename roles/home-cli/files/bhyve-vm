@@ -43,7 +43,7 @@ ram=1G
 # Host that VNC will listen on. Note that "0.0.0.0" and "[::]" will be
 # accessible over the network. "127.0.0.1", and "[::1]" will only be accessible
 # from this host (or via SSH tunnels).
-vnchost="127.0.0.1"
+vnchost="[::1]"
 
 # Uncomment to use stdio for the serial console.
 #comoutput=stdio
