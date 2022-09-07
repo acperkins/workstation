@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# The number of the VM, from 0 to 9. This will be used for the VNC port, TAP
+# interface name, and serial console number.
+vmnumber=0
+
 #  Copyright 2022 Anthony Perkins
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,19 +22,10 @@
 # snapshotting, each VM should be in its own directory, and should be a separate
 # ZFS dataset. For example:
 #
-#   /virt/vm/testvm                   <-- ZFS dataset.
-#   /virt/vm/testvm/testvm            <-- This script.
-#   /virt/vm/testvm/testvm_disk0.img  <-- Hard disk image.
-#   /virt/vm/testvm/cdrom.iso         <-- Operating System install ISO.
-#
-# The VM will be named the same as this script filename, unless you change the
-# vmname variable here.
-vmname=$(basename $0)
-vmpath=$(dirname $0)
-
-# The number of the VM, from 0 to 9. This will be used for the VNC port, TAP
-# interface name, and serial console number.
-vmnumber=0
+#   /virt/vm0                <-- ZFS dataset and $vmpath.
+#   /virt/vm0/vm0            <-- This script.
+#   /virt/vm0/vm0_disk0.img  <-- Hard disk image.
+#   /virt/vm0/cdrom.iso      <-- Operating System install ISO.
 
 # The VM will have one virtual CPU socket with this number of cores. Windows
 # will only see up to two sockets, but up to 256 cores per socket. So cores are
@@ -59,6 +54,14 @@ if ! [ -e /usr/local/share/uefi-firmware/BHYVE_UEFI.fd ]; then
         exit 1
 fi
 
+# The VM will be named after the vmnumber, unless you change the
+# vmname variable here.
+vmname=vm$vmnumber
+vmpath=$(dirname $0)
+
+# Calculate the VNC port number (5900 + $vmnumber).
+vncport=$(echo "5900 + $vmnumber" | bc)
+
 # Finally, run the bhyve command with all of these variables. Note that there
 # are a few limitations with UEFI or Windows:
 #
@@ -75,7 +78,7 @@ fi
 	-s 1,virtio-blk,$vmpath/${vmname}_disk0.img \
 	-s 2,virtio-net,tap$vmnumber \
 	$cdrom \
-	-s 29,fbuf,tcp=$vnc:590$vmnumber,w=800,h=600 \
+	-s 29,fbuf,tcp=$vnc:$vncport,w=800,h=600 \
 	-s 30,xhci,tablet \
 	-s 31,lpc \
 	-l com1,${comoutput:-/dev/nmdm${vmnumber}A} \
