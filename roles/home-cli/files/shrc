@@ -1,8 +1,4 @@
 #!/bin/sh
-if [ -n "$_acp_ignore_shrc" ]
-then
-	return 1
-fi
 if [ -n "$_acp_shrc_loaded" ]
 then
 	return 1
@@ -17,14 +13,6 @@ case "$-" in
 	return 1
 	;;
 esac
-
-if [ -r /usr/local/etc/shrc ]
-then
-	. /usr/local/etc/shrc
-elif [ -r /etc/shrc ]
-then
-	. /etc/shrc
-fi
 
 if [ -d /var/acp ]
 then

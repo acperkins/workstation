@@ -1,12 +1,4 @@
 #!/bin/sh
-if [ -r /usr/local/etc/profile ]
-then
-	. /usr/local/etc/profile
-elif [ -r /etc/profile ]
-then
-	. /etc/profile
-fi
-
 export ANSIBLE_NOCOWS=1
 export BLOCKSIZE=K
 export EDITOR=vi
@@ -32,10 +24,6 @@ export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp/.runtime-$(id -un)}"
 # Locale and language.
 ## Clear the existing locale settings and set options I always want.
 export TZ=Europe/London  # Can override this elsewhere if needed.
-if [ -r /etc/locale.conf ]
-then
-	. /etc/locale.conf
-fi
 if [ -r "$XDG_CONFIG_HOME/locale.conf" ]
 then
 	. "$XDG_CONFIG_HOME/locale.conf"

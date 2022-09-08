@@ -8,14 +8,6 @@ case "$-" in
 	;;
 esac
 
-if [ -r /usr/local/etc/zshrc ]
-then
-	. /usr/local/etc/zshrc
-elif [ -r /etc/zshrc ]
-then
-	. /etc/zshrc
-fi
-
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 

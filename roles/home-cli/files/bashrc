@@ -8,14 +8,6 @@ case "$-" in
 	;;
 esac
 
-if [ -r /usr/local/etc/bashrc ]
-then
-	. /usr/local/etc/bashrc
-elif [ -r /etc/bashrc ]
-then
-	. /etc/bashrc
-fi
-
 set -o emacs
 set -o noclobber
 shopt -s histappend

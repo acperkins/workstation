@@ -1,20 +1,5 @@
 #!/bin/zsh
-if [ -r /usr/local/etc/zprofile ]
-then
-	. /usr/local/etc/zprofile ]
-elif [ -r /etc/zprofile ]
-then
-	. /etc/zprofile
-fi
-
-export _acp_ignore_shrc=1
 if [ -r "$HOME/.profile" ]
 then
 	emulate sh -c '. "$HOME/.profile"'
-fi
-unset _acp_ignore_shrc
-
-if [ -r "$HOME/.zshrc" ]
-then
-	. "$HOME/.zshrc"
 fi

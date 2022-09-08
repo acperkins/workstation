@@ -1,22 +1,7 @@
 #!/bin/bash
-if [ -r /usr/local/etc/bash_profile ]
-then
-	. /usr/local/etc/bash_profile
-elif [ -r /etc/bash_profile ]
-then
-	. /etc/bash_profile
-fi
-
-export BASH_ENV="$HOME/.bashrc"
-
-export _acp_ignore_shrc=1
 if [ -r "$HOME/.profile" ]
 then
 	. "$HOME/.profile"
 fi
-unset _acp_ignore_shrc
 
-if [ -r "$HOME/.bashrc" ]
-then
-	. "$HOME/.bashrc"
-fi
+export BASH_ENV="$HOME/.bashrc"
