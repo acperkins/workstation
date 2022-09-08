@@ -5,3 +5,8 @@ then
 fi
 
 export BASH_ENV="$HOME/.bashrc"
+
+if [ -r "$HOME/.bashrc" ]
+then
+	. "$HOME/.bashrc"
+fi

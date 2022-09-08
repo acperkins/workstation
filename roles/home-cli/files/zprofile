@@ -3,3 +3,8 @@ if [ -r "$HOME/.profile" ]
 then
 	emulate sh -c '. "$HOME/.profile"'
 fi
+
+if [ -r "$HOME/.zshrc" ]
+then
+	. "$HOME/.zshrc"
+fi

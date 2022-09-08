@@ -1,10 +1,4 @@
 #!/bin/sh
-if [ -n "$_acp_shrc_loaded" ]
-then
-	return 1
-fi
-export _acp_shrc_loaded=1
-
 case "$-" in
 *i*)
 	;;
@@ -201,12 +195,6 @@ then
 fi
 
 usermotd () {
-	if [ -n "$_acp_motd_shown" ]
-	then
-		return 1
-	fi
-	export _acp_motd_shown=1
-	
 	# OS (kernel) name and version in reverse video.
 	printf "\033[7m$(uname -sr)\033[0m\n"
 

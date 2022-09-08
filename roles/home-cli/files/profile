@@ -48,3 +48,8 @@ if [ -r "$HOME/.profile.$(hostname -s)" ]
 then
 	. "$HOME/.profile.$(hostname -s)"
 fi
+
+if [ -r "$HOME/.shrc" ]
+then
+	. "$HOME/.shrc"
+fi
