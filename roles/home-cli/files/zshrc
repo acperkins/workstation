@@ -21,8 +21,3 @@ bindkey "^[OA" history-beginning-search-backward
 bindkey "^[OB" history-beginning-search-forward
 
 export PS1="%B%n@%m%#%b "
-
-if [ -n $_acp_shrc ]
-then
-	. "$HOME/.shrc"
-fi

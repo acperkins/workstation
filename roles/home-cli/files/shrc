@@ -7,7 +7,6 @@ case "$-" in
 	return 1
 	;;
 esac
-_acp_shrc=YES
 
 if [ -d /var/acp ]
 then
