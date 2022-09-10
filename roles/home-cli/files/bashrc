@@ -19,3 +19,8 @@ bind 'set bell-style none'
 bind 'set completion-ignore-case on'
 bind 'set enable-bracketed-paste off'
 export PS1="\[\033[01m\]\u@\h\\$\[\033[00m\] "
+
+if [ -n $_acp_shrc ]
+then
+	. "$HOME/.shrc"
+fi
