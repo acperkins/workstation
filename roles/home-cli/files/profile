@@ -49,7 +49,7 @@ then
 	. "$HOME/.profile.$(hostname -s)"
 fi
 
-if [ -r "$HOME/.shrc" ]
+if [ -z $_acp_shrc ]
 then
 	. "$HOME/.shrc"
 fi
