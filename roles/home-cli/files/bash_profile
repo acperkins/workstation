@@ -1,12 +1,340 @@
 #!/bin/bash
-if [ -r "$HOME/.profile" ]
-then
-	. "$HOME/.profile"
-fi
-
+export ANSIBLE_NOCOWS=1
 export BASH_ENV="$HOME/.bashrc"
+export BLOCKSIZE=K
+export EDITOR=vi
+export ENV="$HOME/.shrc"
+export HISTCONTROL=ignorespace:ignoredups
+export LANG=C
+export PAGER=less
+export PAPERSIZE=a4
+export POWERSHELL_TELEMETRY_OPTOUT=1
+export PS1="${PS1:-\$\ }"
+export PYTHONWARNINGS=ignore::UserWarning
 
-if [ -r "$HOME/.bashrc" ]
+# Set up XDG variables. See:
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+export XDG_DATA_DIRS=${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
+export XDG_CONFIG_DIRS=${XDG_CONFIG_DIRS:-/etc/xdg}
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp/.runtime-$(id -un)}"
+
+# Set up XDG variables. See:
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+if [ ! -d "$XDG_DATA_HOME" ]   ; then install -d -m 0700 "$XDG_DATA_HOME"   ; fi
+if [ ! -d "$XDG_CACHE_HOME" ]  ; then install -d -m 0700 "$XDG_CACHE_HOME"  ; fi
+if [ ! -d "$XDG_CONFIG_HOME" ] ; then install -d -m 0700 "$XDG_CONFIG_HOME" ; fi
+if [ ! -d "$XDG_STATE_HOME" ]  ; then install -d -m 0700 "$XDG_STATE_HOME"  ; fi
+if [ ! -d "$XDG_RUNTIME_DIR" ] ; then install -d -m 0700 "$XDG_RUNTIME_DIR" ; fi
+if [ ! -d "$HOME/.local/bin" ] ; then install -d -m 0700 "$HOME/.local/bin" ; fi
+
+if [ -d /var/acp ]
 then
-	. "$HOME/.bashrc"
+	export ACP=/var/acp
+else
+	export ACP="$HOME/data"
 fi
+
+# Locale and language.
+## Clear the existing locale settings and set options I always want.
+export TZ=Europe/London  # Can override this elsewhere if needed.
+if [ -r "$XDG_CONFIG_HOME/locale.conf" ]
+then
+	. "$XDG_CONFIG_HOME/locale.conf"
+fi
+
+# Set Qt DPI when running under GNOME.
+if [ "${XDG_CURRENT_DESKTOP:-unknown}" = GNOME ]
+then
+	export QT_FONT_DPI=72
+fi
+
+# Desktop files (used by desktop environments within both X11 and Wayland) are
+# looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
+# snappy applications' desktop files.
+_snap_xdg_path=/var/lib/snapd/desktop
+if [ -x /usr/lib/snapd/snapd ] && [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}}" ] && [ -n "${XDG_DATA_DIRS##*${_snap_xdg_path}:*}" ]
+then
+	XDG_DATA_DIRS="${XDG_DATA_DIRS}:${_snap_xdg_path}"
+fi
+unset _snap_xdg_path
+
+# Bash-specific settings that will not work in other Bourne-compatible shells.
+if [ -n $BASH_VERSION ]
+then
+	set -o emacs
+	set -o noclobber
+	shopt -s histappend
+	bind '"\e[1;5C": forward-word'
+	bind '"\e[1;5D": backward-word'
+	bind '"\e[A": history-search-backward'
+	bind '"\e[B": history-search-forward'
+	bind 'set bell-style none'
+	bind 'set completion-ignore-case on'
+	bind 'set enable-bracketed-paste off'
+	export PS1="\[\033[01m\]\u@\h\\$\[\033[00m\] "
+fi
+
+_acp_add_path () {
+	if [ -n "$1" ] && [ -d "$1" ]
+	then
+		case ":$PATH:" in
+			*:"$1":*)
+				return
+				;;
+			*)
+				PATH="$1:$PATH"
+				export PATH
+				return
+				;;
+		esac
+	fi
+}
+
+# Last in the list means first in the path.
+for dir in "$HOME/.local/bin" \
+	   "$HOME/.cargo/bin" \
+	   "$XDG_DATA_HOME/gem/ruby/bin" \
+	   "$XDG_DATA_HOME/flatpak/exports/bin" \
+	   /opt/local/bin \
+	   /opt/local/sbin \
+	   /var/lib/flatpak/exports/bin \
+	   /usr/local/bin \
+	   /usr/local/sbin \
+	   /usr/bin \
+	   /usr/sbin
+do
+	_acp_add_path "$dir"
+done
+
+umask 0022
+
+# Other exports.
+export PS1="${PS1:-\$ }"  # Fallback prompt if not Bash.
+export HISTFILE=""
+export TIME_STYLE=long-iso  # Used by GNU 'ls'.
+
+if [ "$(uname -s)" = Darwin ]
+then
+	# MacOS warns about switching from bash to zsh.  Silence this.
+	export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
+
+# Override this if needed.
+export LIBVIRT_DEFAULT_URI="qemu+ssh://vmhost/system"
+
+if test -x /usr/bin/tty
+then
+	GPG_TTY=$(tty)
+	export GPG_TTY
+fi
+
+# Set up Vi/Vim.
+if command -v vim > /dev/null
+then
+	export EDITOR="vim -f"
+	alias vi=vim
+else
+	export EDITOR=vi
+fi
+
+# Use root's cache instead of having one for root and one for the user.
+if [ "$(id -u)" -ne 0 ] && [ -x /usr/bin/dnf ]
+then
+	alias dnf="dnf --cacheonly --nogpgcheck"
+fi
+
+# Old RHEL releases still have the original yum (not DNF).
+if [ -x /usr/bin/yum ] && [ ! -x /usr/bin/dnf ]
+then
+	alias dnf=yum
+fi
+
+alias 7zencrypt="7z a -t7z -p -mhe"
+alias alu="apt list --upgradable"
+alias asdo="apt source --download-only"
+alias aurmake="makepkg -irs"
+alias f=fossil
+alias ip="ip -c"
+alias isocal="cal --iso --reform=iso --monday --week"
+alias la="ls -a"
+alias ll="ls -l"
+alias ls="command ls -F"
+alias now="date +%Y%m%dT%H%M%S%z"
+alias nowu="date -u +%Y%m%dT%H%M%SZ"
+alias streamenc="openssl aes-256-cbc -pbkdf2 -in - -out - -e"
+alias streamdec="openssl aes-256-cbc -pbkdf2 -in - -out - -d"
+alias wgr=wordgrinder
+alias ytmp3="youtube-dl -q -x --audio-format=mp3"
+alias zlu="zypper list-updates"
+
+# Language aliases.
+alias en="LANG=en_GB.UTF-8"
+alias fr="LANG=fr_FR.UTF-8"
+
+# Alias dig to drill if dig is not installed.
+if [ -x /usr/bin/drill ]
+then
+	alias dig=drill
+fi
+
+# Set up Go.
+if [ -x "$ACP/opt/go/bin/go" ] || [ -x /usr/bin/go ] || [ -x /usr/local/bin/go ]
+then
+	export GOPROXY=https://proxy.golang.org
+	export GOPATH="$XDG_DATA_HOME/go"
+	if [ ! -d "$GOPATH" ]
+	then
+		mkdir -p "$GOPATH/bin"
+		mkdir -p "$GOPATH/pkg"
+		mkdir -p "$GOPATH/src"
+	fi
+	if [ -x "$ACP/opt/go/bin/go" ]
+	then
+		export GOROOT="$ACP/opt/go"
+		_acp_add_path "$GOROOT/bin"
+	fi
+	_acp_add_path "$GOPATH/bin"
+fi
+
+alias prun='podman run --rm --interactive --tty --security-opt label=disable --volume "$HOME":"$HOME" --volume "$XDG_RUNTIME_DIR":"$XDG_RUNTIME_DIR" --env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" --env XDG_SESSION_TYPE=wayland --ipc host'
+alias pruncerts='prun --volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro --volume /etc/ssl/certs:/etc/ssl/certs:ro'
+
+# Set up SSH agent if it's not already running.
+if command -v ssh-agent > /dev/null
+then
+	export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-$XDG_RUNTIME_DIR/ssh-agent.socket}"
+	export SSH_AGENT_PID="${SSH_AGENT_PID:-$XDG_RUNTIME_DIR/ssh-agent.pid}"
+	if [ ! -S "$SSH_AUTH_SOCK" ]
+	then
+		ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+	fi
+fi
+
+# Make a directory and immediately change to it.
+mkcd () {
+	if [ $# -ne 1 ]
+	then
+		echo "mkcd: incorrect arguments (one directory required)." >&2
+		return 1
+	else
+		mkdir -p "$1"
+		cd "$1" || return
+	fi
+}
+
+linapm () {
+	cat /sys/class/power_supply/BAT0/status
+	cat /sys/class/power_supply/BAT0/capacity
+}
+
+xa () {
+	out=$(xrandr --listactivemonitors | awk 'NR!=1{print " "$NF" "}')
+	for monitor in $out
+	do
+		m=$(echo "$monitor" | sed 's/ //g')
+		xrandr --output "$m" --auto
+	done
+}
+
+emacsro () {
+	emacs "$1" -f view-mode
+}
+
+# Try to attach to an existing tmux session, else create a new one.
+tm () {
+	if tmux list-sessions > /dev/null 2>&1
+	then
+		tmux attach-session
+	else
+		tmux new-session
+	fi
+}
+
+usermotd () {
+	# OS (kernel) name and version in reverse video.
+	printf "\033[7m$(uname -sr)\033[0m\n"
+
+	# Distro name and version on Linux and macOS.
+	if [ -r /etc/os-release ]
+	then
+		echo "    $(. /etc/os-release; echo "$NAME" "$VERSION")"
+	fi
+	if [ "$(uname -s)" = "Darwin" ]
+	then
+		echo "    $(sw_vers -productName) $(sw_vers -productVersion)"
+	fi
+
+	# System uptime and load averages.
+	uptime
+
+	# SSH keys.
+	if command -v ssh-add > /dev/null
+	then
+		ssh-add -l
+	fi
+
+	# Language for the shell.
+	echo "LANG=$LANG"
+
+	# Timezone.
+	if [ -n "$TZ" ]
+	then
+		echo "TZ=$TZ"
+	elif [ -x /usr/bin/timedatectl ] && [ "$(systemctl is-system-running)" != offline ]
+	then
+		timedatectl show --property=Timezone | sed 's/Timezone=/TZ=/'
+	fi
+
+	# Shell name and version.
+	if [ -n "$BASH_VERSION" ]
+	then
+		echo "bash $BASH_VERSION"
+	elif [ -n "$ZSH_VERSION" ]
+	then
+		echo "zsh $ZSH_VERSION"
+	else
+		echo "SHELL=$SHELL"
+	fi
+}
+
+simpletls () {
+	# Create a self-signed certificate with:
+	#     openssl req -new -x509 \
+	#     -keyout $ACP/openssl/$(hostname)-key.pem \
+	#     -out $ACP/openssl/$(hostname-cert.pem
+	if [ "$1" = "-l" ]
+	then
+		openssl s_server -cert "$ACP/openssl/$(hostname)-cert.pem" -key "$HOME/data/openssl/$(hostname)-key.pem" -tls1_3 -port "$2"
+	else
+		openssl s_client -CAfile "$ACP/openssl/$1-cert.pem" -tls1_3 -connect "$1":"$2"
+	fi
+}
+
+tlscheck () {
+	if [ -z "$1" ]
+	then
+		echo "Usage: tlscheck hostname:port" >&2
+	else
+		openssl s_client -connect "$1" </dev/null | openssl x509 -text
+	fi
+}
+
+if [ -r "$XDG_CONFIG_HOME/profile.local" ]
+then
+	. "$XDG_CONFIG_HOME/profile.local"
+fi
+
+case "$-" in
+*i*)
+	# Shell is interactive.
+	usermotd
+	;;
+*)
+	# Shell is not interactive.
+	return 1
+	;;
+esac

@@ -1,26 +1,5 @@
 #!/bin/bash
-case "$-" in
-*i*)
-	;;
-*)
-	# Shell is not interactive.
-	return 1
-	;;
-esac
-
-set -o emacs
-set -o noclobber
-shopt -s histappend
-bind '"\e[1;5C": forward-word'
-bind '"\e[1;5D": backward-word'
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-bind 'set bell-style none'
-bind 'set completion-ignore-case on'
-bind 'set enable-bracketed-paste off'
-export PS1="\[\033[01m\]\u@\h\\$\[\033[00m\] "
-
-if [ -r "$HOME/.shrc" ]
+if [ -r "$HOME/.bash_profile" ]
 then
-	. "$HOME/.shrc"
+	. "$HOME/.bash_profile"
 fi
