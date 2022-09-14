@@ -99,6 +99,7 @@ for dir in "$HOME/.local/bin" \
 	   "$HOME/.cargo/bin" \
 	   "$XDG_DATA_HOME/gem/ruby/bin" \
 	   "$XDG_DATA_HOME/flatpak/exports/bin" \
+	   "$ACP/bin" \
 	   /opt/local/bin \
 	   /opt/local/sbin \
 	   /var/lib/flatpak/exports/bin \
