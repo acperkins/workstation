@@ -63,7 +63,7 @@ fi
 unset _snap_xdg_path
 
 # Bash-specific settings that will not work in other Bourne-compatible shells.
-if [ -n $BASH_VERSION ]
+if [ -n "$BASH_VERSION" ]
 then
 	set -o emacs
 	set -o noclobber
