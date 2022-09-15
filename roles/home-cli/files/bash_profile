@@ -91,6 +91,9 @@ then
 	bindkey "^[OB" history-beginning-search-forward
 	PS1="%B%n@%m%#%b "
 
+else
+	# POSIX-compatible prompt.
+	PS1="$(id -un)@$(uname -n | sed 's/\..*$//')$ "
 fi
 
 _acp_add_path () {
