@@ -92,6 +92,12 @@ then
 	PS1="%B%n@%m%#%b "
 
 else
+	if [ $(uname -s) = FreeBSD ]
+	then
+		bind "^[[1;5C" em-next-word
+		bind "^[[1;5D" ed-prev-word
+	fi
+
 	# POSIX-compatible prompt.
 	PS1="$(id -un)@$(uname -n | sed 's/\..*$//')$ "
 fi
