@@ -3,3 +3,17 @@ if [ -r "$HOME/.profile" ]
 then
 	. "$HOME/.profile"
 fi
+
+case "$-" in
+*i*)
+	# Shell is interactive.
+	if [ -r "$HOME/.bashrc" ]
+	then
+		. "$HOME/.bashrc"
+	fi
+	;;
+*)
+	# Shell is not interactive.
+	return 1
+	;;
+esac
