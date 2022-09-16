@@ -1,0 +1,5 @@
+#!/bin/zsh
+if [ -r "$HOME/.shrc" ]
+then
+	emulate sh -c '. "$HOME/.shrc"'
+fi

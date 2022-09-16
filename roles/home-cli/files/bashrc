@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -r "$HOME/.bash_profile" ]
+if [ -r "$HOME/.shrc" ]
 then
-	. "$HOME/.bash_profile"
+	. "$HOME/.shrc"
 fi

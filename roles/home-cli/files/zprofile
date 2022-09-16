@@ -1,2 +1,5 @@
 #!/bin/zsh
-emulate sh -c '. "$HOME/.bash_profile"'
+if [ -r "$HOME/.profile" ]
+then
+	emulate sh -c '. "$HOME/.profile"'
+fi

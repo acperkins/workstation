@@ -1,0 +1,16 @@
+#!/bin/bash
+if [ -r "$HOME/.profile" ]
+then
+	. "$HOME/.profile"
+fi
+
+case "$-" in
+*i*)
+	# Shell is interactive.
+	usermotd
+	;;
+*)
+	# Shell is not interactive.
+	return 1
+	;;
+esac
