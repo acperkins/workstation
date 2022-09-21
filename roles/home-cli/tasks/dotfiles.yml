@@ -17,10 +17,6 @@
   ansible.builtin.copy:
     src: gemrc
     dest: "{{ ansible_env.HOME }}/.gemrc"
-- name: Remove $HOME/.hushlogin
-  ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.hushlogin"
-    state: absent
 - name: Create $HOME/.tmux.conf
   ansible.builtin.copy:
     src: tmux.conf
