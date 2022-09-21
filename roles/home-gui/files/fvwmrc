@@ -103,6 +103,7 @@ AddToMenu RootMenu      "Root Menu"                 Title
 +                       "Midnight Commander"        Exec (urxvt -geometry 120x24 -e mc || xterm -geometry 120x24 -e mc)
 +                       "Vi"                        Exec (urxvt -e vi || xterm -e vi)
 +                       "Vim"                       Exec (urxvt -e vim || xterm -e vim)
++                       "VNC Viewer"                Exec vncviewer
 +                       ""                          Nop
 +                       "Utilities"                 Popup Utilities
 +                       ""                          Nop
