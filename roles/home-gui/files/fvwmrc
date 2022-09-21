@@ -48,13 +48,10 @@ Style "FvwmButtons" Icon toolbox.xpm, ClickToFocus
 AddToDecor terms
 + ButtonStyle 1 Pixmap mini.xterm_32x32.xpm
 + HilightColor #fefefe CadetBlue
-Style "XTerm"       UseDecor terms
-Style "XTerm"       Icon xterm-color_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140
-Style "URxvt"       UseDecor terms
-Style "URxvt"       Icon xterm-color_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140
-Style "URxvt"       MWMBorder, MWMButtons
-Style "mate-terminal" UseDecor terms
-Style "mate-terminal" Icon xterm-color_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140
+Style "*"           Icon xorg.xpm
+Style "XTerm"       Icon mini.xterm_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140, UseDecor terms
+Style "URxvt"       Icon mini.xterm_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140, MWMBorder, MWMButtons, UseDecor terms
+Style "mate-terminal" Icon xterm-color_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140, UseDecor terms
 
 # Styles for various common programs:
 Style "xclock"      NoTitle, NoHandles, Sticky, WindowListSkip, ClickToFocus
@@ -66,7 +63,7 @@ Style "xman"        Icon xman.xpm, RandomPlacement, ClickToFocus
 Style "xmag"        Icon mag_glass.xpm, RandomPlacement, ClickToFocus
 Style "xgraph"      Icon graphs.xpm, RandomPlacement, ClickToFocus
 Style "xmosaic"     Color Green/Yellow, ClickToFocus
-Style "xconsole"    Icon rxterm-color_32x32.xpm, WindowListSkip, Sticky
+Style "xconsole"    Icon xterm-color_32x32.xpm, WindowListSkip, Sticky
 Style "stalonetray" WindowListSkip, Sticky
 
 # some simple default mouse bindings:
@@ -105,7 +102,7 @@ AddToMenu RootMenu      "Root Menu"                 Title
 +                       "GVIM"                      Exec gvim
 +                       "LibreOffice"               Exec libreoffice
 +                       "Midnight Commander"        Exec (urxvt -geometry 120x40 -e mc || xterm -geometry 120x40 -e mc)
-+                       "URXVT"                     Exec (urxvt || rxvt)
++                       "URxvt"                     Exec (urxvt || rxvt)
 +                       "Vi"                        Exec (urxvt -e vi || xterm -e vi)
 +                       "XTerm"                     Exec xterm
 +                       ""                          Nop
