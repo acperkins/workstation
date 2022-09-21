@@ -43,3 +43,4 @@
     state: present
     pre_release: yes
     user_install: no
+    norc: yes
