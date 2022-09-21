@@ -28,15 +28,12 @@
       - dbus
       - en_GB-libreoffice
       - firefox-esr
-      - galculator
+      - fvwm3
       - git-gui
-      - kde5
       - liberation-fonts-ttf
       - libreoffice
-      - mpv
+      - mutt
       - redshift
-      - remmina
-      - remmina-plugin-rdp
       - rxvt-unicode
-      - sddm
+      - tigervnc-viewer
       - xinput
