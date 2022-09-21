@@ -16,9 +16,9 @@ URxvt*color12: #729fcf
 URxvt*color13: #ad7fa8
 URxvt*color14: #00f5e9
 URxvt*color15: #eeeeec
-URxvt*font: xft:Monospace:Regular:size=10
+URxvt*font: xft:Monospace:size=10
 URxvt*foreground: #d3d7cf
-URxvt*geometry: 120x40
+URxvt*geometry: 120x24
 URxvt*letterSpace: -1
 URxvt*locale: true
 URxvt*metaSendsEscape: true
@@ -51,7 +51,7 @@ xterm*color12: #729fcf
 xterm*color13: #ad7fa8
 xterm*color14: #00f5e9
 xterm*color15: #eeeeec
-xterm*faceName: xft:Monospace:Regular:size=10
+xterm*faceName: xft:Monospace:size=10
 xterm*faceSize1: 4
 xterm*faceSize2: 6
 xterm*faceSize3: 8
