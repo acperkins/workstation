@@ -19,7 +19,6 @@ URxvt*color15: #eeeeec
 URxvt*font: xft:Monospace:size=10
 URxvt*foreground: #d3d7cf
 URxvt*geometry: 120x24
-URxvt*letterSpace: -1
 URxvt*locale: true
 URxvt*metaSendsEscape: true
 URxvt*perl-ext: -searchable-scrollback
