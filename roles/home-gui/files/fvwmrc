@@ -10,6 +10,8 @@ Emulate Mwm
 MenuStyle * Mwm
 Style * MwmButtons
 Style * MwmBorder
+Style * MWMFunctions
+Style * MWMDecor
 
 # Set some default fonts:
 DefaultFont    "xft:Sans:size=10"
@@ -30,15 +32,14 @@ ColormapFocus FollowsFocus
 
 # default Styles:
 Style "*"           BorderWidth 7, HandleWidth 7
-Style "*"           Icon unknown1.xpm, Color #fefefe/DarkGrey
-Style "*"           MWMFunctions, MWMDecor, HintOverride
-Style "*"           DecorateTransient, NoPPosition
+Style "*"           Icon xorg.xpm, Color #fefefe/DarkGrey
+Style "*"           HintOverride, DecorateTransient, NoPPosition
 Style "*"           IconBox 0 -10 -280 -1
 Style "*"           SloppyFocus
 Style "*"           RandomPlacement, SmartPlacement
 
 # Styles for various Fvwm modules:
-Style "Fvwm*"       NoTitle,  Sticky, WindowListSkip
+Style "Fvwm*"       NoTitle, Sticky, WindowListSkip
 Style "Fvwm*"       BorderWidth 2, CirculateSkipIcon, CirculateSkip
 Style "FvwmPager"   StaysOnTop
 Style "FvwmBanner"  StaysOnTop
@@ -48,10 +49,9 @@ Style "FvwmButtons" Icon toolbox.xpm, ClickToFocus
 AddToDecor terms
 + ButtonStyle 1 Pixmap mini.xterm_32x32.xpm
 + HilightColor #fefefe CadetBlue
-Style "*"           Icon xorg.xpm
-Style "XTerm"       Icon mini.xterm_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140, UseDecor terms
-Style "URxvt"       Icon mini.xterm_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140, MWMBorder, MWMButtons, UseDecor terms
-Style "mate-terminal" Icon xterm-color_32x32.xpm, SloppyFocus, IconBox -70 1 -1 -140, UseDecor terms
+Style "XTerm"       Icon mini.xterm_32x32.xpm, IconBox -70 1 -1 -140, UseDecor terms
+Style "URxvt"       Icon mini.xterm_32x32.xpm, IconBox -70 1 -1 -140, UseDecor terms
+Style "mate-terminal" Icon mini.xterm_32x32.xpm, IconBox -70 1 -1 -140, UseDecor terms
 
 # Styles for various common programs:
 Style "xclock"      NoTitle, NoHandles, Sticky, WindowListSkip, ClickToFocus
@@ -95,16 +95,14 @@ AddToFunc RestartFunction   "I" Module FvwmPager 0 5
 
 ######################## Menus ###################
 AddToMenu RootMenu      "Root Menu"                 Title
-+                       "Terminal"                  Exec (mate-terminal || urxvt || xterm)
-+                       "Terminal (dark)"           Exec (urxvt -fg grey -bg black || xterm -fg grey -bg black)
++                       "Terminal"                  Exec (gnome-terminal || mate-terminal || urxvt || xterm)
++                       "XTerm"                     Exec xterm
 +                       ""                          Nop
 +                       "Firefox"                   Exec firefox
 +                       "GVIM"                      Exec gvim
 +                       "LibreOffice"               Exec libreoffice
-+                       "Midnight Commander"        Exec (urxvt -geometry 120x40 -e mc || xterm -geometry 120x40 -e mc)
-+                       "URxvt"                     Exec (urxvt || rxvt)
++                       "Midnight Commander"        Exec (urxvt -geometry 120x24 -e mc || xterm -geometry 120x24 -e mc)
 +                       "Vi"                        Exec (urxvt -e vi || xterm -e vi)
-+                       "XTerm"                     Exec xterm
 +                       ""                          Nop
 +                       "Utilities"                 Popup Utilities
 +                       ""                          Nop
