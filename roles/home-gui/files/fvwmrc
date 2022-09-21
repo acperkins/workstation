@@ -99,10 +99,10 @@ AddToMenu RootMenu      "Root Menu"                 Title
 +                       "XTerm"                     Exec xterm
 +                       ""                          Nop
 +                       "Firefox"                   Exec firefox
-+                       "GVIM"                      Exec gvim
 +                       "LibreOffice"               Exec libreoffice
 +                       "Midnight Commander"        Exec (urxvt -geometry 120x24 -e mc || xterm -geometry 120x24 -e mc)
 +                       "Vi"                        Exec (urxvt -e vi || xterm -e vi)
++                       "Vim"                       Exec (urxvt -e vim || xterm -e vim)
 +                       ""                          Nop
 +                       "Utilities"                 Popup Utilities
 +                       ""                          Nop
