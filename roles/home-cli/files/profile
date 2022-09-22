@@ -240,6 +240,14 @@ if command -v ssh-agent > /dev/null
 then
 	export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-$XDG_RUNTIME_DIR/ssh-agent.socket}"
 	export SSH_AGENT_PID="${SSH_AGENT_PID:-$XDG_RUNTIME_DIR/ssh-agent.pid}"
+	ssh-add -l > /dev/null 2>&1
+	local _acp_ssh_agent_exists=$?
+	if [ -S "$SSH_AUTH_SOCK" ] && [ $_acp_ssh_agent_exists -eq 2 ]
+	then
+		# Remove stale ssh-agent socket.
+		rm -f "$SSH_AUTH_SOCK"
+	fi
+	unset _acp_ssh_agent_exists
 	if [ ! -S "$SSH_AUTH_SOCK" ]
 	then
 		ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
