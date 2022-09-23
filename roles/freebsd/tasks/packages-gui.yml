@@ -25,7 +25,6 @@
     state: present
   vars:
     packages:
-      # luit is needed by xterm.
       - dbus
       - en_GB-libreoffice
       - firefox-esr
@@ -33,8 +32,9 @@
       - git-gui
       - liberation-fonts-ttf
       - libreoffice
-      - luit
+      - luit  # Needed by xterm.
       - mutt
       - redshift
       - tigervnc-viewer
       - xinput
+      - xlockmore

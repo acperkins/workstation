@@ -25,7 +25,6 @@
     state: present
   vars:
     packages:
-      # unzip needed for extracting fonts.
       - bash
       - git
       - gnu-watch
@@ -35,7 +34,7 @@
       - rubygem-asciidoctor
       - sqlite3
       - tmux
-      - unzip
+      - unzip  # Needed for extracting fonts.
       - vim
       - zsh
 - name: Install asciidoctor-pdf Ruby gem
