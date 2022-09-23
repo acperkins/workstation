@@ -19,6 +19,11 @@
     # utouch-kmod and xf86-input-evdev are needed for mouse in QEMU/KVM.
     name: utouch-kmod,xf86-input-evdev
     state: present
+- name: Set xorg screen
+  become: true
+  ansible.builtin.copy:
+    src: screen-qemu.conf
+    dest: /usr/local/etc/X11/xorg.conf.d/screen-qemu.conf
 - name: Enable utouch module
   become: true
   ansible.builtin.lineinfile:
