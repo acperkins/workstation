@@ -31,6 +31,10 @@ Creating the VM
    found for this example by running "virsh vncdisplay rhel9" from
    another SSH/console session.
 
+   For a virtio network card on Windows machines, add ",model=virtio" to
+   the --network option. Other useful options are "--ram 4096" for 4 GB
+   RAM, and "--vcpus 2" for a dual-CPU guest.
+
 
 Tips
 
