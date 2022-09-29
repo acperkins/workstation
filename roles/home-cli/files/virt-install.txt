@@ -21,19 +21,25 @@ Creating the VM
 
       virt-install --name rhel9                                        \
          --osinfo rhel9.1                                              \
-         --cdrom /var/lib/libvirt/isos/rhel-baseos-9.1-x86_64-dvd.iso  \
-         --disk path=/var/lib/libvirt/images/rhel9.qcow2,size=20       \
-         --network type=direct,source=eno1,source_mode=bridge          \
          --boot uefi                                                   \
-         --vnc
+         --cdrom /var/lib/libvirt/isos/rhel-baseos-9.1-x86_64-dvd.iso  \
+         --network type=direct,source=eno1,source_mode=bridge          \
+         --graphics vnc                                                \
+         --autoconsole none
 
    Paths and names should be changed as appropriate. The VNC port can be
-   found for this example by running "virsh vncdisplay rhel9" from
-   another SSH/console session.
+   found for this example by running "virsh vncdisplay rhel9".
 
-   For a virtio network card on Windows machines, add ",model=virtio" to
-   the --network option. Other useful options are "--ram 4096" for 4 GB
-   RAM, and "--vcpus 2" for a dual-CPU guest.
+   The disk will be created in the default location, which is normally
+   /var/lib/libvirt/images. To change this, add "path=/path/file.qcow2"
+   to the "--disk" option. Specify the size by adding "size=20" for a
+   20 GB disk.
+
+   For a virtio network card on Windows machines, add "model=virtio" to
+   the --network option.
+
+   Other useful options are "--ram 4096" for 4 GB RAM, and "--vcpus 2"
+   for a dual-CPU guest.
 
 
 Tips
