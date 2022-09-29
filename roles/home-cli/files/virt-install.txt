@@ -4,8 +4,8 @@
 Introduction
 
    This assumes that the network will be used in "macvtap" mode. This is
-   the preferred method, as it is faster than a regular bridge and
-   does not need any additional network configuration on the host.
+   the preferred method, as it is faster than a regular bridge and does
+   not need any additional network configuration on the host.
 
    The disadvantage of macvtap is that host-to-vm and vm-to-host
    communication is blocked. This can be worked around with an
