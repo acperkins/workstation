@@ -13,7 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Check for /usr/bin/git
+  ansible.builtin.stat:
+    path: /usr/bin/git
+  register: usr_bin_git
+- name: Check for /usr/local/bin/git
+  ansible.builtin.stat:
+    path: /usr/local/bin/git
+  register: usr_local_bin_git
 - name: Clone vim settings
   ansible.builtin.git:
     repo: https://github.com/acperkins/vimfiles.git
     dest: "{{ ansible_env.HOME }}/.vim"
+  when: usr_bin_git.stat.exists or usr_local_bin_git.stat.exists
