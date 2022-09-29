@@ -1,0 +1,39 @@
+                    Building a VM with virt-install
+
+
+Introduction
+
+   This assumes that the network will be used in "macvtap" mode. This is
+   the preferred method, as it is faster than a regular bridge and
+   does not need any additional network configuration on the host.
+
+   The disadvantage of macvtap is that host-to-vm and vm-to-host
+   communication is blocked. This can be worked around with an
+   "internal" switch, or by having the macvtap connection bind to a
+   second interface.
+
+
+Creating the VM
+
+   The following command assumes the OS is "rhel9.1" and the network
+   card is "eno1". It should be run as the root user or with sudo, and
+   should be run inside tmux for safety.
+
+      virt-install --name rhel9                                        \
+         --osinfo rhel9.1                                              \
+         --cdrom /var/lib/libvirt/isos/rhel-baseos-9.1-x86_64-dvd.iso  \
+         --disk path=/var/lib/libvirt/images/rhel9.qcow2,size=20       \
+         --network type=direct,source=eno1,source_mode=bridge          \
+         --boot uefi                                                   \
+         --vnc
+
+   Paths and names should be changed as appropriate. The VNC port can be
+   found for this example by running "virsh vncdisplay rhel9" from
+   another SSH/console session.
+
+
+Tips
+
+   A list of supported operating systems can be found by running:
+
+      virt-install --osinfo list
