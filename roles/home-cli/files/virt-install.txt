@@ -35,14 +35,14 @@ Creating the VM
    to the "--disk" option. Specify the size by adding "size=20" for a
    20 GB disk.
 
+
+Tips
+
    For a virtio network card on Windows machines, add "model=virtio" to
    the --network option.
 
    Other useful options are "--ram 4096" for 4 GB RAM, and "--vcpus 2"
    for a dual-CPU guest.
-
-
-Tips
 
    A list of supported operating systems can be found by running:
 
