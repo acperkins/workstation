@@ -41,7 +41,7 @@ Tips
    For a virtio network card on Windows machines, add "model=virtio" to
    the --network option.
 
-   Other useful options are "--memory 4096" for 4 GB RAM, and
+   Other useful options are "--memory 4096" for 4 GB RAM, and
    "--vcpus 2" for a dual-CPU guest.
 
    A list of supported operating systems can be found by running:
