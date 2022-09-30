@@ -33,7 +33,7 @@ Creating the VM
    The disk will be created in the default location, which is normally
    /var/lib/libvirt/images. To change this, add "path=/path/file.qcow2"
    to the "--disk" option. Specify the size by adding "size=20" for a
-   20 GB disk.
+   20 GB disk.
 
 
 Tips
@@ -41,8 +41,8 @@ Tips
    For a virtio network card on Windows machines, add "model=virtio" to
    the --network option.
 
-   Other useful options are "--ram 4096" for 4 GB RAM, and "--vcpus 2"
-   for a dual-CPU guest.
+   Other useful options are "--memory 4096" for 4 GB RAM, and
+   "--vcpus 2" for a dual-CPU guest.
 
    A list of supported operating systems can be found by running:
 
