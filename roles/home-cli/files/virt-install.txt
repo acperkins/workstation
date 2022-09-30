@@ -23,7 +23,7 @@ Creating the VM
          --osinfo rhel9.1                                              \
          --boot uefi                                                   \
          --cdrom /var/lib/libvirt/isos/rhel-baseos-9.1-x86_64-dvd.iso  \
-         --network type=direct,source=eno1,source_mode=bridge          \
+         --network type=direct,source=enp2s0,source_mode=bridge        \
          --graphics vnc                                                \
          --autoconsole none
 
