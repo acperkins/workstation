@@ -25,6 +25,7 @@ Creating the VM
          --cdrom /var/lib/libvirt/isos/rhel-baseos-9.1-x86_64-dvd.iso  \
          --network type=direct,source=enp2s0,source_mode=bridge        \
          --graphics vnc                                                \
+         --console pty,target.type=virtio                              \
          --autoconsole none
 
    Paths and names should be changed as appropriate. The VNC port can be
