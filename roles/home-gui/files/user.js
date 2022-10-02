@@ -1,6 +1,7 @@
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("browser.discovery.enabled", false);
+user_pref("browser.eme.ui.enabled", false);
 user_pref("browser.formfill.enable", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
@@ -25,6 +26,7 @@ user_pref("font.name.sans-serif.x-western", "sans-serif");
 user_pref("font.name.serif.x-unicode", "serif");
 user_pref("font.name.serif.x-western", "serif");
 user_pref("general.smoothScroll", false);
+user_pref("media.eme.enabled", false);
 user_pref("media.peerconnection.enabled", true);
 user_pref("network.security.ports.banned.override", "6697");
 user_pref("permissions.default.desktop-notification", 2);
