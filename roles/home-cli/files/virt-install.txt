@@ -22,6 +22,7 @@ Creating the VM
       virt-install --name rhel9                                        \
          --osinfo rhel9.1                                              \
          --boot uefi                                                   \
+         --disk /var/lib/libvirt/rhel9.qcow2,size=20                   \
          --cdrom /var/lib/libvirt/isos/rhel-baseos-9.1-x86_64-dvd.iso  \
          --network type=direct,source=enp2s0,source_mode=bridge        \
          --graphics vnc                                                \
@@ -30,11 +31,6 @@ Creating the VM
 
    Paths and names should be changed as appropriate. The VNC port can be
    found for this example by running "virsh vncdisplay rhel9".
-
-   The disk will be created in the default location, which is normally
-   /var/lib/libvirt/images. To change this, add "path=/path/file.qcow2"
-   to the "--disk" option. Specify the size by adding "size=20" for a
-   20 GB disk.
 
 
 Tips
