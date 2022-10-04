@@ -29,7 +29,7 @@ if [ ! -d "$XDG_STATE_HOME" ]  ; then install -d -m 0700 "$XDG_STATE_HOME"  ; fi
 if [ ! -d "$XDG_RUNTIME_DIR" ] ; then install -d -m 0700 "$XDG_RUNTIME_DIR" ; fi
 if [ ! -d "$HOME/.local/bin" ] ; then install -d -m 0700 "$HOME/.local/bin" ; fi
 
-if [ -d /var/acp ]
+if [ -d /var/acp ] && ! [ -L /var/acp ]
 then
 	export ACP=/var/acp
 else
