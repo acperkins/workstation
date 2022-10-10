@@ -1,0 +1,45 @@
+window:
+  dimensions:
+    columns: 120
+    lines: 24
+font:
+  normal:
+    family: 'Iosevka Term'
+    style: 'Extended'
+  bold:
+    family: 'Bold Extended'
+  italic:
+    family: 'Extended Italic'
+  bold_italic:
+    family: 'Bold Extended Italic'
+  size: 12
+  builtin_box_drawing: false
+colors:
+  primary:
+    background: '#101010'
+    foreground: '#c0c0c0'
+  normal:
+    black:   '#000000'
+    red:     '#800000'
+    green:   '#008000'
+    yellow:  '#808000'
+    blue:    '#000080'
+    magenta: '#800080'
+    cyan:    '#008080'
+    white:   '#c0c0c0'
+  bright:
+    black:   '#808080'
+    red:     '#ff0000'
+    green:   '#00ff00'
+    yellow:  '#ffff00'
+    blue:    '#0000ff'
+    magenta: '#ff00ff'
+    cyan:    '#00ffff'
+    white:   '#ffffff'
+cursor:
+  style:
+    shape: 'Block'
+    blinking: 'On'
+shell:
+  program: 'pwsh.exe'
+working_directory: 'C:\'
