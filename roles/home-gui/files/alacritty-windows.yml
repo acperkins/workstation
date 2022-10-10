@@ -43,3 +43,5 @@ cursor:
 shell:
   program: 'pwsh.exe'
 working_directory: 'C:\'
+selection:
+  save_to_clipboard: true
