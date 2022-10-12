@@ -1,0 +1,34 @@
+                       Local builds in ~/data/opt
+
+
+Introduction
+
+   On machines without root access, or without a package manager (such
+   as MacOS), it can be useful to build applications into the home
+   directory.
+
+
+1. Basic applications
+
+   Most applications can be installed with the following triplet:
+
+      ./configure --prefix=$HOME/data/opt/app
+      make -j4
+      make -j4 install
+
+
+2. Applications with extra libraries
+
+   If an application needs extra libraries, these can be installed into
+   the app directory first, with the same commands as above.
+
+   When the main application is built, you will need to tell the build
+   system and the application where to find the libraries. This is done
+   as so:
+
+      app=$HOME/data/opt/app
+      ./configure --prefix=$app \
+                  CFLAGS="-I$app/include" \
+                  LDFLAGS="-L$app/lib -Wl,-rpath $app/lib"
+      make -j4
+      make -j4 install
