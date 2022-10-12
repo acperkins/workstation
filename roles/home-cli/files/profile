@@ -76,7 +76,12 @@ then
 	bind 'set enable-bracketed-paste off'
 	export BASH_ENV="$HOME/.bashrc"
 
-	PS1="\[\033[01m\]\u@\h\\$\[\033[00m\] "
+	if [ $container = flatpak ]
+	then
+		_acp_ps1_prefix="*"
+	fi
+	PS1="\[\033[01m\]${_acp_ps1_prefix}\u@\h\\$\[\033[00m\] "
+	unset _acp_ps1_prefix
 
 elif [ -n "$ZSH_VERSION" ]
 then
