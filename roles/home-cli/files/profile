@@ -188,7 +188,7 @@ alias alu="apt list --upgradable"
 alias asdo="apt source --download-only"
 alias aurmake="makepkg -irs"
 alias f=fossil
-alias fdosdk="flatpak run --command=/bin/bash --share=network org.freedesktop.Sdk"
+alias fdosdk="flatpak run --command=/bin/bash --share=network --filesystem=home:rw org.freedesktop.Sdk"
 alias ip="ip -c"
 alias isocal="cal --iso --reform=iso --monday --week"
 alias la="ls -a"
