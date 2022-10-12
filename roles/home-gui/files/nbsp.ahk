@@ -14,10 +14,10 @@
 
 ; Map AltGR-Space for most layouts.
 <^>!Space::
-Send % Chr(160)
+Send {U+00A0}
 return
 
 ; Map RAlt-Space for US layouts.
 >!Space::
-Send % Chr(160)
+Send {U+00A0}
 return
