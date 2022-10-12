@@ -14,17 +14,12 @@ set_favorites_bar
 
 set_keyboard_and_language () {
 	gsettings set org.gnome.desktop.input-sources show-all-sources true
-	if [ "$LANG" = fr_FR.UTF-8 ]
-	then
-		gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+intl'), ('xkb', 'us')]"
-	else
-		gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'us+intl')]"
-	fi
+	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ca+multix'), ('xkb', 'gb')]"
 	gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'compose:caps', 'nbsp:level3n', 'shift:both_capslock']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
-	gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
 	gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+	gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
 
 	# Set custom keybindings.
 	gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/launch-terminal/']"
