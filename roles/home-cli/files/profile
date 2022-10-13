@@ -120,7 +120,7 @@ _acp_add_path () {
 				return
 				;;
 			*)
-				PATH="$1:$PATH"
+				PATH="$PATH:$1"
 				export PATH
 				return
 				;;
@@ -128,19 +128,21 @@ _acp_add_path () {
 	fi
 }
 
-# Last in the list means first in the path.
+# First in the list means first in the path.
+PATH=/usr/bin
 for dir in "$HOME/.local/bin" \
 	   "$HOME/.cargo/bin" \
 	   "$XDG_DATA_HOME/gem/ruby/bin" \
 	   "$XDG_DATA_HOME/flatpak/exports/bin" \
 	   "$ACP/bin" \
-	   /opt/local/sbin \
 	   /opt/local/bin \
+	   /opt/local/sbin \
 	   /var/lib/flatpak/exports/bin \
-	   /usr/local/sbin \
 	   /usr/local/bin \
+	   /usr/local/sbin \
 	   /usr/sbin \
-	   /usr/bin
+	   /bin \
+	   /sbin
 do
 	_acp_add_path "$dir"
 done
