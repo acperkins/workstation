@@ -134,13 +134,13 @@ for dir in "$HOME/.local/bin" \
 	   "$XDG_DATA_HOME/gem/ruby/bin" \
 	   "$XDG_DATA_HOME/flatpak/exports/bin" \
 	   "$ACP/bin" \
-	   /opt/local/bin \
 	   /opt/local/sbin \
+	   /opt/local/bin \
 	   /var/lib/flatpak/exports/bin \
-	   /usr/local/bin \
 	   /usr/local/sbin \
-	   /usr/bin \
-	   /usr/sbin
+	   /usr/local/bin \
+	   /usr/sbin \
+	   /usr/bin
 do
 	_acp_add_path "$dir"
 done
