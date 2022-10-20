@@ -33,20 +33,14 @@ Creating the VM
    found for this example by running "virsh vncdisplay rhel9".
 
 
-Import a VM template
+Alternative install options
 
-   Import a template image with the following command. This makes the
-   same assumptions as "Creating the VM" above.
+   Import a template image by copying the template into place and
+   replacing "--cdrom /path/to/disc.iso" with "--import". The file size
+   is not needed in the --disk option in this case.
 
-      virt-install --name rhel9.1                                      \
-         --osinfo rhel9.1                                              \
-         --boot uefi                                                   \
-         --import                                                      \
-         --disk /var/lib/libvirt/rhel9.qcow2                           \
-         --network type=direct,source=enp2s0,source_mode=bridge        \
-         --graphics vnc                                                \
-         --console pty,target.type=virtio                              \
-         --autoconsole none
+   PXE-boot a VM by replacing the "--cdrom /path/to/disc.iso" option
+   with "--pxe".
 
 
 Tips
@@ -60,3 +54,8 @@ Tips
    A list of supported operating systems can be found by running:
 
       virt-install --osinfo list
+
+   If the host hypervisor has a bridged network set up already, such as
+   br0, replace the --network option with:
+
+      --network bridge=br0
