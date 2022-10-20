@@ -42,6 +42,11 @@
     path: "{{ ansible_env.HOME }}/.ssh"
     state: directory
     mode: '0700'
+- name: Create $HOME/.ssh/config.d
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.ssh/config.d"
+    state: directory
+    mode: '0700'
 - name: Create $XDG_CONFIG_HOME/git
   ansible.builtin.file:
     path: "{{ ansible_env.XDG_CONFIG_HOME }}/git"

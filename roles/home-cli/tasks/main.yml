@@ -18,4 +18,4 @@
 - import_tasks: dirs.yml
 - import_tasks: dotfiles.yml
 - import_tasks: vim.yml
-- import_tasks: ssh-authorized-keys.yml
+- import_tasks: ssh.yml
