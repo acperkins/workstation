@@ -372,6 +372,73 @@ tlscheck () {
 	fi
 }
 
+virtinst () {
+	_acp_vm_default_nic=enp2s0
+
+	if [ $# -lt 1 ] || [ $# -gt 3 ]
+	then
+		virtinst --help
+		return
+	fi
+
+	case "$1" in
+	--cdrom)
+		if [ $# -ne 3 ]
+		then
+			virtinst --help
+			return
+		fi
+		_acp_vm_name="$3"
+		_acp_vm_gb=",size=20"
+		_acp_vm_args="--cdrom $2"
+		;;
+	--pxe)
+		if [ $# -ne 2 ]
+		then
+			virtinst --help
+			return
+		fi
+		_acp_vm_name="$2"
+		_acp_vm_gb=",size=20"
+		_acp_vm_args="--pxe"
+		;;
+	--import)
+		if [ $# -ne 2 ]
+		then
+			virtinst --help
+			return
+		fi
+		_acp_vm_name="$2"
+		_acp_vm_gb=""
+		_acp_vm_args="--import"
+		;;
+	--help)
+		echo "Usage: virtinst --cdrom /path/to/cdrom.iso vmname" >&2
+		echo "       virtinst --pxe vmname" >&2
+		echo "       virtinst --import vmname" >&2
+		return
+		;;
+	*)
+		echo "virtinst --help" >&2
+		return
+		;;
+	esac
+
+	virt-install --name $_acp_vm_name \
+	    --osinfo linux2022 \
+	    --boot uefi \
+	    --disk /var/lib/libvirt/images/${_acp_vm_name}.qcow2${_acp_vm_gb} \
+	    --network type=direct,source=${_acp_vm_default_nic},source_mode=bridge \
+	    --graphics vnc \
+	    --console pty,target.type=virtio \
+	    --autoconsole none
+
+	unset _acp_vm_name
+	unset _acp_vm_gb
+	unset _acp_vm_args
+	unset _acp_vm_default_nic
+}
+
 if [ -r "$XDG_CONFIG_HOME/profile.local" ]
 then
 	. "$XDG_CONFIG_HOME/profile.local"
