@@ -160,9 +160,6 @@ then
 	export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
-# Override this if needed.
-export LIBVIRT_DEFAULT_URI="qemu+ssh://vmhost/system"
-
 if test -x /usr/bin/tty
 then
 	GPG_TTY=$(tty)
