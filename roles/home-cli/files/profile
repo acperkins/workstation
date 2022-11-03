@@ -424,6 +424,7 @@ virtinst () {
 	virt-install --name $_acp_vm_name \
 	    --osinfo linux2022 \
 	    --boot uefi \
+            $_acp_vm_args \
 	    --disk /var/lib/libvirt/images/${_acp_vm_name}.qcow2${_acp_vm_gb} \
 	    --network type=direct,source=${_acp_vm_default_nic},source_mode=bridge \
 	    --graphics vnc \
