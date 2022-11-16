@@ -20,31 +20,14 @@
     state: present
   vars:
     packages:
-      - "@c-development"
-      - asciidoctor
-      - aspell-en
-      - bc
-      - clang
-      - clang-tools-extra
-      - cmake
       - dnf-automatic
-      - fossil
       - git
       - glibc-langpack-en
       - glibc-langpack-fr
-      - gnupg
-      - hostname
-      - ldns-utils
-      - lldb
       - mc
       - nmap
-      - onedrive
       - openssh-server
       - podman
-      - python3
-      - python3-psutil
-      - rubygem-asciidoctor-pdf
-      - sqlite
       - sipcalc
       - sudo
       - toolbox

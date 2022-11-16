@@ -20,10 +20,8 @@
     state: present
   vars:
     packages:
-      - galculator
       - git-gui
       - liberation-fonts
-      - mozilla-openh264
 - name: Check for Gnome Shell
   ansible.builtin.stat:
     path: /usr/bin/gnome-shell
