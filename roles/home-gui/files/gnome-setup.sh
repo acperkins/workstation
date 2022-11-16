@@ -60,6 +60,14 @@ set_gnome_terminal_preferences () {
 }
 set_gnome_terminal_preferences
 
+set_gnome_text_editor_preferences () {
+	if gsettings list-schemas | grep '^org.gnome.TextEditor$' > /dev/null
+	then
+		gsettings set org.gnome.TextEditor restore-session false
+	fi
+}
+set_gnome_text_editor_preferences
+
 set_gnome_extensions () {
 	gnomeextcmd=/usr/bin/gnome-extensions
 	if ! [ -x $gnomeextcmd ]
