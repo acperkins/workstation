@@ -1,0 +1,23 @@
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Punctuation                                              A a E e I i O o U u │
+│                                                                              │
+│ [ ] U+00A0 Non-breaking space                    Acute   Á á É é Í í Ó ó Ú ú │
+│ [–] U+2013 En-dash                               Grave   À à È è Ì ì Ò ò Ù ù │
+│ [—] U+2014 Em-dash                          Circumflex   Â â Ê ê Î î Ô ô Û û │
+│ […] U+2026 Ellipses                          Diaeresis   Ä ä Ë ë Ï ï Ö ö Ü ü │
+│ [£] U+00A3 Pound sign                                                        │
+│ [ ] U+202F Thin non-breaking space               Other   Æ æ Œ œ Ç ç Ÿ ÿ Ñ ñ │
+│                                                                              │
+│ Quotes                            Mathematics                                │
+│                                                                              │
+│ [‘’] U+2018 and U+2019            [×] U+00D7 Multiply                        │
+│ [“”] U+201C and U+201D            [÷] U+00F7 Divide                          │
+│ [« ] U+00AB and U+202F            [°] U+00B0 Degrees                         │
+│ [ »] U+202F and U+00BB            [′] U+2032 Minutes                         │
+│                                   [″] U+2033 Seconds                         │
+│ French punctuation                [√] U+221A Square root                     │
+│                                                                              │
+│ [ ?] Question mark      [ :] Colon                                           │
+│ [ !] Exclamation mark   [ ;] Semi-colon                                      │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
