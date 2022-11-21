@@ -48,12 +48,6 @@ then
 	. "$XDG_CONFIG_HOME/locale.conf"
 fi
 
-# Set Qt DPI when running under GNOME.
-if [ "${XDG_CURRENT_DESKTOP:-unknown}" = GNOME ]
-then
-	export QT_FONT_DPI=72
-fi
-
 # Desktop files (used by desktop environments within both X11 and Wayland) are
 # looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
 # snappy applications' desktop files.
