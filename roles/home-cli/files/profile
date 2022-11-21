@@ -87,6 +87,11 @@ then
 	PS1="\[\033[01m\]${_acp_ps1_prefix}\u@\h\\$\[\033[00m\] "
 	unset _acp_ps1_prefix
 
+	if [ -r /etc/profile.d/bash_completion.sh ]
+	then
+		. /etc/profile.d/bash_completion.sh
+	fi
+
 elif [ -n "$ZSH_VERSION" ]
 then
 	autoload -Uz compinit && compinit
