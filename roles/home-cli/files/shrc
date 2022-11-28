@@ -7,6 +7,10 @@ fi
 case "$-" in
 *i*)
 	# Shell is interactive.
+	if [ -r /etc/profile.d/bash_completion.sh ]
+	then
+		. /etc/profile.d/bash_completion.sh
+	fi
 	usermotd
 	;;
 *)
