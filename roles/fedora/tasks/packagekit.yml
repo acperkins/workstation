@@ -24,7 +24,7 @@
     enabled: no
     masked: yes
     state: stopped
-  when: packagekitservice.stat.exists and wsl_distro is not defined
+  when: packagekitservice.stat.exists
 - name: Disable PackageKit offline updates
   become: true
   ansible.builtin.systemd:
@@ -32,11 +32,10 @@
     enabled: no
     masked: yes
     state: stopped
-  when: packagekitservice.stat.exists and wsl_distro is not defined
+  when: packagekitservice.stat.exists
 - name: Enable automatic updates
   become: true
   ansible.builtin.systemd:
     name: dnf-automatic-install.timer
     enabled: yes
     state: started
-  when: wsl_distro is not defined

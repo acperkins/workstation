@@ -18,7 +18,6 @@
   hosts: all
   vars:
     gui: true
-    wsl_distro: "{{ lookup('env', 'WSL_DISTRO_NAME') }}"
   tasks:
     - name: Include main
       ansible.builtin.include_tasks: main.yml

@@ -18,6 +18,4 @@
   when: gui == true
 - import_tasks: modules.yml
 - import_tasks: ssh.yml
-  when: wsl_distro is not defined
 - import_tasks: solokeys.yml
-  when: wsl_distro is not defined

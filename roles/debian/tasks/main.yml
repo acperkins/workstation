@@ -21,7 +21,6 @@
 - import_tasks: modules.yml
 - import_tasks: ssh.yml
 - import_tasks: solokeys.yml
-  when: wsl_distro is not defined
 - import_tasks: sudo.yml
 - import_tasks: vscode.yml
   when: gui == true
