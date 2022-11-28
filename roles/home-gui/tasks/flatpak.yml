@@ -31,7 +31,6 @@
     name:
       - org.keepassxc.KeePassXC
       - org.mozilla.firefox
-      - org.remmina.Remmina
       - org.videolan.VLC
     state: present
     method: user
