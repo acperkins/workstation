@@ -143,7 +143,7 @@ for dir in "$HOME/.local/bin" \
 	   /opt/local/bin \
 	   /opt/local/sbin \
 	   /var/lib/flatpak/exports/bin \
-           /app/bin \
+	   /app/bin \
 	   /usr/sbin \
 	   /bin \
 	   /sbin
