@@ -40,7 +40,6 @@ user_pref("general.smoothScroll", false);
 user_pref("media.eme.enabled", false);
 user_pref("media.peerconnection.enabled", true);
 user_pref("network.security.ports.banned.override", "6697");
-user_pref("permissions.default.desktop-notification", 2);
 user_pref("privacy.resistFingerprinting", false);
 user_pref("privacy.userContext.enabled", true);
 user_pref("security.mixed_content.use_hstsc", false);
