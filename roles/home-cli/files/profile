@@ -379,12 +379,11 @@ virtinst () {
 
     case "$1" in
     --help)
-        echo "Usage: virtinst --cdrom /path/to/cdrom.iso vmname" >&2
-        echo "       virtinst --pxe vmname" >&2
-        echo "       virtinst --import vmname" >&2
+        echo "Usage: virtinst vmname" >&2
         return
         ;;
     *)
+        _acp_vm_name=$1
         ;;
     esac
 
