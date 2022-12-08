@@ -28,24 +28,21 @@
 
 - name: Install Firefox flatpak
   community.general.flatpak:
-    name:
-      - org.mozilla.firefox
+    name: org.mozilla.firefox
     state: present
     method: user
   when: flatpak.stat.exists == true
 
 - name: Install KeePassXC flatpak
   community.general.flatpak:
-    name:
-      - org.keepassxc.KeePassXC
+    name: org.keepassxc.KeePassXC
     state: present
     method: user
   when: flatpak.stat.exists == true
 
 - name: Install VLC flatpak
   community.general.flatpak:
-    name:
-      - org.videolan.VLC
+    name: org.videolan.VLC
     state: present
     method: user
   when: flatpak.stat.exists == true
