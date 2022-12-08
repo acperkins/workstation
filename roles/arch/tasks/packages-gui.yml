@@ -22,7 +22,6 @@
   vars:
     packages:
       - firefox
-      - galculator
       - gnome-tweaks
       - libgnome-keyring
       - libreoffice-fresh

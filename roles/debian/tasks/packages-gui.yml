@@ -22,7 +22,6 @@
   vars:
     packages:
       - fonts-noto
-      - galculator
       - git-gui
       - libcanberra-gtk-module
       - vim-gtk

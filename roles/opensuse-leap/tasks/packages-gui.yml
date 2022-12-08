@@ -23,7 +23,6 @@
   vars:
     packages:
       - emacs-x11
-      - galculator
       - git-gui
       - gvim
       - liberation-fonts

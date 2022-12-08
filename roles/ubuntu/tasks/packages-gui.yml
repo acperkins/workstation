@@ -22,7 +22,6 @@
   vars:
     packages:
       - dconf-cli
-      - galculator
       - git-gui
       - libcanberra-gtk-module
       - remmina
