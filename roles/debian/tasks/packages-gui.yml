@@ -24,8 +24,6 @@
       - galculator
       - git-gui
       - libcanberra-gtk-module
-      - remmina
-      - rxvt-unicode
       - vim-gtk
 - name: Check for Gnome Shell
   ansible.builtin.stat:
