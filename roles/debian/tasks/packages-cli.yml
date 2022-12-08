@@ -31,6 +31,7 @@
       - nftables
       - nmap
       - openssh-server
+      - podman
       - sipcalc
       - sqlite3
       - sudo

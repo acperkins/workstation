@@ -21,6 +21,7 @@
     force_apt_get: yes
   vars:
     packages:
+      - flatpak
       - fonts-noto
       - git-gui
       - libcanberra-gtk-module
