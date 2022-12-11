@@ -57,6 +57,13 @@ then
     XDG_DATA_DIRS="${XDG_DATA_DIRS}:${_snap_xdg_path}"
 fi
 unset _snap_xdg_path
+# Same as above for Flatpak.
+_flatpak_xdg_path="$XDG_DATA_HOME/flatpak/exports/share"
+if [ -x /usr/bin/flatpak ] && [ -n "${XDG_DATA_DIRS##*${_flatpak_xdg_path}}" ] && [ -n "${XDG_DATA_DIRS##*${_flatpak_xdg_path}:*}" ]
+then
+    XDG_DATA_DIRS="${XDG_DATA_DIRS}:${_flatpak_xdg_path}"
+fi
+unset _flatpak_xdg_path
 
 # Bash-specific settings that will not work in other Bourne-compatible shells.
 if [ -n "$BASH_VERSION" ]
