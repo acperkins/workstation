@@ -22,6 +22,7 @@
   vars:
     packages:
       - apt-file
+      - apt-listchanges
       - curl
       - dc
       - dnsutils
@@ -36,6 +37,7 @@
       - sqlite3
       - sudo
       - tmux
+      - unattended-upgrades
       - vim
       - zstd
 - name: Enable automatic update check
