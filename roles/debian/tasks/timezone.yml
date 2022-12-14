@@ -13,15 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: apt-sources.yml
-- import_tasks: packages-cli.yml
-- import_tasks: packages-gui.yml
-  when: gui == true
-- import_tasks: modules.yml
-- import_tasks: ssh.yml
-- import_tasks: solokeys.yml
-- import_tasks: sudo.yml
-  when: gui == true
-- import_tasks: packagekit.yml
-  when: gui == true
-- import_tasks: timezone.yml
+- name: Set timezone to Etc/UTC
+  become: true
+  community.general.timezone:
+    name: UTC
