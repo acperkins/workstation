@@ -76,7 +76,7 @@ set_gnome_extensions () {
         return
     fi
     # Disable all extensions.
-    for ext in $gnomeextcmd list --enabled
+    for ext in $($gnomeextcmd list --enabled)
     do
         $gnomeextcmd disable -q $ext
     done
