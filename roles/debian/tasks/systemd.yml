@@ -16,7 +16,7 @@
 - name: Create /etc/systemd/system.conf.d
   become: true
   ansible.builtin.file:
-    path: "/etc/system/system.conf.d"
+    path: "/etc/systemd/system.conf.d"
     state: directory
     mode: '0755'
 - name: Create /etc/systemd/system.conf.d/DefaultTimeoutStopSec.conf
@@ -27,7 +27,7 @@
 - name: Create /etc/systemd/user.conf.d
   become: true
   ansible.builtin.file:
-    path: "/etc/system/user.conf.d"
+    path: "/etc/systemd/user.conf.d"
     state: directory
     mode: '0755'
 - name: Create /etc/systemd/user.conf.d/DefaultTimeoutStopSec.conf
