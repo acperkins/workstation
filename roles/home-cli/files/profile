@@ -200,6 +200,7 @@ alias aurmake="makepkg -irs"
 alias f=fossil
 alias ip="ip -c"
 alias isocal="cal --iso --reform=iso --monday --week"
+alias isodate="date +'Date: %Y-%m-%d%nTime: %H:%M:%S%nZone: %:z%n%nWeek: %G-W%V-%u%nDay:  %Y-%j'"
 alias la="ls -a"
 alias ll="ls -l"
 alias ls="command ls -F"
