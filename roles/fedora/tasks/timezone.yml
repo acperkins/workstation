@@ -16,4 +16,4 @@
 - name: Set timezone to Etc/UTC
   become: true
   community.general.timezone:
-    name: UTC
+    name: Etc/UTC
