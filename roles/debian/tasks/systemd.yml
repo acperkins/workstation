@@ -24,6 +24,7 @@
   ansible.builtin.copy:
     src: DefaultTimeoutStopSec.conf
     dest: "/etc/systemd/system.conf.d/DefaultTimeoutStopSec.conf"
+  register: system_conf_d
 - name: Create /etc/systemd/user.conf.d
   become: true
   ansible.builtin.file:
@@ -35,3 +36,9 @@
   ansible.builtin.copy:
     src: DefaultTimeoutStopSec.conf
     dest: "/etc/systemd/user.conf.d/DefaultTimeoutStopSec.conf"
+  register: user_conf_d
+- name: Reload systemd
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true
+  when: system_conf_d.changed == true or user_conf_d.changed == true
