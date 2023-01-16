@@ -38,8 +38,5 @@
     force_apt_get: yes
   vars:
     packages:
-      - gnome-shell-extension-appindicator
-      - gnome-shell-extension-dashtodock
-      - gnome-shell-extension-prefs
       - gnome-tweaks
   when: gnome_shell.stat.exists
