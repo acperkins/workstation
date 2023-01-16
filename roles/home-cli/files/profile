@@ -379,37 +379,42 @@ tlscheck () {
 }
 
 virtinst () {
-    _acp_vm_root="$HOME/virt"
+    _acp_vm_root="$HOME/virt/images"
     _acp_vm_session=qemu:///session
 
-    if [ $# -ne 1 ]
+    if [ "$1" = "--help" ]
+    then
+        echo "Usage: virtinst vmname cdrom" >&2
+        return
+    fi
+    if [ $# -ne 2 ]
     then
         virtinst --help
         return
     fi
 
-    case "$1" in
-    --help)
-        echo "Usage: virtinst vmname" >&2
-        return
-        ;;
-    *)
-        _acp_vm_name=$1
-        ;;
-    esac
+    _acp_vm_name=$1
+    if [ "$2" = "--import" ]
+    then
+        _acp_vm_cdrom="--import"
+    else
+        _acp_vm_cdrom="--cdrom $2"
+    fi
 
     virt-install --connect $_acp_vm_session \
         --name $_acp_vm_name \
         --osinfo linux2020 \
         --boot uefi \
-        --cdrom $_acp_vm_root/isos/UefiShell.iso \
-        --disk $_acp_vm_root/images/${_acp_vm_name}.qcow2,size=20 \
+        $_acp_vm_cdrom \
+        --disk $_acp_vm_root/${_acp_vm_name}.qcow2,size=20 \
         --graphics vnc \
         --console pty,target.type=virtio \
         --autoconsole none
 
     unset _acp_vm_name
     unset _acp_vm_root
+    unset _acp_vm_cdrom
+    unset _acp_vm_session
 }
 
 if [ -r "$XDG_CONFIG_HOME/profile.local" ]
