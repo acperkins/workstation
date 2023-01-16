@@ -33,6 +33,7 @@
       - nmap
       - openssh-server
       - podman
+      - python3-psutil
       - sipcalc
       - sqlite3
       - sudo
