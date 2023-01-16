@@ -9,6 +9,7 @@ export PAGER=less
 export PAPERSIZE=a4
 export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS=ignore::UserWarning
+export VIRSH_DEFAULT_CONNECT_URI=qemu:///session
 
 # Set up XDG variables. See:
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
@@ -378,7 +379,8 @@ tlscheck () {
 }
 
 virtinst () {
-    _acp_vm_default_nic=eno1
+    _acp_vm_root="$HOME/virt"
+    _acp_vm_session=qemu:///session
 
     if [ $# -ne 1 ]
     then
@@ -396,18 +398,18 @@ virtinst () {
         ;;
     esac
 
-    virt-install --name $_acp_vm_name \
+    virt-install --connect $_acp_vm_session \
+        --name $_acp_vm_name \
         --osinfo linux2020 \
         --boot uefi \
-        --cdrom /var/lib/libvirt/isos/UefiShell.iso \
-        --disk /var/lib/libvirt/images/${_acp_vm_name}.qcow2,size=20 \
-        --network type=direct,source=${_acp_vm_default_nic},source_mode=bridge \
+        --cdrom $_acp_vm_root/isos/UefiShell.iso \
+        --disk $_acp_vm_root/images/${_acp_vm_name}.qcow2,size=20 \
         --graphics vnc \
         --console pty,target.type=virtio \
         --autoconsole none
 
     unset _acp_vm_name
-    unset _acp_vm_default_nic
+    unset _acp_vm_root
 }
 
 if [ -r "$XDG_CONFIG_HOME/profile.local" ]
