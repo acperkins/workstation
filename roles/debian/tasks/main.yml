@@ -25,3 +25,4 @@
 - import_tasks: packagekit.yml
   when: gui == true
 - import_tasks: timezone.yml
+- import_tasks: systemd.yml
