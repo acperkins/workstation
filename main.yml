@@ -19,16 +19,27 @@
     path: /run/ostree-booted
   register: check_ostree
 - name: Check for WSL
-  ansible.builtin.command:
-    cmd: 'grep microsoft /proc/version'
+  ansible.builtin.shell: 'grep microsoft /proc/version || /bin/true'
   changed_when: false
-  ignore_errors: true
   register: check_wsl
 
-- name: Register useful variables
+- name: Register ostree fact
   ansible.builtin.set_fact:
     ostree: check_ostree.exists
-    wsl: not check_wsl.failed
+- name: Default wsl fact
+  ansible.builtin.set_fact:
+    wsl: false
+- name: Register wsl fact
+  ansible.builtin.set_fact:
+    wsl: true
+  when: '"microsoft" in check_wsl.stdout'
+
+- name: Debug WSL - check_wsl
+  ansible.builtin.debug:
+    var: check_wsl
+- name: Debug WSL - wsl
+  ansible.builtin.debug:
+    var: wsl
 
 - include_role:
     name: arch
