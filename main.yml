@@ -14,9 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Check for /run/ostree-booted
-  stat: path=/run/ostree-booted
-  register: ostree
+- name: Check if an ostree OS (e.g. Silverblue)
+  ansible.builtin.stat:
+    path: /run/ostree-booted
+  register: check_ostree
+- name: Check for WSL
+  ansible.builtin.command:
+    cmd: 'grep microsoft /proc/version'
+  changed_when: false
+  ignore_errors: true
+  register: check_wsl
+
+- name: Register useful variables
+  ansible.builtin.set_fact:
+    ostree: check_ostree.exists
+    wsl: not check_wsl.failed
 
 - include_role:
     name: arch

@@ -26,9 +26,10 @@
     name: ssh.service
     enabled: yes
     state: started
+  when: wsl == false
 - name: Restart SSH
   become: true
   ansible.builtin.systemd:
     name: ssh.service
     state: restarted
-  when: changed_ssh_config.changed == true
+  when: changed_ssh_config.changed == true and wsl == false
