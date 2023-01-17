@@ -2,8 +2,8 @@
 . ./roles/home-cli/files/profile
 if [ $(uname -s) = FreeBSD ]
 then
-	INVENTORY=./inventories/local-freebsd.ini
+	INVENTORY=./inventories/freebsd.ini
 else
-	INVENTORY=./inventories/local-linux.ini
+	INVENTORY=./local.ini
 fi
 ./user-cli.yml -i $INVENTORY
