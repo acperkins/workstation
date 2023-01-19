@@ -91,8 +91,10 @@ set_misc_preferences () {
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
 
     # Configure the top bar and calendar.
+    gsettings set org.gnome.desktop.interface clock-format '24h'
     gsettings set org.gnome.desktop.interface clock-show-date true
     gsettings set org.gnome.desktop.interface clock-show-seconds false
+    gsettings set org.gnome.desktop.interface clock-show-weekday true
     gsettings set org.gnome.desktop.interface show-battery-percentage true
     gsettings set org.gnome.desktop.calendar show-weekdate false
 
