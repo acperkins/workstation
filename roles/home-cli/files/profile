@@ -382,39 +382,32 @@ virtinst () {
     _acp_vm_root="$HOME/virt/images"
     _acp_vm_session=qemu:///session
 
-    if [ "$1" = "--help" ]
-    then
-        echo "Usage: virtinst vmname cdrom" >&2
-        return
-    fi
-    if [ $# -ne 2 ]
-    then
-        virtinst --help
-        return
-    fi
+    case "$1" in
+        "--help" | -*)
+            echo "Usage: virtinst vmname --cdrom install.iso [other virt-install options]" >&2
+            return
+            ;;
+        *)
+            ;;
+    esac
 
     _acp_vm_name=$1
-    if [ "$2" = "--import" ]
-    then
-        _acp_vm_cdrom="--import"
-    else
-        _acp_vm_cdrom="--cdrom $2"
-    fi
 
     virt-install --connect $_acp_vm_session \
-        --name $_acp_vm_name \
         --osinfo linux2020 \
         --boot uefi \
-        $_acp_vm_cdrom \
+        --cpu host-passthrough \
         --disk $_acp_vm_root/${_acp_vm_name}.qcow2,size=20 \
         --graphics vnc \
         --console pty,target.type=virtio \
-        --autoconsole none
+        --channel unix,target.type=virtio,target.name=org.qemu.guest_agent.0 \
+        --video virtio \
+        --autoconsole none \
+        --name $*
 
     unset _acp_vm_name
-    unset _acp_vm_root
-    unset _acp_vm_cdrom
     unset _acp_vm_session
+    unset _acp_vm_root
 }
 
 if [ -r "$XDG_CONFIG_HOME/profile.local" ]
