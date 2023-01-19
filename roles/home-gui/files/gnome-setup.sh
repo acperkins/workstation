@@ -120,6 +120,10 @@ set_misc_preferences () {
 
     # Always show the Accessibility menu.
     gsettings set org.gnome.desktop.a11y always-show-universal-access-status true
+
+    # Set Gnome Clocks locations.
+    # Vancouver, CA; Toronto, CA; Halifax, CA; London, GB; UTC; Paris, FR.
+    gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('Vancouver', 'CYVR', true, [(0.85841109795478021, -2.1496638678574467)], [(0.85957465660720722, -2.1490820798045869)])>)>}, {'location': <(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>}, {'location': <(uint32 2, <('Halifax', 'CYHZ', true, [(0.78336194011902394, -1.1082840750163994)], [(0.77928951101546806, -1.1100294042683936)])>)>}, {'location': <(uint32 2, <('London', 'EGWU', true, [(0.89971722940307675, -0.007272211034407213)], [(0.89884456477707964, -0.0020362232784242244)])>)>}, {'location': <(uint32 2, <('Coordinated Universal Time (UTC)', '@UTC', false, @a(dd) [], @a(dd) [])>)>}, {'location': <(uint32 2, <('Paris', 'LFPB', true, [(0.85462956287765413, 0.042760566673861078)], [(0.8528842336256599, 0.040724343395436846)])>)>}]"
 }
 set_misc_preferences
 
