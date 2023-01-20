@@ -15,6 +15,8 @@ set_favorites_bar
 set_keyboard_and_language () {
     gsettings set org.gnome.desktop.input-sources show-all-sources true
     gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'ca+multix')]"
+    # lv5:rctrl_switch is only available since xkeyboard-config v2.36 (2022-06-01).
+    # https://github.com/freedesktop/xkeyboard-config/commit/da0a43b97aba73a6d60bb20d739b381748a56bba
     gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'lv5:rctrl_switch']"
     gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
     gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
