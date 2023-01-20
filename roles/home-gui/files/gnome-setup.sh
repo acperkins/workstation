@@ -7,7 +7,7 @@ set_favorites_bar () {
     then
         gsettings set org.gnome.shell favorite-apps "$(cat "${XDG_CONFIG_HOME:-$HOME/.config}/favorite-apps.conf")"
     else
-        gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop']"
+        gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'org.keepassxc.KeePassXC.desktop']"
     fi
 }
 set_favorites_bar
