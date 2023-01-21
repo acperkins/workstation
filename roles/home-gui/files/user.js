@@ -1,6 +1,7 @@
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("browser.discovery.enabled", false);
+user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.eme.ui.enabled", false);
 user_pref("browser.formfill.enable", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
