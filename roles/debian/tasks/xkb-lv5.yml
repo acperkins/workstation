@@ -13,22 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: apt-sources.yml
-- import_tasks: packages-cli.yml
-- import_tasks: packages-gui.yml
-  when: gui == true
-- import_tasks: modules.yml
-- import_tasks: ssh.yml
-- import_tasks: solokeys.yml
-  when: wsl == false
-- import_tasks: sudo.yml
-  when: gui == true
-- import_tasks: packagekit.yml
-  when: gui == true
-- import_tasks: timezone.yml
-  when: wsl == false
-- import_tasks: systemd.yml
-  when: wsl == false
-- import_tasks: gdm.yml
-- import_tasks: xkb-lv5.yml
-  when: gui == true
+- name: Enable lv5:rctrl_switch on Debian 11
+  become: true
+  ansible.posix.patch:
+    src: debian-11-add-lv5-rctrl-switch.patch
+    basedir: /usr/share/X11/xkb/rules
+    strip: 1
+  when: ansible_distribution_version == "11"
