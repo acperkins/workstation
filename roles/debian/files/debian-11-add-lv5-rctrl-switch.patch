@@ -8,6 +8,9 @@
     cd /usr/share/X11/xkb/rules
     patch -p1 < /path/to/this/file.patch
 
+  Based on:
+  https://github.com/freedesktop/xkeyboard-config/commit/da0a43b97aba73a6d60bb20d739b381748a56bba
+
 diff -u a/base b/base
 --- a/base	2023-01-21 18:50:42.595802084 +0000
 +++ b/base	2023-01-21 18:52:11.013674023 +0000
