@@ -1,0 +1,65 @@
+---
+    Add the lv5:rctrl_switch option to xkeyboard-config for Debian 11.
+    This isn't in a release until xkeyboard-config v2.36, which doesn't
+    look like it will make it to Debian 12 either.
+
+diff -u a/base b/base
+--- a/base	2023-01-21 18:50:42.595802084 +0000
++++ b/base	2023-01-21 18:52:11.013674023 +0000
+@@ -1249,6 +1249,7 @@
+   lv3:lsgt_switch_latch              =       +level3(lsgt_switch_latch)
+   lv5:lsgt_switch                 =       +level5(lsgt_switch)
+   lv5:ralt_switch                 =       +level5(ralt_switch)
++  lv5:rctrl_switch                =       +level5(rctrl_switch)
+   lv5:lsgt_switch_lock            =       +level5(lsgt_switch_lock)
+   lv5:ralt_switch_lock            =       +level5(ralt_switch_lock)
+   lv5:lwin_switch_lock            =       +level5(lwin_switch_lock)
+diff -u a/base.xml b/base.xml
+--- a/base.xml	2023-01-21 18:50:42.599801988 +0000
++++ b/base.xml	2023-01-21 18:55:21.273064361 +0000
+@@ -7342,6 +7342,12 @@
+       </option>
+       <option>
+         <configItem>
++          <name>lv5:rctrl_switch</name>
++          <description>Right Ctrl chooses 5th level</description>
++        </configItem>
++      </option>
++      <option>
++        <configItem>
+           <name>lv5:lsgt_switch_lock</name>
+           <description>&lt;Less/Greater&gt; chooses 5th level; acts as onetime lock when pressed together with another 5th level chooser</description>
+         </configItem>
+diff -u a/evdev b/evdev
+--- a/evdev	2023-01-21 18:50:42.595802084 +0000
++++ b/evdev	2023-01-21 18:52:55.344603327 +0000
+@@ -1135,6 +1135,7 @@
+   lv3:lsgt_switch_latch              =       +level3(lsgt_switch_latch)
+   lv5:lsgt_switch                 =       +level5(lsgt_switch)
+   lv5:ralt_switch                 =       +level5(ralt_switch)
++  lv5:rctrl_switch                =       +level5(rctrl_switch)
+   lv5:lsgt_switch_lock            =       +level5(lsgt_switch_lock)
+   lv5:ralt_switch_lock            =       +level5(ralt_switch_lock)
+   lv5:lwin_switch_lock            =       +level5(lwin_switch_lock)
+diff -u a/xfree86 b/xfree86
+--- a/xfree86	2023-01-21 18:50:42.599801988 +0000
++++ b/xfree86	2023-01-21 18:53:08.208292213 +0000
+@@ -1249,6 +1249,7 @@
+   lv3:lsgt_switch_latch              =       +level3(lsgt_switch_latch)
+   lv5:lsgt_switch                 =       +level5(lsgt_switch)
+   lv5:ralt_switch                 =       +level5(ralt_switch)
++  lv5:rctrl_switch                =       +level5(rctrl_switch)
+   lv5:lsgt_switch_lock            =       +level5(lsgt_switch_lock)
+   lv5:ralt_switch_lock            =       +level5(ralt_switch_lock)
+   lv5:lwin_switch_lock            =       +level5(lwin_switch_lock)
+diff -u a/xorg b/xorg
+--- a/xorg	2023-01-21 18:50:42.599801988 +0000
++++ b/xorg	2023-01-21 18:53:29.627773785 +0000
+@@ -1249,6 +1249,7 @@
+   lv3:lsgt_switch_latch              =       +level3(lsgt_switch_latch)
+   lv5:lsgt_switch                 =       +level5(lsgt_switch)
+   lv5:ralt_switch                 =       +level5(ralt_switch)
++  lv5:rctrl_switch                =       +level5(rctrl_switch)
+   lv5:lsgt_switch_lock            =       +level5(lsgt_switch_lock)
+   lv5:ralt_switch_lock            =       +level5(ralt_switch_lock)
+   lv5:lwin_switch_lock            =       +level5(lwin_switch_lock)
