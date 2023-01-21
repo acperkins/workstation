@@ -1,7 +1,12 @@
 ---
-    Add the lv5:rctrl_switch option to xkeyboard-config for Debian 11.
-    This isn't in a release until xkeyboard-config v2.36, which doesn't
-    look like it will make it to Debian 12 either.
+  Add the lv5:rctrl_switch option to xkeyboard-config for Debian 11.
+  This isn't in a release until xkeyboard-config v2.36, which doesn't
+  look like it will make it to Debian 12 either.
+
+  Apply it (as root) with:
+
+    cd /usr/share/X11/xkb/rules
+    patch -p1 < /path/to/this/file.patch
 
 diff -u a/base b/base
 --- a/base	2023-01-21 18:50:42.595802084 +0000
