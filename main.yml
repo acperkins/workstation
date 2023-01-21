@@ -34,13 +34,6 @@
     wsl: true
   when: '"microsoft" in check_wsl.stdout'
 
-- name: Debug WSL - check_wsl
-  ansible.builtin.debug:
-    var: check_wsl
-- name: Debug WSL - wsl
-  ansible.builtin.debug:
-    var: wsl
-
 - include_role:
     name: arch
   when: ansible_distribution == 'Archlinux'
