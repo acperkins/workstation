@@ -154,8 +154,6 @@ do
     _acp_add_path "$dir"
 done
 
-umask 0022
-
 # Other exports.
 export PS1="${PS1:-\$ }"  # Fallback prompt.
 export HISTFILE=""
