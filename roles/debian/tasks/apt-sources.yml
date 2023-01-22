@@ -18,21 +18,21 @@
   ansible.builtin.copy:
     src: sources.list.10
     dest: "/etc/apt/sources.list"
-  when: ansible_distribution_version == "10"
+  when: ansible_distribution_release == "buster"
 
 - name: Set APT sources.list for Debian 11
   become: true
   ansible.builtin.copy:
     src: sources.list.11
     dest: "/etc/apt/sources.list"
-  when: ansible_distribution_version == "11"
+  when: ansible_distribution_release == "bullseye"
 
 - name: Set APT sources.list for Debian 12
   become: true
   ansible.builtin.copy:
     src: sources.list.12
     dest: "/etc/apt/sources.list"
-  when: ansible_distribution_version == "12"
+  when: ansible_distribution_release == "bookworm"
 
 - name: Update APT cache
   become: true
