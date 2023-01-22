@@ -20,3 +20,10 @@
     basedir: /usr/share/X11/xkb/rules
     strip: 1
   when: ansible_distribution_version == "11"
+- name: Enable lv5:rctrl_switch on Debian 12
+  become: true
+  ansible.posix.patch:
+    src: debian-12-add-lv5-rctrl-switch.patch
+    basedir: /usr/share/X11/xkb/rules
+    strip: 1
+  when: ansible_distribution_version == "12"
