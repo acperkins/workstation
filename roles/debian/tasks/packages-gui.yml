@@ -25,7 +25,7 @@
       - fonts-noto
       - git-gui
       - libcanberra-gtk-module
-      - vim-gtk
+      - vim-gtk3
 - name: Check for Gnome Shell
   ansible.builtin.stat:
     path: /usr/bin/gnome-shell
