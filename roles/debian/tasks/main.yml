@@ -24,7 +24,7 @@
 - import_tasks: sudo.yml
   when: gui == true
 - import_tasks: packagekit.yml
-  when: gui == true
+  when: gui == true and wsl == false
 - import_tasks: timezone.yml
   when: wsl == false
 - import_tasks: systemd.yml
