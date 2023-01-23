@@ -13,6 +13,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Check if an ostree OS (e.g. Silverblue)
+  ansible.builtin.stat:
+    path: /run/ostree-booted
+  register: check_ostree
+- name: Check for WSL
+  ansible.builtin.shell: 'grep microsoft /proc/version || /bin/true'
+  changed_when: false
+  register: check_wsl
+
+- name: Register ostree fact
+  ansible.builtin.set_fact:
+    ostree: check_ostree.exists
+- name: Default wsl fact
+  ansible.builtin.set_fact:
+    wsl: false
+- name: Register wsl fact
+  ansible.builtin.set_fact:
+    wsl: true
+  when: '"microsoft" in check_wsl.stdout'
+
 - import_tasks: shell.yml
 
 - import_tasks: dirs.yml

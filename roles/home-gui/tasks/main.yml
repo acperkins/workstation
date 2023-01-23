@@ -17,6 +17,7 @@
 
 - import_tasks: dotfiles.yml
 - import_tasks: flatpak.yml
+  when: wsl == false
 - import_tasks: firefox.yml
 - import_tasks: gnome.yml
 - import_tasks: mate.yml
