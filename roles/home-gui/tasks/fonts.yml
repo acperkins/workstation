@@ -50,3 +50,14 @@
     src: "https://github.com/be5invis/Iosevka/releases/download/v{{ iosevka_version }}/super-ttc-iosevka-{{ iosevka_version }}.zip"
     dest: "{{ font_dir }}/iosevka"
     creates: "{{ font_dir }}/iosevka/iosevka.ttc"
+
+- name: Create courier-prime font directory
+  ansible.builtin.file:
+    path: "{{ font_dir }}/courier-prime"
+    state: directory
+- name: Extract Courier Prime fonts
+  ansible.builtin.unarchive:
+    remote_src: yes
+    src: "https://quoteunquoteapps.com/courierprime/downloads/courier-prime.zip"
+    dest: "{{ font_dir }}/courier-prime"
+    creates: "{{ font_dir }}/courier-prime/Courier Prime/Courier Prime.ttf"
