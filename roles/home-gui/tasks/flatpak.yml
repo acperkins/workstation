@@ -46,3 +46,10 @@
     state: present
     method: user
   when: flatpak.stat.exists == true
+
+- name: Install Flatpak Builder flatpak
+  community.general.flatpak:
+    name: org.flatpak.Builder
+    state: present
+    method: user
+  when: flatpak.stat.exists == true
