@@ -178,6 +178,7 @@ then
     alias vi=vim
 else
     export EDITOR=vi
+    alias vim=vi
 fi
 
 # Use root's cache instead of having one for root and one for the user.
