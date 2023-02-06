@@ -89,15 +89,6 @@ then
     PS1="\[\033[01m\]${_acp_ps1_prefix}\u@\h\\$\[\033[00m\] "
     unset _acp_ps1_prefix
 
-    _acp_rust_toolchain=$(rustup toolchain list | awk '/\(default\)$/ {print $1}')
-    _acp_cargo_bash_completion="$HOME/.rustup/toolchains/$_acp_rust_toolchain/etc/bash_completion.d/cargo"
-    if [ -n "$_acp_rust_toolchain" ] && [ -r "$_acp_cargo_bash_completion" ]
-    then
-        . "$_acp_cargo_bash_completion"
-    fi
-    unset _acp_cargo_bash_completion
-    unset _acp_rust_toolchain
-
 elif [ -n "$ZSH_VERSION" ]
 then
     autoload -Uz compinit && compinit
