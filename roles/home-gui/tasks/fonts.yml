@@ -61,3 +61,14 @@
     src: "https://quoteunquoteapps.com/courierprime/downloads/courier-prime.zip"
     dest: "{{ font_dir }}/courier-prime"
     creates: "{{ font_dir }}/courier-prime/Courier Prime/Courier Prime.ttf"
+
+- name: Create Go font directory
+  ansible.builtin.file:
+    path: "{{ font_dir }}/go"
+    state: directory
+- name: Extract Go fonts
+  ansible.builtin.unarchive:
+    remote_src: yes
+    src: "https://go.googlesource.com/image/+archive/41969df76e82aeec85fa3821b1e24955ea993001/font/gofont/ttfs.tar.gz"
+    dest: "{{ font_dir }}/go"
+    creates: "{{ font_dir }}/go/Go-Mono.ttf"
