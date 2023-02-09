@@ -390,13 +390,19 @@ virtinst () {
             ;;
     esac
 
+    # Create the directory if it doesn't exist already.
+    if ! [ -d "$_acp_vm_root" ]
+    then
+        mkdir -p "$_acp_vm_root"
+    fi
+
     _acp_vm_name=$1
 
     virt-install --connect $_acp_vm_session \
         --osinfo linux2020 \
         --boot uefi \
         --cpu host-passthrough \
-        --disk $_acp_vm_root/${_acp_vm_name}.qcow2,size=20 \
+        --disk $_acp_vm_root/$_acp_vm_name.qcow2,size=20 \
         --graphics vnc \
         --console pty,target.type=virtio \
         --channel unix,target.type=virtio,target.name=org.qemu.guest_agent.0 \
