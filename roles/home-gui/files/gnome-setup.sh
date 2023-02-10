@@ -41,6 +41,7 @@ set_keyboard_and_language
 set_nautilus_preferences () {
     gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
     gsettings set org.gtk.Settings.FileChooser sort-directories-first true
+    gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
 }
 set_nautilus_preferences
 
