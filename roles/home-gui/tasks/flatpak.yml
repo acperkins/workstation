@@ -53,3 +53,10 @@
     state: present
     method: user
   when: flatpak.stat.exists == true
+
+- name: Install TigerVNC flatpak
+  community.general.flatpak:
+    name: org.tigervnc.vncviewer
+    state: present
+    method: user
+  when: flatpak.stat.exists == true
