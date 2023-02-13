@@ -56,8 +56,8 @@ set_gnome_terminal_preferences () {
     gsettings set "$defaultprofile" default-size-rows 24
     gsettings set "$defaultprofile" foreground-color '#C0C0C0'
     gsettings set "$defaultprofile" palette "[
-        '#000000', '#800000', '#008000', '#808000', '#000080', '#800080', '#008080', '#C0C0C0',
-        '#808080', '#FF0000', '#00FF00', '#FFFF00', '#0000FF', '#FF00FF', '#00FFFF', '#FFFFFF'
+        '#2E3436', '#CC0000', '#4E9A06', '#C4A000', '#3465A4', '#75507B', '#06989A', '#D3D7CF',
+        '#555753', '#EF2929', '#8AE234', '#FCE94F', '#729FCF', '#AD7FA8', '#34E2E2', '#EEEEEC'
     ]"
     gsettings set "$defaultprofile" use-theme-colors false
 }
