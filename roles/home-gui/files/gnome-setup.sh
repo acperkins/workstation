@@ -51,6 +51,7 @@ set_gnome_terminal_preferences () {
     gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'dark'
 
     defaultprofile="org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')/"
+    gsettings set "$defaultprofile" audible-bell false
     gsettings set "$defaultprofile" background-color '#101010'
     gsettings set "$defaultprofile" default-size-columns 132
     gsettings set "$defaultprofile" default-size-rows 24
@@ -59,6 +60,7 @@ set_gnome_terminal_preferences () {
         '#2E3436', '#CC0000', '#4E9A06', '#C4A000', '#3465A4', '#75507B', '#06989A', '#D3D7CF',
         '#555753', '#EF2929', '#8AE234', '#FCE94F', '#729FCF', '#AD7FA8', '#34E2E2', '#EEEEEC'
     ]"
+    gsettings set "$defaultprofile" preserve-working-directory 'never'
     gsettings set "$defaultprofile" use-theme-colors false
 }
 set_gnome_terminal_preferences
