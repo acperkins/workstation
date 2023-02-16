@@ -312,7 +312,7 @@ tm () {
 
 usermotd () {
     # OS (kernel) name and version in reverse video.
-    printf "\033[7m$(uname -sr)\033[0m\n"
+    printf '\033[7m%s\033[0m\n' "$(uname -sr)"
 
     # Distro name and version on Linux and macOS.
     if [ -r /etc/os-release ]
@@ -404,13 +404,13 @@ virtinst () {
         --osinfo linux2020 \
         --boot uefi \
         --cpu host-passthrough \
-        --disk $_acp_vm_root/$_acp_vm_name.qcow2,size=20 \
+        --disk "$_acp_vm_root/$_acp_vm_name.qcow2,size=20" \
         --graphics vnc \
         --console pty,target.type=virtio \
         --channel unix,target.type=virtio,target.name=org.qemu.guest_agent.0 \
         --video virtio \
         --autoconsole none \
-        --name $*
+        --name "$@"
 }
 
 if [ -r "$XDG_CONFIG_HOME/profile.local" ]
