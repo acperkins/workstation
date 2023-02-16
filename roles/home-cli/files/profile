@@ -380,8 +380,8 @@ tlscheck () {
 }
 
 virtinst () {
-    _acp_vm_root="$HOME/virt/images"
-    _acp_vm_session=qemu:///session
+    local _acp_vm_root="$HOME/virt/images"
+    local _acp_vm_session=qemu:///session
 
     case "$1" in
         "--help" | -*)
@@ -398,7 +398,7 @@ virtinst () {
         mkdir -p "$_acp_vm_root"
     fi
 
-    _acp_vm_name=$1
+    local _acp_vm_name=$1
 
     virt-install --connect $_acp_vm_session \
         --osinfo linux2020 \
@@ -411,10 +411,6 @@ virtinst () {
         --video virtio \
         --autoconsole none \
         --name $*
-
-    unset _acp_vm_name
-    unset _acp_vm_session
-    unset _acp_vm_root
 }
 
 if [ -r "$XDG_CONFIG_HOME/profile.local" ]
