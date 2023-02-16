@@ -249,6 +249,7 @@ fi
 
 export _acp_podman_run='podman run --rm --interactive --tty --security-opt label=disable'
 alias adoc='$_acp_podman_run --volume "$(pwd)":/documents docker.io/asciidoctor/docker-asciidoctor'
+alias pgo='$_acp_podman_run --volume "$(pwd)":/go docker.io/library/golang go'
 alias prun='$_acp_podman_run --volume "$HOME":"$HOME" --volume "$XDG_RUNTIME_DIR":"$XDG_RUNTIME_DIR" --env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" --env XDG_SESSION_TYPE=wayland --ipc host'
 alias pruncerts='prun --volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro --volume /etc/ssl/certs:/etc/ssl/certs:ro'
 
