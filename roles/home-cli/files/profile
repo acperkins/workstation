@@ -155,6 +155,16 @@ do
     _acp_add_path "$dir"
 done
 
+# Flatpak extensions are named `org.freedesktop.Sdk.Extension.NAME` and get
+# installed to `/usr/lib/sdk/NAME/bin`.
+for ext in golang \
+        rust-stable \
+        rust-nightly \
+        texlive
+do
+    _acp_add_path "/usr/lib/sdk/$ext/bin"
+done
+
 # Other exports.
 export PS1="${PS1:-\$ }"  # Fallback prompt.
 export HISTFILE=""
