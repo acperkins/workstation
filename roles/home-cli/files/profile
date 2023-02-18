@@ -138,19 +138,19 @@ _acp_add_path () {
 # First in the list means first in the path.
 PATH=/usr/bin
 for dir in "$HOME/.local/bin" \
-       "$ACP/bin" \
-       "$XDG_DATA_HOME/flatpak/exports/bin" \
-       "$HOME/.cargo/bin" \
-       "$XDG_DATA_HOME/gem/ruby/bin" \
-       /usr/local/bin \
-       /usr/local/sbin \
-       /opt/local/bin \
-       /opt/local/sbin \
-       /var/lib/flatpak/exports/bin \
-       /app/bin \
-       /usr/sbin \
-       /bin \
-       /sbin
+           "$ACP/bin" \
+           "$XDG_DATA_HOME/flatpak/exports/bin" \
+           "$HOME/.cargo/bin" \
+           "$XDG_DATA_HOME/gem/ruby/bin" \
+           /usr/local/bin \
+           /usr/local/sbin \
+           /opt/local/bin \
+           /opt/local/sbin \
+           /var/lib/flatpak/exports/bin \
+           /app/bin \
+           /usr/sbin \
+           /bin \
+           /sbin
 do
     _acp_add_path "$dir"
 done
