@@ -136,9 +136,16 @@ _acp_add_path () {
 }
 
 # First in the list means first in the path.
+# Flatpak extensions are named `org.freedesktop.Sdk.Extension.NAME` and get
+# installed to `/usr/lib/sdk/NAME/bin`.
 PATH=/usr/bin
 for dir in "$HOME/.local/bin" \
            "$ACP/bin" \
+           /usr/lib/sdk/texlive/bin \
+           /usr/lib/sdk/texlive/bin/x86_64-linux \
+           /usr/lib/sdk/rust-nightly/bin \
+           /usr/lib/sdk/rust-stable/bin \
+           /usr/lib/sdk/golang/bin \
            "$XDG_DATA_HOME/flatpak/exports/bin" \
            "$HOME/.cargo/bin" \
            "$XDG_DATA_HOME/gem/ruby/bin" \
@@ -153,16 +160,6 @@ for dir in "$HOME/.local/bin" \
            /sbin
 do
     _acp_add_path "$dir"
-done
-
-# Flatpak extensions are named `org.freedesktop.Sdk.Extension.NAME` and get
-# installed to `/usr/lib/sdk/NAME/bin`.
-for ext in golang \
-        rust-stable \
-        rust-nightly \
-        texlive
-do
-    _acp_add_path "/usr/lib/sdk/$ext/bin"
 done
 
 # Other exports.
