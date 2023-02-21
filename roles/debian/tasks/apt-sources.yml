@@ -41,11 +41,13 @@
     dest: "/etc/apt/sources.list.d/debian.sources"
   when: ansible_distribution_release == "bookworm"
 
-- name: Remove /etc/apt/sources.list for Debian 12
+- name: Empty /etc/apt/sources.list for Debian 12
   become: true
-  ansible.builtin.file:
+  ansible.builtin.lineinfile:
     path: /etc/apt/sources.list
+    regexp: ".*"
     state: absent
+    create: yes
   when: ansible_distribution_release == "bookworm"
 
 - name: Update APT cache
