@@ -5,7 +5,7 @@ Components: main non-free-firmware
 Signed-By:  /usr/share/keyrings/debian-archive-keyring.gpg
 
 Types:      deb deb-src
-URIs:       http://security.debian.org/debian-security/
+URIs:       http://security.debian.org/debian-security
 Suites:     bookworm-security
 Components: main non-free-firmware
 Signed-By:  /usr/share/keyrings/debian-archive-keyring.gpg
