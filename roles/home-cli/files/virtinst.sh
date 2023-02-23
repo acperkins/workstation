@@ -3,7 +3,7 @@ _acp_vm_root="$HOME/virt/images"
 _acp_vm_session=qemu:///session
 _acp_vm_name=${1:---help}
 
-case "${_acp_vm_name:---help}" in
+case "$_acp_vm_name" in
     "--help" | -*)
         echo "Usage: virtinst vmname --cdrom install.iso [other virt-install options]" >&2
         exit 1
