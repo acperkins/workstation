@@ -66,3 +66,8 @@
   ansible.builtin.copy:
     src: Microsoft.PowerShell_profile.ps1
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/powershell/Microsoft.PowerShell_profile.ps1"
+- name: Create $HOME/.local/bin/virtinst
+  ansible.builtin.copy:
+    src: virtinst.sh
+    dest: "{{ ansible_env.HOME }}/.local/bin/virtinst"
+    mode: '0755'
