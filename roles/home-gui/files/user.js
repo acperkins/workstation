@@ -23,8 +23,6 @@ user_pref("browser.sessionstore.warnOnQuit", true);
 user_pref("browser.startup.homepage", "about:newtab");
 user_pref("browser.tabs.warnOnClose", true);
 user_pref("browser.toolbars.bookmarks.2h2020", true);
-user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
-user_pref("browser.urlbar.placeholderName.private", "DuckDuckGo");
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("extensions.pocket.api", "0.0.0.0");
