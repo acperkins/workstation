@@ -149,6 +149,7 @@ for dir in "$HOME/.local/bin" \
            "$XDG_DATA_HOME/flatpak/exports/bin" \
            "$HOME/.cargo/bin" \
            "$XDG_DATA_HOME/gem/ruby/bin" \
+           "$HOME/opt/node/bin" \
            /usr/local/bin \
            /usr/local/sbin \
            /opt/local/bin \
