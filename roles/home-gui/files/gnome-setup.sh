@@ -3,11 +3,18 @@
 test -x /usr/bin/gsettings || (echo "gsettings not found" && exit 1)
 
 set_favorites_bar () {
+    local firefox
+    if [ -r /usr/share/applications/firefox-esr.desktop ] && [ ! -r /usr/share/applications/firefox.desktop ]
+    then
+        firefox=firefox-esr
+    else
+        firefox=firefox
+    fi
     if [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/favorite-apps.conf" ]
     then
         gsettings set org.gnome.shell favorite-apps "$(cat "${XDG_CONFIG_HOME:-$HOME/.config}/favorite-apps.conf")"
     else
-        gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'org.keepassxc.KeePassXC.desktop']"
+        gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop', '$firefox.desktop', 'org.keepassxc.KeePassXC.desktop']"
     fi
 }
 set_favorites_bar
