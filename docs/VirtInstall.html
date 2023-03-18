@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<style type="text/css">
+body {
+  width: 16cm;
+  margin: auto;
+}
+</style>
+    <title>Building a VM with virt-install</title>
+  </head>
+  <body>
+
+    <h1>Building a VM with virt-install</h1>
+
+    <h2>Introduction</h2>
+
+    <p>This assumes that the network will be used in <em>macvtap</em> mode.
+    This is the preferred method, as it is faster than a regular bridge and does not need any additional network configuration on the host.</p>
+
+    <p>The disadvantage of macvtap is that host-to-vm and vm-to-host communication is blocked.
+    This can be worked around with an <em>internal</em> switch, or by having the macvtap connection bind to a second interface.</p>
+
+
+    <h2>Creating the VM</h2>
+
+    <p>The following command assumes the machine type is <em>linux2020</em> and the network card is <em>eno1</em>.
+    It should be run as the root user or with sudo, and should be run inside tmux for safety.</p>
+
+    <pre><kbd>virt-install --name <mark>rhel9</mark>                                        \
+   --osinfo linux2020                                            \
+   --boot uefi                                                   \
+   --cdrom <mark>/var/lib/libvirt/isos/rhel-baseos-9.1-x86_64-dvd.iso</mark>  \
+   --disk <mark>/var/lib/libvirt/images/rhel9.qcow2,size=20</mark>            \
+   --network type=direct,source=<mark>enp2s0</mark>,source_mode=bridge        \
+   --graphics vnc                                                \
+   --console pty,target.type=virtio                              \
+   --autoconsole none</kbd></pre>
+
+    <p>Highlighted paths and names should be changed as appropriate.
+    The VNC port can be found for this example by running <kbd>virsh vncdisplay rhel9</kbd>.</p>
+
+
+    <h2>Alternative install options</h2>
+
+    <p>Import a template image by copying the template into place and replacing <code>--cdrom /path/to/disc.iso</code> with <code>--import</code>.
+    The file size is not needed in the <code>--disk</code> option in this case.</p>
+
+    <p>PXE-boot a VM by replacing the <code>--cdrom /path/to/disc.iso</code> option with <code>--pxe</code>.</p>
+
+
+    <h2>Tips</h2>
+
+    <p>For a virtio network card on Windows machines, add <code>model=virtio</code> to the <code>--network</code> option.</p>
+
+    <p>Other useful options are <code>--memory&nbsp;4096</code> for 4&nbsp;GB RAM, and <code>--vcpus&nbsp;2</code> for a dual-CPU guest.</p>
+
+    <p>A list of supported operating systems can be found by running <kbd>virt-install --osinfo list</kbd>.</p>
+
+    <p>If the host hypervisor has a bridged network set up already, such as <em>br0</em>, replace the <code>--network</code> option with <code>--network bridge=br0</code>.</p>
+
+  </body>
+</html>
