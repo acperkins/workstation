@@ -32,3 +32,10 @@
     state: present
     method: user
   when: flatpak.stat.exists == true
+
+- name: Install Google Chrome flatpak
+  community.general.flatpak:
+    name: com.google.Chrome
+    state: present
+    method: user
+  when: flatpak.stat.exists == true
