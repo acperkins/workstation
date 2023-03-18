@@ -24,7 +24,9 @@
       - flatpak
       - fonts-noto
       - git-gui
+      - keepassxc
       - libcanberra-gtk-module
+      - tigervnc-viewer
       - vim-gtk3
 - name: Check for Gnome Shell
   ansible.builtin.stat:
