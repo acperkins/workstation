@@ -26,37 +26,9 @@
     method: user
   when: flatpak.stat.exists == true
 
-- name: Install Firefox flatpak
-  community.general.flatpak:
-    name: org.mozilla.firefox
-    state: present
-    method: user
-  when: flatpak.stat.exists == true
-
-- name: Install KeePassXC flatpak
-  community.general.flatpak:
-    name: org.keepassxc.KeePassXC
-    state: present
-    method: user
-  when: flatpak.stat.exists == true
-
 - name: Install VLC flatpak
   community.general.flatpak:
     name: org.videolan.VLC
-    state: present
-    method: user
-  when: flatpak.stat.exists == true
-
-- name: Install Flatpak Builder flatpak
-  community.general.flatpak:
-    name: org.flatpak.Builder
-    state: present
-    method: user
-  when: flatpak.stat.exists == true
-
-- name: Install TigerVNC flatpak
-  community.general.flatpak:
-    name: org.tigervnc.vncviewer
     state: present
     method: user
   when: flatpak.stat.exists == true
