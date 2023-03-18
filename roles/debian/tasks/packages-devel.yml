@@ -13,24 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: apt-sources.yml
-- import_tasks: packages-cli.yml
-- import_tasks: packages-devel.yml
-- import_tasks: packages-gui.yml
-  when: gui == true
-- import_tasks: modules.yml
-- import_tasks: ssh.yml
-- import_tasks: solokeys.yml
-  when: wsl == false
-- import_tasks: sudo.yml
-  when: gui == true
-- import_tasks: packagekit.yml
-  when: gui == true and wsl == false
-- import_tasks: timezone.yml
-  when: wsl == false
-- import_tasks: systemd.yml
-  when: wsl == false
-- import_tasks: gdm.yml
-- import_tasks: xkb-lv5.yml
-  when: gui == true
-- import_tasks: podman.yml
+- name: Install development packages
+  become: true
+  ansible.builtin.apt:
+    name: '{{ packages }}'
+    state: present
+    force_apt_get: yes
+  vars:
+    packages:
+      - build-essential
+      - gdb

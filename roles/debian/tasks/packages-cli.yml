@@ -23,7 +23,6 @@
     packages:
       - apt-file
       - apt-listchanges
-      - build-essential
       - curl
       - dc
       - dnsutils
