@@ -43,7 +43,7 @@ fi
 export TZ=Europe/London  # Can override this elsewhere if needed.
 if ! [ -f "$XDG_CONFIG_HOME/locale.conf" ] && [ -x /usr/bin/locale ]
 then
-    LANG="en_US.UTF-8" /usr/bin/locale > "$XDG_CONFIG_HOME/locale.conf"
+    LANG="C.UTF-8" /usr/bin/locale > "$XDG_CONFIG_HOME/locale.conf"
 fi
 if [ -r "$XDG_CONFIG_HOME/locale.conf" ]
 then
