@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Per-user installers</title>
+  </head>
+  <body>
+
+    <h1>Per-user installers</h1>
+
+    <h2>Firefox</h2>
+    <p><a href="https://www.mozilla.org/en-US/firefox/all/#product-desktop-release">Download</a></p>
+    <p>Use the non-MSI installer for per-user installation.</p>
+
+    <h2>Git</h2>
+    <p><a href="https://git-scm.com/download/win">Download</a></p>
+    <p>Git can install to a user directory when run without admin permissions.</p>
+
+    <h2>KeePassXC</h2>
+    <p><a href="https://keepassxc.org/download/#windows">Download</a></p>
+    <p>ZIP version can run from any directory.</p>
+    <p>Requires the <em>Visual C++ Redistributable</em> to be downloaded and extracted.</p>
+    <p>The <a href="https://wixtoolset.org/">Wix binaries ZIP</a> should be downloaded and extracted.
+    Then the Wix <em>dark.exe</em> command should be used to extract the <em>VC_redist.x64.exe</em> file.</p>
+    <pre><code>dark.exe -x vcruntime VC_redist.x64.exe</code></pre>
+    <p>Then open <code>vcruntime\AttachedContainer\packages\vcRuntimeMinimum_amd64\cab1.cab</code> and copy all the files into the KeePassXC directory.</p>
+
+    <h2>mRemoteNG</h2>
+    <p><a href="https://mremoteng.org/download">Download</a></p>
+    <p>ZIP version can run from any directory.</p>
+
+    <h2>Vim</h2>
+    <p><a href="https://github.com/vim/vim-win32-installer/releases/tag/v9.0.0000">Download</a></p>
+    <p>ZIP version can run from any directory.</p>
+
+    <h2>WinCompose</h2>
+    <p><a href="https://github.com/samhocevar/wincompose/releases">Download</a></p>
+    <p>Use the <em>NoInstall</em> ZIP file.</p>
+
+  </body>
+</html>
