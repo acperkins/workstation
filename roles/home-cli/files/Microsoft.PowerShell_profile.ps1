@@ -4,18 +4,22 @@
 #   C:\Users\USERNAME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 function Prompt {
-    if ($IsWindows -and $PSVersionTable.PSVersion -gt [System.Version]"6.0") {
+    if ($IsWindows -or ($env:OS -eq "Windows_NT")) {
+        [string]$monoPrompt = ""
         $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
         if ($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-            "`e[1m" + $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "# `e[0m"
+            $monoPrompt = $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "# "
         } else {
-            "`e[1m" + $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "> `e[0m"
+            $monoPrompt = $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "> "
         }
-    }
-    elseif ($IsLinux) {
+        if ($PSVersionTable.PSVersion -gt [System.Version]"6.0") {
+            "`e[1m" + $monoPrompt + "`e[0m"
+        } else {
+            $monoPrompt
+        }
+    } elseif ($IsLinux) {
         "`e[1m" + $(id -un) + "@" + $(hostname -s) + "> `e[0m"
-    }
-    else {
+    } else {
         "PS> "
     }
 }
