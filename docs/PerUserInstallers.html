@@ -8,8 +8,16 @@
     <h1>Per-user installers</h1>
 
     <h2>7-Zip</h2>
-    <p><a href="https://www.7-zip.org/a/7zr.exe">Download</a></p>
-    <p>The <code>7zr.exe</code> binary can be downloaded and saved anywhere on <code>%PATH%</code>.</p>
+    <p><a href="https://www.7-zip.org/download.html">Download</a></p>
+    <p>7-Zip needs to be installed in two parts.</p>
+    First, the standalone <code>7zr.exe</code> binary should be downloaded.
+    This can stay in the Downloads directory as it will only be needed once.</p>
+    <p>Second, the <em>64-bit Windows x64</em> installer (<code>.exe</code>) should be downloaded.
+    This should be extracted using the previous standalone executable.</p>
+    <pre><code>mkdir %USERPROFILE%\opt\7zip
+cd %USERPROFILE%\opt\7zip
+%USERPROFILE%\Downloads\7zr.exe x %USERPROFILE%\Downloads\7z2201-x64.exe</code></pre>
+    <p>The 7zip path can then be added to the <code>%PATH%</code> environment variable.</p>
 
     <h2>Firefox</h2>
     <p><a href="https://www.mozilla.org/en-US/firefox/all/#product-desktop-release">Download</a></p>
