@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Debian container</title>
+  </head>
+  <body>
+
+    <h1>Custom Debian container</h1>
+
+    <p>Debian containers can be easily built using <code>debootstrap</code> to create a basic Debian chroot, which can then be cleaned up and <em>tar</em>ed to add to a Containerfile.</p>
+    <p>The following is the process:</p>
+
+    <pre><code>sudo apt-get install debootstrap
+sudo mkdir -p /opt/mydebian/rootfs
+cd /opt/mydebian
+sudo debootstrap stable ./rootfs http://deb.debian.org/debian
+sudo rm -fr ./rootfs/debootstrap
+sudo rm -fr ./rootfs/var/cache/*
+sudo rm -fr ./rootfs/var/lib/apt/lists/*
+sudo tar czf rootfs.tar.gz -C ./rootfs .
+cat &lt;&lt; __EOF__ | sudo tee Containerfile
+FROM scratch
+ADD rootfs.tar.gz
+CMD [&quot;/bin/bash&quot;]
+__EOF__
+podman build -t mydebian:latest .</code></pre>
+
+    <p>This will create a podman image tagged <code>mydebian:latest</code> with the current <em>stable</em> packages.</p>
+
+  </body>
+</html>
