@@ -20,7 +20,7 @@ sudo rm -fr ./rootfs/var/lib/apt/lists/*
 sudo tar czf rootfs.tar.gz -C ./rootfs .
 cat &lt;&lt; __EOF__ | sudo tee Containerfile
 FROM scratch
-ADD rootfs.tar.gz
+ADD rootfs.tar.gz /
 CMD [&quot;/bin/bash&quot;]
 __EOF__
 podman build -t mydebian:latest .</code></pre>
