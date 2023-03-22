@@ -61,6 +61,13 @@ cd %USERPROFILE%\opt\7zip
     <p>Update the MSYS2 environment with <code>pacman -Syu</code> and then install the toolchain package group with <code>pacman -S mingw-w64-ucrt0x86_64-toolchain</code>.
     This will install all of the build tools including <code>gcc</code>, <code>g++</code>, and <code>mingw32-make</code>, plus the <code>libstdc</code> and <code>libstdc++</code> libraries.</p>
     <p>Finally, add <code>%USERPROFILE%\opt\msys64\urct64\bin</code> to the <code>%PATH%</code> environment variable.</p>
+    <p>A profile can be added to Windows Terminal with the following settings:</p>
+    <ul>
+      <li><strong>Name:</strong> <code>MSYS2 URCT64</code></li>
+      <li><strong>Command line:</strong> <code>%USERPROFILE%\opt\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64</code></li>
+      <li><strong>Starting directory:</strong> <code>%USERPROFILE%\opt\msys64\home\%USERNAME%</code></li>
+      <li><strong>Icon:</strong> <code>%USERPROFILE%\opt\msys64\urct64.ico</code></li>
+    </ul>
 
     <h2>PuTTY</h2>
     <p><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Download</a></p>
