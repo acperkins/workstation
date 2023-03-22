@@ -51,6 +51,17 @@ cd %USERPROFILE%\opt\7zip
     <p><a href="https://mremoteng.org/download">Download</a></p>
     <p>ZIP version can run from any directory.</p>
 
+    <h2>MSYS2 (development environment)</h2>
+    <p><a href="https://www.msys2.org/">Download</a></p>
+    <p>Download and run the <code>msys2-x86_64-*.exe</code> installer.
+    Install to a directory that you have write access to, e.g. under <code>%USERPROFILE%\opt\msys64</code>.</p>
+    <p>Run the <em>MSYS2 UCRT64</em> launcher.
+    <em>UCRT64</em> is Microsoft's <em>Universal C Runtime Library</em> and is the preferred build environment on modern (Windows 10 and above) Windows operating systems.
+    For more information, see <a href="https://www.msys2.org/docs/environments/">Environments</a>.</p>
+    <p>Update the MSYS2 environment with <code>pacman -Syu</code> and then install the toolchain package group with <code>pacman -S mingw-w64-ucrt0x86_64-toolchain</code>.
+    This will install all of the build tools including <code>gcc</code>, <code>g++</code>, and <code>mingw32-make</code>, plus the <code>libstdc</code> and <code>libstdc++</code> libraries.</p>
+    <p>Finally, add <code>%USERPROFILE%\opt\msys64\urct64\bin</code> to the <code>%PATH%</code> environment variable.</p>
+
     <h2>PuTTY</h2>
     <p><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Download</a></p>
     <p>The Windows built-in ssh-agent needs admin to be started.</p>
