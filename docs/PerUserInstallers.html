@@ -79,6 +79,9 @@ cd %USERPROFILE%\opt\7zip
     <h2>Vim</h2>
     <p><a href="https://github.com/vim/vim-win32-installer/releases/tag/v9.0.0000">Download</a></p>
     <p>The installer can run without admin permissions, or the ZIP version can run from any directory.</p>
+    <p>The following can be put into a batch file named <code>vim.cmd</code> in the <code>%PATH%</code> to make it easier to launch without pulling in all the other programs:</p>
+    <pre><code>@ECHO OFF
+&quot;%USERPROFILE%\opt\vim\vim90\vim.exe&quot; %*</code></pre>
 
     <h2>WinCompose</h2>
     <p><a href="https://github.com/samhocevar/wincompose/releases">Download</a></p>
