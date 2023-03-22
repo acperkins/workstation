@@ -1,91 +1,144 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Per-user installers</title>
-  </head>
-  <body>
+<head>
+<title>Per-user installers</title>
+</head>
+<body>
 
-    <h1>Per-user installers</h1>
 
-    <h2>7-Zip</h2>
-    <p><a href="https://www.7-zip.org/download.html">Download</a></p>
-    <p>7-Zip needs to be installed in two parts.</p>
-    First, the standalone <code>7zr.exe</code> binary should be downloaded.
-    This can stay in the Downloads directory as it will only be needed once.</p>
-    <p>Second, the <em>64-bit Windows x64</em> installer (<code>.exe</code>) should be downloaded.
-    This should be extracted using the previous standalone executable.</p>
-    <pre><code>mkdir %USERPROFILE%\opt\7zip
+<h1>Per-user installers</h1>
+
+
+<h2>7-Zip</h2>
+
+<p><a href="https://www.7-zip.org/download.html">Download</a></p>
+
+<p>7-Zip needs to be installed in two parts.</p>
+First, the standalone <code>7zr.exe</code> binary should be downloaded.
+This can stay in the Downloads directory as it will only be needed once.</p>
+
+<p>Second, the <em>64-bit Windows x64</em> installer (<code>.exe</code>) should be downloaded.
+This should be extracted using the previous standalone executable.</p>
+
+<pre><code>mkdir %USERPROFILE%\opt\7zip
 cd %USERPROFILE%\opt\7zip
 %USERPROFILE%\Downloads\7zr.exe x %USERPROFILE%\Downloads\7z2201-x64.exe</code></pre>
-    <p>The 7zip path can then be added to the <code>%PATH%</code> environment variable.</p>
 
-    <h2>Firefox</h2>
-    <p><a href="https://www.mozilla.org/en-US/firefox/all/#product-desktop-release">Download</a></p>
-    <p>Use the non-MSI installer for per-user installation.</p>
+<p>The 7zip path can then be added to the <code>%PATH%</code> environment variable.</p>
 
-    <h2>Git</h2>
-    <p><a href="https://git-scm.com/download/win">Download</a></p>
-    <p>Git can install to a user directory when run without admin permissions.</p>
 
-    <h2>Go Mono fonts</h2>
-    <p><a href="https://go.googlesource.com/image/+archive/refs/heads/master/font/gofont/ttfs.tar.gz">Download</a>
-    <p>Download and extract the TTF files from the <code>.tar.gz</code> file, or checkout the binaries from Git:</p>
-    <pre><code>git clone https://go.googlesource.com/image</code></pre>
-    <p>The font files are in <code>image/font/gofont/ttfs</code>.</p>
-    <p>Select all the <code>.ttf</code> files, right-click, and select <em>Install</em>.</p>
+<h2>Firefox</h2>
 
-    <h2>KeePassXC</h2>
-    <p><a href="https://keepassxc.org/download/#windows">Download</a></p>
-    <p>ZIP version can run from any directory.</p>
-    <p>Requires the <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe">Visual C++ Redistributable</a> to be downloaded and extracted.</p>
-    <p>The <a href="https://wixtoolset.org/">Wix binaries ZIP</a> should be downloaded and extracted.
-    Then the Wix <em>dark.exe</em> command should be used to extract the <em>VC_redist.x64.exe</em> file.</p>
-    <pre><code>dark.exe -x vcruntime VC_redist.x64.exe</code></pre>
-    <p>Then open <code>vcruntime\AttachedContainer\packages\vcRuntimeMinimum_amd64\cab1.cab</code> and copy all the files into the KeePassXC directory.</p>
+<p><a href="https://www.mozilla.org/en-US/firefox/all/#product-desktop-release">Download</a></p>
 
-    <h2>Microsoft Terminal</h2>
-    <p><a href="https://github.com/microsoft/terminal/releases">Download</a></p>
-    <p>The <code>.msixbundle</code> will install without admin permissions.</p>
+<p>Use the non-MSI installer for per-user installation.</p>
 
-    <h2>mRemoteNG</h2>
-    <p><a href="https://mremoteng.org/download">Download</a></p>
-    <p>ZIP version can run from any directory.</p>
 
-    <h2>MSYS2 (development environment)</h2>
-    <p><a href="https://www.msys2.org/">Download</a></p>
-    <p>Download and run the <code>msys2-x86_64-*.exe</code> installer.
-    Install to a directory that you have write access to, e.g. under <code>%USERPROFILE%\opt\msys64</code>.</p>
-    <p>Run the <em>MSYS2 UCRT64</em> launcher.
-    <em>UCRT64</em> is Microsoft's <em>Universal C Runtime Library</em> and is the preferred build environment on modern (Windows 10 and above) Windows operating systems.
-    For more information, see <a href="https://www.msys2.org/docs/environments/">Environments</a>.</p>
-    <p>Update the MSYS2 environment with <code>pacman -Syu</code> and then install the toolchain package group with <code>pacman -S mingw-w64-ucrt-x86_64-toolchain</code>.
-    This will install all of the build tools including <code>gcc</code>, <code>g++</code>, and <code>mingw32-make</code>, plus the <code>libstdc</code> and <code>libstdc++</code> libraries.</p>
-    <p>Finally, add <code>%USERPROFILE%\opt\msys64\ucrt64\bin</code> to the <code>%PATH%</code> environment variable.</p>
-    <p>A profile can be added to Windows Terminal with the following settings:</p>
-    <ul>
-      <li><strong>Name:</strong> <code>MSYS2 UCRT64</code></li>
-      <li><strong>Command line:</strong> <code>%USERPROFILE%\opt\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64</code></li>
-      <li><strong>Starting directory:</strong> <code>%USERPROFILE%\opt\msys64\home\%USERNAME%</code></li>
-      <li><strong>Icon:</strong> <code>%USERPROFILE%\opt\msys64\ucrt64.ico</code></li>
-    </ul>
+<h2>Git</h2>
 
-    <h2>PuTTY</h2>
-    <p><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Download</a></p>
-    <p>The Windows built-in ssh-agent needs admin to be started, so we have to use <code>PAGEANT.EXE</code> instead.</p>
-    <p>The <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip">ZIP file</a> can be extracted to any directory.</p>
-    <p>Running <code>PAGEANT.EXE --openssh-config %USERPROFILE%\.ssh\config.d\pageant.config</code> will write an OpenSSH config file with the path to the pipe used for communication.
-    This can be used by the built-in Windows OpenSSH client by adding an <code>Include config.d\pageant.config</code> line to <code>%USERPROFILE%\.ssh\config</code>.</p>
+<p><a href="https://git-scm.com/download/win">Download</a></p>
 
-    <h2>Vim</h2>
-    <p><a href="https://github.com/vim/vim-win32-installer/releases/tag/v9.0.0000">Download</a></p>
-    <p>The installer can run without admin permissions, or the ZIP version can run from any directory.</p>
-    <p>The following can be put into a batch file named <code>vim.cmd</code> in the <code>%PATH%</code> to make it easier to launch without pulling in all the other programs:</p>
-    <pre><code>@ECHO OFF
+<p>Git can install to a user directory when run without admin permissions.</p>
+
+
+<h2>Go Mono fonts</h2>
+
+<p><a href="https://go.googlesource.com/image/+archive/refs/heads/master/font/gofont/ttfs.tar.gz">Download</a>
+
+<p>Download and extract the TTF files from the <code>.tar.gz</code> file, or checkout the binaries from Git:</p>
+
+<pre><code>git clone https://go.googlesource.com/image</code></pre>
+
+<p>The font files are in <code>image/font/gofont/ttfs</code>.</p>
+
+<p>Select all the <code>.ttf</code> files, right-click, and select <em>Install</em>.</p>
+
+
+<h2>KeePassXC</h2>
+
+<p><a href="https://keepassxc.org/download/#windows">Download</a></p>
+
+<p>ZIP version can run from any directory.</p>
+
+<p>Requires the <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe">Visual C++ Redistributable</a> to be downloaded and extracted.</p>
+
+<p>The <a href="https://wixtoolset.org/">Wix binaries ZIP</a> should be downloaded and extracted.
+Then the Wix <em>dark.exe</em> command should be used to extract the <em>VC_redist.x64.exe</em> file.</p>
+
+<pre><code>dark.exe -x vcruntime VC_redist.x64.exe</code></pre>
+
+<p>Then open <code>vcruntime\AttachedContainer\packages\vcRuntimeMinimum_amd64\cab1.cab</code> and copy all the files into the KeePassXC directory.</p>
+
+
+<h2>Microsoft Terminal</h2>
+
+<p><a href="https://github.com/microsoft/terminal/releases">Download</a></p>
+
+<p>The <code>.msixbundle</code> will install without admin permissions.</p>
+
+
+<h2>mRemoteNG</h2>
+
+<p><a href="https://mremoteng.org/download">Download</a></p>
+
+<p>ZIP version can run from any directory.</p>
+
+
+<h2>MSYS2 (development environment)</h2>
+
+<p><a href="https://www.msys2.org/">Download</a></p>
+
+<p>Download and run the <code>msys2-x86_64-*.exe</code> installer.
+Install to a directory that you have write access to, e.g. under <code>%USERPROFILE%\opt\msys64</code>.</p>
+
+<p>Run the <em>MSYS2 UCRT64</em> launcher.
+<em>UCRT64</em> is Microsoft's <em>Universal C Runtime Library</em> and is the preferred build environment on modern (Windows 10 and above) Windows operating systems.
+For more information, see <a href="https://www.msys2.org/docs/environments/">Environments</a>.</p>
+
+<p>Update the MSYS2 environment with <code>pacman -Syu</code> and then install the toolchain package group with <code>pacman -S mingw-w64-ucrt-x86_64-toolchain</code>.
+This will install all of the build tools including <code>gcc</code>, <code>g++</code>, and <code>mingw32-make</code>, plus the <code>libstdc</code> and <code>libstdc++</code> libraries.</p>
+
+<p>Finally, add <code>%USERPROFILE%\opt\msys64\ucrt64\bin</code> to the <code>%PATH%</code> environment variable.</p>
+
+<p>A profile can be added to Windows Terminal with the following settings:</p>
+
+<ul>
+<li><strong>Name:</strong> <code>MSYS2 UCRT64</code></li>
+<li><strong>Command line:</strong> <code>%USERPROFILE%\opt\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64</code></li>
+<li><strong>Starting directory:</strong> <code>%USERPROFILE%\opt\msys64\home\%USERNAME%</code></li>
+<li><strong>Icon:</strong> <code>%USERPROFILE%\opt\msys64\ucrt64.ico</code></li>
+</ul>
+
+
+<h2>PuTTY</h2>
+
+<p><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Download</a></p>
+
+<p>The Windows built-in ssh-agent needs admin to be started, so we have to use <code>PAGEANT.EXE</code> instead.</p>
+
+<p>The <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.zip">ZIP file</a> can be extracted to any directory.</p>
+
+<p>Running <code>PAGEANT.EXE --openssh-config %USERPROFILE%\.ssh\config.d\pageant.config</code> will write an OpenSSH config file with the path to the pipe used for communication.
+This can be used by the built-in Windows OpenSSH client by adding an <code>Include config.d\pageant.config</code> line to <code>%USERPROFILE%\.ssh\config</code>.</p>
+
+
+<h2>Vim</h2>
+
+<p><a href="https://github.com/vim/vim-win32-installer/releases/tag/v9.0.0000">Download</a></p>
+
+<p>The installer can run without admin permissions, or the ZIP version can run from any directory.</p>
+
+<p>The following can be put into a batch file named <code>vim.cmd</code> in the <code>%PATH%</code> to make it easier to launch without pulling in all the other programs:</p>
+
+<pre><code>@ECHO OFF
 &quot;%USERPROFILE%\opt\vim\vim90\vim.exe&quot; %*</code></pre>
 
-    <h2>WinCompose</h2>
-    <p><a href="https://github.com/samhocevar/wincompose/releases">Download</a></p>
-    <p>Use the <em>NoInstall</em> ZIP file.</p>
 
-  </body>
+<h2>WinCompose</h2>
+
+<p><a href="https://github.com/samhocevar/wincompose/releases">Download</a></p>
+
+<p>Use the <em>NoInstall</em> ZIP file.</p>
+
+</body>
 </html>
