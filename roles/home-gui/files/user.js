@@ -28,6 +28,7 @@ user_pref("browser.tabs.warnOnClose", true);
 user_pref("browser.toolbars.bookmarks.2h2020", true);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("dom.security.https_only_mode", true);
 user_pref("extensions.pocket.api", "0.0.0.0");
 user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.pocket.loggedOutVariant", "");
