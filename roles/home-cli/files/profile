@@ -44,11 +44,24 @@ export POWERSHELL_TELEMETRY_OPTOUT=1
 export PYTHONWARNINGS=ignore::UserWarning
 export VIRSH_DEFAULT_CONNECT_URI=qemu:///session
 
-if [ -d /var/acp ] && ! [ -L /var/acp ]
+if ! [ -x "$HOME/data" ]
 then
-    export ACP=/var/acp
-else
-    export ACP="$HOME/data"
+    install -d -m 0700 "$HOME/data"
+fi
+
+if [ -r "$XDG_CONFIG_HOME/user-dirs.dirs" ]
+then
+    (
+        . "$XDG_CONFIG_HOME/user-dirs.dirs"
+        mkdir -p $XDG_DESKTOP_DIR
+        mkdir -p $XDG_DOCUMENTS_DIR
+        mkdir -p $XDG_DOWNLOAD_DIR
+        mkdir -p $XDG_MUSIC_DIR
+        mkdir -p $XDG_PICTURES_DIR
+        mkdir -p $XDG_PUBLICSHARE_DIR
+        mkdir -p $XDG_TEMPLATES_DIR
+        mkdir -p $XDG_VIDEOS_DIR
+    )
 fi
 
 # Desktop files (used by desktop environments within both X11 and Wayland) are
