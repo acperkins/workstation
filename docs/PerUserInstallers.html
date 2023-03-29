@@ -157,7 +157,7 @@ This can be used by the built-in Windows OpenSSH client by adding an <code>Inclu
 <p>Use the following PowerShell one-liner to download the latest Compose file from the <code>libX11</code> project to <code>%USERPROFILE%\.XCompose</code>.
 You can then disable all of the <em>Sequences</em> on the <em>Composing</em> tab to use only these sequences.</p>
 
-<p><code>[IO.File]::WriteAllLines(&quot;$env:USERPROFILE\.Xcompose&quot;, [string]((Invoke-WebRequest &quot;https://gitlab.freedesktop.org/xorg/lib/libx11/-/raw/master/nls/en_US.UTF-8/Compose.pre&quot;).Content).replace('XCOMM', '#'))</code></p>
+<p><code>[IO.File]::WriteAllLines(&quot;$env:USERPROFILE\.XCompose&quot;, [string]((Invoke-WebRequest &quot;https://gitlab.freedesktop.org/xorg/lib/libx11/-/raw/master/nls/en_US.UTF-8/Compose.pre&quot;).Content).replace('XCOMM', '#'))</code></p>
 
 </body>
 </html>
