@@ -59,3 +59,7 @@
   ansible.builtin.file:
     path: "{{ ansible_env.XDG_CONFIG_HOME }}/powershell"
     state: directory
+- name: Create $XDG_CONFIG_HOME/containers
+  ansible.builtin.file:
+    path: "{{ ansible_env.XDG_CONFIG_HOME }}/containers"
+    state: directory
