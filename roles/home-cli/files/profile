@@ -276,7 +276,7 @@ fi
 
 # Basic and extra prun (podman run) aliases.
 alias prun='podman run --rm --interactive --tty --security-opt label=disable'
-alias prunx='prun --volume "$HOME":"$HOME" --volume "$XDG_RUNTIME_DIR":"$XDG_RUNTIME_DIR" --env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" --env XDG_SESSION_TYPE=wayland --ipc host'
+alias prunx='prun --volume "$HOME":/root --volume "$XDG_RUNTIME_DIR":"$XDG_RUNTIME_DIR" --env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" --env XDG_SESSION_TYPE=wayland --ipc host'
 
 # Tool-specific podman aliases.
 alias pruncerts='prunx --volume /etc/pki/ca-trust:/etc/pki/ca-trust:ro --volume /etc/ssl/certs:/etc/ssl/certs:ro'
