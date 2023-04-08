@@ -71,6 +71,11 @@
     src: virtinst.sh
     dest: "{{ ansible_env.HOME }}/.local/bin/virtinst"
     mode: '0755'
+- name: Create $HOME/.local/bin/virtxp
+  ansible.builtin.copy:
+    src: virtxp.sh
+    dest: "{{ ansible_env.HOME }}/.local/bin/virtxp"
+    mode: '0755'
 - name: Create $XDG_CONFIG_HOME/user-dirs.dirs
   ansible.builtin.copy:
     src: user-dirs.dirs
