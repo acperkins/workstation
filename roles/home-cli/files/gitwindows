@@ -1,0 +1,11 @@
+[diff "astextplain"]
+	textconv = astextplain
+[http]
+	sslBackend = schannel
+[core]
+	fscache = true
+	symlinks = false
+[credential]
+	helper = manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true

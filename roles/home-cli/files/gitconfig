@@ -1,7 +1,11 @@
+# Set environment variable GIT_CONFIG_NOSYSTEM=true to ignore the Git
+# system-wide config file (normally /etc/gitconfig).
+
 [core]
 	autocrlf = input
 [pull]
 	ff = only
+	rebase = false
 [push]
 	default = simple
 [color]
@@ -17,5 +21,11 @@
 	l1 = log --pretty=oneline
 	last = log -1 HEAD --pretty=fuller
 	lastmail = format-patch --stdout -1 HEAD
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [include]
+	path = windows
 	path = local
