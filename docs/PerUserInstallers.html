@@ -20,8 +20,8 @@ This can stay in the Downloads directory as it will only be needed once.</p>
 <p>Second, the <em>64-bit Windows x64</em> installer (<code>.exe</code>) should be downloaded.
 This should be extracted using the previous standalone executable.</p>
 
-<pre><code>mkdir %USERPROFILE%\opt\7zip
-cd %USERPROFILE%\opt\7zip
+<pre><code>mkdir %LocalAppData%\Programs\7zip
+cd %LocalAppData%\Programs\7zip
 %USERPROFILE%\Downloads\7zr.exe x %USERPROFILE%\Downloads\7z2201-x64.exe</code></pre>
 
 <p>The 7zip path can then be added to the <code>%PATH%</code> environment variable.</p>
@@ -89,7 +89,7 @@ Then the Wix <em>dark.exe</em> command should be used to extract the <em>VC_redi
 <p><a href="https://www.msys2.org/">Download</a></p>
 
 <p>Download and run the <code>msys2-x86_64-*.exe</code> installer.
-Install to a directory that you have write access to, e.g. under <code>%USERPROFILE%\opt\msys64</code>.</p>
+Install to a directory that you have write access to, e.g. under <code>%LocalAppData%\Programs\msys64</code>.</p>
 
 <p>Run the <em>MSYS2 UCRT64</em> launcher.
 <em>UCRT64</em> is Microsoft's <em>Universal C Runtime Library</em> and is the preferred build environment on modern (Windows 10 and above) Windows operating systems.
@@ -98,7 +98,7 @@ For more information, see <a href="https://www.msys2.org/docs/environments/">Env
 <p>Update the MSYS2 environment with <code>pacman -Syu</code> and then install the toolchain package group with <code>pacman -S mingw-w64-ucrt-x86_64-toolchain</code>.
 This will install all of the build tools including <code>gcc</code>, <code>g++</code>, and <code>mingw32-make</code>, plus the <code>libstdc</code> and <code>libstdc++</code> libraries.</p>
 
-<p>Finally, add <code>%USERPROFILE%\opt\msys64\ucrt64\bin</code> to the <code>%PATH%</code> environment variable.</p>
+<p>Finally, add <code>%LocalAppData%\Programs\msys64\ucrt64\bin</code> to the <code>%PATH%</code> environment variable.</p>
 
 <p>A profile can be added to Windows Terminal with the following settings:</p>
 
@@ -110,15 +110,15 @@ This will install all of the build tools including <code>gcc</code>, <code>g++</
     </tr>
     <tr>
       <td>Command line:</td>
-      <td><code>%USERPROFILE%\opt\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64</code></td>
+      <td><code>%LocalAppData%\Programs\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64</code></td>
     </tr>
     <tr>
       <td>Starting directory:</td>
-      <td><code>%USERPROFILE%\opt\msys64\home\%USERNAME%</code></td>
+      <td><code>%LocalAppData%\Programs\msys64\home\%USERNAME%</code></td>
     </tr>
     <tr>
       <td>Icon:</td>
-      <td><code>%USERPROFILE%\opt\msys64\ucrt64.ico</code></td>
+      <td><code>%LocalAppData%\Programs\msys64\ucrt64.ico</code></td>
     </tr>
   </tbody>
 </table>
@@ -145,7 +145,7 @@ This can be used by the built-in Windows OpenSSH client by adding an <code>Inclu
 <p>The following can be put into a batch file named <code>vim.cmd</code> in the <code>%PATH%</code> to make it easier to launch without pulling in all the other programs:</p>
 
 <pre><code>@ECHO OFF
-&quot;%USERPROFILE%\opt\vim\vim90\vim.exe&quot; %*</code></pre>
+&quot;%LocalAppData%\Programs\vim\vim90\vim.exe&quot; %*</code></pre>
 
 
 <h2>WinCompose</h2>
