@@ -43,3 +43,9 @@
     regexp: "{{ 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMMMawkF2TJzmqHewciwMRhOOTE9W1+vXq1yzV13KWUg' | regex_escape() }}"
     mode: '0600'
     state: absent
+- name: Add work ed25519 key to authorized_keys
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
+    line: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJV4Cddvb/D2/LDQc6HyG6kaW9XIGHYysGBebDlklclM acp-work"
+    create: yes
+    mode: '0600'
