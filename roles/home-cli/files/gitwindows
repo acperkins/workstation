@@ -9,3 +9,5 @@
 	helper = manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[diff "utf16diff"]
+	textconv = "C:/Users/anthony.perkins/data/workstation/roles/home-cli/files/utf16diff.cmd"
