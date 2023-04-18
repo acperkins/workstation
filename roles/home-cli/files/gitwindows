@@ -9,5 +9,3 @@
 	helper = manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
-[diff "utf16diff"]
-	textconv = utf16diff.cmd
