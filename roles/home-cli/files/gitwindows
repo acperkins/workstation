@@ -5,6 +5,7 @@
 [core]
 	fscache = true
 	symlinks = false
+	sshCommand = C:/WINDOWS/System32/OpenSSH/ssh.exe
 [credential]
 	helper = manager
 [credential "https://dev.azure.com"]
