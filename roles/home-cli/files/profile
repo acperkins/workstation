@@ -304,12 +304,6 @@ then
     fi
 fi
 
-# Print AZERTY keyboard if using the French locale.
-if [ "$LANG" = "fr_FR.UTF-8" ] && [ -r "$XDG_DATA_HOME/azerty-afnor.txt" ]
-then
-    cat "$XDG_DATA_HOME/azerty-afnor.txt"
-fi
-
 # Make a directory and immediately change to it.
 mkcd () {
     if [ $# -ne 1 ]
@@ -394,6 +388,12 @@ usermotd () {
         echo "zsh $ZSH_VERSION"
     else
         echo "SHELL=$SHELL"
+    fi
+
+    # Print AZERTY keyboard if using the French locale.
+    if [ "$LANG" = "fr_FR.UTF-8" ] && [ -r "$XDG_DATA_HOME/azerty-afnor.txt" ]
+    then
+        cat "$XDG_DATA_HOME/azerty-afnor.txt"
     fi
 }
 
