@@ -304,6 +304,12 @@ then
     fi
 fi
 
+# Print AZERTY keyboard if using the French locale.
+if [ "$LANG" -eq "fr_FR.UTF-8" ] && [ -r "$XDG_DATA_HOME/azerty-afnor.txt" ]
+then
+    cat "$XDG_DATA_HOME/azerty-afnor.txt"
+fi
+
 # Make a directory and immediately change to it.
 mkcd () {
     if [ $# -ne 1 ]

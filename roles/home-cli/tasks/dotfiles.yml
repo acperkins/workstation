@@ -84,3 +84,7 @@
   ansible.builtin.copy:
     src: storage.conf
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/containers/storage.conf"
+- name: Create $XDG_DATA_HOME/azerty-afnor.txt
+  ansible.builtin.copy:
+    src: azerty-afnor.txt
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/azerty-afnor.txt"
