@@ -389,12 +389,6 @@ usermotd () {
     else
         echo "SHELL=$SHELL"
     fi
-
-    # Print AZERTY keyboard if using the French locale.
-    if [ "$LANG" = "fr_FR.UTF-8" ] && [ -r "$XDG_DATA_HOME/azerty-afnor.txt" ]
-    then
-        cat "$XDG_DATA_HOME/azerty-afnor.txt"
-    fi
 }
 
 simpletls () {

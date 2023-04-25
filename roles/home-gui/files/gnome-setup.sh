@@ -21,7 +21,7 @@ set_favorites_bar
 
 set_keyboard_and_language () {
     gsettings set org.gnome.desktop.input-sources show-all-sources true
-    gsettings set org.gnome.desktop.input-sources xkb-options "[]"
+    gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch', 'lv5:rctrl_switch']"
     gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
     gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
     gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
@@ -29,13 +29,13 @@ set_keyboard_and_language () {
 
     case "$LANG" in
     "en_GB.UTF-8")
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'fr+afnor')]"
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'ca+multix')]"
         ;;
     "fr_FR.UTF-8")
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'fr+afnor'), ('xkb', 'gb')]"
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ca+multix'), ('xkb', 'gb')]"
         ;;
     *)
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'gb')]"
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us')]"
         ;;
     esac
 
