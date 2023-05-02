@@ -167,6 +167,7 @@ for dir in "$HOME/.local/bin" \
            /usr/lib/sdk/golang/bin \
            "$XDG_DATA_HOME/flatpak/exports/bin" \
            "$HOME/.cargo/bin" \
+           "$HOME/opt/go/bin" \
            "$XDG_DATA_HOME/gem/ruby/bin" \
            "$HOME/opt/node/bin" \
            /usr/local/bin \
