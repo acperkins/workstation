@@ -187,6 +187,11 @@ export PS1="${PS1:-\$ }"  # Fallback prompt.
 export HISTFILE=""
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
+if [ "$XDG_SESSION_TYPE" = "wayland" ]
+then
+    export MOZ_ENABLE_WAYLAND=1
+fi
+
 if [ "$(uname -s)" = Darwin ]
 then
     # MacOS warns about switching from bash to zsh.  Silence this.
