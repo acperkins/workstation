@@ -46,7 +46,7 @@ user_pref("media.eme.enabled", false);
 user_pref("media.peerconnection.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
-user_pref("network.http.windows-sso.enabled", true);
+user_pref("network.http.windows-sso.enabled", false);
 user_pref("network.security.ports.banned.override", "6697");
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("places.history.enabled", false);
