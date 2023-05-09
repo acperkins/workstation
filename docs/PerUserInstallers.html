@@ -89,7 +89,7 @@ Then the Wix <em>dark.exe</em> command should be used to extract the <em>VC_redi
 <p><a href="https://www.msys2.org/">Download</a></p>
 
 <p>Download and run the <code>msys2-x86_64-*.exe</code> installer.
-Install to a directory that you have write access to, e.g. under <code>%LocalAppData%\Programs\msys64</code>.</p>
+Install to a directory that you have write access to, e.g. under <code>%USERPROFILE%\msys64</code>.</p>
 
 <p>Run the <em>MSYS2 UCRT64</em> launcher.
 <em>UCRT64</em> is Microsoft's <em>Universal C Runtime Library</em> and is the preferred build environment on modern (Windows 10 and above) Windows operating systems.
@@ -98,7 +98,7 @@ For more information, see <a href="https://www.msys2.org/docs/environments/">Env
 <p>Update the MSYS2 environment with <code>pacman -Syu</code> and then install the toolchain package group with <code>pacman -S mingw-w64-ucrt-x86_64-toolchain</code>.
 This will install all of the build tools including <code>gcc</code>, <code>g++</code>, and <code>mingw32-make</code>, plus the <code>libstdc</code> and <code>libstdc++</code> libraries.</p>
 
-<p>Finally, add <code>%LocalAppData%\Programs\msys64\ucrt64\bin</code> to the <code>%PATH%</code> environment variable.</p>
+<p>Finally, add <code>%USERPROFILE%\msys64\ucrt64\bin</code> to the <code>%PATH%</code> environment variable.</p>
 
 <p>A profile can be added to Windows Terminal with the following settings:</p>
 
@@ -110,15 +110,15 @@ This will install all of the build tools including <code>gcc</code>, <code>g++</
     </tr>
     <tr>
       <td>Command line:</td>
-      <td><code>%LocalAppData%\Programs\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64</code></td>
+      <td><code>%USERPROFILE%\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64</code></td>
     </tr>
     <tr>
       <td>Starting directory:</td>
-      <td><code>%LocalAppData%\Programs\msys64\home\%USERNAME%</code></td>
+      <td><code>%USERPROFILE%\msys64\home\%USERNAME%</code></td>
     </tr>
     <tr>
       <td>Icon:</td>
-      <td><code>%LocalAppData%\Programs\msys64\ucrt64.ico</code></td>
+      <td><code>%USERPROFILE%\msys64\ucrt64.ico</code></td>
     </tr>
   </tbody>
 </table>
