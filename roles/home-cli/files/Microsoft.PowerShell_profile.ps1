@@ -61,6 +61,14 @@ function ADUserInfo {
     Get-ADUser -Properties $ADPropertiesGet -Identity $User | Select-Object -Property $ADPropertiesPrint
 }
 
+Function mkcd {
+    Param (
+        [Parameter(Mandatory=$true,Position=0)] [string]$Path
+    )
+    New-Item -ItemType Directory -Path $Path
+    Set-Location -Path $Path
+}
+
 Set-Alias -Name json -Value ConvertTo-Json
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Emacs
