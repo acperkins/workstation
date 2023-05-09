@@ -86,16 +86,19 @@ Then the Wix <em>dark.exe</em> command should be used to extract the <em>VC_redi
 
 <h2>MSYS2 (development environment)</h2>
 
-<p><a href="https://www.msys2.org/">Download</a></p>
+<p><a href="https://github.com/msys2/msys2-installer/releases">Download</a></p>
 
-<p>Download and run the <code>msys2-x86_64-*.exe</code> installer.
-Install to a directory that you have write access to, e.g. under <code>%USERPROFILE%\msys64</code>.</p>
+<p>Download and run the <code>msys2-base-x86_64-*.sfx.exe</code> installer.
+Install to a directory that you have write access to, e.g. under <code>%USERPROFILE%\msys64</code>.
+<strong>Note:</strong> the installer will extract to <code>.\msys64</code> by default.</p>
 
-<p>Run the <em>MSYS2 UCRT64</em> launcher.
-<em>UCRT64</em> is Microsoft's <em>Universal C Runtime Library</em> and is the preferred build environment on modern (Windows 10 and above) Windows operating systems.
+<p>Start the <em>MSYS2 UCRT64</em> environment by running <code>ucrt64.exe</code>.
+UCRT64 is Microsoft's <em>Universal C Runtime Library</em> and is the preferred build environment on modern (Windows 10 and above) Windows operating systems.
 For more information, see <a href="https://www.msys2.org/docs/environments/">Environments</a>.</p>
 
-<p>Update the MSYS2 environment with <code>pacman -Syu</code> and then install the toolchain package group with <code>pacman -S mingw-w64-ucrt-x86_64-toolchain</code>.
+<p>Update the MSYS2 environment with <code>pacman -Syu</code>.
+You might be prompted to terminate the environment to complete the installation of all the upates.
+Relaunch <code>ucrt64.exe</code> if necessary, and install the toolchain package group with <code>pacman -S mingw-w64-ucrt-x86_64-toolchain</code>.
 This will install all of the build tools including <code>gcc</code>, <code>g++</code>, and <code>mingw32-make</code>, plus the <code>libstdc</code> and <code>libstdc++</code> libraries.</p>
 
 <p>Optionally, add <code>%USERPROFILE%\msys64\ucrt64\bin</code> to the <code>%PATH%</code> environment variable to get access to the tools from the normal Windows Command Prompt or PowerShell.</p>
