@@ -20,8 +20,8 @@ This can stay in the Downloads directory as it will only be needed once.</p>
 <p>Second, the <em>64-bit Windows x64</em> installer (<code>.exe</code>) should be downloaded.
 This should be extracted using the previous standalone executable.</p>
 
-<pre><code>mkdir %LocalAppData%\Programs\7zip
-cd %LocalAppData%\Programs\7zip
+<pre><code>mkdir %LOCALAPPDATA%\Programs\7zip
+cd %LOCALAPPDATA%\Programs\7zip
 %USERPROFILE%\Downloads\7zr.exe x %USERPROFILE%\Downloads\7z2201-x64.exe</code></pre>
 
 <p>The 7zip path can then be added to the <code>%PATH%</code> environment variable.</p>
@@ -148,7 +148,7 @@ This can be used by the built-in Windows OpenSSH client by adding an <code>Inclu
 <p>The following can be put into a batch file named <code>vim.cmd</code> in the <code>%PATH%</code> to make it easier to launch without pulling in all the other programs:</p>
 
 <pre><code>@ECHO OFF
-&quot;%LocalAppData%\Programs\vim\vim90\vim.exe&quot; %*</code></pre>
+&quot;%LOCALAPPDATA%\Programs\vim\vim90\vim.exe&quot; %*</code></pre>
 
 
 <h2>WinCompose</h2>
