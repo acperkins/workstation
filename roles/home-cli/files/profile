@@ -160,6 +160,7 @@ _acp_add_path () {
 PATH=/usr/bin
 for dir in "$HOME/.local/bin" \
            "$ACP/bin" \
+           /ucrt64/bin \
            /usr/lib/sdk/texlive/bin \
            /usr/lib/sdk/texlive/bin/x86_64-linux \
            /usr/lib/sdk/rust-nightly/bin \
