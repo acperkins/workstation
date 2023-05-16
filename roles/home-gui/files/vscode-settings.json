@@ -1,9 +1,8 @@
 {
-    "editor.fontFamily": "'Go Mono', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
     "editor.fontSize": 12,
     "json.schemaDownload.enable": false,
     "npm.fetchOnlinePackageInfo": false,
-    "powershell.integratedConsole.showOnStartup": false,
     "security.workspace.trust.emptyWindow": false,
     "security.workspace.trust.untrustedFiles": "newWindow",
     "telemetry.telemetryLevel": "off",
