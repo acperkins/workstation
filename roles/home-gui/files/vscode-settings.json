@@ -1,6 +1,8 @@
 {
     "editor.fontFamily": "Consolas, 'Courier New', monospace",
     "editor.fontSize": 12,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
     "json.schemaDownload.enable": false,
     "npm.fetchOnlinePackageInfo": false,
     "security.workspace.trust.emptyWindow": false,
