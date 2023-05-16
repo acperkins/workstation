@@ -7,6 +7,8 @@
     "security.workspace.trust.untrustedFiles": "newWindow",
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.enablePersistentSessions": false,
+    "update.mode": "manual",
+    "update.showReleaseNotes": false,
     "window.restoreWindows": "none",
     "workbench.colorTheme": "Default Light Modern",
     "workbench.editor.untitled.hint": "hidden",
