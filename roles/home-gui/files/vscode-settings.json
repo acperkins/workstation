@@ -1,0 +1,12 @@
+{
+    "editor.fontFamily": "'Go Mono', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 12,
+    "security.workspace.trust.emptyWindow": false,
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "telemetry.telemetryLevel": "off",
+    "window.restoreWindows": "none",
+    "workbench.colorTheme": "Default Light Modern",
+    "workbench.editor.untitled.hint": "hidden",
+    "workbench.localHistory.enabled": false,
+    "workbench.startupEditor": "none"
+}
