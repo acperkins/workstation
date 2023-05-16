@@ -1,12 +1,18 @@
 {
     "editor.fontFamily": "'Go Mono', Consolas, 'Courier New', monospace",
     "editor.fontSize": 12,
+    "json.schemaDownload.enable": false,
+    "npm.fetchOnlinePackageInfo": false,
+    "powershell.integratedConsole.showOnStartup": false,
     "security.workspace.trust.emptyWindow": false,
     "security.workspace.trust.untrustedFiles": "newWindow",
     "telemetry.telemetryLevel": "off",
+    "terminal.integrated.enablePersistentSessions": false,
     "window.restoreWindows": "none",
     "workbench.colorTheme": "Default Light Modern",
     "workbench.editor.untitled.hint": "hidden",
+    "workbench.enableExperiments": false,
     "workbench.localHistory.enabled": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.startupEditor": "none"
 }
