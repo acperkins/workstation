@@ -432,10 +432,7 @@ cat << __EOF__ | tee .clang-format
 BasedOnStyle: WebKit
 
 BreakBeforeBraces: Stroustrup
-ColumnLimit: 100
 ContinuationIndentWidth: 2
-Cpp11BracedListStyle: true
-FixNamespaceComments: true
 ...
 __EOF__
 command ls -l .clang-format
