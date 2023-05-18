@@ -45,7 +45,7 @@
   ansible.builtin.copy:
     src: editorconfig
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/editorconfig"
-- name: Create $XDG_CONFIG_HOME/clang-format
+- name: Create $HOME/.clang-format
   ansible.builtin.copy:
     src: clang-format
     dest: "{{ ansible_env.HOME }}/.clang-format"
