@@ -421,9 +421,14 @@ tlscheck () {
 }
 
 acpclangformat () {
-cat << __EOF__
+if [ -r .clang-format ]
+then
+    echo "Error: .clang-format already exists" 1>&2
+    return 1
+fi
+echo "# Writing to .clang-format"
+cat << __EOF__ | tee .clang-format
 ---
-# .clang-format
 BasedOnStyle: WebKit
 
 BreakBeforeBraces: Stroustrup
@@ -433,6 +438,7 @@ Cpp11BracedListStyle: true
 FixNamespaceComments: true
 ...
 __EOF__
+command ls -l .clang-format
 }
 
 if [ -r "$XDG_CONFIG_HOME/profile.local" ]
