@@ -48,7 +48,7 @@
 - name: Create $XDG_CONFIG_HOME/clang-format
   ansible.builtin.copy:
     src: clang-format
-    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/clang-format"
+    dest: "{{ ansible_env.HOME }}/.clang-format"
 - name: Create $HOME/.local/bin/docutils-setup
   ansible.builtin.copy:
     src: docutils-setup.sh
