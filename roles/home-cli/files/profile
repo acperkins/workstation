@@ -420,7 +420,7 @@ tlscheck () {
     fi
 }
 
-myclangformat () {
+acpclangformat () {
 cat << __EOF__
 ---
 BasedOnStyle: WebKit
