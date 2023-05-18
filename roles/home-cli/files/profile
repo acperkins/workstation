@@ -420,6 +420,20 @@ tlscheck () {
     fi
 }
 
+myclangformat () {
+cat << __EOF__
+---
+BasedOnStyle: WebKit
+
+BreakBeforeBraces: Stroustrup
+ColumnLimit: 100
+ContinuationIndentWidth: 2
+Cpp11BracedListStyle: true
+FixNamespaceComments: true
+...
+__EOF__
+}
+
 if [ -r "$XDG_CONFIG_HOME/profile.local" ]
 then
     . "$XDG_CONFIG_HOME/profile.local"
