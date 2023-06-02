@@ -34,6 +34,8 @@ fi
 
 export ANSIBLE_NOCOWS=1
 export BLOCKSIZE=K
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_ROOT="$HOME/opt/dotnet"
 export EDITOR=vi
 export ENV="$HOME/.shrc"
 export GOTELEMETRY=off
@@ -168,6 +170,7 @@ for dir in "$HOME/.local/bin" \
            /usr/lib/sdk/rust-stable/bin \
            /usr/lib/sdk/golang/bin \
            "$XDG_DATA_HOME/flatpak/exports/bin" \
+           "$HOME/opt/dotnet" \
            "$HOME/.cargo/bin" \
            "$HOME/opt/go/bin" \
            "$XDG_DATA_HOME/gem/ruby/bin" \
