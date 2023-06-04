@@ -49,6 +49,10 @@
   ansible.builtin.copy:
     src: clang-format
     dest: "{{ ansible_env.HOME }}/.clang-format"
+- name: Create $HOME/.editorconfig
+  ansible.builtin.copy:
+    src: editorconfig
+    dest: "{{ ansible_env.HOME }}/.editorconfig"
 - name: Create $HOME/.local/bin/docutils-setup
   ansible.builtin.copy:
     src: docutils-setup.sh
