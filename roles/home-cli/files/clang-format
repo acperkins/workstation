@@ -31,7 +31,7 @@ BinPackParameters: true
 BitFieldColonSpacing: Both
 BreakAfterJavaFieldAnnotations: false
 BreakBeforeBinaryOperators: None
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Allman
 BreakBeforeConceptDeclarations: true
 BreakBeforeInheritanceComma: false
 BreakBeforeTernaryOperators: false
