@@ -3,6 +3,7 @@
     "debug.console.historySuggestions": false,
     "editor.fontFamily": "Consolas, 'Courier New', monospace",
     "editor.fontSize": 12,
+    "editor.renderWhitespace": "all",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "json.schemaDownload.enable": false,
