@@ -1,7 +1,7 @@
 {
     "csharp.suppressBuildAssetsNotification": true,
     "debug.console.historySuggestions": false,
-    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Noto Sans Mono', 'Cascadia Code', Consolas, 'Courier New', monospace",
     "editor.fontSize": 12,
     "editor.renderWhitespace": "all",
     "files.insertFinalNewline": true,
