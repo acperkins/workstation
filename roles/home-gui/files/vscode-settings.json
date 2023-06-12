@@ -20,6 +20,29 @@
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.enablePersistentSessions": false,
     "terminal.integrated.shellIntegration.history": 0,
+    "todo-tree.general.tags": [
+        "TODO",
+        "WAIT",
+        "WORK",
+        "DONE"
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "DONE": {
+            "foreground": "#c0c0c0"
+        },
+        "TODO": {
+            "fontWeight": "bold",
+            "foreground": "#ff0000"
+        },
+        "WAIT": {
+            "fontWeight": "bold",
+            "foreground": "#ff00ff"
+        },
+        "WORK": {
+            "fontWeight": "bold",
+            "foreground": "#00ff00"
+        }
+    },
     "update.mode": "manual",
     "update.showReleaseNotes": false,
     "window.restoreWindows": "none",
