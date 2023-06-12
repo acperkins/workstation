@@ -5,6 +5,7 @@
     "editor.fontFamily": "'Noto Sans Mono', 'Cascadia Code', Consolas, 'Courier New', monospace",
     "editor.fontSize": 12,
     "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
     "extensions.ignoreRecommendations": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
