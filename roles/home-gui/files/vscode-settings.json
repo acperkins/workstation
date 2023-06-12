@@ -43,6 +43,7 @@
             "foreground": "#00ff00"
         }
     },
+    "todo-tree.tree.groupedByTag": true,
     "update.mode": "manual",
     "update.showReleaseNotes": false,
     "window.restoreWindows": "none",
