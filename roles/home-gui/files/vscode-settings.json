@@ -21,12 +21,27 @@
     "terminal.integrated.enablePersistentSessions": false,
     "terminal.integrated.shellIntegration.history": 0,
     "todo-tree.general.tags": [
+        "[!!!]",
+        "[!!]",
+        "[!]",
+        "DONE",
         "TODO",
         "WAIT",
-        "WORK",
-        "DONE"
+        "WORK"
     ],
     "todo-tree.highlights.customHighlight": {
+        "[!!!]": {
+            "fontWeight": "bold",
+            "foreground": "#ffc000"
+        },
+        "[!!]": {
+            "fontWeight": "bold",
+            "foreground": "#ffc000"
+        },
+        "[!]": {
+            "fontWeight": "bold",
+            "foreground": "#ffc000"
+        },
         "DONE": {
             "foreground": "#c0c0c0"
         },
