@@ -24,10 +24,10 @@
         "[!!!]",
         "[!!]",
         "[!]",
-        "DONE",
         "TODO",
+        "WORK",
         "WAIT",
-        "WORK"
+        "DONE"
     ],
     "todo-tree.highlights.customHighlight": {
         "[!!!]": {
