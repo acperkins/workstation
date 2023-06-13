@@ -6,6 +6,7 @@
     "editor.fontSize": 12,
     "editor.renderWhitespace": "all",
     "editor.wordWrap": "on",
+    "editorconfig.generateAuto": false,
     "extensions.ignoreRecommendations": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
