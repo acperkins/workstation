@@ -2,7 +2,7 @@
 # system-wide config file (normally /etc/gitconfig).
 
 [core]
-	autocrlf = input
+	autocrlf = true
 [pull]
 	ff = only
 	rebase = false
