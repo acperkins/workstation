@@ -26,13 +26,6 @@
     method: user
   when: flatpak.stat.exists == true
 
-- name: Install VSCodium flatpak
-  community.general.flatpak:
-    name: com.vscodium.codium
-    state: present
-    method: user
-  when: flatpak.stat.exists == true
-
 - name: Install VLC flatpak
   community.general.flatpak:
     name: org.videolan.VLC

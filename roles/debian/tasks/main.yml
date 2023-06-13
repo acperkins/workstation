@@ -30,6 +30,8 @@
   when: wsl == false
 - import_tasks: systemd.yml
   when: wsl == false
+- import_tasks: vscodium.yml
+  when: gui == true and wsl == false
 - import_tasks: gdm.yml
 - import_tasks: xkb-lv5.yml
   when: gui == true
