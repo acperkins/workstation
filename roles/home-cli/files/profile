@@ -170,6 +170,7 @@ for dir in "$HOME/.local/bin" \
            /usr/lib/sdk/rust-stable/bin \
            /usr/lib/sdk/golang/bin \
            "$XDG_DATA_HOME/flatpak/exports/bin" \
+           "$HOME/.dotnet/tools" \
            "$HOME/opt/dotnet" \
            "$HOME/.cargo/bin" \
            "$HOME/opt/go/bin" \
