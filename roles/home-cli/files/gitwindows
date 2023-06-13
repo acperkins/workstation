@@ -3,6 +3,7 @@
 [http]
 	sslBackend = schannel
 [core]
+	autocrlf = true
 	fscache = true
 	symlinks = false
 	sshCommand = C:/WINDOWS/System32/OpenSSH/ssh.exe
