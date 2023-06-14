@@ -25,10 +25,10 @@
         "[!!!]",
         "[!!]",
         "[!]",
-        "TODO",
-        "WORK",
-        "WAIT",
-        "DONE"
+        "TODO:",
+        "WORK:",
+        "WAIT:",
+        "DONE:"
     ],
     "todo-tree.highlights.customHighlight": {
         "[!!!]": {
@@ -43,18 +43,18 @@
             "fontWeight": "bold",
             "foreground": "#ffc000"
         },
-        "DONE": {
+        "DONE:": {
             "foreground": "#c0c0c0"
         },
-        "TODO": {
+        "TODO:": {
             "fontWeight": "bold",
             "foreground": "#ff0000"
         },
-        "WAIT": {
+        "WAIT:": {
             "fontWeight": "bold",
             "foreground": "#ff00ff"
         },
-        "WORK": {
+        "WORK:": {
             "fontWeight": "bold",
             "foreground": "#00ff00"
         }
