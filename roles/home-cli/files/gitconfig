@@ -1,8 +1,6 @@
 # Set environment variable GIT_CONFIG_NOSYSTEM=true to ignore the Git
 # system-wide config file (normally /etc/gitconfig).
 
-[core]
-	autocrlf = true
 [pull]
 	ff = only
 	rebase = false
