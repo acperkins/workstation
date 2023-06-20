@@ -92,3 +92,9 @@
   ansible.builtin.copy:
     src: azerty-afnor.txt
     dest: "{{ ansible_env.XDG_DATA_HOME }}/azerty-afnor.txt"
+# Get the latest version from <https://dotnet.microsoft.com/en-us/download/dotnet/scripts>
+- name: Create $HOME/.local/bin/dotnet-install.sh
+  ansible.builtin.copy:
+    src: dotnet-install.sh
+    dest: "{{ ansible_env.HOME }}/.local/bin/dotnet-install.sh"
+    mode: '0755'
