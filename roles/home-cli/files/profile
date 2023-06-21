@@ -236,7 +236,6 @@ alias 7zencrypt="7z a -t7z -p -mhe"
 alias alu="apt list --upgradable"
 alias asdo="apt source --download-only"
 alias aurmake="makepkg -irs"
-alias dotnet="$DOTNET_ROOT/dotnet"
 alias f=fossil
 alias ip="ip -c"
 alias isocal="cal --iso --reform=iso --monday --week"
