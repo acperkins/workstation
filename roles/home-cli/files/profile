@@ -43,6 +43,7 @@ export HISTCONTROL=ignorespace:ignoredups
 export PAGER=less
 export PAPERSIZE=a4
 export POWERSHELL_TELEMETRY_OPTOUT=1
+export POWERSHELL_UPDATE_CHECK=LTS
 export PYTHONWARNINGS=ignore::UserWarning
 export VIRSH_DEFAULT_CONNECT_URI=qemu:///session
 
