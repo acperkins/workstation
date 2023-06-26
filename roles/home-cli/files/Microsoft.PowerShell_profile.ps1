@@ -110,3 +110,9 @@ if ($PSVersionTable.PSVersion -ge [System.Version]"7.2.0.0") {
         Variable           = $AnsiReset;
     }
 }
+
+# Keep this at the end.
+$LocalProfilePath = Join-Path -Path "$PSScriptRoot" -ChildPath "local.ps1"
+if (Test-Path $LocalProfilePath -PathType Leaf) {
+    . $LocalProfilePath
+}
