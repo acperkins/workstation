@@ -25,8 +25,9 @@ function Prompt {
 }
 
 function ADUserInfo {
-    Param (
-        [Parameter(Mandatory=$true)] [string]$User
+    param (
+        [Parameter(Mandatory)]
+        [string]$User
     )
     Import-Module ActiveDirectory -ErrorAction Stop
     $ADPropertiesCommon = @(
@@ -54,7 +55,7 @@ function ADUserInfo {
         'msDS-UserPasswordExpiryTimeComputed'
     )
     $ADPropertiesPrintOnly = @(
-        @{Name="PasswordExpiresDate";Expression={[datetime]::FromFileTime($_."msDS-UserPasswordExpiryTimeComputed")}}
+        @{Name = "PasswordExpiresDate"; Expression = { [datetime]::FromFileTime($_."msDS-UserPasswordExpiryTimeComputed") } }
     )
     $ADPropertiesGet = $ADPropertiesCommon + $ADPropertiesGetOnly
     $ADPropertiesPrint = $ADPropertiesCommon + $ADPropertiesPrintOnly
@@ -62,8 +63,9 @@ function ADUserInfo {
 }
 
 Function mkcd {
-    Param (
-        [Parameter(Mandatory=$true,Position=0)] [string]$Path
+    param (
+        [Parameter(Mandatory)]
+        [string]$Path
     )
     New-Item -ItemType Directory -Path $Path
     Set-Location -Path $Path
@@ -87,24 +89,24 @@ Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardKillWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function KillWord
 
-if ($PSVersionTable.PSVersion -ge [System.Version]"7.2") {
+if ($PSVersionTable.PSVersion -ge [System.Version]"7.2.0.0") {
     $AnsiReset = "`e[0m"
     Set-PSReadLineOption -Colors @{
-        Default = $AnsiReset;
-        Command = $AnsiReset;
-        Comment = $AnsiReset;
+        Default            = $AnsiReset;
+        Command            = $AnsiReset;
+        Comment            = $AnsiReset;
         ContinuationPrompt = $AnsiReset;
-        Emphasis = $AnsiReset;
-        Error = $AnsiReset;
-        InlinePrediction = $AnsiReset;
-        Keyword = $AnsiReset;
-        Member = $AnsiReset;
-        Number = $AnsiReset;
-        Operator = $AnsiReset;
-        Parameter = $AnsiReset;
-        Selection = $AnsiReset;
-        String = $AnsiReset;
-        Type = $AnsiReset;
-        Variable = $AnsiReset;
+        Emphasis           = $AnsiReset;
+        Error              = $AnsiReset;
+        InlinePrediction   = $AnsiReset;
+        Keyword            = $AnsiReset;
+        Member             = $AnsiReset;
+        Number             = $AnsiReset;
+        Operator           = $AnsiReset;
+        Parameter          = $AnsiReset;
+        Selection          = $AnsiReset;
+        String             = $AnsiReset;
+        Type               = $AnsiReset;
+        Variable           = $AnsiReset;
     }
 }
