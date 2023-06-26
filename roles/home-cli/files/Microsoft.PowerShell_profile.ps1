@@ -12,7 +12,8 @@ function Prompt {
         } else {
             $monoPrompt = $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "> "
         }
-        if ($PSVersionTable.PSVersion -gt [System.Version]"6.0") {
+        if ($PSVersionTable.PSVersion -ge [System.Version]"6.0.0.0") {
+            # Print the prompt in bold.
             "`e[1m" + $monoPrompt + "`e[0m"
         } else {
             $monoPrompt
@@ -43,9 +44,7 @@ function ADUserInfo {
         'Surname'
         'DistinguishedName'
         'EmployeeID'
-        'PersonalPager'
         'Title'
-        'Division'
         'Department'
         'Created'
         'Modified'
@@ -71,7 +70,6 @@ Function mkcd {
     Set-Location -Path $Path
 }
 
-Set-Alias -Name json -Value ConvertTo-Json
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Emacs
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
@@ -83,33 +81,10 @@ Set-PSReadLineKeyHandler -Key DownArrow -ScriptBlock {
     [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchForward()
     [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
 }
-Set-PSReadLineKeyHandler -Chord Shift+Spacebar -Function SelfInsert
 Set-PSReadLineKeyHandler -Chord Ctrl+LeftArrow -Function BackwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardKillWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function KillWord
-
-if ($PSVersionTable.PSVersion -ge [System.Version]"7.2.0.0") {
-    $AnsiReset = "`e[0m"
-    Set-PSReadLineOption -Colors @{
-        Default            = $AnsiReset;
-        Command            = $AnsiReset;
-        Comment            = $AnsiReset;
-        ContinuationPrompt = $AnsiReset;
-        Emphasis           = $AnsiReset;
-        Error              = $AnsiReset;
-        InlinePrediction   = $AnsiReset;
-        Keyword            = $AnsiReset;
-        Member             = $AnsiReset;
-        Number             = $AnsiReset;
-        Operator           = $AnsiReset;
-        Parameter          = $AnsiReset;
-        Selection          = $AnsiReset;
-        String             = $AnsiReset;
-        Type               = $AnsiReset;
-        Variable           = $AnsiReset;
-    }
-}
 
 # Keep this at the end.
 $LocalProfilePath = Join-Path -Path "$PSScriptRoot" -ChildPath "local.ps1"
