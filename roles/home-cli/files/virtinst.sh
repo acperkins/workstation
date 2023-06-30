@@ -1,6 +1,12 @@
 #!/bin/sh
-_acp_vm_root="$HOME/virt/images"
-_acp_vm_session=qemu:///session
+if [ $(id -u) -eq 0 ]
+then
+    _acp_vm_root=/srv/virt/images
+    _acp_vm_session=qemu:///system
+else
+    _acp_vm_root="$HOME/virt/images"
+    _acp_vm_session=qemu:///session
+fi
 _acp_vm_name=${1:---help}
 
 case "$_acp_vm_name" in
@@ -18,8 +24,10 @@ then
     mkdir -p "$_acp_vm_root"
 fi
 
+# To get a list of valid osinfo options, run:
+#   virt-install --osinfo list
 virt-install --connect $_acp_vm_session \
-    --osinfo linux2020 \
+    --osinfo linux2022 \
     --boot uefi \
     --cpu host-passthrough \
     --disk "$_acp_vm_root/$_acp_vm_name.qcow2,size=20" \
