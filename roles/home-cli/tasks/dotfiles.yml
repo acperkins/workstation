@@ -103,3 +103,4 @@
     src: "{{ ansible_env.HOME }}/.dotnet/dotnet"
     dest: "{{ ansible_env.HOME }}/.local/bin/dotnet"
     state: link
+    force: yes
