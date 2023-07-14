@@ -17,6 +17,7 @@
     "markdown.preferredMdPathExtensionStyle": "includeExtension",
     "npm.fetchOnlinePackageInfo": false,
     "powershell.codeFormatting.preset": "OTBS",
+    "powershell.integratedConsole.showOnStartup": false,
     "search.quickOpen.includeHistory": false,
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.emptyWindow": false,
