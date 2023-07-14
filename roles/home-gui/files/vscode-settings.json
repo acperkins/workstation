@@ -66,6 +66,8 @@
     "todo-tree.tree.groupedByTag": true,
     "update.mode": "manual",
     "update.showReleaseNotes": false,
+    "window.openFilesInNewWindow": "on",
+    "window.openFoldersInNewWindow": "on",
     "window.restoreWindows": "none",
     "workbench.colorTheme": "Default Light Modern",
     "workbench.editor.historyBasedLanguageDetection": false,
@@ -74,5 +76,5 @@
     "workbench.localHistory.enabled": false,
     "workbench.localHistory.maxFileEntries": 0,
     "workbench.settings.enableNaturalLanguageSearch": false,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "newUntitledFile"
 }
