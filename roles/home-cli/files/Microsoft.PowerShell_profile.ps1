@@ -85,6 +85,7 @@ Set-PSReadLineKeyHandler -Chord Ctrl+LeftArrow -Function BackwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function ForwardWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardKillWord
 Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function KillWord
+Set-PSReadLineKeyHandler -Chord Shift+Spacebar -Function SelfInsert
 
 # Keep this at the end.
 $LocalProfilePath = Join-Path -Path "$PSScriptRoot" -ChildPath "local.ps1"
