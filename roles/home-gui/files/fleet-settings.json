@@ -1,0 +1,16 @@
+{
+    "animationEnabled": true,
+    "autoSave": false,
+    "editor.fontFamily": "Noto Sans Mono",
+    "editor.fontSize": 12.0,
+    "editor.guides": [
+        120
+    ],
+    "editor.renderWhitespace": "All",
+    "fus.sendAllowed": false,
+    "restoreWorkspacesOnStartup": false,
+    "showEmptyStateOnLastClosedWindow": true,
+    "terminal.enableFocusEditorOnEsc": true,
+    "terminal.fontSize": 12.0,
+    "theme": "light"
+}
