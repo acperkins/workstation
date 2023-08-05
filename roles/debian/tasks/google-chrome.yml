@@ -17,8 +17,8 @@
   become: true
   ansible.builtin.get_url:
     url: https://dl.google.com/linux/linux_signing_key.pub
-    dest: /etc/apt/trusted.gpg.d/google.gpg
-    checksum: fb8df9740df6a1125fd2983465d830b764b63cd92d5ada8b5bbf75927d6a71ee
+    dest: /etc/apt/trusted.gpg.d/google.asc
+    checksum: sha256:fb8df9740df6a1125fd2983465d830b764b63cd92d5ada8b5bbf75927d6a71ee
 - name: Install Google repository
   become: true
   ansible.builtin.lineinfile:
