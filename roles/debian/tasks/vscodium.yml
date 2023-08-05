@@ -15,9 +15,10 @@
 
 - name: Install paulcarroty signing key
   become: true
-  ansible.builtin.apt_key:
-    id: 1302DE60231889FE1EBACADC54678CF75A278D9C
+  ansible.builtin.get_url:
     url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+    dest: /etc/apt/trusted.gpg.d/paulcarroty.gpg
+    checksum: dbdfd9af3b83b72a24c89160ce7638418142e2cf4736ab53e5061e10070f13c1
 - name: Install VSCodium repository
   become: true
   ansible.builtin.lineinfile:
