@@ -35,7 +35,9 @@
       - libreoffice
       - luit  # Needed by xterm.
       - mutt
-      - noto
+      - noto-basic
+      - noto-emoji
+      - noto-extra
       - redshift
       - rxvt-unicode
       - tigervnc-viewer
