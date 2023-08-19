@@ -19,3 +19,8 @@
     name: dbus
     state: started
     enabled: yes
+- name: Set xorg screen
+  become: true
+  ansible.builtin.copy:
+    src: keyboard-gb.conf
+    dest: /usr/local/etc/X11/xorg.conf.d/keyboard-gb.conf
