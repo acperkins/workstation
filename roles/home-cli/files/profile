@@ -302,8 +302,8 @@ alias prust='prun --volume "$(pwd)":/devel --workdir /devel docker.io/library/ru
 # Set up SSH agent if it's not already running.
 if command -v ssh-agent > /dev/null
 then
-    export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-$XDG_RUNTIME_DIR/ssh-agent.socket}"
-    export SSH_AGENT_PID="${SSH_AGENT_PID:-$XDG_RUNTIME_DIR/ssh-agent.pid}"
+    export SSH_AUTH_SOCK="${SSH_AUTH_SOCK:-${XDG_RUNTIME_DIR:-$XDG_CONFIG_HOME}/ssh-agent.socket}"
+    export SSH_AGENT_PID="${SSH_AGENT_PID:-${XDG_RUNTIME_DIR:-$XDG_CONFIG_HOME}/ssh-agent.pid}"
     ssh-add -l > /dev/null 2>&1
     _acp_ssh_agent_exists=$?
     if [ -S "$SSH_AUTH_SOCK" ] && [ $_acp_ssh_agent_exists -eq 2 ]
