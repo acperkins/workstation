@@ -1,6 +1,6 @@
 Look=motif
 TitleBarHeight=18
-TitleButtonsSupported="mris"
+TitleButtonsSupported="misx"
 
 ColorNormalBorder="rgb:C0/C0/C0"
 ColorActiveBorder="rgb:5F/9F/9F"
