@@ -28,13 +28,15 @@
       - dbus
       - en_GB-libreoffice
       - firefox-esr
-      - fvwm3
       - git-gui
+      - icewm
       - liberation-fonts-ttf
       - libreoffice
       - luit  # Needed by xterm.
       - mutt
+      - noto
       - redshift
+      - rxvt-unicode
       - tigervnc-viewer
       - xinput
       - xlockmore
