@@ -19,7 +19,7 @@
     path: /run/ostree-booted
   register: check_ostree
 - name: Check for WSL
-  ansible.builtin.shell: 'grep microsoft /proc/version || /bin/true'
+  ansible.builtin.shell: 'grep microsoft /proc/version || /usr//bin/true'
   changed_when: false
   register: check_wsl
 

@@ -30,3 +30,4 @@
     path: /boot/loader.conf.d/utouch.conf
     regexp: '^utouch_load=.*'
     line: 'utouch_load="YES"'
+    create: yes
