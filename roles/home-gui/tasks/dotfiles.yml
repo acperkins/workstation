@@ -55,5 +55,5 @@
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/fontconfig/fonts.conf"
 - name: Create $HOME/.icewm
   ansible.builtin.copy:
-    src: "icewm"
+    src: "icewm/"
     dest: "{{ ansible_env.HOME }}/.icewm"
