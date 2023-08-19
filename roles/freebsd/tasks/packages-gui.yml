@@ -30,6 +30,7 @@
       - firefox-esr
       - git-gui
       - icewm
+      - keepassxc
       - liberation-fonts-ttf
       - libreoffice
       - luit  # Needed by xterm.
