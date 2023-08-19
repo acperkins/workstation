@@ -22,4 +22,3 @@
 - import_tasks: gnome.yml
 - import_tasks: mate.yml
 - import_tasks: sublimetext.yml
-- import_tasks: fonts.yml
