@@ -1,9 +1,12 @@
 prog "Terminal" xterm urxvt
 prog "Midnight Commander" file urxvt -geometry 120x40 -e mc
 menu "Terminals" folder {
-    prog "XTerm (80x10)" xterm urxvt -geometry 80x10
-    prog "XTerm (80x24)" xterm urxvt -geometry 80x24
-    prog "XTerm (120x40)" xterm urxvt -geometry 120x40
+    prog "URxvt (80x10)" xterm urxvt -geometry 80x10
+    prog "URxvt (80x24)" xterm urxvt -geometry 80x24
+    prog "URxvt (120x40)" xterm urxvt -geometry 120x40
+    prog "XTerm (80x10)" xterm xterm -geometry 80x10
+    prog "XTerm (80x24)" xterm xterm -geometry 80x24
+    prog "XTerm (120x40)" xterm xterm -geometry 120x40
 }
 separator
 includeprog icewm-menu-fdo --no-sub-cats
