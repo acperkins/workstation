@@ -1,0 +1,5 @@
+Use the "wmconfig" program to build the menu as follows:
+
+  wmconfig --output icewm > ~/.icewm/menu
+
+The "wmconfig" program can be found in /usr/ports/x11-wm/wmconfig.

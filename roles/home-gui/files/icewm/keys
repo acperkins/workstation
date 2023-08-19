@@ -1,0 +1,4 @@
+key "Ctrl+Alt+L" xscreensaver-command -lock
+key "Ctrl+Alt+M" /bin/sh -c "exec ~/data/code/sh/toggle-trackpad.sh"
+key "Ctrl+Alt+T" urxvt
+key "Ctrl+Alt+V" gvim

@@ -1,0 +1,16 @@
+DateFormat="%F W%V-%u"
+DesktopBackgroundCenter=1
+DesktopBackgroundColor="steelblue"
+LockCommand="xscreensaver-command -lock"
+ModSuperIsCtrlAlt=0
+MsgBoxDefaultAction=1
+OpaqueMove=0
+OpaqueResize=0
+ShowHelp=0
+ShowThemesMenu=0
+TaskBarAtTop=1
+TaskBarShowAPMStatus=1
+TaskBarShowMailboxStatus=0
+TimeFormat="%T"
+Win95Keys=1
+WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
