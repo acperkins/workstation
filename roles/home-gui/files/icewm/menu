@@ -1,5 +1,5 @@
 prog "Terminal" xterm urxvt
-prog "Midnight Commander" file urxvt -geometry 120x40 -e mc
+prog "Midnight Commander" file urxvt -geometry 120x40 -e mc -u
 menu "Terminals" folder {
     prog "URxvt (80x10)" xterm urxvt -geometry 80x10
     prog "URxvt (80x24)" xterm urxvt -geometry 80x24
