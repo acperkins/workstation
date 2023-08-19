@@ -50,7 +50,7 @@ xterm*color12: #729fcf
 xterm*color13: #ad7fa8
 xterm*color14: #00f5e9
 xterm*color15: #eeeeec
-xterm*faceName: xft:Monospace:size=10
+xterm*faceName: xft:DejaVu Sans Mono:size=10
 xterm*faceSize1: 4
 xterm*faceSize2: 6
 xterm*faceSize3: 8
