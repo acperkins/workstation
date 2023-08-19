@@ -1,0 +1,3 @@
+#!/bin/sh
+export XDG_SESSION_TYPE=wayland
+exec /usr/bin/dbus-run-session /usr/bin/gnome-session

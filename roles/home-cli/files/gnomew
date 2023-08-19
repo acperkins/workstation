@@ -1,2 +1,0 @@
-#!/bin/sh
-XDG_SESSION_TYPE=wayland /usr/bin/dbus-run-session /usr/bin/gnome-session
