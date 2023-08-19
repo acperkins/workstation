@@ -1,4 +1,4 @@
 prog "Terminal" xterm urxvt
-prog "Midnight Commander" file urxvt -geometry 120x40 -e mc
+prog "Midnight Commander" file urxvt -geometry 120x40 -e mc -u
 prog "Firefox" firefox firefox
 prog "VIM" vim urxvt -geometry 120x40 -e vim
