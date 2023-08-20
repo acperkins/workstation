@@ -1,4 +1,5 @@
 prog "Terminal" xterm urxvt
 prog "Midnight Commander" file urxvt -geometry 120x40 -e mc -u
 prog "Firefox" firefox firefox
+prog "KeePassXC" keepassxc keepassxc
 prog "VIM" vim urxvt -geometry 120x40 -e vim
