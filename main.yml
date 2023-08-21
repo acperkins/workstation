@@ -59,6 +59,9 @@
     name: netbsd
   when: ansible_distribution == 'NetBSD'
 - include_role:
+    name: openbsd
+  when: ansible_distribution == 'OpenBSD'
+- include_role:
     name: ubuntu
   when: ansible_distribution == 'Ubuntu'
 - include_role:
