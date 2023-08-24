@@ -184,6 +184,7 @@ for dir in "$HOME/.local/bin" \
            /opt/local/sbin \
            /var/lib/flatpak/exports/bin \
            /app/bin \
+           /usr/X11R6/bin \
            /usr/sbin \
            /bin \
            /sbin
