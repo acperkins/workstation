@@ -1,0 +1,22 @@
+Dell Latitude 7490
+==================
+
+Graphics
+--------
+
+The kernel crashes frequently with graphical glitches. Add the following
+to the kernel command line to prevent this:
+
+    i915.enable_psr=0
+
+
+Crashes when locking or sleeping
+--------------------------------
+
+Still working out the cause for this one. Current troubleshooting steps
+have been:
+
+  - Using X11 instead of Wayland: FAILED
+  - Using KDE Plasma instead of Gnome: FAILED
+  - Using XDM instead of GDM: FAILED
+  - Masking rtkit-daemon.service: TESTING
