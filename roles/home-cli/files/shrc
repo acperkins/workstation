@@ -11,6 +11,7 @@ case "$-" in
     then
         . /etc/profile.d/bash_completion.sh
     fi
+    set -o emacs
     usermotd
     ;;
 *)
