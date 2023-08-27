@@ -19,7 +19,6 @@
 - import_tasks: rc.yml
 - import_tasks: sysctl.yml
 - import_tasks: sudo.yml
-- import_tasks: ssh.yml
 - import_tasks: xorg.yml
   when: gui == true
 - import_tasks: qemu-guest.yml
