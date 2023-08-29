@@ -27,18 +27,16 @@
     packages:
       - dbus
       - en_GB-libreoffice
-      - firefox-esr
+      - firefox
       - git-gui
       - icewm
       - keepassxc
       - liberation-fonts-ttf
       - libreoffice
       - luit  # Needed by xterm.
-      - mutt
       - noto-basic
       - noto-emoji
       - noto-extra
-      - redshift
       - rxvt-unicode
       - tigervnc-viewer
       - xinput
