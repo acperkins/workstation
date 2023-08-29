@@ -1,2 +1,2 @@
-key "Ctrl+Alt+L" xlock -mode blank
-key "Ctrl+Alt+T" urxvt
+key "Super+L" xlock -mode blank
+key "Super+Return" urxvt
