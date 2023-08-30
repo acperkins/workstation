@@ -3,6 +3,7 @@
     "debug.console.historySuggestions": false,
     "dotnetAcquisitionExtension.enableTelemetry": false,
     "editor.fontFamily": "'Noto Sans Mono', 'Cascadia Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": false,
     "editor.fontSize": 12,
     "editor.renderWhitespace": "all",
     "editor.rulers": [
