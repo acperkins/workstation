@@ -11,7 +11,10 @@ case "$-" in
     then
         . /etc/profile.d/bash_completion.sh
     fi
-    set -o emacs
+    if [ -z "$ZSH_VERSION" ]
+    then
+        set -o emacs
+    fi
     usermotd
     ;;
 *)

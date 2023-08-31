@@ -91,6 +91,11 @@ then
 fi
 unset _flatpak_xdg_path
 
+# Basic exports.
+export HISTFILE=""
+export PS1='\u@\h\$ '
+export TIME_STYLE=long-iso  # Used by GNU 'ls'.
+
 # Bash-specific settings that will not work in other Bourne-compatible shells.
 if [ -n "$BASH_VERSION" ]
 then
@@ -123,7 +128,7 @@ then
     bindkey "^[OA" history-beginning-search-backward-end
     bindkey "^[OB" history-beginning-search-forward-end
 
-    PS1="%B%n@%m%#%b "
+    PS1="%n@%m%# "
 
 else
     # POSIX-compatible prompt.
@@ -183,11 +188,6 @@ for dir in "$HOME/.local/bin" \
 do
     _acp_add_path "$dir"
 done
-
-# Other exports.
-export HISTFILE=""
-export PS1='\u@\h\$ '
-export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]
 then
