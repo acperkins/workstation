@@ -107,13 +107,6 @@ then
     bind 'set enable-bracketed-paste off'
     export BASH_ENV="$HOME/.bashrc"
 
-    if [ -e /.flatpak-info ]
-    then
-        _acp_ps1_prefix="*"
-    fi
-    PS1="\[\033[01m\]${_acp_ps1_prefix}\u@\h\\$\[\033[00m\] "
-    unset _acp_ps1_prefix
-
 elif [ -n "$ZSH_VERSION" ]
 then
     autoload -Uz compinit && compinit
@@ -140,7 +133,6 @@ else
         bind "^[[1;5C" em-next-word
         bind "^[[1;5D" ed-prev-word
     fi
-    PS1="$(id -un)@$(uname -n | sed 's/\..*$//')$ "
 fi
 
 _acp_add_path () {
@@ -193,8 +185,8 @@ do
 done
 
 # Other exports.
-export PS1="${PS1:-\$ }"  # Fallback prompt.
 export HISTFILE=""
+export PS1='\u@\h\$ '
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]
