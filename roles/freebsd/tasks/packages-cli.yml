@@ -25,7 +25,6 @@
     state: present
   vars:
     packages:
-      - bash
       - git
       - gnupg
       - mc
