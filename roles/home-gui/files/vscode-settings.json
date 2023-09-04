@@ -2,9 +2,7 @@
     "[html]": {
         "editor.indentSize": 2
     },
-    "csharp.suppressBuildAssetsNotification": true,
     "debug.console.historySuggestions": false,
-    "dotnetAcquisitionExtension.enableTelemetry": false,
     "editor.fontFamily": "'Noto Sans Mono', 'Cascadia Code', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": false,
     "editor.fontSize": 12,
@@ -31,45 +29,6 @@
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.enablePersistentSessions": false,
     "terminal.integrated.shellIntegration.history": 0,
-    "todo-tree.general.tags": [
-        "[!!!]",
-        "[!!]",
-        "[!]",
-        "TODO:",
-        "WORK:",
-        "WAIT:",
-        "DONE:"
-    ],
-    "todo-tree.highlights.customHighlight": {
-        "[!!!]": {
-            "fontWeight": "bold",
-            "foreground": "#ffc000"
-        },
-        "[!!]": {
-            "fontWeight": "bold",
-            "foreground": "#ffc000"
-        },
-        "[!]": {
-            "fontWeight": "bold",
-            "foreground": "#ffc000"
-        },
-        "DONE:": {
-            "foreground": "#c0c0c0"
-        },
-        "TODO:": {
-            "fontWeight": "bold",
-            "foreground": "#ff0000"
-        },
-        "WAIT:": {
-            "fontWeight": "bold",
-            "foreground": "#ff00ff"
-        },
-        "WORK:": {
-            "fontWeight": "bold",
-            "foreground": "#00ff00"
-        }
-    },
-    "todo-tree.tree.groupedByTag": true,
     "update.mode": "manual",
     "update.showReleaseNotes": false,
     "window.openFilesInNewWindow": "on",
