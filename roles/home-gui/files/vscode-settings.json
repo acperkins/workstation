@@ -1,4 +1,7 @@
 {
+    "[html]": {
+        "editor.indentSize": 2
+    },
     "csharp.suppressBuildAssetsNotification": true,
     "debug.console.historySuggestions": false,
     "dotnetAcquisitionExtension.enableTelemetry": false,
