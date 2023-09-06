@@ -22,7 +22,7 @@
     packages:
       - firefox
       - icewm
-      - keepassxc
+      - keepassxc--
       - noto-fonts
-      - rxvt-unicode
+      - rxvt-unicode--
       - vim--no_x11
