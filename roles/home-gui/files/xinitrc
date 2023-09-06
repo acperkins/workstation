@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$HOME/.profile"
+xset -b  # Disable the audible bell.
+xrandr --dpi 96  # Set the fonts to the normal DPI.
+xrdb -load "$HOME/.Xresources"
+exec icewm-session
