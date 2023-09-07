@@ -19,4 +19,10 @@ have been:
   - Using X11 instead of Wayland: FAILED
   - Using KDE Plasma instead of Gnome: FAILED
   - Using XDM instead of GDM: FAILED
-  - Masking rtkit-daemon.service: TESTING
+  - Masking rtkit-daemon.service: FAILED
+  - Using newer kernel from Debian Backports: FAILED
+  - Using Fedora instead of Debian: FAILED
+  - Adding i915.modeset=0 to the boot line: TESTING
+  - Adding i915.enable_dc=0 to the boot line: TESTING
+  - Adding MUTTER_DEBUG_ENABLE_ATOMIC_KMS=0 to /etc/environment: TESTING
+  - Adding MUTTER_DEBUG_FORCE_KMS_MODE=simple to /etc/environment: TESTING
