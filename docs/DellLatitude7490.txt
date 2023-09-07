@@ -26,3 +26,48 @@ have been:
   - Adding i915.enable_dc=0 to the boot line: TESTING
   - Adding MUTTER_DEBUG_ENABLE_ATOMIC_KMS=0 to /etc/environment: TESTING
   - Adding MUTTER_DEBUG_FORCE_KMS_MODE=simple to /etc/environment: TESTING
+
+
+i915 module options
+-------------------
+
+The following are available options for the i915 module:
+
+    disable_display
+    disable_power_well
+    dmc_firmware_path
+    edp_vswing
+    enable_dc
+    enable_dp_mst
+    enable_dpcd_backlight
+    enable_fbc
+    enable_guc
+    enable_gvt
+    enable_hangcheck
+    enable_ips
+    enable_psr
+    enable_psr2_sel_fetch
+    error_capture
+    fastboot
+    force_probe:
+    force_reset_modeset_test
+    guc_firmware_path
+    guc_log_level
+    huc_firmware_path
+    invert_brightness
+    lmem_bar_size
+    lmem_size
+    load_detect_test
+    lvds_channel_mode
+    memtest
+    mitigations
+    mmio_debug
+    modeset
+    nuclear_pageflip
+    panel_use_ssc
+    psr_safest_params
+    request_timeout_ms
+    reset
+    vbt_firmware
+    vbt_sdvo_panel_type
+    verbose_state_checks
