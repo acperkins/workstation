@@ -36,3 +36,4 @@
 - import_tasks: xkb-lv5.yml
   when: gui == true
 - import_tasks: podman.yml
+- import_tasks: sysctl.yml
