@@ -112,6 +112,9 @@ set_misc_preferences () {
     # Turn on natural scrolling.
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
 
+    # Enable Tap to Click.
+    gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click 'true'
+
     # Configure the top bar and calendar.
     gsettings set org.gnome.desktop.interface clock-format '24h'
     gsettings set org.gnome.desktop.interface clock-show-date true
@@ -146,6 +149,10 @@ set_misc_preferences () {
     # Set Gnome Clocks locations.
     # America/New_York; America/Halifax; Europe/London; Europe/Paris.
     gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>}, {'location': <(uint32 2, <('Halifax', 'CYHZ', true, [(0.78336194011902394, -1.1082840750163994)], [(0.77928951101546806, -1.1100294042683936)])>)>}, {'location': <(uint32 2, <('London', 'EGWU', false, [(0.89971722940307675, -0.007272211034407213)], [(0.89971722940307675, -0.007272211034407213)])>)>}, {'location': <(uint32 2, <('Paris', 'LFPB', true, [(0.85462956287765413, 0.042760566673861078)], [(0.8528842336256599, 0.040724343395436846)])>)>}]"
+
+    # Enable Night Light.
+    gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled 'true'
+    gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic 'true'
 }
 set_misc_preferences
 
