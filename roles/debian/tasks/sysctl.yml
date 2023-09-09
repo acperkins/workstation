@@ -17,7 +17,7 @@
   become: true
   ansible.posix.sysctl:
     name: net.ipv6.conf.all.use_tempaddr
-    value: 2
+    value: '2'
     sysctl_set: true
     sysctl_file: "/etc/sysctl.d/90-ipv6_sysctl.conf"
 
@@ -25,6 +25,6 @@
   become: true
   ansible.posix.sysctl:
     name: net.ipv6.conf.default.use_tempaddr
-    value: 2
+    value: '2'
     sysctl_set: true
     sysctl_file: "/etc/sysctl.d/90-ipv6_sysctl.conf"
