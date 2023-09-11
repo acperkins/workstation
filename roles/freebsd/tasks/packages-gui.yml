@@ -29,6 +29,7 @@
       - en_GB-libreoffice
       - firefox
       - git-gui
+      - hsetroot
       - icewm
       - keepassxc
       - liberation-fonts-ttf
@@ -37,6 +38,7 @@
       - noto-basic
       - noto-emoji
       - noto-extra
+      - picom
       - rxvt-unicode
       - tigervnc-viewer
       - xinput

@@ -3,4 +3,12 @@
 xset b off  # Disable the audible bell.
 xrandr --dpi 96  # Set the fonts to the normal DPI.
 xrdb -load "$HOME/.Xresources"
+if [ -x /usr/local/bin/piconf ]
+then
+    /usr/local/bin/piconf -b
+fi
+if [ -x /usr/local/bin/hsetroot ]
+then
+    /usr/local/bin/hsetroot -solid steelblue
+fi
 exec icewm-session
