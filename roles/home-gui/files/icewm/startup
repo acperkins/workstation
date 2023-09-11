@@ -1,6 +1,7 @@
 #!/bin/sh
 if [ -x /usr/local/bin/hsetroot ]
 then
+    sleep 1
     /usr/local/bin/hsetroot -solid steelblue
 fi
 return 0
