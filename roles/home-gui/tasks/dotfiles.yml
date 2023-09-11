@@ -57,7 +57,7 @@
   ansible.builtin.copy:
     src: "icewm/"
     dest: "{{ ansible_env.HOME }}/.icewm"
-- name: Create $XDG_CONFIG_HOME/piconf.conf
+- name: Create $XDG_CONFIG_HOME/picom.conf
   ansible.builtin.copy:
-    src: "piconf.conf"
-    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/piconf.conf"
+    src: "picom.conf"
+    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/picom.conf"
