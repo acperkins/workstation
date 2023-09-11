@@ -19,3 +19,8 @@
     name: dbus
     state: started
     enabled: yes
+- name: Set xorg config
+  become: true
+  ansible.builtin.copy:
+    src: xorg-acp.conf
+    dest: /usr/local/etc/X11/xorg.conf.d/xorg-acp.conf
