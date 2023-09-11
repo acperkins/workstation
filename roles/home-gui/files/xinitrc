@@ -7,8 +7,4 @@ if [ -x /usr/local/bin/picom ]
 then
     /usr/local/bin/picom -b
 fi
-if [ -x /usr/local/bin/hsetroot ]
-then
-    /usr/local/bin/hsetroot -solid steelblue
-fi
 exec icewm-session

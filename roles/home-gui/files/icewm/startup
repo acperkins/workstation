@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -x /usr/local/bin/hsetroot ]
+then
+    /usr/local/bin/hsetroot -solid steelblue
+fi
+return 0
