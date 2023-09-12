@@ -33,6 +33,11 @@
     method: user
   when: flatpak.stat.exists == true
 
+# Chromium sometimes crashes at launch. It requires the "run in background"
+# Flatpak permission. Verify this with:
+#   flatpak permission-show org.chromium.Chromium
+# Fix it with:
+#   flatpak permission-set background background org.chromium.Chromium yes
 - name: Install Chromium flatpak
   community.general.flatpak:
     name: org.chromium.Chromium
