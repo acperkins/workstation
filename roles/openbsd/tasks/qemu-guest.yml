@@ -18,5 +18,5 @@
   ansible.builtin.lineinfile:
     path: /etc/boot.conf
     regexp: '^machine gop .*'
-    line: 'machine gop 6'
+    line: 'machine gop 12'
     create: yes
