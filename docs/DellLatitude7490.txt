@@ -23,9 +23,9 @@ have been:
   - Using newer kernel from Debian Backports: FAILED
   - Using Fedora instead of Debian: FAILED
   - Adding i915.modeset=0 to the boot line: FAILED
+  - Adding intel_idle.max_cstate=1 to the boot line: FAILED
   - Adding acpi_osi='Windows 2018' to the boot line: TESTING
   - Adding i915.enable_dc=0 to the boot line: TESTING
-  - Adding intel_idle.max_cstate=1 to the boot line: TESTING
 
 Currently the "acpi_osi='Windows 2018'" kernel option seems to be
 working.
