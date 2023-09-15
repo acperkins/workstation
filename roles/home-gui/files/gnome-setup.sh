@@ -153,6 +153,12 @@ set_misc_preferences () {
     # Enable Night Light.
     gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled 'true'
     gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic 'true'
+
+    # Remove the wallpaper.
+    gsettings set org.gnome.desktop.background picture-options 'none'
+    gsettings set org.gnome.desktop.background primary-color '#000000'
+    gsettings set org.gnome.desktop.background secondary-color '#000000'
+
 }
 set_misc_preferences
 
