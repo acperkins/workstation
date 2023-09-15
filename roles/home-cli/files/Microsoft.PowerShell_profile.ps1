@@ -5,23 +5,16 @@
 
 function Prompt {
     if ($IsWindows -or ($env:OS -eq "Windows_NT")) {
-        [string]$monoPrompt = ""
         $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
         if ($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-            $monoPrompt = $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "# "
+            return "${env:USERNAME}@$(${env:COMPUTERNAME}.ToLower())# "
         } else {
-            $monoPrompt = $env:USERNAME + "@" + $env:COMPUTERNAME.ToLower() + "> "
-        }
-        if ($PSVersionTable.PSVersion -ge [System.Version]"6.0.0.0") {
-            # Print the prompt in bold.
-            "`e[1m" + $monoPrompt + "`e[0m"
-        } else {
-            $monoPrompt
+            return "${env:USERNAME}@$(${env:COMPUTERNAME}.ToLower())> "
         }
     } elseif ($IsLinux) {
-        "`e[1m" + $(id -un) + "@" + $(hostname -s) + "> `e[0m"
+        return "$(id -un)@$(hostname -s)> "
     } else {
-        "PS> "
+        return "PS> "
     }
 }
 
