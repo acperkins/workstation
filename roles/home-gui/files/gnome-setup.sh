@@ -132,11 +132,6 @@ set_misc_preferences () {
     # Disable hot-corners.
     gsettings set org.gnome.desktop.interface enable-hot-corners false
 
-    # Set a background colour for when a wallpaper is not available.
-    gsettings set org.gnome.desktop.background primary-color '#023c88'
-    gsettings set org.gnome.desktop.background secondary-color '#5789ca'
-    gsettings set org.gnome.desktop.background color-shading-type 'solid'
-
     # Configure fonts.
     gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
     gsettings set org.gnome.desktop.interface font-name 'Sans 10'
@@ -155,6 +150,7 @@ set_misc_preferences () {
     gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic 'true'
 
     # Remove the wallpaper.
+    gsettings set org.gnome.desktop.background color-shading-type 'solid'
     gsettings set org.gnome.desktop.background picture-options 'none'
     gsettings set org.gnome.desktop.background primary-color '#000000'
     gsettings set org.gnome.desktop.background secondary-color '#000000'
