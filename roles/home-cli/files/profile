@@ -142,7 +142,7 @@ fi
 
 if [ "$(uname -s)" = NetBSD ]
 then
-    export PKG_PATH="https://cdn.netbsd.org/pub/pkgsrc/packages/$(uname -s)/$(uname -n)/$(uname -r)/All"
+    export PKG_PATH="https://cdn.NetBSD.org/pub/pkgsrc/packages/NetBSD/$(uname -p)/$(uname -r|cut -f '1 2' -d.|cut -f 1 -d_)/All"
 fi
 
 _acp_add_path () {
