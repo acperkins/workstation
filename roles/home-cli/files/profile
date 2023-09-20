@@ -140,6 +140,11 @@ else
     fi
 fi
 
+if [ "$(uname -s)" = NetBSD ]
+then
+    export PKG_PATH="https://cdn.netbsd.org/pub/pkgsrc/packages/$(uname -s)/$(uname -n)/$(uname -r)/All"
+fi
+
 _acp_add_path () {
     if [ -n "$1" ] && [ -d "$1" ]
     then
