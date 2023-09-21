@@ -3,7 +3,7 @@
         "editor.indentSize": 2
     },
     "debug.console.historySuggestions": false,
-    "editor.fontFamily": "'Noto Sans Mono', 'Cascadia Code', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'monospace', 'Cascadia Code', Consolas, 'Courier New'",
     "editor.fontLigatures": false,
     "editor.fontSize": 12,
     "editor.renderWhitespace": "all",
@@ -34,7 +34,6 @@
     "window.openFilesInNewWindow": "on",
     "window.openFoldersInNewWindow": "on",
     "window.restoreWindows": "none",
-    "workbench.colorTheme": "Default Light Modern",
     "workbench.editor.historyBasedLanguageDetection": false,
     "workbench.editor.untitled.hint": "hidden",
     "workbench.enableExperiments": false,
