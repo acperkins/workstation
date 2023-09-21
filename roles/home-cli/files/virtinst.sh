@@ -4,7 +4,7 @@ then
     _acp_vm_root=/srv/virt/images
     _acp_vm_session=qemu:///system
 else
-    _acp_vm_root="$HOME/virt/images"
+    _acp_vm_root="$HOME/data/virt/images"
     _acp_vm_session=qemu:///session
 fi
 _acp_vm_name=${1:---help}
