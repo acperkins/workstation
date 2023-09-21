@@ -32,13 +32,12 @@
     "update.mode": "manual",
     "update.showReleaseNotes": false,
     "window.openFilesInNewWindow": "on",
-    "window.openFoldersInNewWindow": "on",
     "window.restoreWindows": "none",
-    "workbench.editor.historyBasedLanguageDetection": false,
     "workbench.editor.untitled.hint": "hidden",
     "workbench.enableExperiments": false,
     "workbench.localHistory.enabled": false,
     "workbench.localHistory.maxFileEntries": 0,
     "workbench.settings.enableNaturalLanguageSearch": false,
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "window.newWindowDimensions": "maximized"
 }
