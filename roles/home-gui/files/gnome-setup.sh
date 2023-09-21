@@ -155,6 +155,9 @@ set_misc_preferences () {
     gsettings set org.gnome.desktop.background primary-color '#000000'
     gsettings set org.gnome.desktop.background secondary-color '#000000'
 
+    # Prefer the dark theme.
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 }
 set_misc_preferences
 
