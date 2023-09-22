@@ -158,6 +158,10 @@ set_misc_preferences () {
     # Prefer the dark theme.
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+
+    # Reset the app picker layout. Will take effect after a gnome-shell restart
+    # (log off and on again).
+    gsettings reset org.gnome.shell app-picker-layout
 }
 set_misc_preferences
 
