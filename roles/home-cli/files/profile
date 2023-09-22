@@ -180,6 +180,7 @@ for dir in "$HOME/.local/bin" \
            "$HOME/opt/go/bin" \
            "$XDG_DATA_HOME/gem/ruby/bin" \
            "$HOME/opt/node/bin" \
+           /usr/games \
            /usr/local/bin \
            /usr/local/sbin \
            /opt/local/bin \
