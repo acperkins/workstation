@@ -25,21 +25,11 @@
     state: present
   vars:
     packages:
-      - dbus
-      - en_GB-libreoffice
+      - dejavu
       - firefox
       - git-gui
-      - hsetroot
       - icewm
       - keepassxc
-      - liberation-fonts-ttf
-      - libreoffice
       - luit  # Needed by xterm.
-      - noto-basic
-      - noto-emoji
-      - noto-extra
-      - picom
-      - rxvt-unicode
       - tigervnc-viewer
-      - xinput
       - xlockmore
