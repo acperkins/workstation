@@ -13,12 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Start DBUS service
-  become: true
-  ansible.builtin.service:
-    name: dbus
-    state: started
-    enabled: yes
 - name: Set xorg config
   become: true
   ansible.builtin.copy:
