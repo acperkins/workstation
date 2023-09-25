@@ -13,13 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Check for Gnome Shell
+- name: Check for Gnome Shell in /usr/bin
   ansible.builtin.stat:
     path: /usr/bin/gnome-shell
-  register: gnome_shell
+  register: usr_bin_gnome_shell
+- name: Check for Gnome Shell in /usr/local/bin
+  ansible.builtin.stat:
+    path: /usr/local/bin/gnome-shell
+  register: usr_local_bin_gnome_shell
 - name: Copy GNOME settings reset script
   ansible.builtin.copy:
     src: gnome-setup.sh
     dest: "{{ ansible_env.HOME }}/.local/bin/reset-gnome-setup"
     mode: '0755'
-  when: gnome_shell.stat.exists
+  when: usr_bin_gnome_shell.stat.exists or usr_local_bin_gnome_shell.stat.exists
