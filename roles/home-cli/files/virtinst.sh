@@ -43,6 +43,7 @@ virt-install --connect $_acp_vm_session \
     --disk "$_acp_vm_root/$_acp_vm_name.qcow2,size=20" \
     --graphics vnc \
     --console pty,target.type=virtio \
+    --serial pty \
     --channel unix,target.type=virtio,target.name=org.qemu.guest_agent.0 \
     --video virtio \
     --autoconsole none \
