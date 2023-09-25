@@ -152,8 +152,8 @@ set_misc_preferences () {
     # Remove the wallpaper.
     gsettings set org.gnome.desktop.background color-shading-type 'solid'
     gsettings set org.gnome.desktop.background picture-options 'none'
-    gsettings set org.gnome.desktop.background primary-color '#000000'
-    gsettings set org.gnome.desktop.background secondary-color '#000000'
+    gsettings set org.gnome.desktop.background primary-color '#101010'
+    gsettings set org.gnome.desktop.background secondary-color '#101010'
 
     # Prefer the dark theme.
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
