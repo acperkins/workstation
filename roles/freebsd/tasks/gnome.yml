@@ -16,7 +16,7 @@
 - name: Install Gnome packages
   become: true
   community.general.pkgng:
-    name: gnome
+    name: gnome,seatd
     state: present
 - name: Start dbus at boot
   become: true
@@ -36,6 +36,12 @@
     path: /etc/rc.conf
     regexp: '^gdm_enable=.*'
     line: 'gdm_enable="YES"'
+- name: Start seatd at boot
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/rc.conf
+    regexp: '^seatd_enable=.*'
+    line: 'seatd_enable="YES"'
 - name: Mount /proc at boot
   become: true
   ansible.builtin.lineinfile:
