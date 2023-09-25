@@ -17,7 +17,8 @@
   become: true
   community.general.pkgng:
     # utouch-kmod and xf86-input-evdev are needed for mouse in QEMU/KVM.
-    name: utouch-kmod,xf86-input-evdev
+    # xf86-video-scfb is needed for video acceleration and Gnome.
+    name: utouch-kmod,xf86-input-evdev,xf86-video-scfb
     state: present
 - name: Set xorg screen
   become: true
