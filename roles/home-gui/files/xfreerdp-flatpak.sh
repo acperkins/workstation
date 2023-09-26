@@ -8,6 +8,7 @@
 /usr/bin/flatpak run \
     --command=xfreerdp \
     com.freerdp.FreeRDP \
+    /kbd:layout:0x00000809 \
     /w:1600 /h:900 \
     /dynamic-resolution \
     $*
