@@ -13,6 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Disable bootloader color
+  become: true
+  ansible.builtin.lineinfile:
+    path: /boot/loader.conf.d/qemu.conf
+    regexp: '^loader_color=.*'
+    line: 'loader_color="NO"'
+    create: yes
 - name: Install QEMU packages
   become: true
   community.general.pkgng:
@@ -20,15 +27,18 @@
     # xf86-video-scfb is needed for video acceleration and Gnome.
     name: utouch-kmod,xf86-input-evdev,xf86-video-scfb
     state: present
+  when: gui == true
 - name: Set xorg screen
   become: true
   ansible.builtin.copy:
     src: screen-qemu.conf
     dest: /usr/local/etc/X11/xorg.conf.d/screen-qemu.conf
+  when: gui == true
 - name: Enable utouch module
   become: true
   ansible.builtin.lineinfile:
-    path: /boot/loader.conf.d/utouch.conf
+    path: /boot/loader.conf.d/qemu.conf
     regexp: '^utouch_load=.*'
     line: 'utouch_load="YES"'
     create: yes
+  when: gui == true
