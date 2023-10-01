@@ -1,6 +1,6 @@
 DateFormat="%F%n%A"
 DesktopBackgroundCenter=1
-DesktopBackgroundColor="steelblue"
+DesktopBackgroundColor="rgb:10/10/10"
 LockCommand="xlock -mode blank"
 ModSuperIsCtrlAlt=0
 MsgBoxDefaultAction=1

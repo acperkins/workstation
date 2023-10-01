@@ -1,0 +1,22 @@
+/* XPM */
+static char *maximize_xpm[] = {
+"16 16 3 1",
+"  c #808080",
+"W c #FFFFFF",
+"D c #000000",
+"                ",
+"                ",
+"  WWWWWWWWWWW   ",
+"  W          D  ",
+"  W          D  ",
+"  W          D  ",
+"  W          D  ",
+"   DDDDDDDDDDD  ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                "};

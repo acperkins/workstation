@@ -9,6 +9,6 @@ fi
 if [ -x /usr/local/bin/hsetroot ]
 then
     sleep 1
-    /usr/local/bin/hsetroot -solid steelblue
+    /usr/local/bin/hsetroot -solid "rgb:10/10/10"
 fi
 return 0
