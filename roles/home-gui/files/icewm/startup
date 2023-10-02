@@ -2,13 +2,24 @@
 xset b off  # Disable the audible bell.
 xrandr --dpi 96  # Set the fonts to the normal DPI.
 xrdb -load "$HOME/.Xresources"
+
 if [ -x /usr/local/bin/picom ]
 then
     /usr/local/bin/picom -b
 fi
+
 if [ -x /usr/local/bin/hsetroot ]
 then
     sleep 1
     /usr/local/bin/hsetroot -solid "rgb:10/10/10"
 fi
+
+if [ -x /usr/local/libexec/gsd-xsettings ]
+then
+    /usr/local/libexec/gsd-xsettings &
+elif [ -x /usr/libexec/gsd-xsettings ]
+then
+    /usr/libexec/gsd-xsettings &
+fi
+
 return 0
