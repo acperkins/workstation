@@ -54,13 +54,19 @@ function ADUserInfo {
     Get-ADUser -Properties $ADPropertiesGet -Identity $User | Select-Object -Property $ADPropertiesPrint
 }
 
-Function mkcd {
+function mkcd {
     param (
         [Parameter(Mandatory)]
         [string]$Path
     )
     New-Item -ItemType Directory -Path $Path
     Set-Location -Path $Path
+}
+
+if ($IsWindows -or ($env:OS -eq "Windows_NT")) {
+    function who {
+        & "$env:SystemRoot\System32\query.exe" user
+    }
 }
 
 Set-PSReadlineOption -BellStyle None
