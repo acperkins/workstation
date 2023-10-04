@@ -28,8 +28,6 @@
       - dejavu
       - firefox
       - git-gui
-      - icewm
       - keepassxc
       - luit  # Needed by xterm.
       - tigervnc-viewer
-      - xlockmore
