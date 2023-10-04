@@ -16,7 +16,7 @@
 - name: Install KDE Plasma packages
   become: true
   community.general.pkgng:
-    name: kde5,sddm
+    name: plasma5-plasma,sddm,konsole,dolphin
     state: present
 - name: Start dbus at boot
   become: true
