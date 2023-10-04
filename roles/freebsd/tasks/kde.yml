@@ -13,15 +13,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: packages-cli.yml
-- import_tasks: packages-gui.yml
-  when: gui == true
-- import_tasks: rc.yml
-- import_tasks: sysctl.yml
-- import_tasks: sudo.yml
-- import_tasks: xorg.yml
-  when: gui == true
-- import_tasks: qemu-guest.yml
-  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
-- import_tasks: kde.yml
-  when: gui == true
+- name: Install KDE Plasma packages
+  become: true
+  community.general.pkgng:
+    name: kde5,sddm
+    state: present
+- name: Start dbus at boot
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/rc.conf
+    regexp: '^dbus_enable=.*'
+    line: 'dbus_enable="YES"'
+- name: Start SDDM at boot
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/rc.conf
+    regexp: '^sddm_enable=.*'
+    line: 'sddm_enable="YES"'
+- name: Set SDDM keyboard language
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/rc.conf
+    regexp: '^sddm_lang=.*'
+    line: 'sddm_lang="en_GB"'

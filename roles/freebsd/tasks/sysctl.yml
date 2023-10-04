@@ -41,3 +41,17 @@
     value: '0'
     sysctl_set: yes
     sysctl_file: /etc/sysctl.conf.local
+- name: Increase net.local.stream.recvspace messages size
+  become: true
+  ansible.posix.sysctl:
+    name: net.local.stream.recvspace
+    value: '65536'
+    sysctl_set: yes
+    sysctl_file: /etc/sysctl.conf.local
+- name: Increase net.local.stream.sendspace messages size
+  become: true
+  ansible.posix.sysctl:
+    name: net.local.stream.sendspace
+    value: '65536'
+    sysctl_set: yes
+    sysctl_file: /etc/sysctl.conf.local
