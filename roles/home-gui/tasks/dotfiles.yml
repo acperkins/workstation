@@ -41,10 +41,6 @@
     src: "xrdb.desktop"
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/autostart/xrdb.desktop"
   when: ansible_distribution == "Fedora" or ansible_distribution == "Debian"
-- name: Create $XDG_DATA_HOME/applications/todo.desktop
-  ansible.builtin.template:
-    src: todo.desktop
-    dest: "{{ ansible_env.XDG_DATA_HOME }}/applications/todo.desktop"
 - name: Create $HOME/.xbindkeysrc
   ansible.builtin.copy:
     src: "xbindkeysrc"
