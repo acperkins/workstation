@@ -27,7 +27,6 @@
     packages:
       - git
       - gnupg
-      - mc
       - nmap
       - sqlite3
       - tmux
