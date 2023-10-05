@@ -16,7 +16,7 @@
 - name: Install KDE Plasma packages
   become: true
   community.general.pkgng:
-    name: plasma5-plasma,sddm
+    name: plasma5-plasma,sddm,kde-baseapps
     state: present
 - name: Install additional KDE packages
   become: true
@@ -25,9 +25,10 @@
     state: present
   vars:
     packages:
-      - dolphin
-      - kate
-      - konsole
+      - ark
+      - filelight
+      - kcalc
+      - spectacle
 - name: Start dbus at boot
   become: true
   ansible.builtin.lineinfile:
