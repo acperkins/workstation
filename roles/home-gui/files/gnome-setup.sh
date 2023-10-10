@@ -124,7 +124,7 @@ set_misc_preferences () {
     gsettings set org.gnome.desktop.calendar show-weekdate false
 
     # Remove minimise and maximise buttons from the window title bars.
-    gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:close'
+    gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
     # Stop dialogue boxes from 'sticking' to their parent windows.
     gsettings set org.gnome.mutter attach-modal-dialogs false
