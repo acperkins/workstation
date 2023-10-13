@@ -70,3 +70,6 @@ user_pref("toolkit.telemetry.server", "");
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
+user_pref("widget.gtk.overlay-scrollbars.enabled", false);
+user_pref("widget.non-native-theme.scrollbar.size.override", 12);
+user_pref("widget.non-native-theme.scrollbar.style", 4);
