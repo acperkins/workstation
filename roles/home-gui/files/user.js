@@ -18,6 +18,7 @@ user_pref("browser.search.region", "GB");
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.sessionstore.warnOnQuit", true);
 user_pref("browser.startup.homepage", "about:newtab");
+user_pref("browser.tabs.inTitlebar", 0);
 user_pref("browser.tabs.unloadOnLowMemory", true);
 user_pref("browser.tabs.warnOnClose", true);
 user_pref("browser.toolbars.bookmarks.2h2020", true);
