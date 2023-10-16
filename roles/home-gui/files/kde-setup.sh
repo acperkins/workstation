@@ -2,6 +2,11 @@
 
 # Plasma.
 plasma-apply-lookandfeel --apply org.kde.breezedark.desktop
+if [ -r "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc.acp" ]
+then
+    rm -f "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc"
+    cp "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc.acp" "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc"
+fi
 kwriteconfig5 --file kdeglobals --group KDE --key SingleClick false
 kwriteconfig5 --file kwinrc --group NightColor --key Active true
 
