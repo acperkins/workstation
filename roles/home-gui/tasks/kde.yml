@@ -13,13 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: dirs.yml
-
-- import_tasks: dotfiles.yml
-- import_tasks: flatpak.yml
-  when: wsl == false
-- import_tasks: firefox.yml
-- import_tasks: gnome.yml
-- import_tasks: kde.yml
-- import_tasks: mate.yml
-- import_tasks: sublimetext.yml
+- name: Check for plasmashell in /usr/bin
+  ansible.builtin.stat:
+    path: /usr/bin/plasmashell
+  register: usr_bin_plasmashell
+- name: Check for plasmashell in /usr/local/bin
+  ansible.builtin.stat:
+    path: /usr/local/bin/plasmashell
+  register: usr_local_bin_plasmashell
+- name: Copy KDE Plasma settings reset script
+  ansible.builtin.copy:
+    src: kde-setup.sh
+    dest: "{{ ansible_env.HOME }}/.local/bin/reset-kde-setup"
+    mode: '0755'
+  when: usr_bin_plasmashell.stat.exists or usr_local_bin_plasmashell.stat.exists
