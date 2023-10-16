@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Plasma.
-plasma-apply-lookandfeel --apply org.kde.breezedark.desktop --resetLayout
+plasma-apply-lookandfeel --apply org.kde.breezedark.desktop
 kwriteconfig5 --file kdeglobals --group KDE --key SingleClick false
 kwriteconfig5 --file kwinrc --group NightColor --key Active true
 
