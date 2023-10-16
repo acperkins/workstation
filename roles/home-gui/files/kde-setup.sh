@@ -23,3 +23,7 @@ kwriteconfig5 --file dolphinrc --group DetailsMode --key ExpandableFolders false
 
 # Klipper.
 kwriteconfig5 --file klipperrc --group General --key KeepClipboardContents false
+
+# Restart some applications.
+qdbus org.kde.KWin /KWin reconfigure
+qdbus org.kde.plasmashell /PlasmaShell refreshCurrentShell
