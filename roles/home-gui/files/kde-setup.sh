@@ -29,6 +29,10 @@ kwriteconfig5 --file dolphinrc --group DetailsMode --key ExpandableFolders false
 # Klipper.
 kwriteconfig5 --file klipperrc --group General --key KeepClipboardContents false
 
+# KeePassXC.
+kwriteconfig5 --file keepassxc/keepassxc.ini --group GUI --key ApplicationTheme classic
+kwriteconfig5 --file keepassxc/keepassxc.ini --group SSHAgent --key Enabled true
+
 # Restart some applications.
 qdbus org.kde.KWin /KWin reconfigure
 qdbus org.kde.plasmashell /PlasmaShell refreshCurrentShell
