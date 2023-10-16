@@ -208,7 +208,7 @@ formfactor=0
 immutability=1
 lastScreen=0
 location=0
-plugin=org.kde.desktopcontainment
+plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.color
 
 [Containments][49][Wallpaper][org.kde.color][General]
