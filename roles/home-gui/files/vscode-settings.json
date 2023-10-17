@@ -33,6 +33,7 @@
     "update.showReleaseNotes": false,
     "window.openFilesInNewWindow": "on",
     "window.restoreWindows": "none",
+    "window.titleBarStyle": "custom",
     "workbench.editor.untitled.hint": "hidden",
     "workbench.enableExperiments": false,
     "workbench.localHistory.enabled": false,
