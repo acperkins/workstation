@@ -41,5 +41,5 @@ kwriteconfig5 --file klipperrc --group General --key KeepClipboardContents false
 kwriteconfig5 --file keepassxc/keepassxc.ini --group GUI --key ApplicationTheme classic
 kwriteconfig5 --file keepassxc/keepassxc.ini --group SSHAgent --key Enabled true
 
-# Restart some applications.
-qdbus org.kde.plasmashell /PlasmaShell refreshCurrentShell
+# Prompt to log out to finish applying settings.
+qdbus org.kde.LogoutPrompt /LogoutPrompt org.kde.LogoutPrompt.promptLogout
