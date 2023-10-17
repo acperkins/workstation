@@ -16,6 +16,7 @@ kwriteconfig5 --file kwinrc --group Desktops --key Id_4 9a917386-5b9b-4181-854f-
 kwriteconfig5 --file kwinrc --group Desktops --key Number 4
 kwriteconfig5 --file kwinrc --group Desktops --key Rows 2
 kwriteconfig5 --file kwinrc --group Plugins --key wobblywindowsEnabled true
+kwriteconfig5 --file ksmserverrc --group General --key loginMode emptySession
 
 # Keyboard.
 kwriteconfig5 --file kxkbrc --group Layout --key Use true
