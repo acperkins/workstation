@@ -9,6 +9,10 @@ then
 fi
 kwriteconfig5 --file kdeglobals --group KDE --key SingleClick false
 kwriteconfig5 --file kwinrc --group NightColor --key Active true
+kwriteconfig5 --file kwinrc --group Desktops --key Id_1 16b2b027-cd5a-48fa-9bd5-c1f0f4f9e550
+kwriteconfig5 --file kwinrc --group Desktops --key Id_2 7afe0a12-0cf6-4953-8aed-811d5de9470d
+kwriteconfig5 --file kwinrc --group Desktops --key Id_3 189f8351-0229-483b-a249-ca7d27be44bd
+kwriteconfig5 --file kwinrc --group Desktops --key Id_4 9a917386-5b9b-4181-854f-ef0eb45151b3
 kwriteconfig5 --file kwinrc --group Desktops --key Number 4
 kwriteconfig5 --file kwinrc --group Desktops --key Rows 2
 
