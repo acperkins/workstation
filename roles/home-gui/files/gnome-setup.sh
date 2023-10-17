@@ -151,7 +151,9 @@ set_misc_preferences () {
 
     # Remove the wallpaper.
     gsettings set org.gnome.desktop.background color-shading-type 'solid'
-    gsettings set org.gnome.desktop.background picture-options 'none'
+    gsettings set org.gnome.desktop.background picture-options 'zoom'
+    gsettings set org.gnome.desktop.background picture-uri "file://$XDG_DATA_HOME/wallpaper.svg"
+    gsettings set org.gnome.desktop.background picture-uri-dark "file://$XDG_DATA_HOME/wallpaper.svg"
     gsettings set org.gnome.desktop.background primary-color '#101010'
     gsettings set org.gnome.desktop.background secondary-color '#101010'
 

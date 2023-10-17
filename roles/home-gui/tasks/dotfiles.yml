@@ -58,3 +58,7 @@
   ansible.builtin.copy:
     src: "picom.conf"
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/picom.conf"
+- name: Create $XDG_DATA_HOME/wallpaper.svg
+  ansible.builtin.copy:
+    src: "wallpaper.svg"
+    dest: "{{ ansible_env.XDG_DATA_HOME }}/wallpaper.svg"

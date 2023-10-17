@@ -7,6 +7,7 @@ then
     rm -f "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc"
     cp "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc.acp" "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc"
 fi
+plasma-apply-wallpaperimage "$XDG_DATA_HOME/wallpaper.svg"
 kwriteconfig5 --file kdeglobals --group KDE --key SingleClick false
 kwriteconfig5 --file kwinrc --group NightColor --key Active true
 kwriteconfig5 --file kwinrc --group Desktops --key Id_1 16b2b027-cd5a-48fa-9bd5-c1f0f4f9e550
