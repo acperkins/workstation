@@ -9,6 +9,8 @@ then
 fi
 kwriteconfig5 --file kdeglobals --group KDE --key SingleClick false
 kwriteconfig5 --file kwinrc --group NightColor --key Active true
+kwriteconfig5 --file kwinrc --group Desktops --key Number 4
+kwriteconfig5 --file kwinrc --group Desktops --key Rows 2
 
 # Keyboard.
 kwriteconfig5 --file kxkbrc --group Layout --key Use true
