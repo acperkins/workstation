@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # Plasma.
-plasma-apply-lookandfeel --apply org.kde.breezedark.desktop
+plasma-apply-colorscheme BreezeDark
+plasma-apply-cursortheme breeze_cursors
+plasma-apply-desktoptheme default
 if [ -r "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc.acp" ]
 then
     rm -f "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc"
