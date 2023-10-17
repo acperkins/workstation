@@ -27,7 +27,3 @@
     dest: "{{ ansible_env.HOME }}/.local/bin/reset-kde-setup"
     mode: '0755'
   when: usr_bin_plasmashell.stat.exists or usr_local_bin_plasmashell.stat.exists
-- name: Create $XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc.acp
-  ansible.builtin.copy:
-    src: "plasma-org.kde.plasma.desktop-appletsrc"
-    dest: "{{ ansible_env.XDG_CONFIG_HOME }}/plasma-org.kde.plasma.desktop-appletsrc.acp"

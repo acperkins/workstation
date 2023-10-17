@@ -1,12 +1,9 @@
 #!/bin/sh
 
 # Plasma.
-plasma-apply-lookandfeel --apply org.kde.breezedark.desktop
-if [ -r "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc.acp" ]
-then
-    rm -f "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc"
-    cp "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc.acp" "$XDG_CONFIG_HOME/plasma-org.kde.plasma.desktop-appletsrc"
-fi
+plasma-apply-colorscheme BreezeDark
+plasma-apply-cursortheme breeze_cursors
+plasma-apply-desktoptheme default
 plasma-apply-wallpaperimage "$XDG_DATA_HOME/wallpaper.svg"
 kwriteconfig5 --file kdeglobals --group KDE --key SingleClick false
 kwriteconfig5 --file kwinrc --group NightColor --key Active true
@@ -41,5 +38,4 @@ kwriteconfig5 --file keepassxc/keepassxc.ini --group GUI --key ApplicationTheme 
 kwriteconfig5 --file keepassxc/keepassxc.ini --group SSHAgent --key Enabled true
 
 # Restart some applications.
-qdbus org.kde.KWin /KWin reconfigure
 qdbus org.kde.plasmashell /PlasmaShell refreshCurrentShell
