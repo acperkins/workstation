@@ -77,7 +77,7 @@ set_gnome_terminal_preferences () {
         '#2E3436', '#CC0000', '#4E9A06', '#C4A000', '#3465A4', '#75507B', '#06989A', '#D3D7CF',
         '#555753', '#EF2929', '#8AE234', '#FCE94F', '#729FCF', '#AD7FA8', '#34E2E2', '#EEEEEC'
     ]"
-    gsettings set "$defaultprofile" preserve-working-directory 'never'
+    gsettings set "$defaultprofile" preserve-working-directory 'always'
     gsettings set "$defaultprofile" use-theme-colors false
 }
 set_gnome_terminal_preferences
