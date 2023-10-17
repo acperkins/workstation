@@ -23,7 +23,7 @@ kwriteconfig5 --file kxkbrc --group Layout --key Model pc105
 kwriteconfig5 --file kxkbrc --group Layout --key LayoutList gb,ca
 kwriteconfig5 --file kxkbrc --group Layout --key VariantList ,multix
 kwriteconfig5 --file kxkbrc --group Layout --key DisplayNames ,
-kwriteconfig5 --file kxkbrc --group Layout --key Options grp:win_space_toggle,compose:menu,lv3:ralt_switch,lv5:rctrl_switch
+kwriteconfig5 --file kxkbrc --group Layout --key Options compose:menu,lv3:ralt_switch,lv5:rctrl_switch
 kwriteconfig5 --file kxkbrc --group Layout --key ResetOldOptions true
 
 # Konsole.
