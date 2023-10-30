@@ -39,6 +39,14 @@ set_keyboard_and_language () {
         ;;
     esac
 
+    # Set the thumb button on the Logitech MX Master mouse to 'toggle-overview'. Defaults are:
+    #   gsettings set org.gnome.desktop.wm.keybindings switch-panels "['<Control><Alt>Tab']"
+    #   gsettings set org.gnome.desktop.wm.keybindings switch-panels-backward "['<Shift><Control><Alt>Tab']"
+    #   gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>s']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-panels "['']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-panels-backward "['']"
+    gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>s', '<Control><Alt>Tab']"
+
     # Set custom keybindings.
     if [ -x /usr/bin/kgx ] && ! [ -x /usr/bin/gnome-terminal ]
     then
