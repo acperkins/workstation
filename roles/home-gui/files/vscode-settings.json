@@ -3,7 +3,7 @@
         "editor.indentSize": 2
     },
     "debug.console.historySuggestions": false,
-    "editor.fontFamily": "'monospace', 'Cascadia Code', Consolas, 'Courier New'",
+    "editor.fontFamily": "'Berkeley Mono', 'Cascadia Code', Consolas, 'Courier New', 'monospace'",
     "editor.fontLigatures": false,
     "editor.fontSize": 12,
     "editor.renderWhitespace": "all",
