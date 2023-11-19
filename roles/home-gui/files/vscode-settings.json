@@ -4,7 +4,7 @@
     },
     "debug.console.historySuggestions": false,
     "editor.accessibilitySupport": "off",
-    "editor.fontFamily": "'Berkeley Mono', 'Cascadia Code', Consolas, 'Courier New', 'monospace'",
+    "editor.fontFamily": "'monospace', 'Cascadia Code', Consolas, 'Courier New'",
     "editor.fontLigatures": false,
     "editor.fontSize": 12,
     "editor.renderWhitespace": "all",

@@ -140,7 +140,7 @@ set_misc_preferences () {
     # Configure fonts.
     gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
     gsettings set org.gnome.desktop.interface font-name 'Sans 10'
-    gsettings set org.gnome.desktop.interface monospace-font-name 'Berkeley Mono 10'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 10'
     gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Sans Bold 10'
 
     # Always show the Accessibility menu.
