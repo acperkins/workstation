@@ -52,6 +52,7 @@ user_pref("network.security.ports.banned.override", "6697");
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("places.history.enabled", false);
 user_pref("privacy.userContext.enabled", true);
+user_pref("reader.parse-on-load.force-enabled", true);
 user_pref("security.mixed_content.use_hstsc", false);
 user_pref("security.tls.version.enable-deprecated", false);
 user_pref("security.webauth.u2f", true);
