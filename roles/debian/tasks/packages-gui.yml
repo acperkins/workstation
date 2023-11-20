@@ -22,7 +22,6 @@
   vars:
     packages:
       - flatpak
-      - fonts-noto
       - git-gui
       - keepassxc
       - libcanberra-gtk-module
