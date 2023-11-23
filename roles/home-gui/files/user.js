@@ -12,7 +12,6 @@ user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.pocketCta", "");
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
-user_pref("browser.newtabpage.activity-stream.showSearch", true);
 user_pref("browser.newtabpage.enabled", true);
 user_pref("browser.search.countryCode", "GB");
 user_pref("browser.search.region", "GB");
