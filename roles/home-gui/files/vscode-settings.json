@@ -6,7 +6,7 @@
     "editor.accessibilitySupport": "off",
     "editor.fontFamily": "'Berkeley Mono Variable', 'monospace', 'Cascadia Code', Consolas, 'Courier New'",
     "editor.fontLigatures": false,
-    "editor.fontSize": 12,
+    "editor.fontSize": 13,
     "editor.renderWhitespace": "all",
     "editor.rulers": [
         100
