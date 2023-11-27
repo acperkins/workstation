@@ -9,10 +9,9 @@
 		"all"
 	],
 	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Berkeley Mono",
+	"font_size": 10,
 	"hot_exit": false,
-	"ignored_packages": [
-		"Vintage"
-	],
 	"rulers": [
 		100
 	],
