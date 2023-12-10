@@ -34,13 +34,20 @@ case "$_acp_vm_distro" in
         ;;
 esac
 
+if [ -r "$_acp_vm_root/$_acp_vm_name.raw" ]
+then
+    _acp_vm_disk=$_acp_vm_root/$_acp_vm_name.raw
+else
+    _acp_vm_disk=$_acp_vm_root/$_acp_vm_name.qcow2
+fi
+
 # To get a list of valid osinfo options, run:
 #   virt-install --osinfo list
 virt-install --connect $_acp_vm_session \
     --osinfo linux2022 \
     --boot $_acp_vm_boot \
     --cpu host-passthrough \
-    --disk "$_acp_vm_root/$_acp_vm_name.qcow2,size=20" \
+    --disk "$_acp_vm_disk,size=20" \
     --graphics vnc \
     --console pty,target.type=virtio \
     --serial pty \
