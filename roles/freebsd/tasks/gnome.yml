@@ -16,7 +16,7 @@
 - name: Install Gnome packages
   become: true
   community.general.pkgng:
-    name: gnome,seatd
+    name: gnome,seatd,source-code-pro-ttf
     state: present
 - name: Start dbus at boot
   become: true
