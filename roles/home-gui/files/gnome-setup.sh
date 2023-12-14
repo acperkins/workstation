@@ -166,6 +166,11 @@ set_misc_preferences () {
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
+    # Put the screen to sleep early without a password (to avoid image
+    # retention on this crappy laptop screen).
+    gsettings set org.gnome.desktop.session idle-delay 'uint32 60'
+    gsettings set org.gnome.desktop.screensaver lock-enabled false
+
     # Reset the app picker layout. Will take effect after a gnome-shell restart
     # (log off and on again).
     gsettings reset org.gnome.shell app-picker-layout
