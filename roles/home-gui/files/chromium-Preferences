@@ -1,0 +1,49 @@
+{
+    "autofill": {
+        "credit_card_enabled": false,
+        "profile_enabled": false
+    },
+    "credentials_enable_autosignin": false,
+    "credentials_enable_service": false,
+    "download": {
+        "prompt_for_download": true
+    },
+    "download_bubble": {
+        "partial_view_enabled": true
+    },
+    "google": {
+        "services": {
+            "consented_to_sync": false
+        }
+    },
+    "intl": {
+        "selected_languages": "en-GB,en-US,en"
+    },
+    "net": {
+        "network_prediction_options": 2
+    },
+    "payments": {
+        "can_make_payment_enabled": false
+    },
+    "profile": {
+        "password_account_storage_settings": {},
+        "using_default_avatar": true,
+        "using_default_name": true,
+        "using_gaia_avatar": false
+    },
+    "search": {
+        "suggest_enabled": false
+    },
+    "signin": {
+        "allowed": false
+    },
+    "spellcheck": {
+        "dictionaries": [
+            "en-GB"
+        ],
+        "dictionary": ""
+    },
+    "translate": {
+        "enabled": false
+    }
+}
