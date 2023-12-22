@@ -43,10 +43,13 @@ fi
 
 # To get a list of valid osinfo options, run:
 #   virt-install --osinfo list
+# Sizes are based on RHEL 9 minimum recommendations.
 virt-install --connect $_acp_vm_session \
     --osinfo linux2022 \
     --boot $_acp_vm_boot \
     --cpu host-passthrough \
+    --vcpus 1 \
+    --ram 1536 \
     --disk "$_acp_vm_disk,size=20" \
     --graphics vnc \
     --console pty,target.type=virtio \
