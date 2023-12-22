@@ -29,10 +29,10 @@ set_keyboard_and_language () {
 
     case "$LANG" in
     "fr_FR.UTF-8")
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'ca+multix'), ('xkb', 'gb')]"
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'fr+bepo_afnor'), ('xkb', 'gb')]"
         ;;
     *)
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'ca+multix')]"
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'fr+bepo_afnor')]"
         ;;
     esac
 
