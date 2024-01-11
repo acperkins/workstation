@@ -67,6 +67,9 @@ if ($IsWindows -or ($env:OS -eq "Windows_NT")) {
     function who {
         & "$env:SystemRoot\System32\query.exe" user
     }
+
+    # Drop elevation privileges.
+    $env:__COMPAT_LAYER = "RunAsInvoker"
 }
 
 Set-PSReadlineOption -BellStyle None
