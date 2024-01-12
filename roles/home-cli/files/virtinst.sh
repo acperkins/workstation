@@ -27,7 +27,7 @@ fi
 
 case "$_acp_vm_distro" in
     "debian")
-        _acp_vm_boot=loader=/usr/share/OVMF/OVMF_CODE.fd,loader.readonly=yes,loader.type=pflash,nvram.template=/usr/share/OVMF/OVMF_VARS.fd,loader_secure=no
+        _acp_vm_boot=loader=/usr/share/edk2/ovmf/OVMF_CODE.fd,loader.readonly=yes,loader.type=pflash,nvram.template=/usr/share/edk2/ovmf/OVMF_VARS.fd,loader_secure=no
         ;;
     *)
         _acp_vm_boot=uefi
@@ -41,20 +41,27 @@ else
     _acp_vm_disk=$_acp_vm_root/$_acp_vm_name.qcow2
 fi
 
+if ! [ -r "$_acp_vm_disk" ]
+then
+    qemu-img create -f qcow2 $_acp_vm_disk 20G
+fi
+
 # To get a list of valid osinfo options, run:
 #   virt-install --osinfo list
 # Sizes are based on RHEL 9 minimum recommendations.
 virt-install --connect $_acp_vm_session \
     --osinfo linux2022 \
+    --accelerate \
     --boot $_acp_vm_boot \
-    --cpu host-passthrough \
     --vcpus 1 \
     --ram 1536 \
-    --disk "$_acp_vm_disk,size=20" \
+    --disk "$_acp_vm_disk" \
+    --network network:default,model=virtio \
     --graphics vnc \
     --console pty,target.type=virtio \
     --serial pty \
     --channel unix,target.type=virtio,target.name=org.qemu.guest_agent.0 \
     --video virtio \
     --autoconsole none \
+    --import \
     --name "$@"
