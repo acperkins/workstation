@@ -72,6 +72,9 @@ if ($IsWindows -or ($env:OS -eq "Windows_NT")) {
     $env:__COMPAT_LAYER = "RunAsInvoker"
 }
 
+# Force UTF-8 output.
+$OutputEncoding = [System.Text.Encoding]::UTF8
+
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Emacs
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
