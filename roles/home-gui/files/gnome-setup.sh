@@ -28,11 +28,8 @@ set_keyboard_and_language () {
     gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
 
     case "$LANG" in
-    "fr_FR.UTF-8")
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+intl'), ('xkb', 'gb')]"
-        ;;
     *)
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'us+intl')]"
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+mac')]"
         ;;
     esac
 
