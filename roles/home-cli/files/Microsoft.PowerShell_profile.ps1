@@ -75,6 +75,16 @@ if ($IsWindows -or ($env:OS -eq "Windows_NT")) {
 # Force UTF-8 output.
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
+# Try upgrading the default version of PSReadLine to something newer.
+if ((Get-Module PSReadline).Version -le [Version]"2.0.0.0") {
+    try {
+        Write-Host "PSReadLine <= 2.0.0.0. Trying to upgrade..."
+        Install-Module -Scope CurrentUser -Name PSReadLine -Force -ErrorAction SilentlyContinue
+        Write-Host "PSReadLine upgraded. Restart PowerShell to load it."
+    } catch {
+        Write-Host "Failed upgrading PSReadline."
+    }
+}
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Emacs
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
