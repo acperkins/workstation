@@ -29,7 +29,7 @@ set_keyboard_and_language () {
 
     case "$LANG" in
     *)
-        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+mac')]"
+        gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'gb'), ('xkb', 'us')]"
         ;;
     esac
 
