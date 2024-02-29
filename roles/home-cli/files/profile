@@ -222,6 +222,14 @@ else
     alias vim=vi
 fi
 
+# Use nvim if installed.
+if command -v nvim > /dev/null
+then
+    export EDITOR="nvim -f"
+    alias vi=nvim
+    alias vim=nvim
+fi
+
 # Use root's cache instead of having one for root and one for the user.
 if [ "$(id -u)" -ne 0 ] && [ -x /usr/bin/dnf ]
 then
