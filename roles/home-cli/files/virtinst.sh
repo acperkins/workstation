@@ -24,6 +24,10 @@ if ! [ -d "$_acp_vm_root" ]
 then
     mkdir -p "$_acp_vm_root"
 fi
+if ! [ -f "$_acp_vm_root/empty.iso" ]
+then
+    touch "$_acp_vm_root/empty.iso"
+fi
 
 case "$_acp_vm_distro" in
     "debian")
@@ -64,4 +68,6 @@ virt-install --connect $_acp_vm_session \
     --video bochs \
     --autoconsole none \
     --import \
+    --cdrom $_acp_vm_root/empty.iso \
+    --boot menu=on \
     --name "$@"
