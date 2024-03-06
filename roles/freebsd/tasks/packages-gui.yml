@@ -16,7 +16,8 @@
 - name: Install core GUI packages
   become: true
   community.general.pkgng:
-    name: drm-kmod,xdm,xorg,xterm
+    #name: drm-kmod,xdm,xorg,xterm
+    name: xdm,xorg,xterm
     state: present
 - name: Install additional GUI packages
   become: true
@@ -29,5 +30,4 @@
       - firefox
       - git-gui
       - keepassxc
-      - luit  # Needed by xterm.
       - tigervnc-viewer

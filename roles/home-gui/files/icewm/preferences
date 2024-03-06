@@ -1,7 +1,7 @@
 DateFormat="%F%n%A"
 DesktopBackgroundCenter=1
 DesktopBackgroundColor="rgb:10/10/10"
-LockCommand="xlock -mode blank"
+LockCommand="xlock -mode blank -dpmsoff 5"
 ModSuperIsCtrlAlt=0
 MsgBoxDefaultAction=1
 OpaqueMove=0

@@ -23,5 +23,3 @@
   when: gui == true
 - import_tasks: qemu-guest.yml
   when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
-- import_tasks: kde.yml
-  when: gui == true
