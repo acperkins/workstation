@@ -1,0 +1,18 @@
+Teams for Linux Flatpak
+=======================
+
+Use Flatseal to set the following:
+
+   socket=fallback-x11: OFF
+
+   device=all: ON
+
+Create the file
+"~/.var/app/com.github.IsmaelMartinez.teams_for_linux/config/teams-for-linux/config.json"
+with the following content:
+
+   {
+       "closeAppOnCross": true
+   }
+
+This will close Teams when the × button is pressed.
