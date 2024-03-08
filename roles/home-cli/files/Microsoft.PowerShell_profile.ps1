@@ -72,6 +72,12 @@ if ($IsWindows -or ($env:OS -eq "Windows_NT")) {
     $env:__COMPAT_LAYER = "RunAsInvoker"
 }
 
+if (!(Get-Command Get-Uptime -ErrorAction SilentlyContinue)) {
+    function Get-Uptime {
+        Get-WmiObject Win32_OperatingSystem | Select-Object @{LABEL='LastBootUpTime';EXPRESSION={$_.ConvertToDateTime($_.LastBootUpTime)}}
+    }
+}
+
 # Force UTF-8 output.
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
