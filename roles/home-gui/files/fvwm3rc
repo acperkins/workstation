@@ -7,11 +7,21 @@ Colorset 2 fg white, bg #5f009f009f00
 Colorset 3 fg black, bg #c000c000c000
 Colorset 4 fg white, bg #5f009f009f00
 
-Style "*" IconSize 48 48
-Style "*" MwmButtons
-Style "*" MwmBorder
-Style "*" MWMFunctions
-Style "*" MWMDecor
+Style "*" IconBox +0 +0 -0 -0, IconFill left bottom
+Style "*" IconSize 64 64
+Style "*" Icon xorg.xpm
+Style "*" IconBackgroundColorset 1
+Style "*" ClickToFocus
+Style "*" ResizeHintOverride
+Style "xconsole" NoIcon
+Style "FvwmPager" NoTitle, Sticky, WindowListSkip
+Style "FvwmPager" CirculateSkipIcon, CirculateSkip
+Style "FvwmPager" StaysOnTop
+*FvwmPagerFont "xft:Sans:size=8"
+*FvwmPagerGeometry 180x30-0-0
+*FvwmPagerSmallFont 5x8
+*FvwmPagerBack #101010
+*FvwmPagerFore #404040
 
 # Set some default fonts:
 DefaultFont    "xft:Sans:size=10"
@@ -68,19 +78,35 @@ Style * Colorset 1, HilightColorset 2, \
 AddToMenu RootMenu      "Root Menu"                 Title
 +                       "Terminal"                  Exec exec xterm
 +                       ""                          Nop
-+                       "Firefox"                   Exec exec firefox
-+                       "LibreOffice"               Exec exec libreoffice
-+                       "Midnight Commander"        Exec exec xterm -geometry 120x24 -e mc
-+                       "Vi"                        Exec exec xterm -e vi
-+                       "VNC Viewer"                Exec exec vncviewer
-+                       ""                          Nop
++                       "Applications"              Popup Applications
 +                       "Utilities"                 Popup Utilities
 +                       ""                          Nop
 +                       "Refresh Screen"            Refresh
 +                       "Recapture Screen"          Recapture
-+                       "(Re)Start"                 Popup Quit-Verify
 +                       ""                          Nop
++                       "Lock"                      Exec exec xlock -mode blank -dpmsoff 5
++                       "(Re)Start"                 Popup Quit-Verify
 +                       "Exit"                      Module FvwmForm QuitVerify
+
+AddToMenu Applications  "Applications"              Title
++                       "Midnight Commander"        Exec exec xterm -geometry 120x40 -e mc
++                       "Firefox"                   Exec exec firefox
++                       "KeePassXC"                 Exec exec keepassxc
++                       "Vi"                        Exec exec xterm -e vi
++                       "VNC Viewer"                Exec exec vncviewer
+
+AddToMenu Utilities     "Utilities"             Title
++                       "Top"                   Exec exec xterm -T Top -n Top -e top
++                       "Calculator"            Exec exec xcalc
++                       "Clock (analog)"        Exec exec xclock -update 1
++                       "Clock (digital)"       Exec exec xclock -update 1 -digital -strftime '%a %Y-%m-%dT%H:%M:%S%z' -bg '#101010' -fg '#c0c0c0'
++                       "Xman"                  Exec exec xman
++                       "Xmag"                  Exec exec xmag
++                       "Editres"               Exec exec editres
++                       ""                      Nop
++                       "Compositor (xcompmgr)" Exec exec xcompmgr -c
++                       ""                      Nop
++                       "Reset X defaults"      Exec exec xrdb -load $HOME/.Xresources
 
 AddToMenu Window-Ops    "Window Ops"     Title
 +                       "Move"           Move
@@ -123,18 +149,9 @@ AddToFunc Move-or-Iconify       "I" Raise
 +                               "M" Move
 +                               "D" Iconify
 
-Style "FvwmPager"   NoTitle, Sticky, WindowListSkip
-Style "FvwmPager"   CirculateSkipIcon, CirculateSkip
-Style "FvwmPager"   StaysOnTop
-*FvwmPagerFont "xft:Sans:Medium:size=8"
-*FvwmPagerGeometry 180x30-0-0
-*FvwmPagerSmallFont 5x8
-
-AddToFunc InitFunction      "I" Module FvwmPager 0 5
-+                           "I" exec xsetroot -solid '#101010'
-
-AddToFunc RestartFunction   "I" Module FvwmPager 0 5
-+                           "I" exec xsetroot -solid '#101010'
+AddToFunc StartFunction     "I" Module FvwmPager 0 5
++                           "I" Exec exec xrdb -load ~/.Xresources
++                           "I" Exec exec xsetroot -solid '#101010'
 
 # FvwmForm alias - query exit à la mwm
 *QuitVerifyGrabServer

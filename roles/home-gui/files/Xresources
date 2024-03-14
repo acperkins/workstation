@@ -8,6 +8,7 @@ XClock*secondColor: red
 XClock*update: 1
 Xft.hintstyle: hintfull
 Xft.rgba: none
+xterm*activeIcon: false
 xterm*background: #2e3436
 xterm*color0: #1e1e1e
 xterm*color1: #cc0000
