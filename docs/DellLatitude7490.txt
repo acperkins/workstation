@@ -1,10 +1,35 @@
 Dell Latitude 7490
 ==================
 
-Graphics
---------
+Linux graphics
+--------------
 
 The kernel crashes frequently with graphical glitches. Add the following
 to the kernel command line to prevent this:
 
     i915.enable_psr=0 i915.enable_dc=0
+
+
+NetBSD
+------
+
+NetBSD 10 requires the i915drmkms firmware to be installed, and the pms
+module to be disabled.
+
+Download the Linux firmware file from the URL below:
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/i915
+
+The required filename can be found from dmesg, and should be copied to:
+
+   /libdata/firmware/i915drmkms/i915
+
+The enable_psr setting should also be changed in /etc/sysctl.conf with
+the following line:
+
+   hw.drm2.i915_modparams.enable_psr=0
+
+Finally, the pms module should be disabled by adding the following to
+the end of the /boot.cfg file:
+
+   userconf=disable pms*
