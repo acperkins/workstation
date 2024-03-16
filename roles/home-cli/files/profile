@@ -92,7 +92,7 @@ unset _flatpak_xdg_path
 
 # Basic exports.
 export HISTFILE=""
-export PS1='\u@\h\$ '
+export PS1="$(id -un)@$(hostname -s)\$ "
 export TIME_STYLE=long-iso  # Used by GNU 'ls'.
 
 # Bash-specific settings that will not work in other Bourne-compatible shells.
@@ -137,6 +137,7 @@ else
         bind "^[[1;5C" em-next-word
         bind "^[[1;5D" ed-prev-word
     fi
+    ( set -o tabcomplete 2>/dev/null ) && set -o tabcomplete
 fi
 
 if [ "$(uname -s)" = NetBSD ]
@@ -186,6 +187,9 @@ for dir in "$HOME/.local/bin" \
            /opt/local/sbin \
            /var/lib/flatpak/exports/bin \
            /app/bin \
+           /usr/pkg/bin \
+           /usr/pkg/sbin \
+           /usr/X11R7/bin \
            /usr/X11R6/bin \
            /usr/sbin \
            /bin \
