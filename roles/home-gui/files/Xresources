@@ -1,8 +1,10 @@
 *color: true
-XClock*hourColor: black
+XClock*background: #101010
+XClock*foreground: #c0c0c0
+XClock*hourColor: #c0c0c0
 XClock*majorColor: red
-XClock*minorColor: black
-XClock*minuteColor: black
+XClock*minorColor: #c0c0c0
+XClock*minuteColor: #c0c0c0
 XClock*render: true
 XClock*secondColor: red
 XClock*update: 1
