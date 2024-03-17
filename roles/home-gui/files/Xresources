@@ -1,4 +1,8 @@
 *color: true
+Emwm*activeBackground: #c0c0c0
+Emwm*activeForeground: #202020
+Emwm*background: #404040
+Emwm*foreground: #c0c0c0
 XClock*background: #101010
 XClock*foreground: #c0c0c0
 XClock*hourColor: #c0c0c0
