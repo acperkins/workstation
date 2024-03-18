@@ -2,10 +2,10 @@
 #   2 - Active Window
 #   3 - Inactive Windows Borders
 #   4 - Active Windows Borders
-Colorset 1 fg black, bg #c000c000c000
-Colorset 2 fg white, bg #5f009f009f00
-Colorset 3 fg black, bg #c000c000c000
-Colorset 4 fg white, bg #5f009f009f00
+Colorset 1 fg #c0c0c0, bg #404040
+Colorset 2 fg #202020, bg #c0c0c0
+Colorset 3 fg #c0c0c0, bg #404040
+Colorset 4 fg #202020, bg #c0c0c0
 
 Style "*" IconBox +0 +0 -0 -0, IconFill left bottom
 Style "*" IconSize 64 64
@@ -89,11 +89,11 @@ AddToMenu RootMenu      "Root Menu"                 Title
 +                       "Exit"                      Module FvwmForm QuitVerify
 
 AddToMenu Applications  "Applications"              Title
-+                       "Midnight Commander"        Exec exec xterm -geometry 120x40 -e mc
 +                       "Firefox"                   Exec exec firefox
 +                       "KeePassXC"                 Exec exec keepassxc
-+                       "Vi"                        Exec exec xterm -e vi
++                       "Midnight Commander"        Exec exec xterm -geometry 120x40 -e mc
 +                       "VNC Viewer"                Exec exec vncviewer
++                       "Vi"                        Exec exec xterm -e vi
 
 AddToMenu Utilities     "Utilities"             Title
 +                       "Top"                   Exec exec xterm -T Top -n Top -e top

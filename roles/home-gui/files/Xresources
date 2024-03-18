@@ -15,7 +15,7 @@ XClock*update: 1
 Xft.hintstyle: hintfull
 Xft.rgba: none
 xterm*activeIcon: false
-xterm*background: #2e3436
+xterm*background: #101010
 xterm*color0: #1e1e1e
 xterm*color1: #cc0000
 xterm*color2: #4e9a06
