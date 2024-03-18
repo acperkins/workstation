@@ -1,0 +1,7 @@
+#!/bin/sh
+. $HOME/.profile
+xrdb -load $HOME/.Xresources
+xsetroot -solid '#101010'
+/usr/pkg/sbin/intel_backlight 10
+xkbcomp -w0 -I"${XDG_CONFIG_HOME:-$HOME/.config}/xkb" -R"${XDG_CONFIG_HOME:-$HOME/.config}/xkb" keymap/acp $DISPLAY
+exec /usr/bin/ssh-agent /usr/pkg/bin/fvwm3
