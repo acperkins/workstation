@@ -1,4 +1,4 @@
-#   1 - Inactive Windows 
+#   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
 #   4 - Active Windows Borders
@@ -74,6 +74,9 @@ Style * Colorset 1, HilightColorset 2, \
         BorderWidth 5, HandleWidth 5, \
         MWMBorder, DepressableBorder, \
         MWMButtons, UseDecor CDEDecor
+
+Silent Key Return A 4 Exec exec xterm
+Silent Key L A 4 Exec exec xlock -mode blank -dpmsoff 5
 
 AddToMenu RootMenu      "Root Menu"                 Title
 +                       "Terminal"                  Exec exec xterm
