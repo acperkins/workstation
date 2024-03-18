@@ -78,6 +78,11 @@ if (!(Get-Command Get-Uptime -ErrorAction SilentlyContinue)) {
     }
 }
 
+if ($nvim = Get-Command nvim.exe -ErrorAction SilentlyContinue) {
+    Set-Alias -Name vi -Value $nvim.Source
+}
+Remove-Variable -Name nvim
+
 # Force UTF-8 output.
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
