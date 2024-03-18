@@ -20,10 +20,10 @@
     state: present
   vars:
     packages:
-      - adwaita-icon-theme
-      - emacs
-      - firefox
-      - gettext-lib
-      - liberation-ttf
-      - xfce4
-      - vim-gtk3
+      - dbus
+      - firefox-esr
+      - fvwm3
+      - intel-backlight
+      - keepassxc
+      - tigervnc
+      - xlockmore

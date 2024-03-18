@@ -34,17 +34,11 @@
     state: present
   vars:
     packages:
-      - bash
+      - curl
       - git
-      - gnupg2
-      - heirloom-doctools
       - mc
-      - mozilla-rootcerts-openssl
       - nmap
-      - openvpn
       - pkgin
-      - py37-pip
-      - python37
-      - ruby
       - sqlite3
       - sudo
+      - vim
