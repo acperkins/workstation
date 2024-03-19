@@ -25,6 +25,7 @@
     src: /usr/pkg/share/examples/rc.d/dbus
     dest: /etc/rc.d/dbus
     remote_src: yes
+    mode: '755'
 - name: Enable dbus
   become: true
   ansible.builtin.lineinfile:
