@@ -23,7 +23,7 @@
     dest: "{{ ansible_env.HOME }}/.stalonetrayrc"
 - name: Create $HOME/.fvwm/config
   ansible.builtin.copy:
-    src: fvwmrc
+    src: fvwm3rc
     dest: "{{ ansible_env.HOME }}/.fvwm/config"
 - name: Create NetBSD $HOME/.xsession
   ansible.builtin.copy:
