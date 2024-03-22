@@ -15,6 +15,7 @@ case "$-" in
     then
         set -o emacs
     fi
+    trap clear EXIT
     usermotd
     ;;
 *)
