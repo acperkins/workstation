@@ -2,4 +2,4 @@ prog "Terminal" xterm xterm
 prog "Midnight Commander" file xterm -geometry 120x40 -e mc -u
 prog "Firefox" firefox firefox
 prog "KeePassXC" keepassxc keepassxc
-prog "VIM" vim xterm -geometry 120x40 -e vim
+prog "VNC Viewer" tigervnc vncviewer
