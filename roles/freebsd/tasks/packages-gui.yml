@@ -29,6 +29,7 @@
       - dejavu
       - firefox
       - git-gui
+      - icewm
       - keepassxc
       - tigervnc-viewer
       - xlockmore

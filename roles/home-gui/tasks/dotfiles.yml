@@ -30,6 +30,11 @@
     src: xsession-netbsd
     dest: "{{ ansible_env.HOME }}/.xsession"
   when: ansible_system == "NetBSD"
+- name: Create FreeBSD $HOME/.xsession
+  ansible.builtin.copy:
+    src: xsession-freebsd
+    dest: "{{ ansible_env.HOME }}/.xsession"
+  when: ansible_system == "FreeBSD"
 - name: Create NetBSD $HOME/.xinitrc
   ansible.builtin.file:
     src: ".xsession"
