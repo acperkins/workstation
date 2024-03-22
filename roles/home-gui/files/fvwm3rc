@@ -77,6 +77,9 @@ Style * Colorset 1, HilightColorset 2, \
 
 Silent Key Return A 4 Exec exec xterm
 Silent Key L A 4 Exec exec xlock -mode blank -dpmsoff 5
+Silent Key 1 A 4 Exec exec xrandr --output eDP-1 --auto --output DP-1 --off --output HDMI-1 --off
+Silent Key 2 A 4 Exec exec xrandr --output eDP-1 --off --output DP-1 --auto --output HDMI-1 --off
+Silent Key 3 A 4 Exec exec xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --auto
 
 AddToMenu RootMenu      "Root Menu"                 Title
 +                       "Terminal"                  Exec exec xterm
