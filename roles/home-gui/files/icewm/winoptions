@@ -1,2 +1,4 @@
 xclock.tray: Exclusive
 xconsole.tray: Exclusive
+xconsole.startMinimized: 1
+xconsole.fClose: 0
