@@ -3,5 +3,6 @@
 xrdb -load $HOME/.Xresources
 xsetroot -solid '#101010'
 backlight 10
+mixer vol.mute=1
 xkbcomp -w0 -I"${XDG_CONFIG_HOME:-$HOME/.config}/xkb" -R"${XDG_CONFIG_HOME:-$HOME/.config}/xkb" keymap/acp $DISPLAY
 exec /usr/local/bin/icewm-session
