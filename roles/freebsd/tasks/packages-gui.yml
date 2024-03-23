@@ -17,7 +17,7 @@
   become: true
   community.general.pkgng:
     #name: drm-kmod,xdm,xorg,xterm
-    name: xdm,xorg,xterm
+    name: drm-510-kmod,xdm,xorg,xterm  # drm-kmod installs broken drm-515-kmod
     state: present
 - name: Install additional GUI packages
   become: true
