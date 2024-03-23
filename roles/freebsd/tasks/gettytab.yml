@@ -13,14 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: packages-cli.yml
-- import_tasks: packages-gui.yml
-  when: gui == true
-- import_tasks: rc.yml
-- import_tasks: sysctl.yml
-- import_tasks: gettytab.yml
-- import_tasks: sudo.yml
-- import_tasks: xorg.yml
-  when: gui == true
-- import_tasks: qemu-guest.yml
-  when: ansible_virtualization_role == "guest" and ansible_virtualization_type == "kvm"
+- name: Clear console screen
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/gettytab
+    regexp: '^\t:ht:np:sp#9600:.*'
+    line: '	:ht:np:sp#9600:cl=\E[H\E[2J:'
+    insertafter: '^P|Pc|Pc console:\\'
+    create: no
