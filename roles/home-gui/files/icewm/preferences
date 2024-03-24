@@ -1,4 +1,4 @@
-DateFormat="%Y-%m-%dT%H:%M:%S%z%n%A W%V"
+DateFormat="%A %Y-W%V"
 DesktopBackgroundCenter=1
 DesktopBackgroundColor="rgb:10/10/10"
 LockCommand="xlock -mode blank -dpmsoff 5"
@@ -13,6 +13,6 @@ TaskBarShowAPMStatus=1
 TaskBarShowShowDesktopButton=0
 TaskBarShowWindowListMenu=0
 TaskBarShowMailboxStatus=0
-TimeFormat="%H:%M"
+TimeFormat="%Y-%m-%dT%H:%M%z"
 Win95Keys=1
 WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
