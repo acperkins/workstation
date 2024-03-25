@@ -23,3 +23,6 @@
       - ansible
       - git
       - mc
+      - neovim--
+      - nmap
+      - vim--no_x11

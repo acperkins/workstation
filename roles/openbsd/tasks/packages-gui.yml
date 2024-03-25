@@ -23,6 +23,3 @@
       - firefox
       - icewm
       - keepassxc--
-      - noto-fonts
-      - rxvt-unicode--
-      - vim--no_x11
