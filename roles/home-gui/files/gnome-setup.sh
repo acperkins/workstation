@@ -132,10 +132,10 @@ set_misc_preferences () {
     gsettings set org.gnome.desktop.interface enable-hot-corners false
 
     # Configure fonts.
-    gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
-    gsettings set org.gnome.desktop.interface font-name 'Sans 10'
+    gsettings reset org.gnome.desktop.interface document-font-name
+    gsettings reset org.gnome.desktop.interface font-name
     gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 10'
-    gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Sans Bold 10'
+    gsettings reset org.gnome.desktop.wm.preferences titlebar-font
 
     # Always show the Accessibility menu.
     gsettings set org.gnome.desktop.a11y always-show-universal-access-status true
