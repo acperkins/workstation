@@ -15,11 +15,9 @@
 
 - import_tasks: timezone.yml
 - import_tasks: packages-cli.yml
-  when: ostree.stat.exists == false
 - import_tasks: packages-gui.yml
-  when: gui == true and ostree.stat.exists == false
+  when: gui == true
 - import_tasks: modules.yml
 - import_tasks: ssh.yml
 - import_tasks: solokeys.yml
 - import_tasks: packagekit.yml
-  when: ostree.stat.exists == false
