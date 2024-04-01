@@ -1,4 +1,5 @@
 user_pref("app.shield.optoutstudies.enabled", false);
+user_pref("browser.contentblocking.category", "strict");
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.eme.ui.enabled", false);
