@@ -5,4 +5,10 @@ xsetroot -solid '#101010'
 backlight 10
 mixer vol.mute=1
 xkbcomp -w0 -I"${XDG_CONFIG_HOME:-$HOME/.config}/xkb" -R"${XDG_CONFIG_HOME:-$HOME/.config}/xkb" keymap/acp $DISPLAY
+
+if test -x "$(command -v onedrive)"
+then
+    pgrep -U $(id -u) onedrive || nice onedrive --synchronize &
+fi
+
 exec /usr/local/bin/icewm-session
