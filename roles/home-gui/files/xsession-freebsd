@@ -8,7 +8,7 @@ xkbcomp -w0 -I"${XDG_CONFIG_HOME:-$HOME/.config}/xkb" -R"${XDG_CONFIG_HOME:-$HOM
 
 if test -x "$(command -v onedrive)"
 then
-    pgrep -U $(id -u) onedrive || nice onedrive --synchronize &
+    pgrep -U $(id -u) onedrive || nice onedrive --monitor &
 fi
 
 exec /usr/local/bin/icewm-session
