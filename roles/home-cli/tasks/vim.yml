@@ -28,6 +28,6 @@
   when: usr_bin_git.stat.exists or usr_local_bin_git.stat.exists
 - name: Clone neovim settings
   ansible.builtin.git:
-    repo: https://github.com/acperkins/vimfiles.git
+    repo: https://github.com/acperkins/nvim.git
     dest: "{{ ansible_env.XDG_CONFIG_HOME }}/nvim"
   when: usr_bin_git.stat.exists or usr_local_bin_git.stat.exists
