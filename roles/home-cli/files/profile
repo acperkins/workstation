@@ -269,6 +269,7 @@ alias nowh="date +%Y-%m-%dT%H:%M:%S%:z"
 alias nowu="date -u +%Y%m%dT%H%M%SZ"
 alias sdk="flatpak run --command=/bin/bash --share=network --filesystem=home:rw org.freedesktop.Sdk"
 alias sdk-gnome="flatpak run --command=/bin/bash --share=network --filesystem=home:rw org.gnome.Sdk"
+alias sl="ls -r"
 alias streamenc="openssl aes-256-cbc -pbkdf2 -in - -out - -e"
 alias streamdec="openssl aes-256-cbc -pbkdf2 -in - -out - -d"
 alias wgr=wordgrinder
