@@ -87,7 +87,7 @@ Remove-Variable -Name nvim
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
 # Try upgrading the default version of PSReadLine to something newer.
-if ((Get-Module PSReadline).Version -le [Version]"2.0.0.0") {
+if ($null -ne (Get-Module PSReadline).Version -and (Get-Module PSReadline).Version -le [Version]"2.0.0.0") {
     try {
         Write-Host "PSReadLine <= 2.0.0.0. Trying to upgrade..."
         Install-Module -Scope CurrentUser -Name PSReadLine -Force -ErrorAction SilentlyContinue
