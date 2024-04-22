@@ -18,3 +18,19 @@
   ansible.builtin.copy:
     src: xorg-acp.conf
     dest: /usr/local/etc/X11/xorg.conf.d/xorg-acp.conf
+- name: Enable usbhid module (1/2)
+  become: true
+  ansible.builtin.lineinfile:
+    path: /boot/loader.conf.d/usbhid.conf
+    regexp: '^hw\.usb\.usbhid\.enable=.*'
+    line: 'hw.usb.usbhid.enable=1'
+    create: yes
+  when: gui == true
+- name: Enable usbhid module (2/2)
+  become: true
+  ansible.builtin.lineinfile:
+    path: /boot/loader.conf.d/usbhid.conf
+    regexp: '^usbhid_load=.*'
+    line: 'usbhid_load=YES'
+    create: yes
+  when: gui == true
