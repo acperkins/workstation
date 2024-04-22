@@ -2,6 +2,10 @@
 xset b off  # Disable the audible bell.
 xrandr --dpi 96  # Set the fonts to the normal DPI.
 xrdb -load "$HOME/.Xresources"
+if test -r $HOME/.Xresources.local
+then
+    xrdb -override $HOME/.Xresources.local
+fi
 
 if [ -x /usr/local/bin/picom ]
 then
