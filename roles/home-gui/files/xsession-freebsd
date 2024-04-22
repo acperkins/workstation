@@ -1,6 +1,10 @@
 #!/bin/sh
 . $HOME/.profile
 xrdb -load $HOME/.Xresources
+if test -r $HOME/.Xresources.local
+then
+    xrdb -override $HOME/.Xresources.local
+fi
 xsetroot -solid '#101010'
 backlight 10
 mixer vol.mute=1

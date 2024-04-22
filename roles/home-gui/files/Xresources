@@ -1,3 +1,6 @@
+! Use 96 (100%), 120 (125%), 144 (150%), 168 (175%), or 192 (200%).
+Xft.dpi: 96
+
 *color: true
 Emwm*activeBackground: #c0c0c0
 Emwm*activeForeground: #202020
@@ -12,7 +15,6 @@ XClock*minuteColor: #c0c0c0
 XClock*render: true
 XClock*secondColor: red
 XClock*update: 1
-Xft.dpi: 100
 Xft.hintstyle: hintfull
 Xft.rgba: none
 xterm*activeIcon: false
