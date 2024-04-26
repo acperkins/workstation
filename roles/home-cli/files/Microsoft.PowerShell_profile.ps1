@@ -72,12 +72,6 @@ if ($IsWindows -or ($env:OS -eq "Windows_NT")) {
     $env:__COMPAT_LAYER = "RunAsInvoker"
 }
 
-if (!(Get-Command Get-Uptime -ErrorAction SilentlyContinue)) {
-    function Get-Uptime {
-        Get-WmiObject Win32_OperatingSystem | Select-Object @{LABEL='LastBootUpTime';EXPRESSION={$_.ConvertToDateTime($_.LastBootUpTime)}}
-    }
-}
-
 if ($nvim = Get-Command nvim.exe -ErrorAction SilentlyContinue) {
     Set-Alias -Name vi -Value $nvim.Source
 }
@@ -86,16 +80,6 @@ Remove-Variable -Name nvim
 # Force UTF-8 output.
 $OutputEncoding = [System.Text.Encoding]::UTF8
 
-# Try upgrading the default version of PSReadLine to something newer.
-if ($null -ne (Get-Module PSReadline).Version -and (Get-Module PSReadline).Version -le [Version]"2.0.0.0") {
-    try {
-        Write-Host "PSReadLine <= 2.0.0.0. Trying to upgrade..."
-        Install-Module -Scope CurrentUser -Name PSReadLine -Force -ErrorAction SilentlyContinue
-        Write-Host "PSReadLine upgraded. Restart PowerShell to load it."
-    } catch {
-        Write-Host "Failed upgrading PSReadline."
-    }
-}
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Emacs
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
@@ -114,7 +98,6 @@ Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function KillWord
 Set-PSReadLineKeyHandler -Chord Shift+Spacebar -Function SelfInsert
 
 # Keep this at the end.
-$LocalProfilePath = Join-Path -Path "$PSScriptRoot" -ChildPath "local.ps1"
-if (Test-Path $LocalProfilePath -PathType Leaf) {
-    . $LocalProfilePath
+if (Test-Path "$PSScriptRoot/local.ps1") {
+    . "$PSScriptRoot/local.ps1"
 }
