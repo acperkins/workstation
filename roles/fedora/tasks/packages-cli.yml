@@ -23,14 +23,9 @@
       - dnf-automatic
       - git
       - glibc-langpack-en
-      - glibc-langpack-fr
-      - mc
+      - neovim
       - nmap
-      - openssh-server
-      - podman
       - sipcalc
       - sudo
-      - toolbox
       - tmux
-      - vim
       - zstd

@@ -21,7 +21,6 @@
   vars:
     packages:
       - git-gui
-      - liberation-fonts
 - name: Check for Gnome Shell
   ansible.builtin.stat:
     path: /usr/bin/gnome-shell
