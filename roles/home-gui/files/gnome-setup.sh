@@ -28,7 +28,7 @@ set_keyboard_and_language () {
     gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
 
     # https://github.com/acperkins/keyboard
-    gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'acp'), ('xkb', 'acp+us')]"
+    gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'acp'), ('xkb', 'us')]"
 
     # Set the thumb button on the Logitech MX Master mouse to 'toggle-overview'. Defaults are:
     #   gsettings set org.gnome.desktop.wm.keybindings switch-panels "['<Control><Alt>Tab']"
