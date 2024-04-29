@@ -17,7 +17,7 @@
 [alias]
 	graph = log --graph --oneline --all
 	l1 = log --pretty=oneline
-	last = log -1 HEAD --pretty=fuller
+	last = log -1 HEAD --pretty=fuller --stat
 	lastmail = format-patch --stdout -1 HEAD
 [filter "lfs"]
 	clean = git-lfs clean -- %f
