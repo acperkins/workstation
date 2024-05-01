@@ -28,7 +28,7 @@
       - dnsutils
       - git
       - gnupg
-      - mc
+      - neovim
       - nftables
       - nmap
       - openssh-server
@@ -39,7 +39,6 @@
       - sudo
       - tmux
       - unattended-upgrades
-      - vim
       - zstd
 - name: Enable automatic update check
   become: true
