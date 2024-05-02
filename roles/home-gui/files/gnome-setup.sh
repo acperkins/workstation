@@ -142,7 +142,7 @@ set_misc_preferences () {
 
     # Set Gnome Clocks locations.
     # America/New_York; America/Halifax; Europe/London; Europe/Paris.
-    gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>}, {'location': <(uint32 2, <('Halifax', 'CYHZ', true, [(0.78336194011902394, -1.1082840750163994)], [(0.77928951101546806, -1.1100294042683936)])>)>}, {'location': <(uint32 2, <('London', 'EGWU', false, [(0.89971722940307675, -0.007272211034407213)], [(0.89971722940307675, -0.007272211034407213)])>)>}, {'location': <(uint32 2, <('Paris', 'LFPB', true, [(0.85462956287765413, 0.042760566673861078)], [(0.8528842336256599, 0.040724343395436846)])>)>}]"
+    gsettings set org.gnome.clocks world-clocks "[{'location': <(uint32 2, <('Seattle', 'KBFI', true, [(0.82983133145337307, -2.134775231953554)], [(0.83088509144255718, -2.135097419733472)])>)>}, {'location': <(uint32 2, <('Halifax', 'CYHZ', true, [(0.78336194011902394, -1.1082840750163994)], [(0.77928951101546806, -1.1100294042683936)])>)>}, {'location': <(uint32 2, <('London', 'EGWU', false, [(0.89971722940307675, -0.007272211034407213)], [(0.89971722940307675, -0.007272211034407213)])>)>}, {'location': <(uint32 2, <('Berlin', 'EDDT', true, [(0.91746141594945008, 0.23241968454167572)], [(0.91658875132345297, 0.23387411976724018)])>)>}]"
 
     # Enable Night Light.
     gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled 'true'
