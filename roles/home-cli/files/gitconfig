@@ -10,6 +10,8 @@
 	ui = auto
 [init]
 	defaultBranch = main
+[log]
+	date = iso-strict
 [gui]
 	encoding = utf-8
 [guitool "Rebase"]
