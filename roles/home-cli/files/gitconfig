@@ -4,6 +4,8 @@
 [pull]
 	ff = only
 	rebase = false
+[merge]
+	ff = only
 [push]
 	default = simple
 [color]
