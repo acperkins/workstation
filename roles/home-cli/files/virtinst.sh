@@ -31,7 +31,7 @@ fi
 
 case "$_acp_vm_distro" in
     "debian")
-        _acp_vm_boot=loader=/usr/share/edk2/ovmf/OVMF_CODE.fd,loader.readonly=yes,loader.type=pflash,nvram.template=/usr/share/edk2/ovmf/OVMF_VARS.fd,loader_secure=no
+        _acp_vm_boot=loader=/usr/share/OVMF/OVMF_CODE.fd,loader.readonly=yes,loader.type=pflash,nvram.template=/usr/share/OVMF/OVMF_VARS.fd,loader_secure=no
         ;;
     *)
         _acp_vm_boot=uefi
@@ -57,8 +57,8 @@ virt-install --connect $_acp_vm_session \
     --osinfo linux2022 \
     --accelerate \
     --boot $_acp_vm_boot \
-    --vcpus 1 \
-    --ram 1536 \
+    --vcpus 2 \
+    --ram 2048 \
     --disk "$_acp_vm_disk" \
     --network network:default,model=virtio \
     --graphics vnc \
