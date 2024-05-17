@@ -55,26 +55,6 @@ then
     install -d -m 0700 "$HOME/data"
 fi
 
-if [ -r "$XDG_CONFIG_HOME/user-dirs.dirs" ]
-then
-    (
-        . "$XDG_CONFIG_HOME/user-dirs.dirs"
-        mkdir -p "$XDG_DESKTOP_DIR"
-        mkdir -p "$XDG_DOCUMENTS_DIR"
-        mkdir -p "$XDG_DOWNLOAD_DIR"
-        mkdir -p "$XDG_MUSIC_DIR"
-        mkdir -p "$XDG_PICTURES_DIR"
-        mkdir -p "$XDG_PUBLICSHARE_DIR"
-        mkdir -p "$XDG_TEMPLATES_DIR"
-        mkdir -p "$XDG_VIDEOS_DIR"
-
-        if [ -d "$HOME/Documents" ]; then rmdir "$HOME/Documents"; fi
-        if [ -d "$HOME/Music"     ]; then rmdir "$HOME/Music"    ; fi
-        if [ -d "$HOME/Pictures"  ]; then rmdir "$HOME/Pictures" ; fi
-        if [ -d "$HOME/Videos"    ]; then rmdir "$HOME/Videos"   ; fi
-    )
-fi
-
 # Desktop files (used by desktop environments within both X11 and Wayland) are
 # looked for in XDG_DATA_DIRS; make sure it includes the relevant directory for
 # snappy applications' desktop files.
